@@ -74,11 +74,11 @@ def get_sentence_labels(filename):
 			# print(temp, sentext[begin:end])
 		# print(tokens)
 		# print(y_labels)
-		tokens, labels = processSentence(tokens,y_labels)
+		tokens, sen_labels = processSentence(tokens,y_labels)
 		# print(tokens)
 		# print(labels)
 		sentences.append(tokens)
-		labels.append(labels)
+		labels.append(sen_labels)
 		# print(y_labels)
 		# break
 

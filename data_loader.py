@@ -11,10 +11,13 @@ class Data_Loader():
 		data = pickle.load(fr)
 
 		word2idx = data['word2idx']
-		sentences = data['sentences']
+		sentences = data['processed_sentence']
 		labels = data['labels']
 		
 		sentences = pad_sequences(sentences,maxlen=36, padding='post')
+
+
+		print(labels)
 
 		self.labels = np.array(pad_sequences(labels, maxlen=36, padding='post'))
 
