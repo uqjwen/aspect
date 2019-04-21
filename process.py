@@ -84,18 +84,23 @@ def get_sentence_labels(filename):
 
 	return sentences, labels
 		# break
-def build_vocab(sentences, labels):
+def build_vocab(sentences, labels, emb_size):
 	dic = {}
 	for sen in sentences:
 		for word in sen:
 			dic[word] = dic.get(word,0)+1
 	word2idx = dict((word, i+1) for i,word in enumerate(dic.keys()))
+	idx2word = dict((i+1, word) for i,word in enumerate(dic.keys()))
+
 	data = {}
 	data['word2idx'] = word2idx
+	data['idx2word'] = idx2word
+	data['vocab_size'] = len(word2idx)+1
 	sen = [ [word2idx[word] for word in sentence] for sentence in sentences]
 	data['labels'] = labels
 	data['processed_sentence'] = sen 
 	data['raw_sentence'] = sentences
+	data['emb_size'] = emb_size
 
 	pickle.dump(data,open('data.pkl', 'wb'))
 
@@ -109,6 +114,6 @@ if __name__ == '__main__':
 	sen = MySentence(sentences)
 	model = gensim.models.Word2Vec(sen, size = 100, window = 5, min_count=0, workers = 4)
 	model.save("my_gensim_model")
-	build_vocab(sentences, labels)
+	build_vocab(sentences, labels, emb_size = 100)
 	# for word in model.wv.vocab:
 	# 	print(word)

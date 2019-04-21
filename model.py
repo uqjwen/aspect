@@ -65,10 +65,8 @@ class Model(torch.nn.Module):
 			score = torch.nn.functional.log_softmax(self.x_logit).transpose(2,0)
 		else:
 			# x_logit = torch.nn.utils.rnn.pack_padded_sequence(x_logit, x_len, batch_first=True)
-			# score = torch.nn.functional.nnl_loss(torch.nn.functional.log_softmax(x_logit.data), y.data)
-			# score = F.nll_loss(F.log_softmax(x_logit.transpose(1,2)), y)
-			# score = F.nll_loss(F.log_softmax(self.x_logit.reshape(batch_size*x_len, 3),dim=1), y.reshape(batch_size*x_len))
-			score = F.cross_entropy(self.x_logit.reshape(batch_size*x_len, 3), y.reshape(batch_size*x_len))
+			# score = F.cross_entropy(self.x_logit.reshape(batch_size*x_len, 3), y.reshape(batch_size*x_len))
+			score = F.cross_entropy(self.x_logit.reshape(-1, 3), y.reshape(-1))
 
 		return score 
 

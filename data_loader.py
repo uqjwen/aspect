@@ -2,22 +2,28 @@ import pickle
 import numpy as np 
 from keras.preprocessing.sequence import pad_sequences
 import torch
+from gensim.models import Word2Vec
 
 class Data_Loader():
-	def __init__(self, batch_size, sent_len):
+	def __init__(self, batch_size, maxlen):
 		self.batch_size = batch_size
-		self.sent_len = sent_len
+		# self.sent_len = sent_len
+		self.maxlen = maxlen
 		fr = open('data.pkl', 'rb')
 		data = pickle.load(fr)
 
-		word2idx = data['word2idx']
+		self.word2idx = data['word2idx']
+		self.idx2word = data['idx2word']
+		self.vocab_size = data['vocab_size']
+		self.emb_size = data['emb_size']
 		sentences = data['processed_sentence']
 		labels = data['labels']
 		
 		sentences = pad_sequences(sentences,maxlen=36, padding='post')
 
 
-		print(labels)
+		# print(labels)
+		self.emb_mat = self.embed_mat()
 
 		self.labels = np.array(pad_sequences(labels, maxlen=36, padding='post'))
 
@@ -28,6 +34,15 @@ class Data_Loader():
 		self.mask[self.sent==0] = 0
 		self.pointer = 0
 		self.train_size = len(self.sent)
+
+
+	def embed_mat(self):
+		model = Word2Vec.load('my_gensim_model')
+		mat = np.random.uniform(-1,1,(self.vocab_size, self.emb_size))
+		for i in range(1,self.vocab_size):
+			mat[i] =  model[self.idx2word[i]]
+		return mat
+
 
 	def reset_pointer(self):
 		self.pointer = 0
@@ -41,8 +56,10 @@ class Data_Loader():
 			self.pointer = 0
 
 		self.pointer+=1
-
-		return troch.tensor(self.sent[begin:end], dtype=torch.long), torch.from_numpy(self.labels[begin:end]), torch.from_numpy(self.mask[begin:end])
+		temp = torch.from_numpy(self.labels[begin:end])
+		# print(temp.dtype)
+		# print(temp)
+		return torch.tensor(self.sent[begin:end], dtype=torch.long), torch.from_numpy(self.mask[begin:end]), torch.tensor(self.labels[begin:end],dtype=torch.long)
 
 
 
