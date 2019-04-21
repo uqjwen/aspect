@@ -85,9 +85,6 @@ if __name__ == '__main__':
 	# optimizer = torch.optim.Adam(parameters, lr = 0.001)
 	optimizer = torch.optim.Adam(model.parameters(), lr = 0.001)###############learning rate is important 
 
-	# input_data = torch.tensor(np.random.randint(0,vocab_size,(batch_size,max_len)), dtype=torch.int64)
-	# mask_data = torch.tensor(np.random.randint(0,2,(batch_size, max_len)), dtype=torch.int64)
-	# y_data = torch.tensor(np.random.randint(0,3,(batch_size, max_len)))
 
 
 	input_data = torch.from_numpy(np.random.randint(0,vocab_size,(batch_size,max_len))).long()
