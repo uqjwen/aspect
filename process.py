@@ -66,6 +66,7 @@ def get_sentence_labels(filename):
 	# print(dir(root))
 	sentences = []
 	labels = []
+	pos = []
 
 
 	for sen in root.iter("sentence"):
@@ -97,6 +98,8 @@ def get_sentence_labels(filename):
 		print(sen_labels)
 		print(pos_tagger.tag(tokens))
 		print('----------------------------')
+		tags = pos_tagger.tag(tokens)
+		tags = [tp[1] for tp in tags]
 		# print(ner_tagger.tag(tokens))
 		# dpdc_parse(tokens)
 		print("###########################################")
@@ -105,16 +108,26 @@ def get_sentence_labels(filename):
 
 		sentences.append(tokens)
 		labels.append(sen_labels)
+		pos.append(tags)
 		# print(y_labels)
 		# break
 
-	return sentences, labels
+	return sentences, labels, pos
 		# break
-def build_vocab(sentences, labels, emb_size):
+def build_vocab(sentences, labels,tags, emb_size):
 	dic = {}
 	for sen in sentences:
 		for word in sen:
 			dic[word] = dic.get(word,0)+1
+	tag_dic = {}
+	for tag in tags:
+		for t in tag:
+			tag_dic[t] = dic.get(t,0)+1
+
+	tag2idx = dict((tag,i+1) for i,tag in enumerate(tag_dic.keys()))
+	idx2tag = dict((i+1,tag) for i,tag in enumerate(tag_dic.keys()))
+
+
 	word2idx = dict((word, i+1) for i,word in enumerate(dic.keys()))
 	idx2word = dict((i+1, word) for i,word in enumerate(dic.keys()))
 
@@ -128,6 +141,11 @@ def build_vocab(sentences, labels, emb_size):
 	data['raw_sentence'] = sentences
 	data['emb_size'] = emb_size
 
+	tag = [[tag2idx[t] for t in tag] for tag in tags]
+	data['tags'] = tag
+	data['tag2idx'] = tag2idx
+	data['idx2tag'] = idx2tag
+
 	pickle.dump(data,open('data.pkl', 'wb'))
 
 
@@ -135,11 +153,11 @@ def build_vocab(sentences, labels, emb_size):
 if __name__ == '__main__':
 	# main()
 	# parser = argparser.ArgumentParser()
-	sentences, labels = get_sentence_labels('./data/ABSA16_Restaurants_Train_SB1_v2.xml')
+	sentences, labels, tags = get_sentence_labels('./data/ABSA16_Restaurants_Train_SB1_v2.xml')
 	print(len(sentences))
 	sen = MySentence(sentences)
 	model = gensim.models.Word2Vec(sen, size = 100, window = 5, min_count=0, workers = 4)
 	model.save("my_gensim_model")
-	build_vocab(sentences, labels, emb_size = 100)
+	build_vocab(sentences, labels, tags, emb_size = 100)
 	# for word in model.wv.vocab:
 	# 	print(word)
