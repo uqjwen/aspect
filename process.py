@@ -6,7 +6,7 @@ from nltk import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem.wordnet import WordNetLemmatizer
 from sklearn.feature_extraction.text import CountVectorizer
-import gensim
+# import gensim
 import pickle
 from nltk.parse.stanford import StanfordDependencyParser
 from nltk.tag import StanfordPOSTagger
@@ -15,13 +15,13 @@ from nltk.tag import StanfordNERTagger
 
 
 pos_tagger = StanfordPOSTagger('english-bidirectional-distsim.tagger')
-ner_tagger = StanfordNERTagger('english.all.3class.distsim.crf.ser.gz')
-dpdc_parser = StanfordDependencyParser(model_path=u'edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz')
+# ner_tagger = StanfordNERTagger('english.all.3class.distsim.crf.ser.gz')
+# dpdc_parser = StanfordDependencyParser(model_path=u'edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz')
 
-def dpdc_parse(sent):
-	res = list(dpdc_parser.parse(sent))
-	for row in res[0].triples():
-		print(row)
+# def dpdc_parse(sent):
+# 	res = list(dpdc_parser.parse(sent))
+# 	for row in res[0].triples():
+# 		print(row)
 
 
 # def get_sentence_()
@@ -114,7 +114,7 @@ def get_sentence_labels(filename):
 
 	return sentences, labels, pos
 		# break
-def build_vocab(sentences, labels,tags, emb_size):
+def build_vocab(sentences, labels,tags, train_size, emb_size):
 	dic = {}
 	for sen in sentences:
 		for word in sen:
@@ -140,6 +140,7 @@ def build_vocab(sentences, labels,tags, emb_size):
 	data['processed_sentence'] = sen 
 	data['raw_sentence'] = sentences
 	data['emb_size'] = emb_size
+	data['train_size'] = train_size
 
 	tag = [[tag2idx[t] for t in tag] for tag in tags]
 	data['tags'] = tag
@@ -154,10 +155,12 @@ if __name__ == '__main__':
 	# main()
 	# parser = argparser.ArgumentParser()
 	sentences, labels, tags = get_sentence_labels('./data/ABSA16_Restaurants_Train_SB1_v2.xml')
+	test_sent, test_label, test_tag = get_sentence_labels('./data/EN_REST_SB1_TEST_gold.xml')
+
 	print(len(sentences))
-	sen = MySentence(sentences)
-	model = gensim.models.Word2Vec(sen, size = 100, window = 5, min_count=0, workers = 4)
-	model.save("my_gensim_model")
-	build_vocab(sentences, labels, tags, emb_size = 100)
+	sen = MySentence(sentences+test_sent)
+	# model = gensim.models.Word2Vec(sen, size = 100, window = 5, min_count=0, workers = 4)
+	# model.save("my_gensim_model")
+	build_vocab(sentences+test_sent, labels+test_label, tags+test_tag, train_size = len(sentences), emb_size = 100)
 	# for word in model.wv.vocab:
 	# 	print(word)
