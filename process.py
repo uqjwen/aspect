@@ -8,6 +8,22 @@ from nltk.stem.wordnet import WordNetLemmatizer
 from sklearn.feature_extraction.text import CountVectorizer
 import gensim
 import pickle
+from nltk.parse.stanford import StanfordDependencyParser
+from nltk.tag import StanfordPOSTagger
+from nltk.tag import StanfordNERTagger
+
+
+
+pos_tagger = StanfordPOSTagger('english-bidirectional-distsim.tagger')
+ner_tagger = StanfordNERTagger('english.all.3class.distsim.crf.ser.gz')
+dpdc_parser = StanfordDependencyParser(model_path=u'edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz')
+
+def dpdc_parse(sent):
+	res = list(dpdc_parser.parse(sent))
+	for row in res[0].triples():
+		print(row)
+
+
 # def get_sentence_()
 split_re = "[- ;!.,-?\"\'\)\()]"
 
@@ -33,8 +49,10 @@ def processSentence(tokens, labels):
 	new_tokens = []
 	new_labels = []
 	for token,label in zip(tokens, labels):
-		if token.lower() not in stopwords.words("english")+['']:
-			new_tokens.append(lmtzr.lemmatize(token.lower()))
+		# if token.lower() not in stopwords.words("english")+['']:
+		if token is not '':
+			# new_tokens.append(lmtzr.lemmatize(token.lower()))
+			new_tokens.append(token.lower())
 			new_labels.append(label)
 	return new_tokens, new_labels
 
@@ -75,8 +93,16 @@ def get_sentence_labels(filename):
 		# print(tokens)
 		# print(y_labels)
 		tokens, sen_labels = processSentence(tokens,y_labels)
-		# print(tokens)
-		# print(labels)
+		print(tokens)
+		print(sen_labels)
+		print(pos_tagger.tag(tokens))
+		print('----------------------------')
+		# print(ner_tagger.tag(tokens))
+		# dpdc_parse(tokens)
+		print("###########################################")
+
+
+
 		sentences.append(tokens)
 		labels.append(sen_labels)
 		# print(y_labels)
