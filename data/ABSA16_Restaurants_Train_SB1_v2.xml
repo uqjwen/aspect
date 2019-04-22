@@ -3877,7 +3877,7 @@
                 <Opinions>
                     <Opinion category="RESTAURANT#GENERAL" from="0" polarity="positive" target="NULL" to="0" />
                 </Opinions>
-            </sentence>
+			</sentence>
             <sentence id="1543345:6">
                 <text>Fantastic!</text>
                 <Opinions>
@@ -7643,7 +7643,7 @@
                 <text>service is friendly, and never had a problem walking in and getting a table.</text>
                 <Opinions>
                     <Opinion category="SERVICE#GENERAL" from="0" polarity="positive" target="service" to="7" />
-                    <Opinion category="RESTAURANT#MISCELLANEOUS" from="0" polarity="positive" target="NULL" to="0" />
+					<Opinion category="RESTAURANT#MISCELLANEOUS" from="0" polarity="positive" target="NULL" to="0" />
                 </Opinions>
             </sentence>
             <sentence id="610611:5">
@@ -8075,7 +8075,7 @@
             <sentence id="707917:3">
                 <text>Good luck getting a table.</text>
                 <Opinions>
-                    <Opinion category="RESTAURANT#MISCELLANEOUS" from="0" polarity="neutral" target="NULL" to="0" />
+					<Opinion category="RESTAURANT#MISCELLANEOUS" from="0" polarity="neutral" target="NULL" to="0" />
                 </Opinions>
             </sentence>
         </sentences>
@@ -8978,7 +8978,7 @@
                 </Opinions>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
     <Review rid="BzG#1">
         <sentences>
             <sentence id="BzG#1:0">
@@ -9433,7 +9433,7 @@
                 </Opinions>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
     <Review rid="P#1">
         <sentences>
             <sentence id="P#1:0">
@@ -9458,7 +9458,7 @@
                 </Opinions>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
     <Review rid="RL#9">
         <sentences>
             <sentence id="RL#9:0">
@@ -9474,7 +9474,7 @@
                 </Opinions>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
     <Review rid="Y#5">
         <sentences>
             <sentence id="Y#5:0">
@@ -9523,7 +9523,7 @@
         <sentences>
             <sentence id="TFS#8:0">
                 <text>Not because you are "The Four Seasons"... &#8211; you are allowed to charge an arm and a leg for a romatic dinner.</text>
-                <Opinions>
+				<Opinions>
                     <Opinion category="RESTAURANT#PRICES" from="21" polarity="negative" target="The Four Seasons" to="37" />
                 </Opinions>
             </sentence>
@@ -9542,7 +9542,7 @@
                 </Opinions>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
     <Review rid="Y#4">
         <sentences>
             <sentence id="Y#4:0">
@@ -9577,7 +9577,7 @@
                 </Opinions>
             </sentence>
         </sentences>
-    </Review>       
+    </Review>		
     <Review rid="Y#6">
         <sentences>
             <sentence id="Y#6:0">
@@ -9618,7 +9618,7 @@
                 </Opinions>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
     <Review rid="RL#4">
         <sentences>
             <sentence id="RL#4:0">
@@ -9694,7 +9694,7 @@
                 </Opinions>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
    <Review rid="TM#3">
         <sentences>
             <sentence id="TM#3:0">
@@ -9821,7 +9821,7 @@
                 </Opinions>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
     <Review rid="ADLT#4">
         <sentences>
             <sentence id="ADLT#4:0">
@@ -9922,7 +9922,7 @@
                 </Opinions>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
     <Review rid="BG#6">
         <sentences>
             <sentence id="BG#6:0">
@@ -10027,7 +10027,7 @@
                 </Opinions>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
     <Review rid="Z#11">
         <sentences>
             <sentence id="Z#11:0">
@@ -10313,7 +10313,7 @@
             </sentence>
             <sentence id="Z#9:6">
                 <text>So what you really end up paying for is the restaurant not the food.</text>
-                <Opinions>
+				<Opinions>
                     <Opinion category="RESTAURANT#PRICES" from="44" polarity="negative" target="restaurant" to="54" />
                     <Opinion category="AMBIENCE#GENERAL" from="44" polarity="neutral" target="restaurant" to="54" />
                     <Opinion category="FOOD#QUALITY" from="63" polarity="negative" target="food" to="67" />
@@ -10385,7 +10385,7 @@
                 <text>Restaurants in manhattan should try to model food and service after this place.</text>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
     <Review rid="BHD#7">
         <sentences>
             <sentence id="BHD#7:0">
@@ -10403,7 +10403,7 @@
             </sentence>
             <sentence id="BHD#7:2">
                 <text>peppers, onions, relish, chilli, cheeses, you NAME it.</text>
-                <Opinions>
+				<Opinions>
                     <Opinion category="FOOD#STYLE_OPTIONS" from="0" polarity="positive" target="NULL" to="0" />
                 </Opinions>
             </sentence>
@@ -10571,7 +10571,7 @@
                 </Opinions>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
     <Review rid="BzG#2">
         <sentences>
             <sentence id="BzG#2:0">
@@ -10653,7 +10653,7 @@
             </sentence>
             <sentence id="Y#9:1">
                 <text>Yamato is an excellent place to go if youre not into sashimi, or if you have friends who doesnt like sushi much.</text>
-                <Opinions>
+				<Opinions>
                     <Opinion category="RESTAURANT#MISCELLANEOUS" from="0" polarity="positive" target="Yamato" to="6" />
                 </Opinions>
             </sentence>
@@ -10775,7 +10775,7 @@
                 </Opinions>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
    <Review rid="TFS#11">
         <sentences>
              <sentence id="TFS#11:0">
@@ -10873,8 +10873,8 @@
                     <Opinion category="FOOD#QUALITY" from="0" polarity="positive" target="NULL" to="0" />
                 </Opinions>
             </sentence>
-        </sentences>
-    </Review>
+		</sentences>
+	</Review>
     <Review rid="PP#3">
         <sentences>
             <sentence id="PP#3:0">
@@ -10961,7 +10961,7 @@
                 </Opinions>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
     <Review rid="TM#6">
         <sentences>
             <sentence id="TM#6:0">
@@ -11009,7 +11009,7 @@
                 </Opinions>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
     <Review rid="TVU#6">
         <sentences>
             <sentence id="TVU#6:0">
@@ -11059,7 +11059,7 @@
                <Opinions>
                     <Opinion category="SERVICE#GENERAL" from="0" polarity="positive" target="NULL" to="0" />
                 </Opinions>
-            </sentence>
+			</sentence>
             <sentence id="TVU#6:8">
                 <text>In the end you end up with a fair tab and NOTHING BUT A GREAT TIME!!!</text>
                 <Opinions>
@@ -11208,7 +11208,7 @@
             </sentence>
             <sentence id="TFS#5:20">
                 <text>Some Pineapple covered in a glaze of some kind and some pear tart thing Not impressive at all.</text>
-                <Opinions>
+				<Opinions>
                     <Opinion category="FOOD#STYLE_OPTIONS" from="0" polarity="negative" target="NULL" to="0" />
                     <Opinion category="FOOD#QUALITY" from="0" polarity="negative" target="NULL" to="0" />
                 </Opinions>
@@ -11274,7 +11274,7 @@
                 </Opinions>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
     <Review rid="CLF#3">
         <sentences>
             <sentence id="CLF#3:0">
@@ -11669,7 +11669,7 @@
                 </Opinions>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
     <Review rid="BG#8">
         <sentences>
             <sentence id="BG#8:0">
@@ -11711,7 +11711,7 @@
                 </Opinions>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
     <Review rid="DBG#2">
         <sentences>
             <sentence id="DBG#2:0">
@@ -11767,7 +11767,7 @@
             </sentence>
             <sentence id="DBG#2:10">
                 <text>Less than three minutes passed before I found myself doubled over the toilet.</text>
-                <Opinions>
+				<Opinions>
                     <Opinion category="FOOD#QUALITY" from="0" polarity="negative" target="NULL" to="0" />
                 </Opinions>
             </sentence>
@@ -11792,7 +11792,7 @@
             </sentence>
             <sentence id="DBG#2:15">
                 <text>Eat at your own risk.</text>
-                <Opinions>
+				<Opinions>
                     <Opinion category="FOOD#QUALITY" from="21" polarity="negative" target="NULL" to="31" />
                 </Opinions>
             </sentence>
@@ -11851,7 +11851,7 @@
                <Opinions>
                     <Opinion category="SERVICE#GENERAL" from="0" polarity="negative" target="NULL" to="0" />
                 </Opinions>
-            </sentence>
+			</sentence>
             <sentence id="DBG#7:4">
                 <text>The bibimbap was average, but the stone bowl wasn't even close to sizzling.</text>
                 <Opinions>
@@ -11933,7 +11933,7 @@
                 <text>Authentic Korean food lovers should visit 32nd Street, of course.</text>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
     <Review rid="ADLT#9">
         <sentences>
             <sentence id="ADLT#9:0">
@@ -11996,7 +11996,7 @@
             </sentence>
             <sentence id="EVPK#4:2">
                 <text>A quintessential slice of NYC pizza.</text>
-                <Opinions>
+				<Opinions>
                     <Opinion category="FOOD#QUALITY" from="17" polarity="neutral" target="slice of NYC pizza" to="35" />
                 </Opinions>
             </sentence>
@@ -12016,7 +12016,7 @@
                 </Opinions>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
     <Review rid="Z#6">
         <sentences>
             <sentence id="Z#6:0">
@@ -12075,11 +12075,11 @@
             </sentence>
             <sentence id="Z#6:9">
                 <text>I picked the Grilled Black Cod as my entree, which I absolutely devoured while someone commented that the Grilled Salmon dish was better.</text>
-                <Opinions>
+				<Opinions>
                     <Opinion category="FOOD#QUALITY" from="13" polarity="positive" target="Grilled Black Cod" to="30" />
                     <Opinion category="FOOD#QUALITY" from="106" polarity="positive" target="Grilled Salmon dish" to="125" />
                 </Opinions>
-            </sentence>
+			</sentence>
             <sentence id="Z#6:10">
                 <text>The entrees were served with miso soup and rice.</text>
             </sentence>
@@ -12111,7 +12111,7 @@
                 </Opinions>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
    <Review rid="CLF#6">
         <sentences>
             <sentence id="CLF#6:0">
@@ -12205,7 +12205,7 @@
                 </Opinions>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
     <Review rid="DBG#1">
         <sentences>
             <sentence id="DBG#1:0">
@@ -12316,7 +12316,7 @@
                 <text>Go to japanese sushi place or Spanish tapas place - this creation in Williamsburg is a misstake.</text>
             </sentence>
         </sentences>
-    </Review>       
+    </Review>		
     <Review rid="Z#10">
         <sentences>
             <sentence id="Z#10:0">
@@ -12346,7 +12346,7 @@
                 <text>I would recommend to ask for a bigger sitting area when you make a reservation (if possible)</text>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
     <Review rid="P#7">
         <sentences>
             <sentence id="P#7:0">
@@ -12385,7 +12385,7 @@
                 <Opinions>
                     <Opinion category="RESTAURANT#GENERAL" from="52" polarity="positive" target="restaurant" to="62" />
                 </Opinions>
-            </sentence>
+			</sentence>
             <sentence id="P#7:6">
                 <text>Maybe it has improved since then?</text>
             </sentence>
@@ -12475,7 +12475,7 @@
             </sentence>
             <sentence id="FF#4:11">
                 <text>On that scale, it's a world-beater.</text>
-                <Opinions>
+				<Opinions>
                     <Opinion category="RESTAURANT#GENERAL" from="0" polarity="negative" target="NULL" to="0" />
                 </Opinions>
             </sentence>
@@ -12659,7 +12659,7 @@
                 </Opinions>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
     <Review rid="CLF#4">
         <sentences>
             <sentence id="CLF#4:0">
@@ -12870,7 +12870,7 @@
                 </Opinions>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
     <Review rid="ADLT#6">
         <sentences>
             <sentence id="ADLT#6:0">
@@ -12979,7 +12979,7 @@
                 </Opinions>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
     <Review rid="BHD#8">
         <sentences>
             <sentence id="BHD#8:0">
@@ -13031,7 +13031,7 @@
                 </Opinions>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
     <Review rid="CLF#8">
         <sentences>
             <sentence id="CLF#8:0">
@@ -13085,7 +13085,7 @@
             </sentence>
             <sentence id="CLF#8:8">
                 <text>On the way out, we heard of other guests complaining about similar issues.</text>
-                <Opinions>
+				<Opinions>
                     <Opinion category="SERVICE#GENERAL" from="0" polarity="negative" target="NULL" to="0" />
                 </Opinions>
             </sentence>
@@ -13136,7 +13136,7 @@
                 <text>Without the wait or attitude, I would probably go back, but there are just too many other restaurants in Brooklyn that are as good or better and don't make me jump through hoops.</text>
             </sentence>
         </sentences>
-    </Review>       
+    </Review>		
     <Review rid="WE#1">
         <sentences>
             <sentence id="WE#1:0">
@@ -13243,7 +13243,7 @@
                 </Opinions>
             </sentence>
         </sentences>
-    </Review>   
+    </Review>	
     <Review rid="FF#10">
         <sentences>
             <sentence id="FF#10:0">

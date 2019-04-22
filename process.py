@@ -96,9 +96,10 @@ def get_sentence_labels(filename):
 		tokens, sen_labels = processSentence(tokens,y_labels)
 		print(tokens)
 		print(sen_labels)
-		print(pos_tagger.tag(tokens))
+		# print(pos_tagger.tag(tokens))
 		print('----------------------------')
 		tags = pos_tagger.tag(tokens)
+		print(tags)
 		tags = [tp[1] for tp in tags]
 		# print(ner_tagger.tag(tokens))
 		# dpdc_parse(tokens)
