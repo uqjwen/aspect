@@ -5,31 +5,34 @@ import torch
 from gensim.models import Word2Vec
 
 class Data_Loader():
-	def __init__(self, batch_size, maxlen):
+	def __init__(self, batch_size):
 		self.batch_size = batch_size
 		# self.sent_len = sent_len
-		self.maxlen = maxlen
+		# self.maxlen = maxlen
 		fr = open('data.pkl', 'rb')
 		data = pickle.load(fr)
 
 		self.word2idx = data['word2idx']
 		self.idx2word = data['idx2word']
 		self.vocab_size = data['vocab_size']
-		self.emb_size = data['emb_size']
+		# self.emb_size = data['emb_size']
+		self.emb_size = 200
 		sentences = data['processed_sentence']
 		labels = data['labels']
+
+		self.maxlen = max([len(sent) for sent in sentences])
 		
-		sentences = pad_sequences(sentences,maxlen=36, padding='post')
+		sentences = pad_sequences(sentences,self.maxlen, padding='post')
 
 
 		# print(labels)
 		self.emb_mat = self.embed_mat()
 
-		self.labels = np.array(pad_sequences(labels, maxlen=36, padding='post'))
+		self.labels = np.array(pad_sequences(labels, self.maxlen, padding='post'))
 
 		self.sent = np.array(sentences).astype(np.int32)
 
-		self.mask = np.ones((len(self.sent), maxlen))
+		self.mask = np.ones((len(self.sent), self.maxlen))
 
 		self.mask[self.sent==0] = 0
 		self.pointer = 0

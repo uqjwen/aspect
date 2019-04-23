@@ -21,7 +21,7 @@ def get_domain_emb_weight(emb_size):
 
 	return emb_matrix
 
-
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 class Model(torch.nn.Module):
 	def __init__(self,domain_emb, num_class = 3, drop_out = 0.5):
 		super(Model, self).__init__()

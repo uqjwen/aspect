@@ -12,7 +12,7 @@ def main():
 	data = pickle.load(open('data.pkl', 'rb'))
 	sentences = data['raw_sentence']
 	# sen = MySentence(sentences)
-	model = gensim.models.Word2Vec(sentences*100, size=200, window=10,min_count=1, workers=4)
+	model = gensim.models.Word2Vec(sentences*100, size=100, window=10,min_count=1, workers=4)
 	model.save("my_gensim_model")
 	# model = Word2Vec(min_count=1)
 	# model.build_vocab(sentences)
