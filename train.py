@@ -10,7 +10,7 @@ def train():
 	# maxlen = 36
 	data_loader = Data_Loader(batch_size)
 	maxlen = data_loader.maxlen
-	model = Model(data_loader.emb_mat, num_class = 3, drop_out = 0.5).cuda()
+	model = Model(data_loader.emb_mat, num_class = 3, drop_out = 0.5).to(device)
 	optimizer = torch.optim.Adam(model.parameters(), lr = 0.0001)###############learning rate is important 
 	epochs = 100
 	for i in range(epochs):
@@ -19,7 +19,7 @@ def train():
 		for b in range(num_batch+1):
 			input_data, mask_data, y_data = data_loader.__next__()
 
-			loss = model(input_data.cuda(), maxlen, mask_data.cuda(), y_data.cuda())
+			loss = model(input_data.to(device), maxlen, mask_data.to(device), y_data.to(device))
 
 			optimizer.zero_grad()
 
