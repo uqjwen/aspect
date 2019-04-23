@@ -170,7 +170,7 @@ def train():
 	neg_gen = negative_batch_generator(sents, batch_size, args.neg_size)
 
 
-	batches_per_epoch = 100
+	batches_per_epoch = 1000
 	with tf.Session() as sess:
 		sess.run(tf.global_variables_initializer())
 		saver = tf.train.Saver(tf.global_variables())
