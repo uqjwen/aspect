@@ -1,12 +1,14 @@
+import sys
 import numpy as np 
 import torch
 import torch.nn.functional as F
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 class Data_Loader():
 	def __init__(self, batch_size = 64):
 		self.num_user = 2000
 		self.num_item = 4000
-		self.betch_size = batch_size
+		self.batch_size = batch_size
 		# rating_mat = np.zeros((self.num_user, self.num_item))
 		rating_mat = [[1 if np.random.uniform(0,1)<0.05 else 0 for i in range(self.num_item) ] for j in range(self.num_user)]
 		user = []
@@ -38,6 +40,10 @@ class Data_Loader():
 class Model(torch.nn.Module):
 	def __init__(self, num_user, num_item, emb_size, neg_size):
 		super(Model, self).__init__()
+		self.num_user = num_user
+		self.num_item = num_item
+		self.emb_size = emb_size
+		self.neg_size = neg_size
 
 		self.user_embedding = torch.nn.Embedding(num_user, emb_size)
 		self.item_embedding = torch.nn.Embedding(num_item, emb_size)
@@ -62,8 +68,8 @@ class Model(torch.nn.Module):
 
 		new_user = torch.tensor(new_user, dtype=torch.long)
 		new_item = torch.tensor(new_item, dtype=torch.long)
-		labels = torch.tensor(labels, dtype=torch.long)
-		return new_user, new_item, labels
+		labels = torch.tensor(labels, dtype=torch.float)
+		return new_user.to(device), new_item.to(device), labels.to(device)
 
 
 	def forward(self,user,item):
@@ -77,8 +83,46 @@ class Model(torch.nn.Module):
 
 		vec = torch.cat((user_latent, item_latent, user_item_dot), dim=-1)
 
+		vec = self.hidden_1(vec)
+		vec = F.relu(vec)
+		vec = self.hidden_2(vec)
+		vec = F.relu(vec)
+		vec = self.hidden_3(vec)
+		vec = F.sigmoid(vec)
+
+		loss = F.binary_cross_entropy(vec,labels)
+		return loss
 		
 
+def main():
+	data_loader = Data_Loader()
+
+	model = Model(data_loader.num_user, data_loader.num_item, emb_size=64, neg_size = 4).to(device)
+
+	epoches = 100
+	iterations_per_epoch = 100
+
+	optimizer = torch.optim.Adam(model.parameters(), lr = 0.001)###############learning rate is important 
+
+	for e in range(epoches):
+		data_loader.reset_pointer()
+		for i in range(iterations_per_epoch):
+			user,item = data_loader.next()
+			loss = model(user,item)
+			optimizer.zero_grad()
+
+			loss.backward()
+			torch.nn.utils.clip_grad_norm(model.parameters(), 1.)
+			optimizer.step()
+
+
+			sys.stdout.write("\rloss:{},epoch:{}, iter:{}".format(loss, e, i))
+			sys.stdout.flush()
 
 
 
+
+
+
+if __name__ == '__main__':
+	main()
