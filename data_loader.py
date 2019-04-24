@@ -16,11 +16,13 @@ class Data_Loader():
 		self.idx2word = data['idx2word']
 		self.vocab_size = data['vocab_size']
 		# self.emb_size = data['emb_size']
-		self.emb_size = 200
+		self.emb_size = 100
 		sentences = data['processed_sentence']
 		labels = data['labels']
 
-		self.maxlen = max([len(sent) for sent in sentences])
+		# self.maxlen = max([len(sent) for sent in sentences])
+		self.maxlen = int(np.mean([len(sent) for sent in sentences]))
+
 		
 		sentences = pad_sequences(sentences,self.maxlen, padding='post')
 

@@ -32,21 +32,22 @@ def get_domain_emb_weight(emb_size):
 
 
 class Model():
-	def __init__(self, domain_emb, num_class, maxlen, drop_out = 0.5):
+	def __init__(self, domain_emb, num_class, maxlen,batch_size = 64, drop_out = 0.5):
 		self.vocab_size, self.emb_size = domain_emb.shape
 		self.maxlen = maxlen
 		self.dropout = drop_out
-
+		self.batch_size = batch_size
+		print("embedding size", domain_emb.shape)
 		self.word_embedding = tf.Variable(domain_emb.astype(np.float32))
 
-		self.conv1 = Conv1D(128, kernel_size = 3, padding = 'same')
-		self.conv2 = Conv1D(128, kernel_size = 5, padding = 'same')
+		# self.conv1 = Conv1D(128, kernel_size = 3, padding = 'same')
+		# self.conv2 = Conv1D(128, kernel_size = 5, padding = 'same')
 
 		# self.dropout = Dropout(drop_out)
 
-		self.conv3 = Conv1D(256, kernel_size = 5, padding='same')
-		self.conv4 = Conv1D(256, kernel_size = 5, padding = 'same')
-		self.conv5 = Conv1D(256, kernel_size = 5, padding='same')
+		# self.conv3 = Conv1D(256, kernel_size = 5, padding='same')
+		# self.conv4 = Conv1D(256, kernel_size = 5, padding = 'same')
+		# self.conv5 = Conv1D(256, kernel_size = 5, padding='same')
 
 		self.linear_ae1 = Dense(50)
 
@@ -59,37 +60,39 @@ class Model():
 		self.train_op = tf.train.AdamOptimizer(learning_rate=0.0001).minimize(self.cost)
 
 	def forward(self, num_class):
-		self.x = tf.placeholder(tf.int32, shape=[None, self.maxlen])
+		self.x = tf.placeholder(tf.int32, shape=[self.batch_size, self.maxlen])
 
-		self.labels = tf.placeholder(tf.int32, shape = [None, self.maxlen, num_class])
+		# self.labels = tf.placeholder(tf.int32, shape = [None, self.maxlen, num_class])
+		self.labels = tf.placeholder(tf.int32, shape = [self.batch_size*self.maxlen, num_class])
 
 		x_emb = tf.nn.embedding_lookup(self.word_embedding, self.x)
 
-		print(x_emb)
+		print(x_emb.shape)
 		# x_emb = self.dropout(x_emb)
 		x_emb = tf.nn.dropout(x_emb, self.dropout)
 
+		x_conv = x_emb
+		# print(x_emb.shape)
+		# x_conv = tf.nn.relu(tf.concat([self.conv1(x_emb), self.conv2(x_emb)], axis=-1))
+		# x_conv = tf.nn.dropout(x_conv, self.dropout)
+		# print(x_conv.shape)
 
-		x_conv = tf.nn.relu(tf.concat([self.conv1(x_emb), self.conv2(x_emb)], axis=-1))
+		# x_conv = tf.nn.relu(self.conv3(x_conv))
+		# x_conv = tf.nn.dropout(x_conv, self.dropout)
 
-		# x_conv = self.dropout(x_conv)
-		x_emb = tf.nn.dropout(x_conv, self.dropout)
+		# x_conv = tf.nn.relu(self.conv4(x_conv))
+		# x_conv = tf.nn.dropout(x_conv, self.dropout)
 
-		x_conv = tf.nn.relu(self.conv3(x_conv))
-		# x_conv = self.dropout(x_conv)
-		x_conv = tf.nn.dropout(x_conv, self.dropout)
-		x_conv = tf.nn.relu(self.conv4(x_conv))
-		# x_conv = self.dropout(x_conv)
-		x_conv = tf.nn.dropout(x_conv, self.dropout)
-		x_conv = tf.nn.relu(self.conv5(x_conv))
-		# x_conv = self.dropout(x_conv)
-		x_conv = tf.nn.dropout(x_conv, self.dropout)
+		# x_conv = tf.nn.relu(self.conv5(x_conv))
+		# x_conv = tf.nn.dropout(x_conv, self.dropout)
 
 		x_logit = tf.nn.relu(self.linear_ae1(x_conv))
 
 		x_logit = self.linear_ae2(x_logit)
 
 
+		x_logit = tf.reshape(x_logit, [-1,3])
+		print(self.labels.shape, x_logit.shape)
 		loss = tf.nn.softmax_cross_entropy_with_logits(labels = self.labels, logits = x_logit)
 
 		return x_logit, loss
@@ -97,10 +100,10 @@ class Model():
 
 
 def train():
-	batch_size = 64
+	batch_size = 32
 	data_loader = Data_Loader(batch_size)
 	maxlen = data_loader.maxlen
-	model = Model(data_loader.emb_mat, 3, maxlen, 0.5)
+	model = Model(data_loader.emb_mat, 3, maxlen, batch_size, 0.5)
 	epochs = 100
 	with tf.Session() as sess:
 		sess.run(tf.global_variables_initializer())
@@ -112,7 +115,8 @@ def train():
 			for b in range(num_batch+1):
 				input_data, mask_data, y_data = data_loader.__next__()
 				# print(input_data.shape, mask_data.shape, y_data.shape)
-				y_data = to_categorical(y_data, 3)
+				y_data = to_categorical(y_data, 3).reshape(-1,3)
+				print(y_data.shape,'uqjwen')
 				_,loss = sess.run([model.train_op, model.cost], feed_dict = {model.x:input_data, model.labels:y_data})
 
 				sys.stdout.write('\repoch:{}, batch:{}, loss:{}'.format(i,b,loss))
