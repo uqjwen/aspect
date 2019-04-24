@@ -59,11 +59,12 @@ class Data_Loader():
 			self.pointer = 0
 
 		self.pointer+=1
-		temp = torch.from_numpy(self.labels[begin:end])
+		# temp = torch.from_numpy(self.labels[begin:end])
 		# print(temp.dtype)
 		# print(temp)
-		return torch.tensor(self.sent[begin:end], dtype=torch.long), torch.from_numpy(self.mask[begin:end]), torch.tensor(self.labels[begin:end],dtype=torch.long)
+		# return torch.tensor(self.sent[begin:end], dtype=torch.long), torch.from_numpy(self.mask[begin:end]), torch.tensor(self.labels[begin:end],dtype=torch.long)
 
+		return self.sent[begin:end], self.mask[begin:end], self.labels[begin:end]
 
 
 
