@@ -43,18 +43,30 @@ class Model():
 		self.word_embedding = tf.Variable(domain_emb.astype(np.float32))
 		# self.word_embedding = tf.Variable(tf.random_uniform([self.vocab_size, self.emb_size], -1.0,1.0))
 
-		self.x_emb = tf.nn.embedding_lookup(self.word_embedding, self.x)
+		x_emb = tf.nn.embedding_lookup(self.word_embedding, self.x)
+
+		##---------------------------------------------------------
+		conv1 = Conv1D(128, kernel_size = 3, padding = 'same')
+		conv2 = Conv1D(128, kernel_size = 5, padding = 'same')
+
+		conv = tf.nn.relu(tf.concat([conv1(x_emb), conv2(x_emb)], axis=-1))
+		conv = tf.nn.dropout(conv, self.dropout)
+
+		conv3 = Conv1D(256, kernel_size = 5, padding = 'same')
+		conv = tf.nn.relu(conv3(conv))
+		conv = tf.nn.dropout(conv, self.dropout)
+
+		conv4 = Conv1D(256, kernel_size = 5, padding = 'same')
+		conv = tf.nn.relu(conv4(conv))
+		conv = tf.nn.dropout(conv, self.dropout)
+
+		conv5 = Conv1D(256, kernel_size = 5, padding = 'same')
+		conv = tf.nn.relu(conv5(conv))
+		x_emb = tf.nn.dropout(conv, self.dropout)
+		##-------------------------------------------------------
 
 
-		# self.conv1 = Conv1D(128, kernel_size = 3, padding = 'same')
-		# self.conv2 = Conv1D(128, kernel_size = 5, padding = 'same')
-
-		# self.dropout = Dropout(drop_out)
-
-		# self.conv3 = Conv1D(256, kernel_size = 5, padding='same')
-		# self.conv4 = Conv1D(256, kernel_size = 5, padding = 'same')
-		# self.conv5 = Conv1D(256, kernel_size = 5, padding='same')
-		x_logit = Dense(50, activation='relu', kernel_initializer = 'lecun_uniform')(self.x_emb)
+		x_logit = Dense(50, activation='relu', kernel_initializer = 'lecun_uniform')(x_emb)
 		x_logit = Dense(3, kernel_initializer='lecun_uniform')(x_logit)
 		# self.linear_ae1 = Dense(50, activation='relu', kernel_initializer = 'lecun_uniform')
 
@@ -67,43 +79,6 @@ class Model():
 
 		self.train_op = tf.train.AdamOptimizer(learning_rate=0.0001).minimize(self.cost)
 
-	def forward(self, num_class):
-		self.x = tf.placeholder(tf.int32, shape=[self.batch_size, self.maxlen])
-
-		# self.labels = tf.placeholder(tf.int32, shape = [None, self.maxlen, num_class])
-		self.labels = tf.placeholder(tf.int32, shape = [self.batch_size*self.maxlen, num_class])
-
-		x_emb = tf.nn.embedding_lookup(self.word_embedding, self.x)
-
-		print(x_emb.shape)
-		# x_emb = self.dropout(x_emb)
-		x_emb = tf.nn.dropout(x_emb, self.dropout)
-
-		x_conv = x_emb
-		# print(x_emb.shape)
-		# x_conv = tf.nn.relu(tf.concat([self.conv1(x_emb), self.conv2(x_emb)], axis=-1))
-		# x_conv = tf.nn.dropout(x_conv, self.dropout)
-		# print(x_conv.shape)
-
-		# x_conv = tf.nn.relu(self.conv3(x_conv))
-		# x_conv = tf.nn.dropout(x_conv, self.dropout)
-
-		# x_conv = tf.nn.relu(self.conv4(x_conv))
-		# x_conv = tf.nn.dropout(x_conv, self.dropout)
-
-		# x_conv = tf.nn.relu(self.conv5(x_conv))
-		# x_conv = tf.nn.dropout(x_conv, self.dropout)
-
-		x_logit = tf.nn.relu(self.linear_ae1(x_conv))
-
-		x_logit = self.linear_ae2(x_logit)
-
-
-		x_logit = tf.reshape(x_logit, [-1,3])
-		print(self.labels.shape, x_logit.shape)
-		loss = tf.nn.softmax_cross_entropy_with_logits(labels = self.labels, logits = x_logit)
-
-		return x_logit, loss
 
 
 
