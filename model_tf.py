@@ -46,23 +46,23 @@ class Model():
 		x_emb = tf.nn.embedding_lookup(self.word_embedding, self.x)
 
 		##---------------------------------------------------------
-		conv1 = Conv1D(128, kernel_size = 3, padding = 'same')
-		conv2 = Conv1D(128, kernel_size = 5, padding = 'same')
+		#conv1 = Conv1D(128, kernel_size = 3, padding = 'same')
+		#conv2 = Conv1D(128, kernel_size = 5, padding = 'same')
 
-		conv = tf.nn.relu(tf.concat([conv1(x_emb), conv2(x_emb)], axis=-1))
-		conv = tf.nn.dropout(conv, self.dropout)
+		#conv = tf.nn.relu(tf.concat([conv1(x_emb), conv2(x_emb)], axis=-1))
+		#conv = tf.nn.dropout(conv, self.dropout)
 
-		conv3 = Conv1D(256, kernel_size = 5, padding = 'same')
-		conv = tf.nn.relu(conv3(conv))
-		conv = tf.nn.dropout(conv, self.dropout)
+		#conv3 = Conv1D(256, kernel_size = 5, padding = 'same')
+		#conv = tf.nn.relu(conv3(conv))
+		#conv = tf.nn.dropout(conv, self.dropout)
 
-		conv4 = Conv1D(256, kernel_size = 5, padding = 'same')
-		conv = tf.nn.relu(conv4(conv))
-		conv = tf.nn.dropout(conv, self.dropout)
+		#conv4 = Conv1D(256, kernel_size = 5, padding = 'same')
+		#conv = tf.nn.relu(conv4(conv))
+		#conv = tf.nn.dropout(conv, self.dropout)
 
-		conv5 = Conv1D(256, kernel_size = 5, padding = 'same')
-		conv = tf.nn.relu(conv5(conv))
-		x_emb = tf.nn.dropout(conv, self.dropout)
+		#conv5 = Conv1D(256, kernel_size = 5, padding = 'same')
+		#conv = tf.nn.relu(conv5(conv))
+		#x_emb = tf.nn.dropout(conv, self.dropout)
 		##-------------------------------------------------------
 
 

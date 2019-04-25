@@ -1,8 +1,8 @@
 import sys
 import numpy as np 
-import torch
-import torch.nn.functional as F
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+#import torch
+#import torch.nn.functional as F
+#device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # class Data_Loader():
 # 	def __init__(self, batch_size = 64):

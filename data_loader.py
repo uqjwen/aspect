@@ -1,7 +1,7 @@
 import pickle
 import numpy as np 
 from keras.preprocessing.sequence import pad_sequences
-import torch
+#import torch
 from gensim.models import Word2Vec
 
 class Data_Loader():
