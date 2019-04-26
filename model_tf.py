@@ -32,7 +32,7 @@ def get_domain_emb_weight(emb_size):
 
 
 class Model():
-	def __init__(self, domain_emb, num_class, num_tag, maxlen,batch_size = 64, drop_out = 0.5):
+	def __init__(self, domain_emb, num_class, num_tag, maxlen,batch_size = 64, drop_out = 0.5, neg_size = 4):
 		self.vocab_size, self.emb_size = domain_emb.shape
 		self.maxlen = maxlen
 		self.dropout = drop_out
@@ -43,6 +43,8 @@ class Model():
 		self.x = tf.placeholder(tf.int32, shape=[None, maxlen])
 		self.labels = tf.placeholder(tf.int32, shape=[None, maxlen, num_class])
 		self.t = tf.placeholder(tf.float32, shape=[None, maxlen, num_tag])
+
+		self.neg = tf.placeholder(tf.int32, shape=[None, maxlen, neg_size])
 
 		self.word_embedding = tf.Variable(domain_emb.astype(np.float32))
 		# self.aspect_embedding = tf.Variable(tf.random_uniform([self.aspect_size, self.emb_size],-1.0,1.0))
@@ -97,9 +99,13 @@ class Model():
 		# self.linear_ae2 = Dense(3, kernel_initializer='lecun_uniform')
 
 		# self.logits, self.loss = self.forward(num_class)
+		un_loss = self.get_un_loss(att_aspect, self.x, self.neg)
+
 		loss = tf.nn.softmax_cross_entropy_with_logits(logits = x_logit, labels = self.labels)
 
 		self.cost = tf.reduce_mean(loss)
+
+		self.cost += un_loss
 
 		self.train_op = tf.train.AdamOptimizer(learning_rate=0.0001).minimize(self.cost)
 
@@ -118,25 +124,28 @@ class Model():
 
 
 		return latent
-	def get_un_loss(self,att_aspect, x, neg_size = 4):
+	def get_un_loss(self,att_aspect, x, neg_x):
 		batch_size, maxlen, emb_size = att_aspect.shape.as_list()
 		x_latent = tf.nn.embedding_lookup(self.word_embedding, x)
 
-		pos = tf.reduce_sum(att_aspect*x_latent, axis=-1, keep_dism=True) #[batch_size, maxlen, 1]
+		pos = tf.reduce_sum(att_aspect*x_latent, axis=-1, keep_dims=True) #[batch_size, maxlen, 1]
 
-		neg_x = np.random.randint(1,self.vocab_size, [batch_size, maxlen, neg_size])
 		neg_x_latent = tf.nn.embedding_lookup(self.word_embedding, neg_x)#[batch_size, maxlen, neg_size, emb_size]
 
 		neg = tf.reduce_sum(tf.expand_dims(att_aspect, 2)*neg_x_latent,axis=-1) # [batch_size, maxlen, neg_size]
 
 
-		un_loss = tf.maximum(0., 1.-pos+neg)
+		un_loss = tf.reduce_mean(tf.maximum(0., 1.-pos+neg))
+
+		return un_loss
+
 
 
 
 
 def train():
 	batch_size = 32
+	neg_size = 4
 	data_loader = Data_Loader(batch_size)
 	maxlen = data_loader.maxlen
 	model = Model(data_loader.emb_mat,
@@ -144,7 +153,8 @@ def train():
 				num_class = 3,
 				maxlen = maxlen,
 				batch_size = batch_size,
-				drop_out = 0.5)
+				drop_out = 0.5,
+				neg_size = neg_size)
 	epochs = 100
 	with tf.Session() as sess:
 		sess.run(tf.global_variables_initializer())
@@ -156,10 +166,13 @@ def train():
 			for b in range(num_batch+1):
 				input_data, input_tag, mask_data, y_data = data_loader.__next__()
 				# print(input_data.shape, mask_data.shape, y_data.shape)
+				input_neg = np.random.randint(1,data_loader.vocab_size, (input_data.shape[0], maxlen, neg_size))
+				# print(input_neg)
 				y_data = to_categorical(y_data, 3)
 				# print(y_data.shape,'uqjwen')
 				_,loss = sess.run([model.train_op, model.cost], feed_dict = {model.x:input_data,
 																			model.t:input_tag,
+																			model.neg:input_neg,
 																			model.labels:y_data})
 
 				sys.stdout.write('\repoch:{}, batch:{}, loss:{}'.format(i,b,loss))
