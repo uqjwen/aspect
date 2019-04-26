@@ -37,6 +37,8 @@ class Model():
 		self.maxlen = maxlen
 		self.dropout = drop_out
 		self.batch_size = batch_size
+		self.aspect_size = 12
+		self.aspect_emb_size = self.emb_size
 		print("embedding size", domain_emb.shape)
 		self.x = tf.placeholder(tf.int32, shape=[None, maxlen])
 		self.labels = tf.placeholder(tf.int32, shape=[None, maxlen, num_class])
@@ -44,6 +46,7 @@ class Model():
 
 		self.word_embedding = tf.Variable(domain_emb.astype(np.float32))
 		# self.aspect_embedding = tf.Variable(tf.random_uniform([self.aspect_size, self.emb_size],-1.0,1.0))
+		self.aspect_embedding = tf.Variable(tf.random_uniform([self.aspect_size,self.aspect_emb_size],-1.0,1.0))
 		# self.word_embedding = tf.Variable(tf.random_uniform([self.vocab_size, self.emb_size], -1.0,1.0))
 
 		# x_latent = self.get_x_latent(self.x)
@@ -77,6 +80,14 @@ class Model():
 		# latent = tf.concat([x_latent, t_latent], axis=-1)
 
 		latent = self.get_latent(self.x, self.t)
+		print(latent)
+		att_score = Dense(self.aspect_size, activation = 'softmax') (latent)
+
+		att_aspect = tf.matmul(tf.reshape(att_score,[-1,self.aspect_size]), self.aspect_embedding)
+
+		att_aspect = tf.reshape(att_aspect, [-1, maxlen, self.aspect_emb_size])
+
+
 
 
 		x_logit = Dense(50, activation='relu', kernel_initializer = 'lecun_uniform')(latent)
@@ -107,6 +118,20 @@ class Model():
 
 
 		return latent
+	def get_un_loss(self,att_aspect, x, neg_size = 4):
+		batch_size, maxlen, emb_size = att_aspect.shape.as_list()
+		x_latent = tf.nn.embedding_lookup(self.word_embedding, x)
+
+		pos = tf.reduce_sum(att_aspect*x_latent, axis=-1, keep_dism=True) #[batch_size, maxlen, 1]
+
+		neg_x = np.random.randint(1,self.vocab_size, [batch_size, maxlen, neg_size])
+		neg_x_latent = tf.nn.embedding_lookup(self.word_embedding, neg_x)#[batch_size, maxlen, neg_size, emb_size]
+
+		neg = tf.reduce_sum(tf.expand_dims(att_aspect, 2)*neg_x_latent,axis=-1) # [batch_size, maxlen, neg_size]
+
+
+		un_loss = tf.maximum(0., 1.-pos+neg)
+
 
 
 
