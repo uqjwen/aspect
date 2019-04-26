@@ -43,12 +43,13 @@ class Model():
 		self.t = tf.placeholder(tf.float32, shape=[None, maxlen, num_tag])
 
 		self.word_embedding = tf.Variable(domain_emb.astype(np.float32))
+		# self.aspect_embedding = tf.Variable(tf.random_uniform([self.aspect_size, self.emb_size],-1.0,1.0))
 		# self.word_embedding = tf.Variable(tf.random_uniform([self.vocab_size, self.emb_size], -1.0,1.0))
 
-		x_latent = tf.nn.embedding_lookup(self.word_embedding, self.x)
+		# x_latent = self.get_x_latent(self.x)
 
 		##---------------------------------------------------------
-		#conv1 = Conv1D(128, kernel_size = 3, padding = 'same')
+		self.x_conv_1 = Conv1D(128, kernel_size = 3, padding = 'same')
 		#conv2 = Conv1D(128, kernel_size = 5, padding = 'same')
 
 		#conv = tf.nn.relu(tf.concat([conv1(x_emb), conv2(x_emb)], axis=-1))
@@ -67,17 +68,15 @@ class Model():
 		#x_emb = tf.nn.dropout(conv, self.dropout)
 		##-------------------------------------------------------
 
-		t_conv_1 = Conv1D(64, kernel_size = 5, padding = 'same')
+		self.t_conv_1 = Conv1D(64, kernel_size = 5, padding = 'same')
 
-		t_latent = tf.nn.relu(t_conv_1(self.t))
+		# t_latent = tf.nn.relu(t_conv_1(self.t))
 
-		t_latent = tf.nn.dropout(t_latent, self.dropout)
+		# t_latent = tf.nn.dropout(t_latent, self.dropout)
 
+		# latent = tf.concat([x_latent, t_latent], axis=-1)
 
-
-		latent = tf.concat([x_latent, t_latent], axis=-1)
-
-
+		latent = self.get_latent(self.x, self.t)
 
 
 		x_logit = Dense(50, activation='relu', kernel_initializer = 'lecun_uniform')(latent)
@@ -93,6 +92,21 @@ class Model():
 
 		self.train_op = tf.train.AdamOptimizer(learning_rate=0.0001).minimize(self.cost)
 
+	def get_latent(self, x, t):
+		x_latent = tf.nn.embedding_lookup(self.word_embedding, x)
+
+		x_latent = tf.nn.dropout(tf.nn.relu(self.x_conv_1(x_latent)), self.dropout)
+
+
+
+		t_latent = tf.nn.relu(self.t_conv_1(t))
+
+		t_latent = tf.nn.dropout(t_latent, self.dropout)
+
+		latent = tf.concat([x_latent, t_latent], axis=-1)
+
+
+		return latent
 
 
 
