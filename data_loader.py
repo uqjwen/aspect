@@ -3,6 +3,7 @@ import numpy as np
 from keras.preprocessing.sequence import pad_sequences
 #import torch
 from gensim.models import Word2Vec
+from keras.utils.np_utils import to_categorical
 
 class Data_Loader():
 	def __init__(self, batch_size):
@@ -16,6 +17,13 @@ class Data_Loader():
 		self.idx2word = data['idx2word']
 		self.vocab_size = data['vocab_size']
 		# self.emb_size = data['emb_size']
+
+
+		self.num_tag = len(data['tag2idx'])+1
+		tags = data['tags']
+
+
+
 		self.emb_size = 100
 		sentences = data['processed_sentence']
 		labels = data['labels']
@@ -24,15 +32,21 @@ class Data_Loader():
 		self.maxlen = int(np.mean([len(sent) for sent in sentences]))
 
 		
-		sentences = pad_sequences(sentences,self.maxlen, padding='post')
+		# sentences = pad_sequences(sentences,self.maxlen, padding='post')
+
+		# tags = data['tags']
+		# tags = pad_sequences(tags, self.maxlen, padding='post')
+
 
 
 		# print(labels)
 		self.emb_mat = self.embed_mat()
 
-		self.labels = np.array(pad_sequences(labels, self.maxlen, padding='post'))
+		self.labels = pad_sequences(labels, self.maxlen, padding='post')
 
-		self.sent = np.array(sentences).astype(np.int32)
+		self.sent = pad_sequences(sentences, self.maxlen, padding='post')
+
+		self.sent_tag = to_categorical(pad_sequences(tags, self.maxlen, padding='post'), self.num_tag)
 
 		self.mask = np.ones((len(self.sent), self.maxlen))
 
@@ -66,7 +80,7 @@ class Data_Loader():
 		# print(temp)
 		# return torch.tensor(self.sent[begin:end], dtype=torch.long), torch.from_numpy(self.mask[begin:end]), torch.tensor(self.labels[begin:end],dtype=torch.long)
 
-		return self.sent[begin:end], self.mask[begin:end], self.labels[begin:end]
+		return self.sent[begin:end],self.sent_tag[begin:end], self.mask[begin:end], self.labels[begin:end]
 
 
 

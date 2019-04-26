@@ -32,7 +32,7 @@ def get_domain_emb_weight(emb_size):
 
 
 class Model():
-	def __init__(self, domain_emb, num_class, maxlen,batch_size = 64, drop_out = 0.5):
+	def __init__(self, domain_emb, num_class, num_tag, maxlen,batch_size = 64, drop_out = 0.5):
 		self.vocab_size, self.emb_size = domain_emb.shape
 		self.maxlen = maxlen
 		self.dropout = drop_out
@@ -40,10 +40,12 @@ class Model():
 		print("embedding size", domain_emb.shape)
 		self.x = tf.placeholder(tf.int32, shape=[None, maxlen])
 		self.labels = tf.placeholder(tf.int32, shape=[None, maxlen, num_class])
+		self.t = tf.placeholder(tf.float32, shape=[None, maxlen, num_tag])
+
 		self.word_embedding = tf.Variable(domain_emb.astype(np.float32))
 		# self.word_embedding = tf.Variable(tf.random_uniform([self.vocab_size, self.emb_size], -1.0,1.0))
 
-		x_emb = tf.nn.embedding_lookup(self.word_embedding, self.x)
+		x_latent = tf.nn.embedding_lookup(self.word_embedding, self.x)
 
 		##---------------------------------------------------------
 		#conv1 = Conv1D(128, kernel_size = 3, padding = 'same')
@@ -65,8 +67,20 @@ class Model():
 		#x_emb = tf.nn.dropout(conv, self.dropout)
 		##-------------------------------------------------------
 
+		t_conv_1 = Conv1D(64, kernel_size = 5, padding = 'same')
 
-		x_logit = Dense(50, activation='relu', kernel_initializer = 'lecun_uniform')(x_emb)
+		t_latent = tf.nn.relu(t_conv_1(self.t))
+
+		t_latent = tf.nn.dropout(t_latent, self.dropout)
+
+
+
+		latent = tf.concat([x_latent, t_latent], axis=-1)
+
+
+
+
+		x_logit = Dense(50, activation='relu', kernel_initializer = 'lecun_uniform')(latent)
 		x_logit = Dense(3, kernel_initializer='lecun_uniform')(x_logit)
 		# self.linear_ae1 = Dense(50, activation='relu', kernel_initializer = 'lecun_uniform')
 
@@ -86,7 +100,12 @@ def train():
 	batch_size = 32
 	data_loader = Data_Loader(batch_size)
 	maxlen = data_loader.maxlen
-	model = Model(data_loader.emb_mat, 3, maxlen, batch_size, 0.5)
+	model = Model(data_loader.emb_mat,
+				num_tag = data_loader.num_tag,
+				num_class = 3,
+				maxlen = maxlen,
+				batch_size = batch_size,
+				drop_out = 0.5)
 	epochs = 100
 	with tf.Session() as sess:
 		sess.run(tf.global_variables_initializer())
@@ -96,11 +115,13 @@ def train():
 			data_loader.reset_pointer()
 			num_batch = int(data_loader.train_size/batch_size)
 			for b in range(num_batch+1):
-				input_data, mask_data, y_data = data_loader.__next__()
+				input_data, input_tag, mask_data, y_data = data_loader.__next__()
 				# print(input_data.shape, mask_data.shape, y_data.shape)
 				y_data = to_categorical(y_data, 3)
 				# print(y_data.shape,'uqjwen')
-				_,loss = sess.run([model.train_op, model.cost], feed_dict = {model.x:input_data, model.labels:y_data})
+				_,loss = sess.run([model.train_op, model.cost], feed_dict = {model.x:input_data,
+																			model.t:input_tag,
+																			model.labels:y_data})
 
 				sys.stdout.write('\repoch:{}, batch:{}, loss:{}'.format(i,b,loss))
 				sys.stdout.flush()

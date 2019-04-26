@@ -119,51 +119,66 @@ import numpy as np
 # 			sys.stdout.write("\rloss:{},epoch:{}, iter:{}".format(loss, e, i))
 # 			sys.stdout.flush()
 
+##++==---------------------------------------------------------------------------------
+# from keras.layers import Dense
+# import tensorflow as tf 
+# class Model():
+# 	def __init__(self):
+# 		emb_size = 100
+# 		vocab_size = 3981
+# 		batch_size = 32
+# 		maxlen = 12	
+# 		num_class = 3
 
-from keras.layers import Dense
-import tensorflow as tf 
-class Model():
-	def __init__(self):
-		emb_size = 100
-		vocab_size = 3981
-		batch_size = 32
-		maxlen = 12	
-		num_class = 3
+# 		word_embedding = tf.Variable(tf.random_uniform([vocab_size, emb_size],-1.0,1.0))
+# 		# linear_ae1 = Dense()
 
-		word_embedding = tf.Variable(tf.random_uniform([vocab_size, emb_size],-1.0,1.0))
-		# linear_ae1 = Dense()
+# 		self.x = tf.placeholder(tf.int32, shape=[batch_size, maxlen])
+# 		self.label = tf.placeholder(tf.int32, shape = [batch_size, maxlen, num_class])
 
-		self.x = tf.placeholder(tf.int32, shape=[batch_size, maxlen])
-		self.label = tf.placeholder(tf.int32, shape = [batch_size, maxlen, num_class])
+# 		emb = tf.nn.embedding_lookup(word_embedding, self.x)
 
-		emb = tf.nn.embedding_lookup(word_embedding, self.x)
+# 		x_emb = tf.nn.dropout(emb, 0.5)
 
-		x_emb = tf.nn.dropout(emb, 0.5)
+# 		x_logit = Dense(50, activation='relu', kernel_initializer = 'lecun_uniform')(x_emb)
 
-		x_logit = Dense(50, activation='relu', kernel_initializer = 'lecun_uniform')(x_emb)
+# 		x_logit = Dense(3, kernel_initializer = 'lecun_uniform')(x_logit)
 
-		x_logit = Dense(3, kernel_initializer = 'lecun_uniform')(x_logit)
+# 		loss = tf.nn.softmax_cross_entropy_with_logits(logits = x_logit, labels = self.label)
 
-		loss = tf.nn.softmax_cross_entropy_with_logits(logits = x_logit, labels = self.label)
+# 		self.cost = tf.reduce_mean(loss)
 
-		self.cost = tf.reduce_mean(loss)
-
-		self.train_op = tf.train.AdamOptimizer(learning_rate=0.0001).minimize(self.cost)
+# 		self.train_op = tf.train.AdamOptimizer(learning_rate=0.0001).minimize(self.cost)
 
 
+# def main():
+# 	model = Model()
+# 	with tf.Session() as sess:
+# 		sess.run(tf.global_variables_initializer())
+# 		for i in range(100):
+# 			for j in range(100):
+
+# 				x = np.random.randint(0,3981,(32,12))
+# 				y = np.random.randint(0,3,(32,12,3))
+# 				loss,_ = sess.run([model.cost, model.train_op], feed_dict = {model.x:x,model.label:y})
+
+# 				sys.stdout.write('\repoch:{}, batch:{}, loss:{}'.format(i,j,loss))
+# 				sys.stdout.flush()
+
+
+import pickle
 def main():
-	model = Model()
-	with tf.Session() as sess:
-		sess.run(tf.global_variables_initializer())
-		for i in range(100):
-			for j in range(100):
+	fr = open('data.pkl', 'rb')
+	data = pickle.load(fr)
 
-				x = np.random.randint(0,3981,(32,12))
-				y = np.random.randint(0,3,(32,12,3))
-				loss,_ = sess.run([model.cost, model.train_op], feed_dict = {model.x:x,model.label:y})
+	# tags = data['tags']
+	# print(len(tags))
+	# print(tags)
+	tag2idx = data['tag2idx']
+	print(len(tag2idx))
+	for key in tag2idx:
+		print(key)
 
-				sys.stdout.write('\repoch:{}, batch:{}, loss:{}'.format(i,j,loss))
-				sys.stdout.flush()
 
 if __name__ == '__main__':
 	main()
