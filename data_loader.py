@@ -29,7 +29,8 @@ class Data_Loader():
 		labels = data['labels']
 
 		# self.maxlen = max([len(sent) for sent in sentences])
-		self.maxlen = int(np.mean([len(sent) for sent in sentences]))
+		# self.maxlen = int(np.mean([len(sent) for sent in sentences]))
+		self.maxlen = 36
 
 		
 		# sentences = pad_sequences(sentences,self.maxlen, padding='post')
