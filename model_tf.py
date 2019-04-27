@@ -44,6 +44,8 @@ class Model():
 		self.labels = tf.placeholder(tf.int32, shape=[None, maxlen, num_class])
 		self.t = tf.placeholder(tf.float32, shape=[None, maxlen, num_tag])
 
+		self.mask= tf.placeholder(tf.float32, shape=[None, maxlen])
+
 		self.neg = tf.placeholder(tf.int32, shape=[None, maxlen, neg_size])
 
 		self.word_embedding = tf.Variable(domain_emb.astype(np.float32))
@@ -103,7 +105,11 @@ class Model():
 
 		loss = tf.nn.softmax_cross_entropy_with_logits(logits = x_logit, labels = self.labels)
 
-		self.cost = tf.reduce_mean(loss)
+		loss = loss*self.mask
+		loss = tf.reduce_sum(loss)/tf.reduce_sum(self.mask)
+
+		# self.cost = tf.reduce_mean(loss)
+		self.cost = loss 
 
 		self.cost += un_loss
 
@@ -172,6 +178,7 @@ def train():
 				# print(y_data.shape,'uqjwen')
 				_,loss = sess.run([model.train_op, model.cost], feed_dict = {model.x:input_data,
 																			model.t:input_tag,
+																			model.mask:mask_data,
 																			model.neg:input_neg,
 																			model.labels:y_data})
 
