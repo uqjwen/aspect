@@ -37,6 +37,7 @@ class Model():
 		self.maxlen = maxlen
 		self.dropout = drop_out
 		self.batch_size = batch_size
+		self.neg_size = neg_size
 		self.aspect_size = 12
 		self.aspect_emb_size = self.emb_size
 		print("embedding size", domain_emb.shape)
@@ -141,7 +142,14 @@ class Model():
 		neg = tf.reduce_sum(tf.expand_dims(att_aspect, 2)*neg_x_latent,axis=-1) # [batch_size, maxlen, neg_size]
 
 
-		un_loss = tf.reduce_mean(tf.maximum(0., 1.-pos+neg))
+		un_loss = tf.maximum(0., 1.-pos+neg) #[batch_size, maxlen, neg_size]
+
+		# un_loss = tf.expand_dims(self.mask, -1)
+		new_mask = tf.expand_dims(self.mask, -1)
+
+		un_loss = un_loss*new_mask
+
+		un_loss = tf.reduce_sum(un_loss) / tf.reduce_sum(new_mask) / self.neg_size
 
 		return un_loss
 
