@@ -96,23 +96,34 @@ class Model():
 
 
 		x_logit = Dense(50, activation='relu', kernel_initializer = 'lecun_uniform')(latent)
-		x_logit = Dense(3, kernel_initializer='lecun_uniform')(x_logit)
+		x_logit = Dense(3, kernel_initializer='lecun_uniform')(x_logit) #[batch_size, maxlen, 3]
+
+		self.prediction = tf.argmax(x_logit, axis=-1)
+		groundtruth = tf.argmax(self.labels, axis=-1)
+		truepositive = tf.cast(tf.equal(self.prediction, groundtruth),tf.float32)
+
+		self.accuracy_1 = tf.reduce_sum(truepositive*self.mask)/tf.reduce_sum(self.mask)
+
+		self.accuracy_2 = tf.reduce_mean(truepositive)
+
+
 		# self.linear_ae1 = Dense(50, activation='relu', kernel_initializer = 'lecun_uniform')
 
 		# self.linear_ae2 = Dense(3, kernel_initializer='lecun_uniform')
 
 		# self.logits, self.loss = self.forward(num_class)
-		un_loss = self.get_un_loss(att_aspect, self.x, self.neg)
+		self.un_loss = self.get_un_loss(att_aspect, self.x, self.neg)
 
 		loss = tf.nn.softmax_cross_entropy_with_logits(logits = x_logit, labels = self.labels)
 
 		loss = loss*self.mask
-		loss = tf.reduce_sum(loss)/tf.reduce_sum(self.mask)
+		self.loss = tf.reduce_sum(loss)/tf.reduce_sum(self.mask)
 
 		# self.cost = tf.reduce_mean(loss)
-		self.cost = loss 
+		# self.cost = loss 
 
-		self.cost += un_loss
+		# self.cost += un_loss
+		self.cost = self.loss + self.un_loss
 
 		self.train_op = tf.train.AdamOptimizer(learning_rate=0.0001).minimize(self.cost)
 
@@ -192,9 +203,24 @@ def train():
 
 				sys.stdout.write('\repoch:{}, batch:{}, loss:{}'.format(i,b,loss))
 				sys.stdout.flush()
-				# break
 
+				# break
+			acc1, acc2 = val(sess, model, data_loader)
+			print("\nacc1: ",acc1, "acc2: ",acc2)
 			# break
+
+
+
+def val(sess, model, data_loader):
+	input_data, input_tag, mask_data, y_data = data_loader.val()
+
+	y_data = to_categorical(y_data, 3)
+	acc1, acc2 = sess.run([model.accuracy_1, model.accuracy_2], feed_dict = {model.x:	input_data,
+											model.t:	input_tag,
+											model.mask:	mask_data,
+											model.labels:y_data})
+	return acc1, acc2
+
 
 if __name__ == '__main__':
 	train()

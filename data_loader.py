@@ -54,6 +54,8 @@ class Data_Loader():
 		self.pointer = 0
 		self.train_size = len(self.sent)
 
+		# print(self.train_size)
+
 
 	def embed_mat(self):
 		model = Word2Vec.load('my_gensim_model')
@@ -83,10 +85,16 @@ class Data_Loader():
 		return self.sent[begin:end],self.sent_tag[begin:end], self.mask[begin:end], self.labels[begin:end]
 
 
+	def val(self, sample_rate = 0.3):
+		test_size = self.train_size - 2000
+		sample_size = int(test_size*sample_rate)
 
+		idx = np.random.choice(range(2001,self.train_size), sample_size, replace = False)
+
+		return self.sent[idx], self.sent_tag[idx], self.mask[idx], self.labels[idx]
 		# lens = [len(sen) for sen in sentences]
 		# print(max(lens), np.mean(lens))
 
 
 if __name__ == '__main__':
-	data_loader = Data_Loader(128, 36)
+	data_loader = Data_Loader(128)
