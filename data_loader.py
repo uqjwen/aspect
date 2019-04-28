@@ -18,6 +18,8 @@ class Data_Loader():
 		self.vocab_size = data['vocab_size']
 		# self.emb_size = data['emb_size']
 
+		self.label_mask = data['label_mask']
+
 
 		self.num_tag = len(data['tag2idx'])+1
 		tags = data['tags']
@@ -83,7 +85,7 @@ class Data_Loader():
 		# print(temp)
 		# return torch.tensor(self.sent[begin:end], dtype=torch.long), torch.from_numpy(self.mask[begin:end]), torch.tensor(self.labels[begin:end],dtype=torch.long)
 
-		return self.sent[begin:end],self.sent_tag[begin:end], self.mask[begin:end], self.labels[begin:end]
+		return self.sent[begin:end],self.sent_tag[begin:end], self.mask[begin:end], self.labels[begin:end], self.label_mask[begin:end]
 
 
 	def val(self, sample_rate = 0.3):

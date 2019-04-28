@@ -115,7 +115,7 @@ def get_sentence_labels(filename):
 
 	return sentences, labels, pos
 		# break
-def build_vocab(sentences, labels,tags, train_size, emb_size):
+def build_vocab(sentences, labels,tags, train_size, emb_size, label_mask):
 	dic = {}
 	for sen in sentences:
 		for word in sen:
@@ -148,6 +148,9 @@ def build_vocab(sentences, labels,tags, train_size, emb_size):
 	data['tag2idx'] = tag2idx
 	data['idx2tag'] = idx2tag
 
+
+	data['label_mask'] = np.array(label_mask).astype(np.float32)
+
 	pickle.dump(data,open('data.pkl', 'wb'))
 
 def process_unsupervised_sent(tokens):
@@ -169,7 +172,11 @@ def get_unsupervised_sent(filename):
 		tokens = re.split(split_re, line)
 		new_tokens = process_unsupervised_sent(tokens)
 		sentences.append(new_tokens)
-		tags.append(pos_tagger.tag(new_tokens))
+		tag = pos_tagger.tag(new_tokens)
+		tag = [tp[1] for tp in tag]
+		# tags = [tp[1] for tp in tags]
+		########################################## tags.append(pos_tagger.tag(new_tokens))
+		tags.append(tag)
 		labels.append([0]*len(new_tokens))
 	return sentences, tags, labels
 
@@ -179,31 +186,35 @@ def processFile():
 	sent1, label1, tag1 = get_sentence_labels('./data/ABSA16_Restaurants_Train_SB1_v2.xml')
 	sent2, label2, tag2 = get_sentence_labels('./data/EN_REST_SB1_TEST_gold.xml')
 
-	sent3, label3, tag3 = get_sentence_labels('ABSA16_Laptops_Train_SB1_v2.xml')
-	sent4, label4, tag4 = get_sentence_labels('EN_LAPT_SB1_TEST_.xml.gold')
+	sent3, label3, tag3 = get_sentence_labels('./data/ABSA16_Laptops_Train_SB1_v2.xml')
+	sent4, label4, tag4 = get_sentence_labels('./data/EN_LAPT_SB1_TEST_.xml.gold')
 	# sent3, tag3 = get_unsupervised_sent('./data/train.txt')
-	label_non_none = [1]*(len(sent1)+len(sent2)) +[0]*(len(sent3)+len(sent4))
+	label_mask = [1]*(len(sent1)+len(sent2)) +[0]*(len(sent3)+len(sent4))
 
 	sent = sent1+sent2+sent3+sent4
 	label = label1+label2+label3+label4
 	tag = tag1+tag2+tag3+tag4
+
+	supervise_size = len(sent1+sent2)
+	return sent, label, tag, label_mask, supervise_size
 
 
 
 if __name__ == '__main__':
 	# main()
 	# parser = argparser.ArgumentParser()
-	sentences, labels, tags = get_sentence_labels('./data/ABSA16_Restaurants_Train_SB1_v2.xml')
-	test_sent, test_label, test_tag = get_sentence_labels('./data/EN_REST_SB1_TEST_gold.xml')
+	# sentences, labels, tags = get_sentence_labels('./data/ABSA16_Restaurants_Train_SB1_v2.xml')
+	# test_sent, test_label, test_tag = get_sentence_labels('./data/EN_REST_SB1_TEST_gold.xml')
 
 
-	label_not_none = [1]*(len)
+	# label_mask = [1]*(len)
 
+	sent, label, tag, label_mask, supervise_size = processFile()
 
 	print(len(sentences))
-	sen = MySentence(sentences+test_sent)
-	# model = gensim.models.Word2Vec(sen, size = 100, window = 5, min_count=0, workers = 4)
+	sen = MySentence(sent)
+	model = gensim.models.Word2Vec(sen, size = 100, window = 5, min_count=0, workers = 4)
 	# model.save("my_gensim_model")
-	build_vocab(sentences+test_sent, labels+test_label, tags+test_tag, train_size = len(sentences), emb_size = 100)
+	build_vocab(sent, label, tag, train_size = supervise_size, emb_size = 100, label_mask = label_mask)
 	# for word in model.wv.vocab:
 	# 	print(word)

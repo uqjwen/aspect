@@ -45,7 +45,10 @@ class Model():
 		self.labels = tf.placeholder(tf.int32, shape=[None, maxlen, num_class])
 		self.t = tf.placeholder(tf.float32, shape=[None, maxlen, num_tag])
 
+
 		self.mask= tf.placeholder(tf.float32, shape=[None, maxlen])
+
+		self.label_mask = tf.placeholder(tf.float32, shape = [None])
 
 		self.neg = tf.placeholder(tf.int32, shape=[None, maxlen, neg_size])
 
@@ -116,8 +119,15 @@ class Model():
 
 		loss = tf.nn.softmax_cross_entropy_with_logits(logits = x_logit, labels = self.labels)
 
-		loss = loss*self.mask
-		self.loss = tf.reduce_sum(loss)/tf.reduce_sum(self.mask)
+		loss = loss*self.mask #[batch_size, maxlen]
+
+		label_mask = tf.reshape(self.label_mask, [-1,1]) #[batch_size,1]
+
+		# tf.reduce_sum(loss,-1,keep_dims=True)*label_mask/(tf.reduce_sum(self.mask,-1)*)
+		self.loss = tf.reduce_sum(loss*label_mask)/tf.reduce_sum(self.mask*label_mask)
+
+
+		# self.loss = tf.reduce_sum(loss)/tf.reduce_sum(self.mask)
 
 		# self.cost = tf.reduce_mean(loss)
 		# self.cost = loss 
@@ -189,7 +199,7 @@ def train():
 			data_loader.reset_pointer()
 			num_batch = int(data_loader.train_size/batch_size)
 			for b in range(num_batch+1):
-				input_data, input_tag, mask_data, y_data = data_loader.__next__()
+				input_data, input_tag, mask_data, y_data, label_mask = data_loader.__next__()
 				# print(input_data.shape, mask_data.shape, y_data.shape)
 				input_neg = np.random.randint(1,data_loader.vocab_size, (input_data.shape[0], maxlen, neg_size))
 				# print(input_neg)
