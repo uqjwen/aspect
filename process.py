@@ -150,6 +150,44 @@ def build_vocab(sentences, labels,tags, train_size, emb_size):
 
 	pickle.dump(data,open('data.pkl', 'wb'))
 
+def process_unsupervised_sent(tokens):
+	new_tokens = []
+	for token in tokens:
+		if token is not '':
+			new_tokens.append(token.lower())
+	return new_tokens
+
+def get_unsupervised_sent(filename):
+
+
+	fr = open(filename)
+	data = fr.readlines()
+	sentences = []
+	tags = []
+	labels = []
+	for line in data:
+		tokens = re.split(split_re, line)
+		new_tokens = process_unsupervised_sent(tokens)
+		sentences.append(new_tokens)
+		tags.append(pos_tagger.tag(new_tokens))
+		labels.append([0]*len(new_tokens))
+	return sentences, tags, labels
+
+
+
+def processFile():
+	sent1, label1, tag1 = get_sentence_labels('./data/ABSA16_Restaurants_Train_SB1_v2.xml')
+	sent2, label2, tag2 = get_sentence_labels('./data/EN_REST_SB1_TEST_gold.xml')
+
+	sent3, label3, tag3 = get_sentence_labels('ABSA16_Laptops_Train_SB1_v2.xml')
+	sent4, label4, tag4 = get_sentence_labels('EN_LAPT_SB1_TEST_.xml.gold')
+	# sent3, tag3 = get_unsupervised_sent('./data/train.txt')
+	label_non_none = [1]*(len(sent1)+len(sent2)) +[0]*(len(sent3)+len(sent4))
+
+	sent = sent1+sent2+sent3+sent4
+	label = label1+label2+label3+label4
+	tag = tag1+tag2+tag3+tag4
+
 
 
 if __name__ == '__main__':
@@ -157,6 +195,10 @@ if __name__ == '__main__':
 	# parser = argparser.ArgumentParser()
 	sentences, labels, tags = get_sentence_labels('./data/ABSA16_Restaurants_Train_SB1_v2.xml')
 	test_sent, test_label, test_tag = get_sentence_labels('./data/EN_REST_SB1_TEST_gold.xml')
+
+
+	label_not_none = [1]*(len)
+
 
 	print(len(sentences))
 	sen = MySentence(sentences+test_sent)
