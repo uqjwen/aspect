@@ -77,6 +77,8 @@ def get_sentence_labels(filename):
 		y_labels = [0]*len(tokens)
 		for op in sen.iter("Opinion"):
 			# print(op.attrib['from'], op.attrib['to'])
+			if 'target' not in op.attrib:
+				continue
 			begin = int(op.attrib['from'])
 			end = int(op.attrib['to'])
 
@@ -183,8 +185,8 @@ def get_unsupervised_sent(filename):
 
 
 def processFile():
-	sent1, label1, tag1 = get_sentence_labels('./data/ABSA16_Restaurants_Train_SB1_v2.xml')
-	sent2, label2, tag2 = get_sentence_labels('./data/EN_REST_SB1_TEST_gold.xml')
+	# sent1, label1, tag1 = get_sentence_labels('./data/ABSA16_Restaurants_Train_SB1_v2.xml')
+	# sent2, label2, tag2 = get_sentence_labels('./data/EN_REST_SB1_TEST_gold.xml')
 
 	sent3, label3, tag3 = get_sentence_labels('./data/ABSA16_Laptops_Train_SB1_v2.xml')
 	sent4, label4, tag4 = get_sentence_labels('./data/EN_LAPT_SB1_TEST_.xml.gold')
