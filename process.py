@@ -1,4 +1,5 @@
 
+import numpy as np 
 import re
 import os
 import xml.etree.ElementTree as ET 
@@ -6,7 +7,7 @@ from nltk import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem.wordnet import WordNetLemmatizer
 from sklearn.feature_extraction.text import CountVectorizer
-# import gensim
+import gensim
 import pickle
 from nltk.parse.stanford import StanfordDependencyParser
 from nltk.tag import StanfordPOSTagger
@@ -96,22 +97,23 @@ def get_sentence_labels(filename):
 		# print(tokens)
 		# print(y_labels)
 		tokens, sen_labels = processSentence(tokens,y_labels)
-		print(tokens)
-		print(sen_labels)
+		# print(tokens)
+		# print(sen_labels)
 		# print(pos_tagger.tag(tokens))
-		print('----------------------------')
+		# print('----------------------------')
 		tags = pos_tagger.tag(tokens)
-		print(tags)
+		# print(tags)
 		tags = [tp[1] for tp in tags]
 		# print(ner_tagger.tag(tokens))
 		# dpdc_parse(tokens)
-		print("###########################################")
+		# print("###########################################")
 
 
 
 		sentences.append(tokens)
 		labels.append(sen_labels)
 		pos.append(tags)
+		# break 
 		# print(y_labels)
 		# break
 
@@ -186,10 +188,14 @@ def get_unsupervised_sent(filename):
 
 def processFile():
 	sent1, label1, tag1 = get_sentence_labels('./data/ABSA16_Restaurants_Train_SB1_v2.xml')
+	print("training 1 finished ...")
 	sent2, label2, tag2 = get_sentence_labels('./data/EN_REST_SB1_TEST_gold.xml')
+	print('testing 1 finished ...')
 
 	sent3, label3, tag3 = get_sentence_labels('./data/ABSA16_Laptops_Train_SB1_v2.xml')
+	print("training 2 finished...")
 	sent4, label4, tag4 = get_sentence_labels('./data/EN_LAPT_SB1_TEST_.xml.gold')
+	print("testing 2 finished...")
 	# sent3, tag3 = get_unsupervised_sent('./data/train.txt')
 	label_mask = [1]*(len(sent1)+len(sent2)) +[0]*(len(sent3)+len(sent4))
 
