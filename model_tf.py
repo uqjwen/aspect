@@ -191,6 +191,7 @@ def train():
 				drop_out = 0.5,
 				neg_size = neg_size)
 	epochs = 100
+	best_acc = 0
 	with tf.Session() as sess:
 		sess.run(tf.global_variables_initializer())
 		saver = tf.train.Saver(tf.global_variables())
@@ -216,6 +217,9 @@ def train():
 
 				# break
 			acc1, acc2 = val(sess, model, data_loader)
+			if acc1>best_acc:
+				best_acc = acc1
+				saver.save(sess, checkpointer_dir+'model.ckpt', global_step=i)
 			print("\nacc1: ",acc1, "acc2: ",acc2)
 			# break
 
@@ -231,6 +235,7 @@ def val(sess, model, data_loader):
 											model.labels:y_data})
 	return acc1, acc2
 
+checkpointer_dir = './ckpt/'
 
 if __name__ == '__main__':
 	train()
