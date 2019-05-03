@@ -74,16 +74,18 @@ class Data_Loader():
 	def __next__(self):
 		begin = self.pointer*self.batch_size
 		# end = min(self.train_size, (self.pointer+1)*self.batch_size)
+
 		end = (self.pointer+1)*self.batch_size
-		if (self.pointer+1)*self.batch_size > self.train_size:
+		if (self.pointer+1)*self.batch_size >= self.train_size:
 			end = self.train_size
 			self.pointer = 0
-
-		self.pointer+=1
+		else:
+			self.pointer+=1
 		# temp = torch.from_numpy(self.labels[begin:end])
 		# print(temp.dtype)
 		# print(temp)
 		# return torch.tensor(self.sent[begin:end], dtype=torch.long), torch.from_numpy(self.mask[begin:end]), torch.tensor(self.labels[begin:end],dtype=torch.long)
+		# print(begin, end, self.train_size)
 
 		return self.sent[begin:end],self.sent_tag[begin:end], self.mask[begin:end], self.labels[begin:end], self.label_mask[begin:end]
 

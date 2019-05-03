@@ -116,14 +116,14 @@ class Model():
 
 		# self.logits, self.loss = self.forward(num_class)
 
-		loss = tf.nn.softmax_cross_entropy_with_logits(logits = x_logit, labels = self.labels)
+		loss = tf.nn.softmax_cross_entropy_with_logits_v2(logits = x_logit, labels = self.labels)
 
 		loss = loss*self.mask #[batch_size, maxlen]
 
 		label_mask = tf.reshape(self.label_mask, [-1,1]) #[batch_size,1]
 
-		# tf.reduce_sum(loss,-1,keep_dims=True)*label_mask/(tf.reduce_sum(self.mask,-1)*)
 		self.loss = tf.reduce_sum(loss*label_mask)/tf.maximum(tf.reduce_sum(self.mask*label_mask), 1)
+		# self.loss = tf.reduce_sum(loss)/tf.reduce_sum(self.mask)
 
 
 		# self.loss = tf.reduce_sum(loss)/tf.reduce_sum(self.mask)
@@ -200,8 +200,10 @@ def train():
 		for i in range(epochs):
 			data_loader.reset_pointer()
 			num_batch = int(data_loader.train_size/batch_size)
+			# print("total batch: ", num_batch)
 			for b in range(num_batch+1):
 				input_data, input_tag, mask_data, y_data, label_mask = data_loader.__next__()
+				# print(input_data.shape, input_tag.shape, mask_data.shape, y_data.shape, label_mask.shape)
 				# print(input_data.shape, mask_data.shape, y_data.shape)
 				input_neg = np.random.randint(1,data_loader.vocab_size, (input_data.shape[0], maxlen, neg_size))
 				# print(input_neg)
@@ -218,7 +220,7 @@ def train():
 				sys.stdout.flush()
 
 				# break
-			print("validation....")
+			# print("validation....")
 			acc1, acc2 = val(sess, model, data_loader)
 			if acc1>best_acc:
 				best_acc = acc1
