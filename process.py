@@ -222,7 +222,7 @@ if __name__ == '__main__':
 	print(len(sent))
 	sen = MySentence(sent)
 	model = gensim.models.Word2Vec(sen, size = 100, window = 5, min_count=0, workers = 4)
-	# model.save("my_gensim_model")
+	model.save("my_gensim_model")
 	build_vocab(sent, label, tag, train_size = supervise_size, emb_size = 100, label_mask = label_mask)
 	# for word in model.wv.vocab:
 	# 	print(word)

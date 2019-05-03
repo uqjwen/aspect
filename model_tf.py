@@ -115,7 +115,6 @@ class Model():
 		# self.linear_ae2 = Dense(3, kernel_initializer='lecun_uniform')
 
 		# self.logits, self.loss = self.forward(num_class)
-		self.un_loss = self.get_un_loss(att_aspect, self.x, self.neg)
 
 		loss = tf.nn.softmax_cross_entropy_with_logits(logits = x_logit, labels = self.labels)
 
@@ -124,7 +123,7 @@ class Model():
 		label_mask = tf.reshape(self.label_mask, [-1,1]) #[batch_size,1]
 
 		# tf.reduce_sum(loss,-1,keep_dims=True)*label_mask/(tf.reduce_sum(self.mask,-1)*)
-		self.loss = tf.reduce_sum(loss*label_mask)/tf.reduce_sum(self.mask*label_mask)
+		self.loss = tf.reduce_sum(loss*label_mask)/tf.maximum(tf.reduce_sum(self.mask*label_mask), 1)
 
 
 		# self.loss = tf.reduce_sum(loss)/tf.reduce_sum(self.mask)
@@ -133,6 +132,8 @@ class Model():
 		# self.cost = loss 
 
 		# self.cost += un_loss
+		self.un_loss = self.get_un_loss(att_aspect, self.x, self.neg)
+
 		self.cost = self.loss + self.un_loss
 
 		self.train_op = tf.train.AdamOptimizer(learning_rate=0.0001).minimize(self.cost)
@@ -190,7 +191,7 @@ def train():
 				batch_size = batch_size,
 				drop_out = 0.5,
 				neg_size = neg_size)
-	epochs = 100
+	epochs = 1000
 	best_acc = 0
 	with tf.Session() as sess:
 		sess.run(tf.global_variables_initializer())
@@ -209,6 +210,7 @@ def train():
 				_,loss = sess.run([model.train_op, model.cost], feed_dict = {model.x:input_data,
 																			model.t:input_tag,
 																			model.mask:mask_data,
+																			model.label_mask:label_mask,
 																			model.neg:input_neg,
 																			model.labels:y_data})
 
@@ -216,6 +218,7 @@ def train():
 				sys.stdout.flush()
 
 				# break
+			print("validation....")
 			acc1, acc2 = val(sess, model, data_loader)
 			if acc1>best_acc:
 				best_acc = acc1
