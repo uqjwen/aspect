@@ -93,29 +93,22 @@ def get_sentence_labels(filename):
 				for idx in range(begin_idx+1, end_idx):
 					y_labels[idx] = 2
 			temp = [tokens[i] for i,label in enumerate(y_labels) if label!=0]
-			# print(temp, sentext[begin:end])
-		# print(tokens)
-		# print(y_labels)
+
+
 		tokens, sen_labels = processSentence(tokens,y_labels)
-		# print(tokens)
-		# print(sen_labels)
-		# print(pos_tagger.tag(tokens))
-		# print('----------------------------')
+
 		tags = pos_tagger.tag(tokens)
-		# print(tags)
+
 		tags = [tp[1] for tp in tags]
-		# print(ner_tagger.tag(tokens))
-		# dpdc_parse(tokens)
-		# print("###########################################")
+
+
 
 
 
 		sentences.append(tokens)
 		labels.append(sen_labels)
 		pos.append(tags)
-		# break 
-		# print(y_labels)
-		# break
+
 
 	return sentences, labels, pos
 		# break
@@ -203,6 +196,8 @@ def processFile():
 	label = label1+label2+label3+label4
 	tag = tag1+tag2+tag3+tag4
 
+	print(len(sent1), len(sent2), len(sent3), len(sent4))  #2000 676 2500 808
+
 	supervise_size = len(sent1+sent2)
 	return sent, label, tag, label_mask, supervise_size
 
@@ -219,10 +214,8 @@ if __name__ == '__main__':
 
 	sent, label, tag, label_mask, supervise_size = processFile()
 
-	print(len(sent))
-	sen = MySentence(sent)
-	model = gensim.models.Word2Vec(sen, size = 100, window = 5, min_count=0, workers = 4)
-	model.save("my_gensim_model")
-	build_vocab(sent, label, tag, train_size = supervise_size, emb_size = 100, label_mask = label_mask)
-	# for word in model.wv.vocab:
-	# 	print(word)
+	# print(len(sent))
+	# sen = MySentence(sent)
+	# model = gensim.models.Word2Vec(sen, size = 100, window = 5, min_count=0, workers = 4)
+	# model.save("my_gensim_model")
+	# build_vocab(sent, label, tag, train_size = supervise_size, emb_size = 100, label_mask = label_mask)
