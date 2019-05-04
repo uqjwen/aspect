@@ -7,6 +7,7 @@ from keras.layers import Conv1D, Dropout, Dense
 from keras.utils.np_utils import to_categorical
 from data_loader import Data_Loader
 import tensorflow as tf
+from sklearn.metrics import f1_score
 #b = to_categorical(a,9)
 
 # import torch.nn.functional as F 
@@ -230,24 +231,38 @@ def train():
 
 				# break
 			# print("validation....")
-			acc1, acc2 = val(sess, model, data_loader)
+			acc1, acc2, fscore = val(sess, model, data_loader)
 			if acc1>best_acc:
 				best_acc = acc1
 				saver.save(sess, checkpointer_dir+'model.ckpt', global_step=i)
-			print("\nacc1: ",acc1, "acc2: ",acc2)
+			print("\nacc1: ",acc1, "acc2: ",acc2, "f1_score: ", fscore)
 			# break
 
 
+def f_score(y_pred, y_true, y_mask):
+	y_pred = y_pred.reshape(-1)
+	y_true = y_true.reshape(-1)
+	y_mask = y_mask.reshape(-1)
+
+	index = np.where(y_mask==1)[0]
+
+	return f1_score(y_pred[index], y_true[index], average='micro')
 
 def val(sess, model, data_loader):
 	input_data, input_tag, mask_data, y_data = data_loader.val()
 
 	y_data = to_categorical(y_data, 3)
-	acc1, acc2 = sess.run([model.accuracy_1, model.accuracy_2], feed_dict = {model.x:	input_data,
-											model.t:	input_tag,
-											model.mask:	mask_data,
+	y_pred, acc1, acc2 = sess.run([model.prediction,model.accuracy_1, model.accuracy_2],
+								feed_dict = {model.x:input_data,
+											model.t:input_tag,
+											model.mask:mask_data,
 											model.labels:y_data})
-	return acc1, acc2
+	# f_score = f1_score()
+
+	y_true = np.argmax(y_data,axis=-1)
+	fscore = f_score(y_pred, y_true, mask_data)
+
+	return acc1, acc2, fscore
 
 checkpointer_dir = './ckpt/'
 if not os.path.exists(checkpointer_dir):
