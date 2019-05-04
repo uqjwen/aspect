@@ -55,7 +55,16 @@ class Data_Loader():
 
 		self.mask[self.sent==0] = 0
 		self.pointer = 0
+
+
+
+
+
+		self.train_val_test() ## it splits training testing here
+
 		self.train_size = len(self.sent)
+
+
 
 		# print(self.train_size)
 
@@ -91,14 +100,38 @@ class Data_Loader():
 
 
 	def val(self, sample_rate = 0.3):
-		test_size = self.train_size - 2000
-		sample_size = int(test_size*sample_rate)
+		# test_size = self.train_size - 2000
+		val_size = len(self.val_sent)
+		sample_size = int(val_size*sample_rate)
 
-		idx = np.random.choice(range(2001,self.train_size), sample_size, replace = False)
+		idx = np.random.choice(range(len(self.val_sent)), sample_size, replace = False)
 
-		return self.sent[idx], self.sent_tag[idx], self.mask[idx], self.labels[idx]
-		# lens = [len(sen) for sen in sentences]
-		# print(max(lens), np.mean(lens))
+		# return self.sent[idx], self.sent_tag[idx], self.mask[idx], self.labels[idx]
+		return self.val_sent[idx], self.val_sent_tag[idx], self.val_mask[idx], self.val_labels[idx]
+
+
+	def train_val_test(self):
+		val_b = 2000
+		val_e = 2676
+
+		self.val_sent 		= self.sent[val_b:val_e]
+		self.val_sent_tag 	= self.sent_tag[val_b:val_e]
+		self.val_mask 		= self.mask[val_b:val_e]
+		self.val_labels 	= self.labels[val_b:val_e]
+		self.val_label_mask = self.label_mask[val_b:val_e]
+
+		self.sent 		= np.delete(self.sent, range(val_b, val_e), axis=0)
+		self.sent_tag 	= np.delete(self.sent_tag, range(val_b, val_e), axis=0)
+		self.mask 		= np.delete(self.mask, range(val_b, val_e), axis=0)
+		self.labels 	= np.delete(self.labels, range(val_b, val_e), axis=0)
+		self.label_mask = np.delete(self.label_mask, range(val_b, val_e), axis=0)
+
+		self.test_sent 			= self.sent[val_b:]
+		self.test_sent_tag 		= self.sent_tag[val_b:]
+		self.test_mask 			= self.mask[val_b:]
+		self.test_labels 		= self.labels[val_b:]
+		self.test_label_mask 	= self.label_mask[val_b:]
+
 
 
 if __name__ == '__main__':

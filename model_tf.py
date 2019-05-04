@@ -116,7 +116,7 @@ class Model():
 
 		# self.logits, self.loss = self.forward(num_class)
 
-		loss = tf.nn.softmax_cross_entropy_with_logits_v2(logits = x_logit, labels = self.labels)
+		loss = tf.nn.softmax_cross_entropy_with_logits(logits = x_logit, labels = self.labels)
 
 		loss = loss*self.mask #[batch_size, maxlen]
 
