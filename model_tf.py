@@ -1,3 +1,4 @@
+import os 
 import sys
 # import torch 
 import numpy as np 
@@ -197,6 +198,14 @@ def train():
 		sess.run(tf.global_variables_initializer())
 		saver = tf.train.Saver(tf.global_variables())
 
+
+		ckpt = tf.train.get_checkpoint_state(checkpointer_dir)
+		if ckpt and ckpt.model_checkpoint_path:
+			saver.restore(sess, ckpt.model_checkpoint_path)
+			print(" [*] loading parameters success!!!")
+		else:
+			print(" [!] loading parameters failed...")
+
 		for i in range(epochs):
 			data_loader.reset_pointer()
 			num_batch = int(data_loader.train_size/batch_size)
@@ -241,6 +250,8 @@ def val(sess, model, data_loader):
 	return acc1, acc2
 
 checkpointer_dir = './ckpt/'
+if not os.path.exists(checkpointer_dir):
+	os.makedirs(checkpointer_dir)
 
 if __name__ == '__main__':
 	train()
