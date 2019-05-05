@@ -87,6 +87,8 @@ class Model():
 
 		self.t_conv_1 = Conv1D(128, kernel_size = 5, padding = 'same')
 
+		self.t_conv_2 = Conv1D(128, kernel_size = 5, padding = 'same')
+
 		# t_latent = tf.nn.relu(t_conv_1(self.t))
 
 		# t_latent = tf.nn.dropout(t_latent, self.dropout)
@@ -154,8 +156,9 @@ class Model():
 
 
 
-		t_latent = tf.nn.dropout(tf.nn.relu(self.t_conv_1(t)),self.dropout)
+		t_latent = tf.nn.dropout(tf.nn.relu(self.t_conv_1(t)), self.dropout)
 
+		t_latent = tf.nn.dropout(tf.nn.relu(self.t_conv_2(t)), self.dropout)
 
 
 		gate = tf.nn.sigmoid(Dense(128, use_bias = True)(x_latent)+Dense(128)(t_latent))
