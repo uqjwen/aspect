@@ -248,6 +248,21 @@ def f_score(y_pred, y_true, y_mask):
 
 	return f1_score(y_pred[index], y_true[index], average='micro')
 
+
+def res(idx2word,input_data, y_pred, y_true, mask_data):
+	for i,line in enumerate(input_data):
+		mask_index = np.where(mask_data[i]==1)[0]
+		index = line[mask_index]
+		# print(line, mask_index)
+		tokens = [idx2word[idx] for idx in index]
+		sent = '\t'.join(tokens)
+		labels = '\t'.join(map(str,y_true[i][mask_index]))
+		predict = '\t'.join(map(str,y_pred[i][mask_index]))
+		print(sent)
+		print(labels)
+		print(predict)
+		print('-------------------------------------')
+
 def val(sess, model, data_loader):
 	input_data, input_tag, mask_data, y_data = data_loader.val()
 
@@ -261,7 +276,8 @@ def val(sess, model, data_loader):
 
 	y_true = np.argmax(y_data,axis=-1)
 	fscore = f_score(y_pred, y_true, mask_data)
-
+	if fscore>0.9:
+		res(data_loader.idx2word, input_data, y_pred, y_true, mask_data)
 	return acc1, acc2, fscore
 
 checkpointer_dir = './ckpt/'
