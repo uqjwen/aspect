@@ -106,8 +106,28 @@ class Data_Loader():
 
 		idx = np.random.choice(range(len(self.val_sent)), sample_size, replace = False)
 
+
+		v_sent 		= []
+		v_sent_tag 	= []
+		v_mask 		= []
+		v_labels 	= []
+
+		while len(v_sent)<sample_size:
+			idx = np.random.choice(range(len(self.val_sent)))
+			if np.sum(self.val_labels[idx])==0:
+				continue
+			v_sent.append(self.val_sent[idx])
+			v_sent_tag.append(self.val_sent_tag[idx])
+			v_mask.append(self.val_mask[idx])
+			v_labels.append(self.val_labels[idx])
+
+
 		# return self.sent[idx], self.sent_tag[idx], self.mask[idx], self.labels[idx]
-		return self.val_sent[idx], self.val_sent_tag[idx], self.val_mask[idx], self.val_labels[idx]
+		# return self.val_sent[idx], self.val_sent_tag[idx], self.val_mask[idx], self.val_labels[idx]
+		return np.array(v_sent),\
+				np.array(v_sent_tag),\
+				np.array(v_mask),\
+				np.array(v_labels)
 
 
 	def train_val_test(self):

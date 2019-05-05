@@ -28,6 +28,23 @@ pos_tagger = StanfordPOSTagger('english-bidirectional-distsim.tagger')
 # def get_sentence_()
 split_re = "[- ;!.,-?\"\'\)\()]"
 
+def my_split(line):
+	tokens = []
+	token=''
+	idx = 0
+	line+="#"
+	while idx<len(line):
+		if line[idx].isalpha():
+			token += line[idx].lower()
+		else:
+			if len(token)>0:
+				tokens.append(token)
+				token = ''
+		idx+=1
+	return tokens
+
+
+
 class MySentence():
 	def __init__(self,sentence):
 		self.sentence = sentence
@@ -75,7 +92,10 @@ def get_sentence_labels(filename):
 		sentext = sen.find("text").text
 		# tokens = word_tokenize(sentext)
 		tokens = re.split(split_re, sentext)
+		# tokens = my_split(sentext)
 		y_labels = [0]*len(tokens)
+		# print(sentext)
+		# print(tokens)
 		for op in sen.iter("Opinion"):
 			# print(op.attrib['from'], op.attrib['to'])
 			if 'target' not in op.attrib:
@@ -102,7 +122,7 @@ def get_sentence_labels(filename):
 		tags = [tp[1] for tp in tags]
 
 
-
+		# tags = [0]*len(tokens)
 
 
 		sentences.append(tokens)

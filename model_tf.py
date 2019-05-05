@@ -194,7 +194,7 @@ def train():
 				drop_out = 0.5,
 				neg_size = neg_size)
 	epochs = 1000
-	best_acc = 0
+	best_metric = 0
 	with tf.Session() as sess:
 		sess.run(tf.global_variables_initializer())
 		saver = tf.train.Saver(tf.global_variables())
@@ -232,8 +232,8 @@ def train():
 				# break
 			# print("validation....")
 			acc1, acc2, fscore = val(sess, model, data_loader)
-			if acc1>best_acc:
-				best_acc = acc1
+			if fscore > best_metric:
+				best_metric = fscore
 				saver.save(sess, checkpointer_dir+'model.ckpt', global_step=i)
 			print("\nacc1: ",acc1, "acc2: ",acc2, "f1_score: ", fscore)
 			# break
@@ -246,7 +246,7 @@ def f_score(y_pred, y_true, y_mask):
 
 	index = np.where(y_mask==1)[0]
 
-	return f1_score(y_pred[index], y_true[index], average='micro')
+	return f1_score(y_pred[index], y_true[index], average='macro')
 
 
 def res(idx2word,input_data, y_pred, y_true, mask_data):
@@ -258,10 +258,10 @@ def res(idx2word,input_data, y_pred, y_true, mask_data):
 		sent = '\t'.join(tokens)
 		labels = '\t'.join(map(str,y_true[i][mask_index]))
 		predict = '\t'.join(map(str,y_pred[i][mask_index]))
-		print(sent)
-		print(labels)
-		print(predict)
-		print('-------------------------------------')
+		# print(sent)
+		# print(labels)
+		# print(predict)
+		# print('-------------------------------------')
 
 def val(sess, model, data_loader):
 	input_data, input_tag, mask_data, y_data = data_loader.val()
