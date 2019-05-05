@@ -63,6 +63,10 @@ class Model():
 
 		##---------------------------------------------------------
 		self.x_conv_1 = Conv1D(128, kernel_size = 3, padding = 'same')
+
+		self.x_conv_2 = Conv1D(128, kernel_size = 5, padding = 'same')
+
+		self.x_conv_3 = Conv1D(128, kernel_size = 5, padding = 'same')
 		#conv2 = Conv1D(128, kernel_size = 5, padding = 'same')
 
 		#conv = tf.nn.relu(tf.concat([conv1(x_emb), conv2(x_emb)], axis=-1))
@@ -81,7 +85,7 @@ class Model():
 		#x_emb = tf.nn.dropout(conv, self.dropout)
 		##-------------------------------------------------------
 
-		self.t_conv_1 = Conv1D(64, kernel_size = 5, padding = 'same')
+		self.t_conv_1 = Conv1D(128, kernel_size = 5, padding = 'same')
 
 		# t_latent = tf.nn.relu(t_conv_1(self.t))
 
@@ -143,15 +147,26 @@ class Model():
 	def get_latent(self, x, t):
 		x_latent = tf.nn.embedding_lookup(self.word_embedding, x)
 
-		x_latent = tf.nn.dropout(tf.nn.relu(self.x_conv_1(x_latent)), self.dropout)
+		# x_latent = tf.nn.dropout(tf.nn.relu(self.x_conv_1(x_latent)), self.dropout)
+		x_latent = tf.nn.dropout(tf.nn.relu(tf.concat([self.x_conv_1(x_latent), self.x_conv_2(x_latent)],axis=-1)), self.dropout)
+
+		x_latent = tf.nn.dropout(tf.nn.relu(self.x_conv_3(x_latent)), self.dropout)
 
 
 
-		t_latent = tf.nn.relu(self.t_conv_1(t))
+		t_latent = tf.nn.dropout(tf.nn.relu(self.t_conv_1(t)),self.dropout)
 
-		t_latent = tf.nn.dropout(t_latent, self.dropout)
 
-		latent = tf.concat([x_latent, t_latent], axis=-1)
+
+		gate = tf.nn.sigmoid(Dense(128, use_bias = True)(x_latent)+Dense(128)(t_latent))
+
+		latent = gate*t_latent+(1-gate)*x_latent
+
+
+
+		# t_latent = tf.nn.dropout(t_latent, self.dropout)
+
+		# latent = tf.concat([x_latent, t_latent], axis=-1)
 
 
 		return latent
