@@ -89,6 +89,8 @@ class Model():
 
 		self.t_conv_2 = Conv1D(128, kernel_size = 5, padding = 'same')
 
+		self.t_conv_3 = Conv1D(128, kernel_size = 5, padding = 'same')
+
 		# t_latent = tf.nn.relu(t_conv_1(self.t))
 
 		# t_latent = tf.nn.dropout(t_latent, self.dropout)
@@ -142,7 +144,7 @@ class Model():
 		# self.cost += un_loss
 		self.un_loss = self.get_un_loss(att_aspect, self.x, self.neg)
 
-		self.cost = self.loss + self.un_loss
+		self.cost = self.loss# + self.un_loss
 
 		self.train_op = tf.train.AdamOptimizer(learning_rate=0.0001).minimize(self.cost)
 
@@ -158,7 +160,9 @@ class Model():
 
 		t_latent = tf.nn.dropout(tf.nn.relu(self.t_conv_1(t)), self.dropout)
 
-		t_latent = tf.nn.dropout(tf.nn.relu(self.t_conv_2(t)), self.dropout)
+		t_latent = tf.nn.dropout(tf.nn.relu(self.t_conv_2(t_latent)), self.dropout)
+
+		t_latent = tf.nn.dropout(tf.nn.relu(self.t_conv_3(t_latent)), self.dropout)
 
 
 		gate = tf.nn.sigmoid(Dense(128, use_bias = True)(x_latent)+Dense(128)(t_latent))
@@ -287,7 +291,7 @@ def res(idx2word,input_data, y_pred, y_true, mask_data, x_logit):
 		# print('-------------------------------------')
 
 def val(sess, model, data_loader):
-	input_data, input_tag, mask_data, y_data = data_loader.val()
+	input_data, input_tag, mask_data, y_data = data_loader.val(0.9)
 
 	y_data = to_categorical(y_data, 3)
 	x_logit, y_pred, acc1, acc2 = sess.run([model.x_logit, model.prediction,model.accuracy_1, model.accuracy_2],

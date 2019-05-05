@@ -114,8 +114,8 @@ class Data_Loader():
 
 		while len(v_sent)<sample_size:
 			idx = np.random.choice(range(len(self.val_sent)))
-			if np.sum(self.val_labels[idx])==0:
-				continue
+			# if np.sum(self.val_labels[idx])==0:
+			# 	continue
 			v_sent.append(self.val_sent[idx])
 			v_sent_tag.append(self.val_sent_tag[idx])
 			v_mask.append(self.val_mask[idx])
