@@ -101,9 +101,9 @@ class Model():
 
 
 		x_logit = Dense(50, activation='relu', kernel_initializer = 'lecun_uniform')(latent)
-		x_logit = Dense(3, kernel_initializer='lecun_uniform')(x_logit) #[batch_size, maxlen, 3]
+		self.x_logit = Dense(3, kernel_initializer='lecun_uniform')(x_logit) #[batch_size, maxlen, 3]
 
-		self.prediction = tf.argmax(x_logit, axis=-1)
+		self.prediction = tf.argmax(self.x_logit, axis=-1)
 		groundtruth = tf.argmax(self.labels, axis=-1)
 		truepositive = tf.cast(tf.equal(self.prediction, groundtruth),tf.float32)
 
@@ -118,7 +118,7 @@ class Model():
 
 		# self.logits, self.loss = self.forward(num_class)
 
-		loss = tf.nn.softmax_cross_entropy_with_logits(logits = x_logit, labels = self.labels)
+		loss = tf.nn.softmax_cross_entropy_with_logits(logits = self.x_logit, labels = self.labels)
 
 		loss = loss*self.mask #[batch_size, maxlen]
 
@@ -249,15 +249,20 @@ def f_score(y_pred, y_true, y_mask):
 	return f1_score(y_pred[index], y_true[index], average='macro')
 
 
-def res(idx2word,input_data, y_pred, y_true, mask_data):
+def res(idx2word,input_data, y_pred, y_true, mask_data, x_logit):
 	for i,line in enumerate(input_data):
 		mask_index = np.where(mask_data[i]==1)[0]
 		index = line[mask_index]
 		# print(line, mask_index)
 		tokens = [idx2word[idx] for idx in index]
-		sent = '\t'.join(tokens)
-		labels = '\t'.join(map(str,y_true[i][mask_index]))
-		predict = '\t'.join(map(str,y_pred[i][mask_index]))
+
+
+		# for t,yt,yp,xl in zip(tokens, y_true[i][mask_index], y_pred[i][mask_index], x_logit[i][mask_index]):
+		# 	print(t,'-----',yt,'-----',yp,'-----',xl)
+		
+		# sent = '\t'.join(tokens)
+		# labels = '\t'.join(map(str,y_true[i][mask_index]))
+		# predict = '\t'.join(map(str,y_pred[i][mask_index]))
 		# print(sent)
 		# print(labels)
 		# print(predict)
@@ -267,7 +272,7 @@ def val(sess, model, data_loader):
 	input_data, input_tag, mask_data, y_data = data_loader.val()
 
 	y_data = to_categorical(y_data, 3)
-	y_pred, acc1, acc2 = sess.run([model.prediction,model.accuracy_1, model.accuracy_2],
+	x_logit, y_pred, acc1, acc2 = sess.run([model.x_logit, model.prediction,model.accuracy_1, model.accuracy_2],
 								feed_dict = {model.x:input_data,
 											model.t:input_tag,
 											model.mask:mask_data,
@@ -276,8 +281,8 @@ def val(sess, model, data_loader):
 
 	y_true = np.argmax(y_data,axis=-1)
 	fscore = f_score(y_pred, y_true, mask_data)
-	if fscore>0.9:
-		res(data_loader.idx2word, input_data, y_pred, y_true, mask_data)
+	if fscore>0.7:
+		res(data_loader.idx2word, input_data, y_pred, y_true, mask_data, x_logit)
 	return acc1, acc2, fscore
 
 checkpointer_dir = './ckpt/'
