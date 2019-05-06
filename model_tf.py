@@ -34,7 +34,7 @@ def get_domain_emb_weight(emb_size):
 
 
 class Model():
-	def __init__(self, domain_emb, num_class, num_tag, maxlen,batch_size = 64, drop_out = 0.5, neg_size = 4):
+	def __init__(self,gen_emb, domain_emb, num_class, num_tag, maxlen,batch_size = 64, drop_out = 0.5, neg_size = 4):
 		self.vocab_size, self.emb_size = domain_emb.shape
 		self.maxlen = maxlen
 		self.dropout = drop_out
@@ -55,6 +55,8 @@ class Model():
 		self.neg = tf.placeholder(tf.int32, shape=[None, maxlen, neg_size])
 
 		self.word_embedding = tf.Variable(domain_emb.astype(np.float32))
+		self.gen_embedding = tf.Variable(gen_emb.astype(np.float32))
+
 		# self.aspect_embedding = tf.Variable(tf.random_uniform([self.aspect_size, self.emb_size],-1.0,1.0))
 		self.aspect_embedding = tf.Variable(tf.random_uniform([self.aspect_size,self.aspect_emb_size],-1.0,1.0))
 		# self.word_embedding = tf.Variable(tf.random_uniform([self.vocab_size, self.emb_size], -1.0,1.0))
@@ -98,7 +100,12 @@ class Model():
 		# latent = tf.concat([x_latent, t_latent], axis=-1)
 
 		latent = self.get_latent(self.x, self.t)
+
+		latent = tf.concat([latent, tf.nn.embedding_lookup(self.word_embedding,self.x), self.t],axis=-1)
 		print(latent)
+
+
+
 		att_score = Dense(self.aspect_size, activation = 'softmax') (latent)
 
 		att_aspect = tf.matmul(tf.reshape(att_score,[-1,self.aspect_size]), self.aspect_embedding)
@@ -149,7 +156,11 @@ class Model():
 		self.train_op = tf.train.AdamOptimizer(learning_rate=0.0001).minimize(self.cost)
 
 	def get_latent(self, x, t):
-		x_latent = tf.nn.embedding_lookup(self.word_embedding, x)
+		domain_latent = tf.nn.embedding_lookup(self.word_embedding, x)
+		gen_latent = tf.nn.embedding_lookup(self.gen_embedding, x)
+
+		x_latent = tf.concat([domain_latent, gen_latent], axis=-1)
+
 
 		# x_latent = tf.nn.dropout(tf.nn.relu(self.x_conv_1(x_latent)), self.dropout)
 		x_latent = tf.nn.dropout(tf.nn.relu(tf.concat([self.x_conv_1(x_latent), self.x_conv_2(x_latent)],axis=-1)), self.dropout)
@@ -176,7 +187,8 @@ class Model():
 		# latent = tf.concat([x_latent, t_latent], axis=-1)
 
 
-		return latent
+		# return latent
+		return x_latent
 	def get_un_loss(self,att_aspect, x, neg_x):
 		batch_size, maxlen, emb_size = att_aspect.shape.as_list()
 		x_latent = tf.nn.embedding_lookup(self.word_embedding, x)
@@ -208,7 +220,8 @@ def train():
 	neg_size = 4
 	data_loader = Data_Loader(batch_size)
 	maxlen = data_loader.maxlen
-	model = Model(data_loader.emb_mat,
+	model = Model(data_loader.gen_mat,
+				data_loader.emb_mat,
 				num_tag = data_loader.num_tag,
 				num_class = 3,
 				maxlen = maxlen,
