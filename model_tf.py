@@ -69,6 +69,10 @@ class Model():
 		self.x_conv_2 = Conv1D(128, kernel_size = 5, padding = 'same')
 
 		self.x_conv_3 = Conv1D(128, kernel_size = 5, padding = 'same')
+
+		self.x_conv_4 = Conv1D(128, kernel_size = 5, padding = 'same')
+
+		self.x_conv_5 = Conv1D(128, kernel_size = 5, padding = 'same')
 		#conv2 = Conv1D(128, kernel_size = 5, padding = 'same')
 
 		#conv = tf.nn.relu(tf.concat([conv1(x_emb), conv2(x_emb)], axis=-1))
@@ -153,7 +157,7 @@ class Model():
 
 		self.cost = self.loss# + self.un_loss
 
-		self.train_op = tf.train.AdamOptimizer(learning_rate=0.0001).minimize(self.cost)
+		self.train_op = tf.train.AdamOptimizer(learning_rate=0.00001).minimize(self.cost)
 
 	def get_latent(self, x, t):
 		domain_latent = tf.nn.embedding_lookup(self.word_embedding, x)
@@ -166,6 +170,10 @@ class Model():
 		x_latent = tf.nn.dropout(tf.nn.relu(tf.concat([self.x_conv_1(x_latent), self.x_conv_2(x_latent)],axis=-1)), self.dropout)
 
 		x_latent = tf.nn.dropout(tf.nn.relu(self.x_conv_3(x_latent)), self.dropout)
+
+		x_latent = tf.nn.dropout(tf.nn.relu(self.x_conv_4(x_latent)), self.dropout)
+
+		x_latent = tf.nn.dropout(tf.nn.relu(self.x_conv_5(x_latent)), self.dropout)
 
 
 

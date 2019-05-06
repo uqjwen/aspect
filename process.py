@@ -67,10 +67,10 @@ def processSentence(tokens, labels):
 	new_tokens = []
 	new_labels = []
 	for token,label in zip(tokens, labels):
-		# if token.lower() not in stopwords.words("english")+['']:
-		if token is not '':
-			# new_tokens.append(lmtzr.lemmatize(token.lower()))
-			new_tokens.append(token.lower())
+		if token.lower() not in stopwords.words("english")+['']:
+		# if token is not '':
+			new_tokens.append(lmtzr.lemmatize(token.lower()))
+			# new_tokens.append(token.lower())
 			new_labels.append(label)
 	return new_tokens, new_labels
 
@@ -235,7 +235,7 @@ if __name__ == '__main__':
 	sent, label, tag, label_mask, supervise_size = processFile()
 
 	# print(len(sent))
-	# sen = MySentence(sent)
-	# model = gensim.models.Word2Vec(sen, size = 100, window = 5, min_count=0, workers = 4)
-	# model.save("my_gensim_model")
-	# build_vocab(sent, label, tag, train_size = supervise_size, emb_size = 100, label_mask = label_mask)
+	sen = MySentence(sent)
+	model = gensim.models.Word2Vec(sen, size = 100, window = 5, min_count=0, workers = 4)
+	model.save("my_gensim_model")
+	build_vocab(sent, label, tag, train_size = supervise_size, emb_size = 100, label_mask = label_mask)
