@@ -1,3 +1,4 @@
+import os 
 import pickle
 import numpy as np 
 from keras.preprocessing.sequence import pad_sequences
@@ -27,6 +28,7 @@ class Data_Loader():
 
 
 		self.emb_size = 100
+		self.gen_size = 300
 		sentences = data['processed_sentence']
 		labels = data['labels']
 
@@ -44,6 +46,8 @@ class Data_Loader():
 
 		# print(labels)
 		self.emb_mat = self.embed_mat()
+		self.gen_mat = self.genel_mat()
+
 
 		self.labels = pad_sequences(labels, self.maxlen, padding='post')
 
@@ -75,6 +79,23 @@ class Data_Loader():
 		for i in range(1,self.vocab_size):
 			mat[i] =  model[self.idx2word[i]]
 		return mat
+
+	def genel_mat(self):
+		if os.path.exists("gen_mat.npy"):
+			return np.load("gen_mat.npy")
+		else:
+			mat = np.random.uniform(-1,1,(self.vocab_size, self.gen_size))
+			fr = open('/media/wenjh/Ubuntu 16.0/Downloads/glove.6B/glove.6B.300d.txt')
+			data = fr.readlines()
+			for line in data:
+				line = line.strip()
+				listfromline = line.split()
+				word,vec = listfromline[0], listfromline[1:]
+				if word in self.word2idx:
+					index = self.word2idx[word]
+					mat[index] = np.array(list(map(float,vec))).astype(np.float32)
+			np.save('gen_mat', mat)
+			return mat
 
 
 	def reset_pointer(self):
