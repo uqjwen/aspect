@@ -171,9 +171,9 @@ class Model():
 
 		x_latent = tf.nn.dropout(tf.nn.relu(self.x_conv_3(x_latent)), self.dropout)
 
-		x_latent = tf.nn.dropout(tf.nn.relu(self.x_conv_4(x_latent)), self.dropout)
+		# x_latent = tf.nn.dropout(tf.nn.relu(self.x_conv_4(x_latent)), self.dropout)
 
-		x_latent = tf.nn.dropout(tf.nn.relu(self.x_conv_5(x_latent)), self.dropout)
+		# x_latent = tf.nn.dropout(tf.nn.relu(self.x_conv_5(x_latent)), self.dropout)
 
 
 

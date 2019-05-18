@@ -105,6 +105,8 @@ def annot(filename):
 		num_token = ''
 		for i,token in enumerate(listfromline):
 			num_token += str(i)+':'+token+' '
+		print('--------------------------')
+		print(line)
 		print(num_token)
 		length = len(listfromline)
 

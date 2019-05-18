@@ -1,12 +1,20 @@
+being a pc user my whole life
+0 0 1 0 0 0 0
+this computer is absolutely amazing
+0 1 0 0 0
+being a pc user my whole life
+0 0 1 0 0 0 0
 this computer is absolutely amazing
 0 1 0 0 0
 #num plus hours of battery
 0 0 0 0 1
 super fast processor and really nice graphics card
 0 0 1 0 0 0 1 1
-being a pc user my whole life
-0 0 0 0 0 0 0
-this computer is absolutely amazing
-0 0 0 0 0
-#num plus hours of battery
-0 0 0 0 0
+and plenty of storage with #num gb though i will upgrade this and the ram
+0 0 0 1 0 0 0 0 0 0 0 0 0 0 0
+this computer is really fast and i m shocked as to how easy it is to get used to
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+i ve only had mine a day but i m already used to it
+0 0 0 0 0 0 0 0 0 0 0 0 0 0
+macs are amazing
+1 0 0
