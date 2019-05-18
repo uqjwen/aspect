@@ -1,4 +1,5 @@
 
+import nltk
 import numpy as np 
 import re
 import os
@@ -12,7 +13,7 @@ import pickle
 from nltk.parse.stanford import StanfordDependencyParser
 from nltk.tag import StanfordPOSTagger
 from nltk.tag import StanfordNERTagger
-
+import time
 
 
 pos_tagger = StanfordPOSTagger('english-bidirectional-distsim.tagger')
@@ -67,10 +68,13 @@ def processSentence(tokens, labels):
 	new_tokens = []
 	new_labels = []
 	for token,label in zip(tokens, labels):
-		if token.lower() not in stopwords.words("english")+['']:
-		# if token is not '':
-			new_tokens.append(lmtzr.lemmatize(token.lower()))
-			# new_tokens.append(token.lower())
+		# if token.lower() not in stopwords.words("english")+['']:
+		if token is not '':
+			# new_tokens.append(lmtzr.lemmatize(token.lower()))
+			if token.isdigit():
+				new_tokens.append("#num")
+			else:
+				new_tokens.append(token.lower())
 			new_labels.append(label)
 	return new_tokens, new_labels
 
@@ -117,7 +121,8 @@ def get_sentence_labels(filename):
 
 		tokens, sen_labels = processSentence(tokens,y_labels)
 
-		tags = pos_tagger.tag(tokens)
+		# tags = pos_tagger.tag(tokens)
+		tags = nltk.pos_tag(tokens)
 
 		tags = [tp[1] for tp in tags]
 
@@ -231,7 +236,7 @@ if __name__ == '__main__':
 
 
 	# label_mask = [1]*(len)
-
+	start = time.time()
 	sent, label, tag, label_mask, supervise_size = processFile()
 
 	# print(len(sent))
@@ -239,3 +244,5 @@ if __name__ == '__main__':
 	model = gensim.models.Word2Vec(sen, size = 100, window = 5, min_count=0, workers = 4)
 	model.save("my_gensim_model")
 	build_vocab(sent, label, tag, train_size = supervise_size, emb_size = 100, label_mask = label_mask)
+	end = time.time()
+	print(end-start)
