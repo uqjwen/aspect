@@ -1,0 +1,12 @@
+this computer is absolutely amazing
+0 1 0 0 0
+#num plus hours of battery
+0 0 0 0 1
+super fast processor and really nice graphics card
+0 0 1 0 0 0 1 1
+being a pc user my whole life
+0 0 0 0 0 0 0
+this computer is absolutely amazing
+0 0 0 0 0
+#num plus hours of battery
+0 0 0 0 0
