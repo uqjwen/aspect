@@ -82,9 +82,12 @@ def get_labels(input_labels, length):
 
 
 	for sub_labels in input_labels.split(';'):
-		for label in sub_labels.split(','):
+		for i,label in enumerate(sub_labels.split(',')):
 			if label != '':
-				labels[int(label)] = '1'
+				if i==0:
+					labels[int(label)] = '1'
+				else:
+					labels[int(label)] = '2'
 	return ' '.join(labels)
 
 
@@ -105,8 +108,9 @@ def annot(filename):
 		num_token = ''
 		for i,token in enumerate(listfromline):
 			num_token += str(i)+':'+token+' '
-		print('--------------------------')
+		print('-------------------------------------------')
 		print(line)
+		print('====================')
 		print(num_token)
 		length = len(listfromline)
 
