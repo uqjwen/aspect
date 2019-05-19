@@ -4,6 +4,8 @@ cross-domain aspect extraction
 
 http://www.zmonster.me/2016/06/08/use-stanford-nlp-package-in-nltk.html
 
+https://blog.csdn.net/weixin_38246633/article/details/80637192
+
 
  [*] loading parameters success!!!
 
