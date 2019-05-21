@@ -5730,3 +5730,361 @@ i was seduced by this computer so i took it home
 0 0 0 0 0 1 0 0 0 0 0
 the wireless keyboard not bluetooth but rf did not pair up with the device
 0 0 1 0 0 0 0 0 0 0 0 0 0 0
+i proceeded to make all updates for sony vaio including the bios
+0 0 0 0 0 0 0 0 0 0 0 0
+it still did not pair
+0 0 0 0 0
+i ve used the pairing tool which is located in the windows directory
+0 0 0 0 0 0 0 0 0 0 0 0 0
+i even ran it as administrator still no effect
+0 0 0 0 0 0 0 0 0
+i used the ctrl esc keys while turning on and still nothing
+0 0 0 0 0 1 0 0 0 0 0 0
+it s charged the light comes on
+0 0 0 0 0 0 0
+it flickers briefly to green before the light goes out
+0 0 0 0 0 0 0 0 0 0
+i upgraded to windows #num #num and repeated the sequence on software loads
+0 0 0 0 0 0 0 0 0 0 0 0 0
+i still can t pair it
+0 0 0 0 0 0
+i don t want to carry around a bluetooth keyboard for a computer whose keyboard is nonfunctional
+0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0
+i may give it one more shot tonight then i m returning it to the vendor
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+i will update it if i get it working with the procedure
+0 0 0 0 0 0 0 0 0 0 0 0
+i m not playing the game of send in a computer or wait for a new keyboard while my return window is still open
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
+sony can eat the cost from the seller on this one while i get my money back for a defective product
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+others have posted about this keyboard issue
+0 0 0 0 0 1 0
+but sony doesn t seem to have addressed it
+0 0 0 0 0 0 0 0 0
+update after the hassle of a return waiting in line then sitting around the store to allow the computer and keyboard to charge sufficiently i was able to obtain a keyboard which was paired out of the box with the computer
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0
+my first mac computer and as many before me i just fall in love with it
+0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0
+changed the memory from #num gb to #num gb corsair vengeance and #num gb hdd #num rpm with seagate hybride #num gb hdd ssd
+0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 1
+machine is flying and with parallels desktop #num i have my old pc notebook completely functional on my mbp
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+way to go and enjoy both worlds
+0 0 0 0 0 0 0
+thank you amazon
+0 0 0
+there are a lot of things a laptop can do these days and if you ask me many of them should be automatically included in every laptop no matter what
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+do you remember when computers didn t have cameras on them
+0 0 0 0 0 0 0 0 1 0 0
+no ok we re looking at a generation gap s here but yes back in the day computers didn t have cameras on them
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0
+now it s unthinkable to buy a computer without one
+0 0 0 0 0 0 0 0 0 0
+this asus you re looking at right here and that i m typing on right now has one
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+with that being said for the price #num you get a nice fast laptop but if you ask me it s missing some things that i feel should be automatically included
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+this laptop has no touchscreen optical drives ok a bit of a stretch because that would eat up precious space in this monster swivel or detachable screen
+0 0 0 0 1 1 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
+what this laptop does have is windows #num which is confusing as all get out tons of amp #num bloatware amp #num
+0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+i didn t even know what that was until i got this
+0 0 0 0 0 0 0 0 0 0 0 0
+this is really nice but i hate the awkward right mouse clicking sometimes it works sometimes it doesn t may be the laptop may be the laptop in conjunction with windows #num
+0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0
+either way highly annoying
+0 0 0 0
+i hooked up a usb mouse and all is well
+0 0 0 0 0 1 0 0 0 0
+all works beautifully but windows #num is taking a bit of getting used to
+0 0 0 0 1 0 0 0 0 0 0 0 0 0
+i paid the #num for professional version to join it to our server and private business network
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+love the #num degree rotation and the touch screen works great but a little bit of a learning curve there too as sometimes i have to tap a few times to get the exact location i need
+0 0 0 0 0 0 0 1 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+overall it is just my learning a few things than any downfall with the laptop the mouse was the only negative i could really see
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0
+this is a fantastic transformer
+0 0 0 0 0
+i loved playing with it and the touchscreen was great for the windows #num platform
+0 0 0 0 0 0 0 1 0 0 0 0 1 0 0
+the seller was amazing to work with on my return
+0 0 0 0 0 0 0 0 0 0
+the only reason i returned it was because i bought it to use the touchscreen with photoshop and because of the program it could not utilize the touchscreen within the work space except to zoom and rotate
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0
+i would have kept it but that was the sole reason for my purchase
+0 0 0 0 0 0 0 0 0 0 0 0 0 0
+it s a great product and would recommend to anyone looking for a transformer or large touchscreen
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
+i m looking forward to needing a laptop update so i can purchase this computer again
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+i ve only had this for a week overall i like the computer it s thin amp light and the wireless keyboard works great
+0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0 0
+i was impressed sony puts in small touches like a usb charging port on the charger
+0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0
+one thing i did t like is the stylus holder it s cheap plastic and doesn t seem to be well thought out because it gets installed on the cover for the usb port
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
+i do t use it i think i would accidently break it and loose my stylus
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+the other issue i had was the amount of time it takes to update the operating system and all the software when you get it
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 2 0 0 0 1 0 0 0 0
+when you get a new toy you always want to use it right away
+0 0 0 0 0 0 0 0 0 0 1 0 0 0
+make sure you follow the directions on the updates i followed the directions and didn t have any problems
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+awesome laptop for college
+0 1 0 0
+can be used for gaming as well
+0 0 0 0 0 0 0
+it s light fast and has great battery
+0 0 1 1 0 0 0 1
+it s a steal when considering the specs and performance as well
+0 0 0 0 0 0 0 1 0 1 0 0
+the processor and gpu are fantastic at running games and multiple apps
+0 1 0 1 0 0 0 0 0 0 0 0
+i can run most games to a good quality without seeing any lack of speed
+0 0 0 0 0 0 0 0 1 0 0 0 0 0 1
+the backlit keyboard is a nice touch especially
+0 0 1 0 0 0 1 0
+make sure to only handle this computer with clean hands because the front cover can get oily pretty fast
+0 0 0 0 0 0 0 0 0 0 0 0 1 2 0 0 0 0 0
+i m overall very pleased with my new laptop
+0 0 0 0 0 0 0 0 1
+the only downside are the speakers
+0 0 0 0 0 1
+they don t go very loud at all
+0 0 0 0 0 0 0 0
+the quality of the sound is nice but the lack of volume really kills it for me
+0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0
+this is mostly not an issue since i mainly use earbuds anyways however it could be annoying at times
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+the screen looked fine to me and wasn t an issue like others have been saying
+0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+overall great for me
+0 0 0 0
+i wanted an entry level gaming laptop something with a discrete graphic card but i wasn t looking for a gaming desktop replacement
+0 0 0 0 0 0 0 0 0 0 0 1 2 0 0 0 0 0 0 0 0 0 0
+this laptop has delivered
+0 1 0 0
+i still use my desktop for the high end stuff but this laptop handles everything else very well
+0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0
+i immediately did the windows #num upgrade and haven t had any issues
+0 0 0 0 0 0 0 0 0 0 0 0 0
+the wireless adapter is strong and the ssd is fast
+0 0 1 0 0 0 0 1 0 1
+this thing boots in just a few seconds which is nice
+0 0 1 0 0 0 0 0 0 0 0
+others have mentioned issues with viewing angle on the screen but i never use the laptop where i m not looking straight at it so it doesn t bother me
+0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+i m very pleased with the purchase
+0 0 0 0 0 0 0
+i just bought this macbook pro a few weeks ago and the user interface was so simple i got used to my computer in a matter of days rather than the year it took for me to master microsoft windows #num
+0 0 0 0 1 2 0 0 0 0 0 0 1 2 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+boot time is super fast around anywhere from #num seconds to #num minute
+1 0 0 0 0 0 0 0 0 0 0 0 0
+apps launch super fast and the #num gb hdd is more than sufficient
+0 0 0 1 0 0 0 0 1 0 0 0 0
+i usually use my mac for school work and internet browsing so the entry level #num macbook pro is already more than what i expected from a computer i would typically use it for
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+macs hardly ever get viruses and they are completely incompatible with existing microsoft windows viruses
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+furthermore mac os x mountain lion s gate keeper prevents the user from downloading malware and trojans which keep your data safe and your computer running at optimum speed
+0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
+the keys on the keyboard are evenly spaced and are back lit which make it easy to use at night and for speed writing typing
+0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0
+overall the screen resolution though non retina is sufficient for normal web browsing and work
+0 0 1 0 0 0 0 0 0 0 0 0 0 0 0
+i still don t get why retina displays are standard on most new ios devices but are only available on the macbook pro with retina display total cheapskate
+0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0
+the thunderbolt port is awesome
+0 0 1 0 0
+it s #num gbps transfer speeds surpass even the super fast usb #num #num which also comes with the mbp
+0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+us #num #num comes with the mbp and has transfer rates of up to #num gbps
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+other ports include firewire #num gigabit ethernet magsafe port microphone jack
+0 1 0 0 0 0 0 0 0 0 0
+sdhc card reader and an optical drive for burning and reading discs
+1 2 2 0 0 0 1 0 0 0 0 1
+the glass track pad is large enough for apple s highly acclaimed multi touch gestures for scrolling through web pages with two fingers zooming in on certain parts of certain apps by double tapping with two fingers accessing launchpad by pinching with five fingers and using mission control by swiping up with four fingers
+0 0 1 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+you can also buy one of apple s magic mice which connect to your mac using bluetooth and also allows you to use certain multi touch gestures such as zoom and scroll
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+for windows users switching to a mac you can also enable right clicking known to apple as secondary click in the system preferences gt mouse and enabling right clicking
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0
+the unique to apple aluminium uni body is a real beauty
+0 0 0 0 0 0 0 0 0 0 0
+it makes the mbp very durable and protects it from scratches though you shouldn t go launching it against a wall for the sake of trying it
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+for windows users who are used to using microsoft office you can buy a license for the latest microsoft office software for mac currently #num at any of apple s retail stores apple authorised resellers any store that sells microsoft office for mac or downloading the software directly from microsoft s website
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+users without an optical drive can skip the installation of microsoft office and head to the next section
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+to install the software simply insert the disc provided in the package into the optical drive and open and install all the files
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+enter your code printed on the back of your cd sleeve when prompted
+0 0 0 0 0 0 0 0 0 0 0 0 0
+done enjoy using microsoft office
+0 0 0 0 0
+for those without an optical drive mbp with retina display and mb air read this
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+users with and optical drive can skip this section
+0 0 0 0 0 0 0 0 0
+to download microsoft office go to microsoft s website and download the trial version
+0 0 0 0 0 0 0 0 0 0 0 0 0 0
+when prompted enter your code printed on the back of your cd sleeve to unlock the full potential of microsoft office #num for mac
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+the mac app store and itunes store are phenomenal
+0 1 2 2 0 0 0 0 0
+the mac app store is your one stop shop for mac software though you can also download software online at your own risk
+0 1 2 2 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0
+there are currently around #num #num apps on the app store and counting and billions of songs available for download fro the itunes store
+0 0 0 0 0 0 1 0 0 1 2 0 0 0 0 0 0 0 0 0 0 0 0 0
+itunes is also you default and also your only media player besides dvd player or any other media players you may come across on the internet
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+itunes is one of the better media players available on the market with it s simple to use user interface
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+users switching from a pc will definitely prefer itunes to microsoft s windows media player
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+overall the high price of the macbook pro may convince users to buy a cheaper windows pc instead
+0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+but remember you are paying a high premium for a product with better build quality and high quality software which is a joy to work with considering that you can finally work in peace without having to worry about the millions of windows viruses out in the wild attacking countless careless and oblivious pc users
+0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 1 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+i m sure you won t regret making this purchase
+0 0 0 0 0 0 0 0 0 0
+one of the worst pieces of electronics i have ever bought
+0 0 0 0 0 0 0 0 0 0 0
+very pour performance
+0 0 1
+it takes for ever to wake it up
+0 0 0 0 0 0 0 0
+sometimes it stops receiving wifi signal so i have to restart it
+0 0 0 0 0 0 0 0 0 0 0 0
+it is very slow and not responsive
+0 0 0 1 0 0 0
+would not recommend
+0 0 0
+glare is also pretty frustrating
+1 0 0 0 0
+there is definitely more to say
+0 0 0 0 0 0
+i sent this to a colleague after configuring it with the apps i wrote
+0 0 0 0 0 0 0 0 0 0 0 0 0 0
+i tested it it worked great
+0 0 0 0 0 0
+he received it and one day later it dies
+0 0 0 0 0 0 0 0 0
+the laptop refuses to start we have troubleshooted all areas still fails to start
+0 1 0 0 0 0 0 0 0 0 0 0 0 0
+cannot even get to bios
+0 0 0 0 0
+just a click and a black screen
+0 0 0 0 0 0 1
+of course it dies #num days past the return window
+0 0 0 0 0 0 0 0 0 0
+now i have to contact asus and hope that they can fix it
+0 0 0 0 0 0 0 0 0 0 0 0 0
+we got two days of operation from this laptop
+0 0 0 0 0 1 0 0 0
+my grand daughter attends kent state university
+0 0 0 0 0 0 0
+seems the whole school at an academic level is going paperless
+0 0 0 0 0 0 0 0 0 0 0
+she had a pc
+0 0 0 0
+all of her professors and instructors use macintosh
+0 0 0 0 0 0 0 0
+knowing that i am a mac fan boy it was a no brainer that she asked me for this as a christmas present
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+when the macbook pro arrived i helped her transfer all of her schoolwork from the pc to the mac an easy drag and drop process utilizing a flash drive
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
+it was delivered with #num gb of ram #num gb on each of two sticks which was probably adequate
+0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0
+however i always recommend at least #num gigs so i ordered #num gigs from amazon
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+when the ram arrived all #num gigs were on one stick
+0 0 1 0 0 0 0 0 0 0 0
+so i simply pulled one #num gb stick from the machine and installed the #num gb stick in its place
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+the machine now has #num gigs of ram and it works just fine
+0 0 0 0 0 0 0 1 0 0 0 0 0
+but hey it s an apple
+0 0 0 0 0 0
+i wouldn t expect anything less
+0 0 0 0 0 0
+if it was possible to give them #num start i would have done it
+0 0 0 0 0 0 0 0 0 0 0 0 0 0
+my laptop s one of the key from keyboard came out and it was mechanical failure
+0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0
+my laptop was under coverage but when i gave it to them for repairs they quoted me #num for it
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+this company just wants customers money in their pocket
+0 1 0 0 0 0 0 0 0
+they dont care how you feel when they charge you hundreds of hard earned dollars
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+i wish this company to go bust
+0 0 0 1 0 0 0
+i will never ever buy any apple product in my life
+0 0 0 0 0 0 0 0 0 0 0
+overall i love it
+0 0 0 0
+i only have two complaints
+0 0 0 0 0
+first when i move the screen to put it in tablet position the hinge doesn t seem totally solid
+0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0
+i feel like i need to be really gentle with it but maybe that s just me
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+also and this maybe is another personal quirk but the keyboard sits a little far back for my taste so my watch scrapes against the edge of the laptop
+0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+first off amazing laptop
+0 0 0 1
+i ve had my fair share of mobile devices aka laptops made by hp or some other company but this is wonderful
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+three years ago i had purchased this bad boy and it still runs great
+0 0 0 0 0 0 0 0 0 0 0 0 0 0
+if i were to have any technical difficulties the local apple and contact line were able to help me asap it was quite impressive
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+i myself had purchased the #num gig drive laptop and as a dj with thousands of songs pictures and other things and after #num years i have managed to fill around #num of my gigs
+0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+there is so much room
+0 0 0 0 0
+pros #num amazing storage both #num gig and #num gig
+0 0 0 1 0 0 0 0 0 0
+#num #num gig ram needed if you are as productive as i am dj photography movie making etc its quick
+0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+#num no anti spyware needed never had a virus and i never will
+0 0 0 0 0 0 0 0 0 0 0 0 0
+#num build solid and durable
+0 0 0 0 0
+#num bought the #num year warranty and boy it was needed because of my doings
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+cons #num if you fall behind in updates your laptop will become progressively slower just update it then its back to normal
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+#num sometimes when i stared mine up it would take a few extra minutes to boot on other times it is a few seconds
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+#num cannot manually take battery out unless you work for apple or have the tools
+0 0 0 0 1 0 0 0 0 0 0 0 0 0 0
+overall it is a fantastic laptop
+0 0 0 0 0 1
+mine has been though hundreds of parties weddings quinces anything involving performances it can take it
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+this laptop was made for art music beat making pictures movies graphic design
+0 0 0 0 0 0 0 0 0 0 0 1 1
+by the way it comes with apps and hardware that can already support what i had just listed
+0 0 0 0 0 0 1 0 1 0 0 0 1 0 0 0 0 0
+this laptop will last you a half decade if not a full decade
+0 1 0 0 0 0 0 0 0 0 0 0 0
+soon i will be hitting the #num year mark and i think this thing can make it another #num in my opinion
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+get this now
+0 0 0
+by the way i paid for this particular laptop roughly #num grand look at the price now
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0
+this is a great laptop
+0 0 0 0 1
+i bought it for college and couldn t be happier
+0 0 0 0 0 0 0 0 0 0
+the ssd and i #num complement each other really well
+0 1 0 0 0 0 0 0 0 0
