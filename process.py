@@ -121,8 +121,8 @@ def get_sentence_labels(filename):
 
 		tokens, sen_labels = processSentence(tokens,y_labels)
 
-		# tags = pos_tagger.tag(tokens)
-		tags = nltk.pos_tag(tokens)
+		tags = pos_tagger.tag(tokens)
+		# tags = nltk.pos_tag(tokens)
 
 		tags = [tp[1] for tp in tags]
 
@@ -227,6 +227,44 @@ def processFile():
 	return sent, label, tag, label_mask, supervise_size
 
 
+def processLaptop(filename):
+	fr = open(filename)
+	data = fr.readlines()
+	fr.close()
+
+	sents 	= []
+	labels 	= []
+	tags 	= []
+
+	import nltk.stem as ns 
+	lemmatizer = ns.WordNetLemmatizer()
+	for i in range(0,len(data),2):
+		sent = data[i].strip().split()
+
+		sent = [lemmatizer.lemmatize(lemmatizer.lemmatize(word,'n'),'v') for word in sent]
+
+		label = list(map(int,data[i+1].strip().split()))
+
+		# tag = 
+
+		tag = pos_tagger.tag(sent)
+		# tags = nltk.pos_tag(tokens)
+
+		tag = [tp[1] for tp in tag]
+
+		sents.append(sent)
+		labels.append(label)
+		tags.append(tag)
+
+	sen = MySentence(sents)
+	model = gensim.models.Word2Vec(sen, size=100, window=5, min_count=1, workers=4)
+	model.save("gensim_laptop")
+
+	train_size = int(len(sents)*0.8)
+	label_mask = [1]*len(sents)
+	build_vocab(sents, labels, tags, train_size=train_size, emb_size=100, label_mask=label_mask)
+
+
 
 if __name__ == '__main__':
 	# main()
@@ -236,13 +274,18 @@ if __name__ == '__main__':
 
 
 	# label_mask = [1]*(len)
-	start = time.time()
-	sent, label, tag, label_mask, supervise_size = processFile()
 
-	# print(len(sent))
-	sen = MySentence(sent)
-	model = gensim.models.Word2Vec(sen, size = 100, window = 5, min_count=0, workers = 4)
-	model.save("my_gensim_model")
-	build_vocab(sent, label, tag, train_size = supervise_size, emb_size = 100, label_mask = label_mask)
-	end = time.time()
-	print(end-start)
+
+	#------------------------------------------------------------
+	# start = time.time()
+	# sent, label, tag, label_mask, supervise_size = processFile()
+
+	# sen = MySentence(sent)
+	# model = gensim.models.Word2Vec(sen, size = 100, window = 5, min_count=0, workers = 4)
+	# model.save("my_gensim_model")
+	# build_vocab(sent, label, tag, train_size = supervise_size, emb_size = 100, label_mask = label_mask)
+	# end = time.time()
+	# print(end-start)
+	#------------------------------------------------------------#
+
+	processLaptop('./data/sent_annot.txt')
