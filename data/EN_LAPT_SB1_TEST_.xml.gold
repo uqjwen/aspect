@@ -3829,7 +3829,7 @@
                 <Opinions/>
             </sentence>
             <sentence id="B00O0W450A_10_ANONYMOUS:2">
-                <text>The batter lasts as long as claimed.</text>
+                <text>The battery lasts as long as claimed.</text>
                 <Opinions>
                     <Opinion category="BATTERY#OPERATION_PERFORMANCE" polarity="positive"  />
                 </Opinions>
