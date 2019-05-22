@@ -51,11 +51,11 @@ class Data_Loader():
 		self.gen_mat = self.genel_mat()
 
 
-		self.labels = pad_sequences(labels, self.maxlen, padding='post')
+		self.labels = pad_sequences(labels, self.maxlen)
 
-		self.sent = pad_sequences(sentences, self.maxlen, padding='post')
+		self.sent = pad_sequences(sentences, self.maxlen)
 
-		self.sent_tag = to_categorical(pad_sequences(tags, self.maxlen, padding='post'), self.num_tag)
+		self.sent_tag = to_categorical(pad_sequences(tags, self.maxlen), self.num_tag)
 
 		self.mask = np.ones((len(self.sent), self.maxlen))
 
@@ -156,8 +156,14 @@ class Data_Loader():
 		v_mask 		= []
 		v_labels 	= []
 
+		exists_dic = {}
+
 		while len(v_sent)<sample_size:
 			idx = np.random.choice(range(len(self.val_sent)))
+			if idx not in exists_dic:
+				exists_dic[idx] = 1
+			else:
+				continue
 			# if np.sum(self.val_labels[idx])==0:
 			# 	continue
 			v_sent.append(self.val_sent[idx])

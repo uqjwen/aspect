@@ -312,7 +312,7 @@ def res(idx2word,input_data, y_pred, y_true, mask_data, x_logit):
 		print('-------------------------------------')
 
 def val(sess, model, data_loader):
-	input_data, input_tag, mask_data, y_data = data_loader.val(0.9)
+	input_data, input_tag, mask_data, y_data = data_loader.val(0.4)
 
 	y_data = to_categorical(y_data, 3)
 	x_logit, y_pred, acc1, acc2 = sess.run([model.x_logit, model.prediction,model.accuracy_1, model.accuracy_2],
@@ -324,7 +324,7 @@ def val(sess, model, data_loader):
 
 	y_true = np.argmax(y_data,axis=-1)
 	fscore = f_score(y_pred, y_true, mask_data)
-	if fscore>0.7:
+	if fscore<0.77:
 		res(data_loader.idx2word, input_data, y_pred, y_true, mask_data, x_logit)
 	return acc1, acc2, fscore
 
