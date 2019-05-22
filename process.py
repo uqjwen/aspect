@@ -255,12 +255,15 @@ def processLaptop(filename):
 		sents.append(sent)
 		labels.append(label)
 		tags.append(tag)
+		print(sent)
+		print(tag)
+		print("-----------------------------------------")
 
 	sen = MySentence(sents)
 	model = gensim.models.Word2Vec(sen, size=100, window=5, min_count=1, workers=4)
 	model.save("gensim_laptop")
 
-	train_size = int(len(sents)*0.8)
+	train_size = len(sents)
 	label_mask = [1]*len(sents)
 	build_vocab(sents, labels, tags, train_size=train_size, emb_size=100, label_mask=label_mask)
 

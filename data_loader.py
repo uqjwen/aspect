@@ -66,7 +66,7 @@ class Data_Loader():
 
 		self.train_val_test() ## it splits training testing here
 
-		self.train_size = len(self.sent)
+		self.data_size = len(self.sent)
 
 
 
@@ -117,7 +117,12 @@ class Data_Loader():
 		# return torch.tensor(self.sent[begin:end], dtype=torch.long), torch.from_numpy(self.mask[begin:end]), torch.tensor(self.labels[begin:end],dtype=torch.long)
 		# print(begin, end, self.train_size)
 
-		return self.sent[begin:end],self.sent_tag[begin:end], self.mask[begin:end], self.labels[begin:end], self.label_mask[begin:end]
+		# return self.sent[begin:end],self.sent_tag[begin:end], self.mask[begin:end], self.labels[begin:end], self.label_mask[begin:end]
+		return self.train_sent[begin:end],\
+				self.train_sent_tag[begin:end],\
+				self.train_mask[begin:end],\
+				self.train_labels[begin:end],\
+				self.train_label_mask[begin:end]
 
 
 	def val(self, sample_rate = 0.3):
@@ -149,6 +154,34 @@ class Data_Loader():
 				np.array(v_sent_tag),\
 				np.array(v_mask),\
 				np.array(v_labels)
+
+
+
+	def train_test_split(self):
+		train_size = int(self.data_size*0.8)
+
+		permutation = np.random.permutation(self.data_size)
+
+		train_pmt = permutation[:train_size]
+		test_pmt = permutation[train_size:]
+
+		self.train_sent 		= self.sent[train_pmt]
+		self.train_sent_tag		= self.sent_tag[train_pmt]
+		self.train_mask 		= self.mask[train_pmt]
+		self.train_labels 		= self.train_labels[train_pmt]
+		self.train_label_mask 	= self.label_mask[train_pmt]
+
+
+		self.val_sent 			= self.sent[test_pmt]
+		self.val_sent_tag		= self.sent_tag[test_pmt]
+		self.val_mask 			= self.mask[test_pmt]
+		self.val_labels 		= self.test_labels[test_pmt]
+		self.val_label_mask 	= self.label_mask[test_pmt]
+
+		self.train_size 		= train_size
+
+
+
 
 
 	def train_val_test(self):
