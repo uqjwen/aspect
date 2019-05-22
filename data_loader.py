@@ -30,7 +30,9 @@ class Data_Loader():
 		self.emb_size = 100
 		self.gen_size = 300
 		sentences = data['processed_sentence']
-		labels = data['labels']
+		# labels = data['labels']
+		labels = self.get_label_from_file('./data/sent_annot.txt')
+		assert len(labels) == len(sentences)
 
 		# self.maxlen = max([len(sent) for sent in sentences])
 		# self.maxlen = int(np.mean([len(sent) for sent in sentences]))
@@ -72,7 +74,17 @@ class Data_Loader():
 
 
 		# print(self.train_size)
-
+	def get_label_from_file(filename):
+		fr = open(filename)
+		data = fr.readlines()
+		fr.close()
+		labels = []
+		for i in range(1,len(data),2):
+			line = data[i].strip()
+			listfromline = line.split()
+			label = list(map(int,listfromline))
+			labels.append(label)
+		return labels
 
 	def embed_mat(self):
 		model = Word2Vec.load('gensim_laptop')

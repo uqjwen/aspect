@@ -65,7 +65,7 @@ and if you are going to deal with hp be careful
 in my house hp is a nasty word
 0 0 0 1 0 0 0 0
 since i purchased my toshiba netbook i have been very pleased with it i have a laptob and a desktop
-0 0 0 0 1 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 the netbook is easier for me to take to bed and carry around with me
 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0
 the screen takes some getting use to because it is smaller than the laptop
@@ -109,7 +109,7 @@ yes i have it on the highest available setting
 i bought it for really cheap also and it s amazing
 0 0 0 0 0 1 0 0 0 0 0
 easy to start up and does not overheat as much as other laptops
-0 0 0 0 0 0 0 0 0 0 0 0 1
+0 0 1 2 0 0 0 0 0 0 0 0 1
 recommended to people as their first laptop
 0 0 0 0 0 0 1
 plain and simple it laptop runs great and loads fast
@@ -329,13 +329,13 @@ there is a blank lighted screen when i start and that is all
 i am also upset with cr for giving a good rating
 0 0 0 0 0 0 0 0 0 0 0
 i purchased this netbook after my original toshiba laptop crashed right after the warranty expired
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 0 0 0 0 0 0 0 0 0 0 0
 three weeks after i bought the netbook the screen quit working
-0 0 0 0 0 0 0 0 1 0 0
+0 0 0 0 0 0 1 0 1 0 0
 i baby my electronics so i know for a fact it was defective and not anything that i did to it
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 overall i feel this netbook was poor quality had poor performance although it did have great battery life when it did work
-0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 1 0 0 0 0 0
+0 0 0 0 1 0 0 1 0 0 1 0 0 0 0 0 1 0 0 0 0 0
 took the netbook on a vacation trip and i was able to do whatever i wanted to do without lugging a much heavier laptop
 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 to my mind much more usable than the toy called an ipad
@@ -553,7 +553,7 @@ once again apple stands alone at the top of the charts
 i enjoy very much my new toshiba purchased specifially for attending online schooling
 0 0 0 0 0 0 1 0 0 0 0 0 0
 i have found it very easy to use very imformative wonder alerts and tutorials making it very easy for someone like me who is not exactly technologically advanced to learn to use the various features and programs
-0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1
 i have found also it is very easy to be able to access wireless internet access without having to have extra equipment and or complicated routes to take to be able to do so
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 i also love the small convenient size of my laptop making it a perfect tool for my academic studies
@@ -899,7 +899,7 @@ overall i am very satisfied with the purchase
 i looked around and based off my price features comparison from a brand i trusted i landed here
 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0
 great quick laptop for the money
-0 0 1 0 0 1
+0 1 1 0 0 1
 right size and weight for portability
 0 1 0 1 0 1
 battery life needs more life
@@ -1135,7 +1135,7 @@ sound card is limited though
 the laptop is very lightweight can easily carry around in a knapsack full of text books and it barely adds any weight
 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 it is small enough to fit in one of my purses
-0 0 1 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0
 windows #num starter is terrific no you can t change the background but i don t need to i use it just for school work
 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 the battery life is amazing the versitility is outstanding
@@ -1223,7 +1223,7 @@ i have never had to shut down the computer unexpectedly and the computer has nev
 the screen is bright and vivid and the keyboard is very easy to use very important for use quick typers
 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0
 navigation through the computer is far superior compared to windows operating systems as well
-0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 0 0 0 0 0 0 0 0 0 0
 overall this is a wonderful computer and definitly worth the purchase
 0 0 0 0 0 1 0 0 0 0 0
 the graphics are stunning
@@ -1339,7 +1339,7 @@ the only thing i wish this had was the option to turn off the touchpad with a bu
 i wouldn t play a first person shooter with this mind but if you wanted to run ms office email chat download a video listen to music from a certain fruit named music store and were looking for a highly portable yet powerful netbook to do that all in i d highly recommend checking this out
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0
 the downside to this netbook is pretty much the same for any netbook screen size is not something i d stare at for the entire #num #num hours of battery life five days a week
-0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0
+0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0
 additional caveat the base installation comes with some toshiba specific software that may or may not be to a user s liking
 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0
 i have used both pcs and macs and i have to say that i really really love my mac book pro
@@ -1357,7 +1357,7 @@ i am able to play #num p and #num p media files just fine with it
 everything i have tried has worked and i never have to carry the wall charger cause the battery is so awesome
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0
 the only thing that isn t perfect about this netbook is the speakers they are not loud at all but i expected that
-0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0
 i upgraded it s ram to #num gb i am very happy with it
 0 0 0 0 1 0 0 0 0 0 0 0 0 0
 lots of preloaded software
@@ -1385,7 +1385,7 @@ no problems no lock ups no disappointments
 not super fancy but not super expensive either
 0 0 0 0 0 0 0 0
 have had many higher priced computers crash and burn long before ever got to use all that great memory and speed etc
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0
 highly recommend for daily use
 0 0 0 0 0
 we now own two of these identical
@@ -1727,7 +1727,7 @@ this laptop is great for work and doing my pictures
 i am a huge computer person i love anykind of computer that works well but when i got this one i was so happy with the way it works and how it runs its amazing
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 the programs are esay to use and are quick to process this computer works like a charm
-0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0
+0 1 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0
 i can use it for all of my needs
 0 0 1 0 0 0 0 0 0
 i give this laptop a five star review i love it and it has done chams for me
@@ -1921,7 +1921,7 @@ the screen is very large and crystal clear with amazing colors and resolution
 the keyboard is slick and quiet and not bulky like some other laptops i have had in the past
 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 the processor is very quick and effective as i load webpages and applications
-0 1 0 0 0 0 0 0 0 0 0 0 0
+0 1 0 0 1 0 0 0 0 0 0 0 0
 it is quiet and a real joy to watch work
 0 0 0 0 0 0 0 0 0 0
 i love it and will probably get another one when this goes to the laptop in the sky
@@ -1955,7 +1955,7 @@ save your money and go for a better device
 this laptop is a great price and has a sleek look
 0 1 0 0 0 1 0 0 0 0 1
 runs smooth and quick
-0 0 0 0
+0 0 0 1
 i wish it had a webcam though then it would be perfect
 0 0 0 0 0 1 0 0 0 0 0 0
 i love my new computer
@@ -2075,7 +2075,7 @@ i could not even put my entire music collection on this garabage
 do yourself a favor and invest in a few external harddrives if you are planning on purchasing this laptop
 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1
 i bought this last week and the very next day had to return it because it over heated and the touch mouse stopped responding
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0
 got another #num and same issue
 0 0 0 0 0 0
 i am taking back today
@@ -2307,7 +2307,7 @@ i would buy one of these for every person in my office if i could
 in my line of work i often have to take work home and this makes it so easy
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 i do transcription work on the side and the flatline keyboard makes typing quick and easy as well
-0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0
 the apple care has never failed me and i expect it to be the same for this computer as well
 0 1 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 i will only buy apple laptops from now on
@@ -2429,7 +2429,7 @@ it super shiny so you can see the fingerprints easily
 it doesn t bother me though
 0 0 0 0 0 0
 it doesn t heat up like my old laptop
-0 0 0 0 0 0 0 0 0
+0 0 0 1 0 0 0 0 0
 all for such a great price
 0 0 0 0 0 1
 it s color is even cool
@@ -2469,7 +2469,7 @@ i will stack it up against laptops that cost twice as much any day
 this computer may be small but it is one heck of a power horse
 0 0 0 0 0 0 0 0 0 0 0 0 1 0
 you can do it all on this bad boy but the main thing this netbook was desinged for was surfing the web and boy o boy does it ever
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 for being so small it is amazing that it is as fast as it is
 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0
 when i first got it i thought the size of it was a joke
@@ -2707,7 +2707,7 @@ now #num months later they want would not say exact amount #num #num to #num to 
 they had me send in the machine last april returned it to me in may with no documentation on what was done it anything
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 now the machine won t connect and toshiba says that they did replace the connection card in may but they only warranty the repair for #num days and now i m out of warranty even though this has been a constant #num month occurance since i bought the netbook
-0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
 so buyer beware when buying toshiba
 0 0 0 0 0 1
 i bought this laptop the moment unibody product came to the market
@@ -2721,7 +2721,7 @@ i burned my leg after lifting it from my desk and for less than #num second putt
 i had to call apple #num times each time #num to #num minutes on the phone and take it to their store for evaluations and diagnostics #num times
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 this is what they told me it heats up and that is the reason we no longer call them laptops and simply categorize them as portables
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 you might think i am new in this game but i am a gadget lover and have had more than #num dozens laptops in the past #num years and none gets this hot that fast
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1
 i also experience the same with my macbook air
@@ -2745,11 +2745,11 @@ anyways i bought this two months ago and when i first brought it home it kept gi
 so i called customer support which is good too and they went through it and it is just a safety feature and it does not affect performance at all i just chose to hide the message
 0 0 0 1 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 i have had the netbook for #num months and i love it i read some reviews that say netbooks are slow but it does not seem any slower than the other computers i use
-0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0
 also the speakers are not very loud but it is a netbook
 0 0 1 0 0 0 0 0 0 0 0 0
 would highly recommend this netbook though
-0 0 0 0 0 0
+0 0 0 0 1 0
 i paid for extra memory and the #num inch screen as well as the top of the line dvd and cd burners
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 i custom ordered the machine from hp and could not understand the techie due to his accent
@@ -2833,7 +2833,7 @@ was searching online for a power supply when i found this site
 i m tired of the inept service
 0 0 0 0 0 0 1
 if you are looking for a netbook pc do not buy from asus
-0 0 0 0 0 0 0 0 0 0 0 0 1
+0 0 0 0 0 0 1 0 0 0 0 0 1
 unless you want to be inconvenienced with a non working power supply which you can t find a replacement for because they made the attachment so small
 0 0 0 0 0 0 0 0 0 0 1 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 i m really frustrated by this experience
@@ -3825,7 +3825,7 @@ five starts
 terribly slow
 0 1
 start up time took forever everything runs very slowly
-0 0 0 0 0 0 0 0 1
+1 2 0 0 0 0 0 0 1
 screen broke #num month outside warranty
 1 0 0 0 0 0
 overall build quality is cheap
@@ -3877,7 +3877,7 @@ overall the performance and specs are definitely great for the price compared to
 wonderful super fast lightweight computer
 0 0 1 1 0
 the new macbook pro working good user experience fast speed faster start up time
-0 0 1 2 0 0 0 0 1 1 0 0 0 0
+0 0 1 2 0 0 0 0 1 1 0 1 2 0
 this is what i was looking for
 0 0 0 0 0 0 0
 it has a wide screen and it s easy to use
@@ -4263,7 +4263,7 @@ they are fine while the free subscription is going but a pain when they start as
 device is light weight quiet during operation and produces little to no heat
 0 0 1 2 0 0 1 0 0 0 0 0 1
 it has a quick start up and shut down time
-0 0 0 0 1 2 0 0 0 0
+0 0 0 1 1 2 0 0 0 0
 the display is good quality
 0 1 0 0 0
 just wish there were more usb ports
@@ -4451,7 +4451,7 @@ i ve owned other models as well
 this one doesn t seem to be the same quality as ones i have purchased before
 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0
 the plastic materials are rather cheap
-0 0 1 0 0 0
+0 0 0 0 0 0
 love it
 0 0
 needs more instructions with it
@@ -4565,7 +4565,7 @@ i wanted to love this laptop which i bought as a transitional laptop to use betw
 in two months both the power cord pin broke the company replaced it and then the cd drive literally jumped out of the laptop unannounced and shattered into a million pieces
 0 0 0 0 0 1 2 0 0 0 1 0 0 0 0 0 1 2 0 0 0 0 0 0 0 0 0 0 0 0 0
 in addition no matter what i do to change the settings add delete flash etc firefox hangs on start up
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 2
 it seems like lenovo also makes weird choices about which side to put the powercord and other slots on
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0
 the cords always feel like they are in my way
@@ -4933,7 +4933,7 @@ so if you don t have kids or not in high school or don t accidently sit on it it
 now the speed is disappointing
 0 0 1 0 0
 start up is fine maybe #num secs at most but then to get pages to load on internet is molasses at times
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+1 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 even for a #num gb ram it barely chugs with #num tabs open
 0 0 0 0 0 1 0 0 0 0 0 0 0
 i tried all the window updates this worked for a couple of hp laptops i #num in that i bought later at bb to see if it could remove the drag it did not
@@ -4987,7 +4987,7 @@ windows #num is not supported by a lot of things
 save your money and get an android works better more support
 0 0 0 0 0 0 0 0 0 0 0
 the dell is quick enough sturdy not good with finger prints
-0 1 0 0 0 0 0 0 0 0 0
+0 1 0 1 0 0 0 0 0 0 0
 it does what it advertises
 0 0 0 0 0
 price is great wish it didn t have windows #num but that is an opinion
@@ -5045,7 +5045,7 @@ literally it stays much cooler than my old macbook pro
 the old unibody macbook pro could fry an egg after a while
 0 0 0 0 0 0 0 0 0 0 0 0
 got this on black friday with a very good discount and couldn t be happier
-0 0 0 0 0 0 0 0 0 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 the screen is great i don t see the need for a retina display
 0 1 0 0 0 0 0 0 0 0 0 0 0 1
 i also really like the addition of the sd card slot
@@ -5189,7 +5189,7 @@ i regretted immediately
 nothing like the description says
 0 0 0 0 0
 i will never have a windows laptop again
-0 0 0 0 0 1 1 0
+0 0 0 0 0 0 1 0
 my apple mac book pro has crashed three times since i purchased it
 0 1 2 2 2 0 0 0 0 0 0 0 0
 i do not go on social networks i only do word documents check my email and shopping
@@ -5255,7 +5255,7 @@ love the flip feature and the touch screen feature
 for the price that i paid i feel that i got good value
 0 0 1 0 0 0 0 0 0 0 0 0 1
 this lap top is not the lightest you can purchase so if that is important to you maybe you should shop some more
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 1 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 my previous laptop served me well and i am very with its replacement
 0 0 0 0 0 0 0 0 0 0 0 0 0
 to a prospective buyer #num #num #num once you go mac you ll never go back
@@ -5395,7 +5395,7 @@ after working on windows laptop and pc over #num years i decided to try this app
 all i can say is i am impressed
 0 0 0 0 0 0 0 0
 very quick to get it up and running with a minimum setup time right after you open the box
-0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
+0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
 however there is some learning curve but once you get through it you will admire this product which is expensive compare to windows laptop
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0
 it s worth it
@@ -5505,7 +5505,7 @@ everything you d expect from a mac
 it looks and feels solid with a flawless finish
 0 1 1 0 0 0 0 0 0
 the screen definition is superb and it fires up super quick and same to close down
-0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0
 only had it a few weeks but doesn t leave my side
 0 0 0 0 0 0 0 0 0 0 0 0
 glad i eventually splashed out and quick delivery from amazon to my place of work
@@ -5639,7 +5639,7 @@ it is an older model so know that upfront but it is everything i was looking for
 i wanted a laptop that had a cd drive since most new laptops do not have one a laptop with an actual hard drive since the new macbooks do not and i wanted to get away from pcs
 0 0 0 0 0 0 0 1 2 0 0 0 0 0 0 0 0 0 0 0 0 0 1 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 i actually spent #num on a pc before i bought this macbook and returned it with #num hours because it was slow and i could not stand windows #num
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
 from the moment i received this macbook it was like a dream come true
 0 0 0 0 0 0 1 0 0 0 0 0 0 0
 it is a little sluggish which was to be expected with the #num gb ram but even at its sluggish it is faster than the pc i bought
@@ -5987,7 +5987,7 @@ of course it dies #num days past the return window
 now i have to contact asus and hope that they can fix it
 0 0 0 0 0 0 0 0 0 0 0 0 0
 we got two days of operation from this laptop
-0 0 0 0 0 1 0 0 0
+0 0 0 0 0 1 0 0 1
 my grand daughter attends kent state university
 0 0 0 0 0 0 0
 seems the whole school at an academic level is going paperless
@@ -6053,7 +6053,7 @@ there is so much room
 pros #num amazing storage both #num gig and #num gig
 0 0 0 1 0 0 0 0 0 0
 #num #num gig ram needed if you are as productive as i am dj photography movie making etc its quick
-0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
 #num no anti spyware needed never had a virus and i never will
 0 0 0 0 0 0 0 0 0 0 0 0 0
 #num build solid and durable
@@ -6135,7 +6135,7 @@ not impressed with macintosh products
 in fact i am completely frustrated
 0 0 0 0 0 0
 i have had the macbook pro for #num #num #num years and i have found that it crashes as much as windows
-0 0 0 0 1 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
 also many software programs are not compatible with the ios platform
 0 0 1 1 0 0 0 0 0 0 0
 luckily i still have a windows based computer to use when needed
@@ -6333,7 +6333,7 @@ the online customer service was awful
 gave me the runaround for an entire day and treated me like an imbecile
 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 no one would ever answer my question as to why i couldn t get another new macbook since this was clearly a factory error and my macbook was still under warranty
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1
 as a matter of fact no matter how many times i asked that question the employees i spoke purposely ignored it
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 they didn t say yes and they didn t say no they just pretended that i never asked it which was incredibly frustrating
