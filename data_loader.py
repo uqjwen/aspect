@@ -65,16 +65,21 @@ class Data_Loader():
 
 		self.data_size = len(self.sent)
 
+		# if 'permutation' not in data:
+		# 	self.permutation = np.random.permutation(self.data_size)
+		# 	data['permutation'] = self.permutation
+		# 	pickle.dump(data,open('data.pkl', 'wb'))
+		self.permutation = data['permutation']
 
 		# self.train_val_test() ## it splits training testing here
-		self.train_test_split() ## it splits training testing here
+		self.train_test_split(self.permutation) ## it splits training testing here
 
 		
 
 
 
 		# print(self.train_size)
-	def get_label_from_file(filename):
+	def get_label_from_file(self,filename):
 		fr = open(filename)
 		data = fr.readlines()
 		fr.close()
@@ -170,10 +175,10 @@ class Data_Loader():
 
 
 
-	def train_test_split(self):
+	def train_test_split(self, permutation):
 		train_size = int(self.data_size*0.8)
 
-		permutation = np.random.permutation(self.data_size)
+		# permutation = np.random.permutation(self.data_size)
 
 		train_pmt = permutation[:train_size]
 		test_pmt = permutation[train_size:]

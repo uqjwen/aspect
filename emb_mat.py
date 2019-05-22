@@ -18,5 +18,8 @@ def main():
 	# model.build_vocab(sentences)
 	# model.train(sentences*100, total_examples=model.corpus_count, epochs = model.iter)
 	# model.save('my_gensim_model')
+
+
+
 if __name__ == '__main__':
 	main()
