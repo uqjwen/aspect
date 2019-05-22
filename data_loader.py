@@ -61,12 +61,13 @@ class Data_Loader():
 		self.pointer = 0
 
 
-
-
-
-		self.train_val_test() ## it splits training testing here
-
 		self.data_size = len(self.sent)
+
+
+		# self.train_val_test() ## it splits training testing here
+		self.train_test_split() ## it splits training testing here
+
+		
 
 
 
@@ -74,7 +75,7 @@ class Data_Loader():
 
 
 	def embed_mat(self):
-		model = Word2Vec.load('my_gensim_model')
+		model = Word2Vec.load('gensim_laptop')
 		mat = np.random.uniform(-1,1,(self.vocab_size, self.emb_size))
 		for i in range(1,self.vocab_size):
 			mat[i] =  model[self.idx2word[i]]
@@ -168,14 +169,14 @@ class Data_Loader():
 		self.train_sent 		= self.sent[train_pmt]
 		self.train_sent_tag		= self.sent_tag[train_pmt]
 		self.train_mask 		= self.mask[train_pmt]
-		self.train_labels 		= self.train_labels[train_pmt]
+		self.train_labels 		= self.labels[train_pmt]
 		self.train_label_mask 	= self.label_mask[train_pmt]
 
 
 		self.val_sent 			= self.sent[test_pmt]
 		self.val_sent_tag		= self.sent_tag[test_pmt]
 		self.val_mask 			= self.mask[test_pmt]
-		self.val_labels 		= self.test_labels[test_pmt]
+		self.val_labels 		= self.labels[test_pmt]
 		self.val_label_mask 	= self.label_mask[test_pmt]
 
 		self.train_size 		= train_size

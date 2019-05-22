@@ -300,16 +300,16 @@ def res(idx2word,input_data, y_pred, y_true, mask_data, x_logit):
 		tokens = [idx2word[idx] for idx in index]
 
 
-		# for t,yt,yp,xl in zip(tokens, y_true[i][mask_index], y_pred[i][mask_index], x_logit[i][mask_index]):
-		# 	print(t,'-----',yt,'-----',yp,'-----',xl)
+		for t,yt,yp,xl in zip(tokens, y_true[i][mask_index], y_pred[i][mask_index], x_logit[i][mask_index]):
+			print(t,'-----',yt,'-----',yp,'-----',xl)
 		
-		# sent = '\t'.join(tokens)
-		# labels = '\t'.join(map(str,y_true[i][mask_index]))
-		# predict = '\t'.join(map(str,y_pred[i][mask_index]))
-		# print(sent)
-		# print(labels)
-		# print(predict)
-		# print('-------------------------------------')
+		sent = '\t'.join(tokens)
+		labels = '\t'.join(map(str,y_true[i][mask_index]))
+		predict = '\t'.join(map(str,y_pred[i][mask_index]))
+		print(sent)
+		print(labels)
+		print(predict)
+		print('-------------------------------------')
 
 def val(sess, model, data_loader):
 	input_data, input_tag, mask_data, y_data = data_loader.val(0.9)
