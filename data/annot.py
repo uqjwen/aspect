@@ -43,8 +43,11 @@ def main(filename):
 		sentext = sen.find("text").text
 
 		tokens = my_split(sentext)
+		cat = '#'
+		for op in sen.iter("Opinion"):
+			cat = op.attrib['category']
 
-		print(' '.join(tokens))
+		print(' '.join(tokens)+' '+cat)
 
 def leagal_sub_labels(labels, length):
 	label = labels.split(',')
@@ -123,11 +126,55 @@ def annot(filename):
 
 
 
+def analysis(filename):
+	fr = open(filename)
+	data = fr.readlines()
+	fr.close()
 
+	cat = []
+	m_cat = []
+
+	cat_s = {}
+	for line in data:
+		line = line.strip()
+		listfromline = line.split()
+		cat.append(listfromline[-1])
+
+		c = listfromline[-1]
+		c = c.split('#')
+
+		if c[0] != 'LAPTOP':
+			
+			if c[0] not in cat_s:
+				cat_s[c[0]] = ' '.
+
+
+
+
+
+		m_cat.append(c)
+
+
+	import collections
+	obj = collections.Counter(cat)
+	# print(obj)
+	# items = obj.items()
+	# items.sort()
+	# for key,value in items:
+	# 	print(key,value)
+	for key in sorted(obj.keys()):
+		print(key, obj[key])
+
+	print('---------------------------------')
+	obj = collections.Counter(m_cat)
+	for key in obj:
+		print(key, obj[key])
 
 
 
 if __name__ == '__main__':
 	# main('ABSA16_Laptops_Train_SB1_v2.xml')
 	# main('EN_LAPT_SB1_TEST_.xml.gold')
-	annot('sent.txt')
+	# annot('sent.txt')
+
+	analysis('sent_cat.txt')
