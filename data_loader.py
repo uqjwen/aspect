@@ -11,7 +11,8 @@ class Data_Loader():
 		self.batch_size = batch_size
 		# self.sent_len = sent_len
 		# self.maxlen = maxlen
-		fr = open('data.pkl', 'rb')
+		# fr = open('data.pkl', 'rb')
+		fr = open('data_cat_laptop.pkl', 'rb')
 		data = pickle.load(fr)
 
 		self.word2idx = data['word2idx']
@@ -23,6 +24,11 @@ class Data_Loader():
 
 
 		self.num_tag = len(data['tag2idx'])+1
+
+		self.num_cat = data['num_cat']
+		self.clabels = data['cat_labels']
+		self.clabels = to_categorical(self.clabels, self.num_cat)
+
 		tags = data['tags']
 
 
@@ -140,7 +146,8 @@ class Data_Loader():
 				self.train_sent_tag[begin:end],\
 				self.train_mask[begin:end],\
 				self.train_labels[begin:end],\
-				self.train_label_mask[begin:end]
+				self.train_label_mask[begin:end],\
+				self.train_cat_labels[begin:end]
 
 
 	def val(self, sample_rate = 0.3):
@@ -155,6 +162,7 @@ class Data_Loader():
 		v_sent_tag 	= []
 		v_mask 		= []
 		v_labels 	= []
+		v_c_labels 	= []
 
 		exists_dic = {}
 
@@ -170,6 +178,7 @@ class Data_Loader():
 			v_sent_tag.append(self.val_sent_tag[idx])
 			v_mask.append(self.val_mask[idx])
 			v_labels.append(self.val_labels[idx])
+			v_c_labels.append(self.clabels[idx])
 
 
 		# return self.sent[idx], self.sent_tag[idx], self.mask[idx], self.labels[idx]
@@ -177,7 +186,8 @@ class Data_Loader():
 		return np.array(v_sent),\
 				np.array(v_sent_tag),\
 				np.array(v_mask),\
-				np.array(v_labels)
+				np.array(v_labels),\
+				np.array(v_c_labels)
 
 
 
@@ -194,6 +204,7 @@ class Data_Loader():
 		self.train_mask 		= self.mask[train_pmt]
 		self.train_labels 		= self.labels[train_pmt]
 		self.train_label_mask 	= self.label_mask[train_pmt]
+		self.train_cat_labels	= self.clabels[train_pmt]
 
 
 		self.val_sent 			= self.sent[test_pmt]
@@ -201,6 +212,7 @@ class Data_Loader():
 		self.val_mask 			= self.mask[test_pmt]
 		self.val_labels 		= self.labels[test_pmt]
 		self.val_label_mask 	= self.label_mask[test_pmt]
+		self.val_cat_labels		= self.clabels[test_pmt]
 
 		self.train_size 		= train_size
 

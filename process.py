@@ -267,6 +267,39 @@ def processLaptop(filename):
 	label_mask = [1]*len(sents)
 	build_vocab(sents, labels, tags, train_size=train_size, emb_size=100, label_mask=label_mask)
 
+def processLaptopCat():
+	fr = open('data.pkl','rb')
+	data = pickle.load(fr)
+	fr.close()
+	fr = open('./data/sent_cat.txt')
+	catinfo = fr.readlines()
+	fr.close()
+	cat_labels = []
+	for line in catinfo:
+		line = line.strip()
+		listfromline = line.split()
+		cat = listfromline[-1].split('#')
+		if len(cat) == 1:
+			cat_labels.append("unknown")
+		else:
+			if cat[0] == 'LAPTOP':
+				cat_labels.append(cat[1])
+			else:
+				cat_labels.append(cat[0])
+	assert len(cat_labels) == len(data['processed_sentence'])
+
+	clabel2idx = dict((c,i) for i,c in enumerate(set(cat_labels)))
+	idx2clabel = dict((i,c) for i,c in enumerate(set(cat_labels)))
+
+	cat_labels = [clabel2idx[c] for c in cat_labels]
+	data['cat_labels'] = cat_labels
+	data['clabel2idx'] = clabel2idx
+	data['idx2clabel'] = idx2clabel
+	data['num_cat'] = len(set(cat_labels))
+
+	# pickle.dump('data_cat_laptop.pkl', open())
+	pickle.dump(data,open('data_cat_laptop.pkl', 'wb'))
+
 
 
 if __name__ == '__main__':
@@ -291,4 +324,5 @@ if __name__ == '__main__':
 	# print(end-start)
 	#------------------------------------------------------------#
 
-	processLaptop('./data/sent_annot.txt')
+	# processLaptop('./data/sent_annot.txt')
+	processLaptopCat()

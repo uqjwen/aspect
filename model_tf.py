@@ -34,31 +34,33 @@ def get_domain_emb_weight(emb_size):
 
 
 class Model():
-	def __init__(self,gen_emb, domain_emb, num_class, num_tag, maxlen,batch_size = 64, drop_out = 0.5, neg_size = 4):
+	def __init__(self,gen_emb, domain_emb, num_class, num_tag, num_cat, maxlen,batch_size = 64, drop_out = 0.5, neg_size = 4):
 		self.vocab_size, self.emb_size = domain_emb.shape
-		self.maxlen = maxlen
-		self.dropout = drop_out
-		self.batch_size = batch_size
-		self.neg_size = neg_size
-		self.aspect_size = 12
-		self.aspect_emb_size = self.emb_size
+		self.maxlen 			= maxlen
+		self.dropout 			= drop_out
+		self.batch_size 		= batch_size
+		self.neg_size 			= neg_size
+		self.aspect_size 		= 12
+		self.aspect_emb_size 	= self.emb_size
+		self.num_cat 			= num_cat
 		print("embedding size", domain_emb.shape)
-		self.x = tf.placeholder(tf.int32, shape=[None, maxlen])
-		self.labels = tf.placeholder(tf.int32, shape=[None, maxlen, num_class])
-		self.t = tf.placeholder(tf.float32, shape=[None, maxlen, num_tag])
+		self.x 			= tf.placeholder(tf.int32, shape=[None, maxlen])
+		self.labels 	= tf.placeholder(tf.int32, shape=[None, maxlen, num_class])
+		self.clabels 	= tf.placeholder(tf.int32, shape=[None, num_cat])
+		self.t 			= tf.placeholder(tf.float32, shape=[None, maxlen, num_tag])
 
 
-		self.mask= tf.placeholder(tf.float32, shape=[None, maxlen])
+		self.mask 		= tf.placeholder(tf.float32, shape=[None, maxlen])
 
 		self.label_mask = tf.placeholder(tf.float32, shape = [None])
 
-		self.neg = tf.placeholder(tf.int32, shape=[None, maxlen, neg_size])
+		self.neg 		= tf.placeholder(tf.int32, shape=[None, maxlen, neg_size])
 
-		self.word_embedding = tf.Variable(domain_emb.astype(np.float32))
-		self.gen_embedding = tf.Variable(gen_emb.astype(np.float32))
+		self.word_embedding 	= tf.Variable(domain_emb.astype(np.float32))
+		self.gen_embedding 		= tf.Variable(gen_emb.astype(np.float32))
 
 		# self.aspect_embedding = tf.Variable(tf.random_uniform([self.aspect_size, self.emb_size],-1.0,1.0))
-		self.aspect_embedding = tf.Variable(tf.random_uniform([self.aspect_size,self.aspect_emb_size],-1.0,1.0))
+		self.aspect_embedding 	= tf.Variable(tf.random_uniform([self.aspect_size,self.aspect_emb_size],-1.0,1.0))
 		# self.word_embedding = tf.Variable(tf.random_uniform([self.vocab_size, self.emb_size], -1.0,1.0))
 
 		# x_latent = self.get_x_latent(self.x)
@@ -105,10 +107,10 @@ class Model():
 
 		latent = self.get_latent(self.x, self.t)
 
-		latent = tf.concat([latent, tf.nn.embedding_lookup(self.word_embedding,self.x), self.t],axis=-1)
-		print(latent)
+		# latent = tf.concat([latent, tf.nn.embedding_lookup(self.word_embedding,self.x), self.t],axis=-1)
+		# print(latent)
 
-
+		#-----------------------------------------------------------------------------
 
 		att_score = Dense(self.aspect_size, activation = 'softmax') (latent)
 
@@ -116,6 +118,16 @@ class Model():
 
 		att_aspect = tf.reshape(att_aspect, [-1, maxlen, self.aspect_emb_size])
 
+		#-----------------------------------------------------------------------------
+
+		cat_latent = self.get_cat_latent(latent)
+		cat_logits = Dense(self.num_cat, kernel_initializer='lecun_uniform')(cat_latent)
+
+		cat_loss = tf.nn.softmax_cross_entropy_with_logits(logits = cat_logits, labels = self.clabels)
+		cat_loss = tf.reduce_mean(cat_loss)
+		self.cat_pred = tf.argmax(cat_logits, axis=-1)
+
+		#------------------------------------------------------------------------------
 
 
 
@@ -155,9 +167,35 @@ class Model():
 		# self.cost += un_loss
 		self.un_loss = self.get_un_loss(att_aspect, self.x, self.neg)
 
-		self.cost = self.loss# + self.un_loss
+		# self.cost = self.loss# + self.un_loss
+
+		self.cost = cat_loss
 
 		self.train_op = tf.train.AdamOptimizer(learning_rate=0.00001).minimize(self.cost)
+
+	def get_cat_latent(self, latent):
+		scores = Dense(1, kernel_initializer = 'lecun_uniform')(latent) #batch_size, maxlen, 1
+		scores = tf.squeeze(scores,-1)
+
+		#latent: batch_size, maxlen, embed_size
+		#score: batch_size, maxlen
+		#mask: batch_size, maxlen
+		scores = self.mask*tf.exp(scores)
+		sum_score = tf.reduce_sum(scores, axis=-1, keepdims=True)
+		sum_score = tf.maximum(sum_score,1)
+		# scores = scores/tf.reduce_sum(scores, axis=-1, keepdims=True)  #batch_size, maxlen
+		scores = scores/sum_score
+		# scores = tf.nn.softmax(scores)
+		scores = tf.expand_dims(scores,-1)
+
+		cat_latent = tf.reduce_sum(scores*latent, axis=1) #batch_size, embed_size
+		print(cat_latent.shape,'cat_latent')
+		return cat_latent
+
+
+
+
+
 
 	def get_latent(self, x, t):
 		domain_latent = tf.nn.embedding_lookup(self.word_embedding, x)
@@ -231,6 +269,7 @@ def train():
 	model = Model(data_loader.gen_mat,
 				data_loader.emb_mat,
 				num_tag = data_loader.num_tag,
+				num_cat = data_loader.num_cat,
 				num_class = 3,
 				maxlen = maxlen,
 				batch_size = batch_size,
@@ -255,7 +294,7 @@ def train():
 			num_batch = int(data_loader.train_size/batch_size)
 			# print("total batch: ", num_batch)
 			for b in range(num_batch+1):
-				input_data, input_tag, mask_data, y_data, label_mask = data_loader.__next__()
+				input_data, input_tag, mask_data, y_data, label_mask, clabels = data_loader.__next__()
 				# print(input_data.shape, input_tag.shape, mask_data.shape, y_data.shape, label_mask.shape)
 				# print(input_data.shape, mask_data.shape, y_data.shape)
 				input_neg = np.random.randint(1,data_loader.vocab_size, (input_data.shape[0], maxlen, neg_size))
@@ -267,18 +306,19 @@ def train():
 																			model.mask:mask_data,
 																			model.label_mask:label_mask,
 																			model.neg:input_neg,
-																			model.labels:y_data})
+																			model.labels:y_data,
+																			model.clabels:clabels})
 
 				sys.stdout.write('\repoch:{}, batch:{}, loss:{}'.format(i,b,loss))
 				sys.stdout.flush()
 
 				# break
 			# print("validation....")
-			acc1, acc2, fscore = val(sess, model, data_loader)
+			fscore = val(sess, model, data_loader)
 			if fscore > best_metric:
 				best_metric = fscore
 				saver.save(sess, checkpointer_dir+'model.ckpt', global_step=i)
-			print("\nacc1: ",acc1, "acc2: ",acc2, "f1_score: ", fscore)
+			print("\nf1_score: ", fscore)
 			# break
 
 
@@ -300,33 +340,39 @@ def res(idx2word,input_data, y_pred, y_true, mask_data, x_logit):
 		tokens = [idx2word[idx] for idx in index]
 
 
-		for t,yt,yp,xl in zip(tokens, y_true[i][mask_index], y_pred[i][mask_index], x_logit[i][mask_index]):
-			print(t,'-----',yt,'-----',yp,'-----',xl)
+		# for t,yt,yp,xl in zip(tokens, y_true[i][mask_index], y_pred[i][mask_index], x_logit[i][mask_index]):
+		# 	print(t,'-----',yt,'-----',yp,'-----',xl)
 		
-		sent = '\t'.join(tokens)
-		labels = '\t'.join(map(str,y_true[i][mask_index]))
-		predict = '\t'.join(map(str,y_pred[i][mask_index]))
-		print(sent)
-		print(labels)
-		print(predict)
-		print('-------------------------------------')
+		# sent = '\t'.join(tokens)
+		# labels = '\t'.join(map(str,y_true[i][mask_index]))
+		# predict = '\t'.join(map(str,y_pred[i][mask_index]))
+		# print(sent)
+		# print(labels)
+		# print(predict)
+		# print('-------------------------------------')
 
 def val(sess, model, data_loader):
-	input_data, input_tag, mask_data, y_data = data_loader.val(0.4)
+	input_data, input_tag, mask_data, y_data, clabels = data_loader.val(0.4)
 
 	y_data = to_categorical(y_data, 3)
-	x_logit, y_pred, acc1, acc2 = sess.run([model.x_logit, model.prediction,model.accuracy_1, model.accuracy_2],
+	x_logit, y_pred, cat_pred = sess.run([model.x_logit, model.prediction,model.cat_pred],
 								feed_dict = {model.x:input_data,
 											model.t:input_tag,
 											model.mask:mask_data,
-											model.labels:y_data})
+											model.labels:y_data,
+											model.clabels:clabels})
 	# f_score = f1_score()
 
+
+
+
+	clabels = np.argmax(clabels, axis=-1)
 	y_true = np.argmax(y_data,axis=-1)
-	fscore = f_score(y_pred, y_true, mask_data)
-	if fscore<0.77:
+	# fscore = f_score(y_pred, y_true, mask_data)
+	fscore = f1_score(cat_pred, clabels, average = 'micro')
+	if fscore>0.5:
 		res(data_loader.idx2word, input_data, y_pred, y_true, mask_data, x_logit)
-	return acc1, acc2, fscore
+	return fscore
 
 checkpointer_dir = './ckpt/'
 if not os.path.exists(checkpointer_dir):
