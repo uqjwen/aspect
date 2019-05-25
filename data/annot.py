@@ -4,6 +4,7 @@ import nltk
 
 import os
 import xml.etree.ElementTree as ET
+from wordcloud import WordCloud 
 
 def my_split(line):
 	tokens = []
@@ -43,7 +44,7 @@ def main(filename):
 		sentext = sen.find("text").text
 
 		tokens = my_split(sentext)
-		cat = '#'
+		cat = 'unknown'
 		for op in sen.iter("Opinion"):
 			cat = op.attrib['category']
 
@@ -142,33 +143,59 @@ def analysis(filename):
 
 		c = listfromline[-1]
 		c = c.split('#')
-
-		if c[0] != 'LAPTOP':
-			
-			if c[0] not in cat_s:
-				cat_s[c[0]] = ' '.
+		m_cat.append('#'.join(c))
 
 
+		if len(c) == 2:
+			# print(c)
+			if c[0]!='LAPTOP':
+				key = c[0]
+			else:
+				key = c[1]
+			import nltk.stem as ns 
+			lemmatizer = ns.WordNetLemmatizer()
+
+			sent = [lemmatizer.lemmatize(lemmatizer.lemmatize(word,'n'),'v') for word in listfromline[:-1] if word not in ['#num','wa']]
+			if key not in cat_s:
+				cat_s[key] = ' '.join(sent)
+			else:
+				cat_s[key] += ' '+' '.join(sent)
+
+	for key,strings in cat_s.items():
+		# print(key)
+		import collections
+		obj = collections.Counter(strings.split())
+		tuples = obj.most_common(10)
+		for word in tuples:
+			print(word)
+		print('---------------------------------')
+		wordcloud = WordCloud(background_color = 'white', width=800, height=600, margin=2).generate(strings)
+		import matplotlib.pyplot as plt 
+		plt.imshow(wordcloud)
+		plt.axis('off')
+		plt.title(key)
+		# print(strings)
+		# plt.show()
+		plt.savefig('wc_'+key+'.png')
+		# wordcloud.to_file('wc'+key+'.png')
 
 
 
-		m_cat.append(c)
 
 
-	import collections
-	obj = collections.Counter(cat)
-	# print(obj)
-	# items = obj.items()
-	# items.sort()
-	# for key,value in items:
-	# 	print(key,value)
-	for key in sorted(obj.keys()):
-		print(key, obj[key])
 
-	print('---------------------------------')
-	obj = collections.Counter(m_cat)
-	for key in obj:
-		print(key, obj[key])
+
+
+
+	# import collections
+	# obj = collections.Counter(cat)
+	# for key in sorted(obj.keys()):
+	# 	print(key, obj[key])
+
+	# print('---------------------------------')
+	# obj = collections.Counter(m_cat)
+	# for key in obj:
+	# 	print(key, obj[key])
 
 
 
