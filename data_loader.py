@@ -7,12 +7,17 @@ from gensim.models import Word2Vec
 from keras.utils.np_utils import to_categorical
 
 class Data_Loader():
-	def __init__(self, batch_size):
+	def __init__(self, batch_size, data_set):
 		self.batch_size = batch_size
 		# self.sent_len = sent_len
 		# self.maxlen = maxlen
 		# fr = open('data.pkl', 'rb')
-		fr = open('data_cat_laptop.pkl', 'rb')
+		# fr = open('data_cat_laptop.pkl', 'rb')
+		if data_set == 'res':
+			data_file = 'data_cat_res.pkl'
+		else:
+			data_file='data_cat_laptop.pkl'
+		fr = open(data_file, 'rb')
 		data = pickle.load(fr)
 
 		self.word2idx = data['word2idx']
@@ -37,8 +42,8 @@ class Data_Loader():
 		self.emb_size = 100
 		self.gen_size = 300
 		sentences = data['processed_sentence']
-		# labels = data['labels']
-		labels = self.get_label_from_file('./data/sent_annot.txt')
+		labels = data['labels']
+		# labels = self.get_label_from_file('./data/sent_annot.txt')
 		assert len(labels) == len(sentences)
 
 		# self.maxlen = max([len(sent) for sent in sentences])
@@ -54,8 +59,8 @@ class Data_Loader():
 
 
 		# print(labels)
-		self.emb_mat = self.embed_mat()
-		self.gen_mat = self.genel_mat()
+		self.emb_mat = self.embed_mat(data_set)
+		self.gen_mat = self.genel_mat(data_set)
 
 
 		self.labels = pad_sequences(labels, self.maxlen)
@@ -72,11 +77,12 @@ class Data_Loader():
 
 		self.data_size = len(self.sent)
 
-		# if 'permutation' not in data:
-		# 	self.permutation = np.random.permutation(self.data_size)
-		# 	data['permutation'] = self.permutation
-		# 	pickle.dump(data,open('data.pkl', 'wb'))
-		self.permutation = data['permutation']
+		if 'permutation' not in data:
+			self.permutation = np.random.permutation(self.data_size)
+			data['permutation'] = self.permutation
+			pickle.dump(data,open(data_file, 'wb'))
+		else:
+			self.permutation = data['permutation']
 
 		# self.train_val_test() ## it splits training testing here
 		self.train_test_split(self.permutation) ## it splits training testing here
@@ -105,16 +111,22 @@ class Data_Loader():
 			labels.append(label)
 		return labels
 
-	def embed_mat(self):
-		model = Word2Vec.load('gensim_laptop')
+	def embed_mat(self, data_set):
+		if data_set == 'laptop':
+			model = Word2Vec.load('gensim_laptop')
+		else:
+			model = Word2Vec.load('gensim_res')
 		mat = np.random.uniform(-1,1,(self.vocab_size, self.emb_size))
 		for i in range(1,self.vocab_size):
 			mat[i] =  model[self.idx2word[i]]
 		return mat
 
-	def genel_mat(self):
-		if os.path.exists("gen_mat.npy"):
-			return np.load("gen_mat.npy")
+	def genel_mat(self, data_set):
+
+		gen_file = 'gen_laptop.npy' if data_set == 'laptop' else 'gen_res.npy'
+
+		if os.path.exists(gen_file):
+			return np.load(gen_file)
 		else:
 			mat = np.random.uniform(-1,1,(self.vocab_size, self.gen_size))
 			fr = open('/media/wenjh/Ubuntu 16.0/Downloads/glove.6B/glove.6B.300d.txt')
@@ -126,7 +138,7 @@ class Data_Loader():
 				if word in self.word2idx:
 					index = self.word2idx[word]
 					mat[index] = np.array(list(map(float,vec))).astype(np.float32)
-			np.save('gen_mat', mat)
+			np.save(gen_file.split('.')[0], mat)
 			return mat
 
 

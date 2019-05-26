@@ -173,7 +173,7 @@ def build_vocab(sentences, labels,tags, train_size, emb_size, label_mask):
 
 	data['label_mask'] = np.array(label_mask).astype(np.float32)
 
-	pickle.dump(data,open('data.pkl', 'wb'))
+	pickle.dump(data,open('data_res_1.pkl', 'wb'))
 
 def process_unsupervised_sent(tokens):
 	new_tokens = []
@@ -267,11 +267,11 @@ def processLaptop(filename):
 	label_mask = [1]*len(sents)
 	build_vocab(sents, labels, tags, train_size=train_size, emb_size=100, label_mask=label_mask)
 
-def processLaptopCat():
-	fr = open('data.pkl','rb')
+def processCat():
+	fr = open('data_res.pkl','rb')
 	data = pickle.load(fr)
 	fr.close()
-	fr = open('./data/sent_cat.txt')
+	fr = open('./data/sent_res_cat.txt')
 	catinfo = fr.readlines()
 	fr.close()
 	cat_labels = []
@@ -291,6 +291,10 @@ def processLaptopCat():
 		# 		cat_labels.append(cat[1])
 		# 	else:
 		# 		cat_labels.append(cat[0])
+	# print(len(cat_labels))
+	# print(len(data['processed_sentence']))
+	# print(data['raw_sentence'][2675])
+
 	assert len(cat_labels) == len(data['processed_sentence'])
 
 	clabel2idx = dict((c,i) for i,c in enumerate(cat_labels_set))
@@ -303,9 +307,29 @@ def processLaptopCat():
 	data['num_cat'] = len(cat_labels_set)
 
 	# pickle.dump('data_cat_laptop.pkl', open())
-	pickle.dump(data,open('data_cat_laptop.pkl', 'wb'))
+	pickle.dump(data,open('data_cat_res.pkl', 'wb'))
 
 
+def processLaptop():
+	fr = open('data_cat_laptop.pkl', 'rb')
+	data = pickle.load(fr)
+	fr.close()
+
+	def get_label_from_file(filename):
+		fr = open(filename)
+		data = fr.readlines()
+		fr.close()
+		labels = []
+		for i in range(1,len(data),2):
+			line = data[i].strip()
+			listfromline = line.split()
+			label = list(map(int,listfromline))
+			labels.append(label)
+		return labels
+	labels = get_label_from_file('./data/sent_annot.txt')	
+	assert len(labels) == len(data['labels'])
+	data['labels'] = labels
+	pickle.dump(data, open('data_cat_laptop.pkl', 'wb'))
 
 if __name__ == '__main__':
 	# main()
@@ -330,4 +354,6 @@ if __name__ == '__main__':
 	#------------------------------------------------------------#
 
 	# processLaptop('./data/sent_annot.txt')
-	processLaptopCat()
+	# processCat()
+	# processRes()
+	processLaptop()

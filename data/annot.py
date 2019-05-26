@@ -48,7 +48,7 @@ def main(filename):
 		for op in sen.iter("Opinion"):
 			# cat += op.attrib['category']+';'
 			op_cat = op.attrib['category'].split('#')
-			if op_cat[0]=='LAPTOP':
+			if op_cat[0]=='RESTAURANT':
 				key = op_cat[1]
 			else:
 				key = op_cat[0]
@@ -172,7 +172,7 @@ def analysis(filename):
 			import nltk.stem as ns 
 			lemmatizer = ns.WordNetLemmatizer()
 
-			sent = [lemmatizer.lemmatize(lemmatizer.lemmatize(word,'n'),'v') for word in listfromline[:-1] if word not in ['#num','wa']]
+			sent = [lemmatizer.lemmatize(lemmatizer.lemmatize(word,'n'),'v') for word in listfromline[:-1] if word not in ['#num','was']]
 			if 'wa' in sent:
 				print('wa in sent')
 			if key not in cat_s:
@@ -195,7 +195,7 @@ def analysis(filename):
 		plt.title(key)
 		# print(strings)
 		# plt.show()
-		plt.savefig('wc_'+key+'.png')
+		plt.savefig('lap_'+key+'.png')
 		# wordcloud.to_file('wc'+key+'.png')
 
 
@@ -223,4 +223,7 @@ if __name__ == '__main__':
 	# main('EN_LAPT_SB1_TEST_.xml.gold')
 	# annot('sent.txt')
 
-	analysis('sent_cat.txt')
+	# analysis('sent_cat.txt')
+	# main('ABSA16_Restaurants_Train_SB1_v2.xml')
+	# main('EN_REST_SB1_TEST_gold.xml')
+	# analysis('sent_res_cat.txt')

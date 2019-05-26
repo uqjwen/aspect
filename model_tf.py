@@ -264,7 +264,8 @@ class Model():
 def train():
 	batch_size = 32
 	neg_size = 4
-	data_loader = Data_Loader(batch_size)
+	data_set = sys.argv[1]
+	data_loader = Data_Loader(batch_size, data_set)
 	maxlen = data_loader.maxlen
 	model = Model(data_loader.gen_mat,
 				data_loader.emb_mat,
