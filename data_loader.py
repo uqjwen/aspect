@@ -27,7 +27,8 @@ class Data_Loader():
 
 		self.num_cat = data['num_cat']
 		self.clabels = data['cat_labels']
-		self.clabels = to_categorical(self.clabels, self.num_cat)
+		# self.clabels = to_categorical(self.clabels, self.num_cat)
+		self.clabels = self.my_categorical(self.clabels, self.num_cat)
 
 		tags = data['tags']
 
@@ -82,7 +83,14 @@ class Data_Loader():
 
 		
 
-
+	def my_categorical(self, labels, num_class):
+		res = []
+		for label in labels:
+			temp = np.zeros(num_class)
+			temp[label] = 1
+			res.append(temp)
+		return np.array(res,dtype = np.float32)
+		# return res.astype(np.float32)
 
 		# print(self.train_size)
 	def get_label_from_file(self,filename):

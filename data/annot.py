@@ -44,9 +44,25 @@ def main(filename):
 		sentext = sen.find("text").text
 
 		tokens = my_split(sentext)
-		cat = 'unknown'
+		cat = []
 		for op in sen.iter("Opinion"):
-			cat = op.attrib['category']
+			# cat += op.attrib['category']+';'
+			op_cat = op.attrib['category'].split('#')
+			if op_cat[0]=='LAPTOP':
+				key = op_cat[1]
+			else:
+				key = op_cat[0]
+			if key not in cat:
+				cat.append(key)
+
+		# if len(cat)==0:
+		# 	cat = 'unknown'
+		# else:
+		# 	cat = cat[:-1]
+		if len(cat) == 0:
+			cat = 'unknown'
+		else:
+			cat = ';'.join(cat)
 
 		print(' '.join(tokens)+' '+cat)
 
@@ -142,20 +158,23 @@ def analysis(filename):
 		cat.append(listfromline[-1])
 
 		c = listfromline[-1]
-		c = c.split('#')
-		m_cat.append('#'.join(c))
+		c = c.split(';')
+		# m_cat.append('#'.join(c))
 
 
-		if len(c) == 2:
-			# print(c)
-			if c[0]!='LAPTOP':
-				key = c[0]
-			else:
-				key = c[1]
+		# if len(c) == 2:
+			# # print(c)
+			# if c[0]!='LAPTOP':
+			# 	key = c[0]
+			# else:
+			# 	key = c[1]
+		for key in c:
 			import nltk.stem as ns 
 			lemmatizer = ns.WordNetLemmatizer()
 
 			sent = [lemmatizer.lemmatize(lemmatizer.lemmatize(word,'n'),'v') for word in listfromline[:-1] if word not in ['#num','wa']]
+			if 'wa' in sent:
+				print('wa in sent')
 			if key not in cat_s:
 				cat_s[key] = ' '.join(sent)
 			else:
