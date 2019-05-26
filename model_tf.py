@@ -121,11 +121,11 @@ class Model():
 		#-----------------------------------------------------------------------------
 
 		cat_latent = self.get_cat_latent(latent)
-		cat_logits = Dense(self.num_cat, kernel_initializer='lecun_uniform')(cat_latent)
+		self.cat_logits = Dense(self.num_cat, kernel_initializer='lecun_uniform')(cat_latent)
 
-		cat_loss = tf.nn.softmax_cross_entropy_with_logits(logits = cat_logits, labels = self.clabels)
+		cat_loss = tf.nn.softmax_cross_entropy_with_logits(logits = self.cat_logits, labels = self.clabels)
 		cat_loss = tf.reduce_mean(cat_loss)
-		self.cat_pred = tf.argmax(cat_logits, axis=-1)
+		# self.cat_pred = tf.argmax(cat_logits, axis=-1)
 
 		#------------------------------------------------------------------------------
 
@@ -351,12 +351,30 @@ def res(idx2word,input_data, y_pred, y_true, mask_data, x_logit):
 		# print(labels)
 		# print(predict)
 		# print('-------------------------------------')
+def cat_metrics(clabels, clogits):
+	y_true = []
+	y_pred = []
+
+	for clabel, clogit in zip(clabels, clogits):
+		labels = np.where(clabel!=0)[0]
+		num = max(10,len(labels))
+		logits = list(np.argsort(clogit)[-num:])
+		for label in labels:
+			y_true.append(label)
+			if label in logits:
+				y_pred.append(label)
+				logits.remove(label)
+			else:
+				y_pred.append(logits.pop(-1))
+
+
+	return f1_score(y_true, y_pred, average = 'micro')
 
 def val(sess, model, data_loader):
 	input_data, input_tag, mask_data, y_data, clabels = data_loader.val(0.4)
 
 	y_data = to_categorical(y_data, 3)
-	x_logit, y_pred, cat_pred = sess.run([model.x_logit, model.prediction,model.cat_pred],
+	x_logit, y_pred, cat_logits = sess.run([model.x_logit, model.prediction,model.cat_logits],
 								feed_dict = {model.x:input_data,
 											model.t:input_tag,
 											model.mask:mask_data,
@@ -367,10 +385,11 @@ def val(sess, model, data_loader):
 
 
 
-	clabels = np.argmax(clabels, axis=-1)
+	# clabels = np.argmax(clabels, axis=-1)
 	y_true = np.argmax(y_data,axis=-1)
 	# fscore = f_score(y_pred, y_true, mask_data)
-	fscore = f1_score(cat_pred, clabels, average = 'micro')
+	# fscore = f1_score(cat_pred, clabels, average = 'micro')
+	fscore = cat_metrics(clabels, cat_logits)
 	if fscore>0.5:
 		res(data_loader.idx2word, input_data, y_pred, y_true, mask_data, x_logit)
 	return fscore
