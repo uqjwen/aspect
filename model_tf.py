@@ -357,18 +357,20 @@ def cat_metrics(clabels, clogits):
 
 	for clabel, clogit in zip(clabels, clogits):
 		labels = np.where(clabel!=0)[0]
-		num = max(10,len(labels))
-		logits = list(np.argsort(clogit)[-num:])
+		num = max(5,len(labels))
+		logits = list(np.argsort(clogit)[::-1][:num])
 		for label in labels:
 			y_true.append(label)
 			if label in logits:
 				y_pred.append(label)
-				logits.remove(label)
+				# logits.remove(label)
 			else:
-				y_pred.append(logits.pop(-1))
+				# y_pred.append(logits.pop(-1))
+				y_pred.append(logits[0])
+				logits.append(logits.pop(0))
 
 
-	return f1_score(y_true, y_pred, average = 'micro')
+	return f1_score(y_true, y_pred, average = 'weighted')
 
 def val(sess, model, data_loader):
 	input_data, input_tag, mask_data, y_data, clabels = data_loader.val(0.4)
