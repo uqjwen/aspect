@@ -46,7 +46,7 @@ class Model():
 		print("embedding size", domain_emb.shape)
 		self.x 			= tf.placeholder(tf.int32, shape=[None, maxlen])
 		self.labels 	= tf.placeholder(tf.int32, shape=[None, maxlen, num_class])
-		self.clabels 	= tf.placeholder(tf.int32, shape=[None, num_cat])
+		self.clabels 	= tf.placeholder(tf.float32, shape=[None, num_cat])
 		self.t 			= tf.placeholder(tf.float32, shape=[None, maxlen, num_tag])
 
 
@@ -123,7 +123,7 @@ class Model():
 		cat_latent = self.get_cat_latent(latent)
 		self.cat_logits = Dense(self.num_cat, kernel_initializer='lecun_uniform')(cat_latent)
 
-		cat_loss = tf.nn.softmax_cross_entropy_with_logits(logits = self.cat_logits, labels = self.clabels)
+		cat_loss = tf.nn.sigmoid_cross_entropy_with_logits(logits = self.cat_logits, labels = self.clabels)
 		cat_loss = tf.reduce_mean(cat_loss)
 		# self.cat_pred = tf.argmax(cat_logits, axis=-1)
 
@@ -171,7 +171,7 @@ class Model():
 
 		self.cost = cat_loss
 
-		self.train_op = tf.train.AdamOptimizer(learning_rate=0.00001).minimize(self.cost)
+		self.train_op = tf.train.AdamOptimizer(learning_rate=0.0001).minimize(self.cost)
 
 	def get_cat_latent(self, latent):
 		scores = Dense(1, kernel_initializer = 'lecun_uniform')(latent) #batch_size, maxlen, 1
@@ -180,13 +180,15 @@ class Model():
 		#latent: batch_size, maxlen, embed_size
 		#score: batch_size, maxlen
 		#mask: batch_size, maxlen
-		scores = self.mask*tf.exp(scores)
-		sum_score = tf.reduce_sum(scores, axis=-1, keepdims=True)
-		sum_score = tf.maximum(sum_score,1)
-		# scores = scores/tf.reduce_sum(scores, axis=-1, keepdims=True)  #batch_size, maxlen
-		scores = scores/sum_score
-		# scores = tf.nn.softmax(scores)
-		scores = tf.expand_dims(scores,-1)
+		# scores = self.mask*tf.exp(scores)
+		# sum_score = tf.reduce_sum(scores, axis=-1, keepdims=True)
+		# sum_score = tf.maximum(sum_score,1)
+		# scores = scores/sum_score
+		# scores = tf.expand_dims(scores,-1)
+
+		scores = tf.nn.softmax(scores)
+		scores = self.mask*scores
+		scores = tf.expand_dims(scores, -1)
 
 		cat_latent = tf.reduce_sum(scores*latent, axis=1) #batch_size, embed_size
 		print(cat_latent.shape,'cat_latent')
@@ -351,13 +353,15 @@ def res(idx2word,input_data, y_pred, y_true, mask_data, x_logit):
 		# print(labels)
 		# print(predict)
 		# print('-------------------------------------')
-def cat_metrics(clabels, clogits):
+def cat_metrics(clabels, clogits, clabel_mask):
 	y_true = []
 	y_pred = []
 
-	for clabel, clogit in zip(clabels, clogits):
+	for clabel, clogit, cmask in zip(clabels, clogits, clabel_mask):
+		if cmask == 0:
+			continue
 		labels = np.where(clabel!=0)[0]
-		num = max(5,len(labels))
+		num = min(3,len(labels))
 		logits = list(np.argsort(clogit)[::-1][:num])
 		for label in labels:
 			y_true.append(label)
@@ -368,12 +372,27 @@ def cat_metrics(clabels, clogits):
 				# y_pred.append(logits.pop(-1))
 				y_pred.append(logits[0])
 				logits.append(logits.pop(0))
+		#-------------------------------------------------------
+		# labels = np.where(clabel !=0)[0]
+		# num = len(labels)
+		# logits = np.argsort(clogit)[::-1][:num]
+
+		# flag = 0
+		# for logit in logits:
+		# 	if logit in labels:
+		# 		y_true.append(logit)
+		# 		y_pred.append(logit)
+		# 		flag = 1
+		# if flag == 0:
+		# 	y_true.append(np.random.choice(labels))
+		# 	y_pred.append(logits[0])
+		#------------------------------------------------------
 
 
-	return f1_score(y_true, y_pred, average = 'weighted')
+	return f1_score(y_true, y_pred, average = 'micro')
 
 def val(sess, model, data_loader):
-	input_data, input_tag, mask_data, y_data, clabels = data_loader.val(0.4)
+	input_data, input_tag, mask_data, y_data, clabels, clabel_mask = data_loader.val(1)
 
 	y_data = to_categorical(y_data, 3)
 	x_logit, y_pred, cat_logits = sess.run([model.x_logit, model.prediction,model.cat_logits],
@@ -391,7 +410,7 @@ def val(sess, model, data_loader):
 	y_true = np.argmax(y_data,axis=-1)
 	# fscore = f_score(y_pred, y_true, mask_data)
 	# fscore = f1_score(cat_pred, clabels, average = 'micro')
-	fscore = cat_metrics(clabels, cat_logits)
+	fscore = cat_metrics(clabels, cat_logits, clabel_mask)
 	if fscore>0.5:
 		res(data_loader.idx2word, input_data, y_pred, y_true, mask_data, x_logit)
 	return fscore

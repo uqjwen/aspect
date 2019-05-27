@@ -34,6 +34,8 @@ class Data_Loader():
 		self.clabels = data['cat_labels']
 		# self.clabels = to_categorical(self.clabels, self.num_cat)
 		self.clabels = self.my_categorical(self.clabels, self.num_cat)
+		self.clabel_mask = self.get_cat_mask(self.clabels, data['clabel2idx'])
+
 
 		tags = data['tags']
 
@@ -88,6 +90,15 @@ class Data_Loader():
 		self.train_test_split(self.permutation) ## it splits training testing here
 
 		
+	def get_cat_mask(self, clabels, clabel2idx):
+		cat_mask = []
+		index = clabel2idx['unknown']
+		for clabel in clabels:
+			if len(clabel)==0 and clabel[0]==index:
+				cat_mask.append(0)
+			else:
+				cat_mask.append(1)
+		return np.array(cat_mask, dtype = np.float32)
 
 	def my_categorical(self, labels, num_class):
 		res = []
@@ -183,22 +194,31 @@ class Data_Loader():
 		v_mask 		= []
 		v_labels 	= []
 		v_c_labels 	= []
+		v_c_masks 	= []
 
 		exists_dic = {}
 
-		while len(v_sent)<sample_size:
-			idx = np.random.choice(range(len(self.val_sent)))
-			if idx not in exists_dic:
-				exists_dic[idx] = 1
-			else:
-				continue
-			# if np.sum(self.val_labels[idx])==0:
-			# 	continue
-			v_sent.append(self.val_sent[idx])
-			v_sent_tag.append(self.val_sent_tag[idx])
-			v_mask.append(self.val_mask[idx])
-			v_labels.append(self.val_labels[idx])
-			v_c_labels.append(self.clabels[idx])
+		if sample_rate == 1:
+			return self.val_sent, self.val_sent_tag, self.val_mask, self.val_labels, self.val_cat_labels, self.val_cat_mask
+
+		else:
+
+			while len(v_sent)<sample_size:
+				idx = np.random.choice(range(len(self.val_sent)))
+				if idx not in exists_dic:
+					exists_dic[idx] = 1
+				else:
+					continue
+				# if np.sum(self.val_labels[idx])==0:
+				# 	continue
+				v_sent.append(self.val_sent[idx])
+				v_sent_tag.append(self.val_sent_tag[idx])
+				v_mask.append(self.val_mask[idx])
+				v_labels.append(self.val_labels[idx])
+				v_c_labels.append(self.val_cat_labels[idx])
+				v_c_masks.append(self.val_cat_mask[idx])
+			# v_c_masks.append(self.)
+
 
 
 		# return self.sent[idx], self.sent_tag[idx], self.mask[idx], self.labels[idx]
@@ -207,7 +227,8 @@ class Data_Loader():
 				np.array(v_sent_tag),\
 				np.array(v_mask),\
 				np.array(v_labels),\
-				np.array(v_c_labels)
+				np.array(v_c_labels),\
+				np.array(v_c_masks)
 
 
 
@@ -225,6 +246,8 @@ class Data_Loader():
 		self.train_labels 		= self.labels[train_pmt]
 		self.train_label_mask 	= self.label_mask[train_pmt]
 		self.train_cat_labels	= self.clabels[train_pmt]
+		self.train_cat_mask 	= self.clabel_mask[train_pmt]
+
 
 
 		self.val_sent 			= self.sent[test_pmt]
@@ -233,6 +256,7 @@ class Data_Loader():
 		self.val_labels 		= self.labels[test_pmt]
 		self.val_label_mask 	= self.label_mask[test_pmt]
 		self.val_cat_labels		= self.clabels[test_pmt]
+		self.val_cat_mask 		= self.clabel_mask[test_pmt]
 
 		self.train_size 		= train_size
 
