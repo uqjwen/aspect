@@ -310,7 +310,8 @@ def cat_metrics(clabels, clogits, clabel_mask):
 		if cmask == 0:
 			continue
 		labels = np.where(clabel!=0)[0]
-		num = min(5,len(labels))
+		# num = min(5,len(labels))
+		num = len(labels)
 		logits = list(np.argsort(clogit)[::-1][:num])
 		for label in labels:
 			y_true.append(label)
@@ -458,7 +459,7 @@ def test():
 	iterations = 100
 	res = []
 	with tf.Session() as sess:
-		sess.run(tf.global_variables_initializer())
+		# sess.run(tf.global_variables_initializer())
 		saver = tf.train.Saver(tf.global_variables())
 
 

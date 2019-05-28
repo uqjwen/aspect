@@ -199,6 +199,7 @@ class Data_Loader():
 		exists_dic = {}
 
 		if sample_rate == 1:
+			# print('\n')
 			return self.val_sent, self.val_sent_tag, self.val_mask, self.val_labels, self.val_cat_labels, self.val_cat_mask
 
 		else:
