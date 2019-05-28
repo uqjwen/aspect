@@ -471,11 +471,15 @@ def test():
 			print(" [!] loading parameters failed...")
 			return
 
+
+
+		input_data, input_tag, mask_data, y_data, clabels, clabel_mask = data_loader.val(1)
+		y_data = to_categorical(y_data, 3)
+
 		for i in range(iterations):
 
-			input_data, input_tag, mask_data, y_data, clabels, clabel_mask = data_loader.val(1)
+			
 
-			y_data = to_categorical(y_data, 3)
 			x_logit, y_pred, cat_logits = sess.run([model.x_logit, model.prediction,model.cat_logits],
 										feed_dict = {model.x:input_data,
 													model.t:input_tag,
