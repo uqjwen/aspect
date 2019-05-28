@@ -263,68 +263,6 @@ class Model():
 
 
 
-def train():
-	batch_size = 32
-	neg_size = 4
-	data_set = sys.argv[1]
-	data_loader = Data_Loader(batch_size, data_set)
-	maxlen = data_loader.maxlen
-	model = Model(data_loader.gen_mat,
-				data_loader.emb_mat,
-				num_tag = data_loader.num_tag,
-				num_cat = data_loader.num_cat,
-				num_class = 3,
-				maxlen = maxlen,
-				batch_size = batch_size,
-				drop_out = 0.5,
-				neg_size = neg_size)
-	epochs = 1000
-	best_metric = 0
-	with tf.Session() as sess:
-		sess.run(tf.global_variables_initializer())
-		saver = tf.train.Saver(tf.global_variables())
-
-
-		ckpt = tf.train.get_checkpoint_state(checkpointer_dir)
-		if ckpt and ckpt.model_checkpoint_path:
-			saver.restore(sess, ckpt.model_checkpoint_path)
-			print(" [*] loading parameters success!!!")
-		else:
-			print(" [!] loading parameters failed...")
-
-		for i in range(epochs):
-			data_loader.reset_pointer()
-			num_batch = int(data_loader.train_size/batch_size)
-			# print("total batch: ", num_batch)
-			for b in range(num_batch+1):
-				input_data, input_tag, mask_data, y_data, label_mask, clabels = data_loader.__next__()
-				# print(input_data.shape, input_tag.shape, mask_data.shape, y_data.shape, label_mask.shape)
-				# print(input_data.shape, mask_data.shape, y_data.shape)
-				input_neg = np.random.randint(1,data_loader.vocab_size, (input_data.shape[0], maxlen, neg_size))
-				# print(input_neg)
-				y_data = to_categorical(y_data, 3)
-				# print(y_data.shape,'uqjwen')
-				_,loss = sess.run([model.train_op, model.cost], feed_dict = {model.x:input_data,
-																			model.t:input_tag,
-																			model.mask:mask_data,
-																			model.label_mask:label_mask,
-																			model.neg:input_neg,
-																			model.labels:y_data,
-																			model.clabels:clabels})
-
-				sys.stdout.write('\repoch:{}, batch:{}, loss:{}'.format(i,b,loss))
-				sys.stdout.flush()
-
-				# break
-			# print("validation....")
-			fscore = val(sess, model, data_loader)
-			if fscore > best_metric:
-				best_metric = fscore
-				saver.save(sess, checkpointer_dir+'model.ckpt', global_step=i)
-			print("\nf1_score: ", fscore)
-			# break
-
-
 def f_score(y_pred, y_true, y_mask):
 	y_pred = y_pred.reshape(-1)
 	y_true = y_true.reshape(-1)
@@ -361,7 +299,7 @@ def cat_metrics(clabels, clogits, clabel_mask):
 		if cmask == 0:
 			continue
 		labels = np.where(clabel!=0)[0]
-		num = min(3,len(labels))
+		num = min(5,len(labels))
 		logits = list(np.argsort(clogit)[::-1][:num])
 		for label in labels:
 			y_true.append(label)
@@ -411,16 +349,158 @@ def val(sess, model, data_loader):
 	# fscore = f_score(y_pred, y_true, mask_data)
 	# fscore = f1_score(cat_pred, clabels, average = 'micro')
 	fscore = cat_metrics(clabels, cat_logits, clabel_mask)
-	if fscore>0.5:
-		res(data_loader.idx2word, input_data, y_pred, y_true, mask_data, x_logit)
+	# if fscore>0.5:
+	# 	res(data_loader.idx2word, input_data, y_pred, y_true, mask_data, x_logit)
 	return fscore
 
+
+
+
+
+def train():
+	batch_size = 32
+	neg_size = 4
+	data_set = sys.argv[1]
+	data_loader = Data_Loader(batch_size, data_set)
+	maxlen = data_loader.maxlen
+	model = Model(data_loader.gen_mat,
+				data_loader.emb_mat,
+				num_tag = data_loader.num_tag,
+				num_cat = data_loader.num_cat,
+				num_class = 3,
+				maxlen = maxlen,
+				batch_size = batch_size,
+				drop_out = 0.5,
+				neg_size = neg_size)
+	epochs 		= 200
+	best_metric = 0
+	train_loss 	= []
+	val_score 	= []
+	with tf.Session() as sess:
+		sess.run(tf.global_variables_initializer())
+		saver = tf.train.Saver(tf.global_variables())
+
+
+		ckpt = tf.train.get_checkpoint_state(checkpointer_dir)
+		if ckpt and ckpt.model_checkpoint_path:
+			saver.restore(sess, ckpt.model_checkpoint_path)
+			print(" [*] loading parameters success!!!")
+		else:
+			print(" [!] loading parameters failed...")
+
+		for i in range(epochs):
+			data_loader.reset_pointer()
+			num_batch = int(data_loader.train_size/batch_size)
+			# print("total batch: ", num_batch)
+			for b in range(num_batch+1):
+				input_data, input_tag, mask_data, y_data, label_mask, clabels = data_loader.__next__()
+				# print(input_data.shape, input_tag.shape, mask_data.shape, y_data.shape, label_mask.shape)
+				# print(input_data.shape, mask_data.shape, y_data.shape)
+				input_neg = np.random.randint(1,data_loader.vocab_size, (input_data.shape[0], maxlen, neg_size))
+				# print(input_neg)
+				y_data = to_categorical(y_data, 3)
+				# print(y_data.shape,'uqjwen')
+				_,loss = sess.run([model.train_op, model.cost], feed_dict = {model.x:input_data,
+																			model.t:input_tag,
+																			model.mask:mask_data,
+																			model.label_mask:label_mask,
+																			model.neg:input_neg,
+																			model.labels:y_data,
+																			model.clabels:clabels})
+
+				sys.stdout.write('\repoch:{}, batch:{}, loss:{}'.format(i,b,loss))
+				sys.stdout.flush()
+
+				# break
+			# print("validation....")
+			fscore = val(sess, model, data_loader)
+			if fscore > best_metric:
+				best_metric = fscore
+				saver.save(sess, checkpointer_dir+'model.ckpt', global_step=i)
+			print("\nf1_score: ", fscore)
+			# break
+			train_loss.append(loss)
+			val_score.append(fscore)
+		np.save(checkpointer_dir+'train_loss', train_loss)
+		np.save(checkpointer_dir+'val_score', val_score)
+
+
+def test():
+
+	batch_size = 32
+	neg_size = 4
+	data_set = sys.argv[1]
+	data_loader = Data_Loader(batch_size, data_set)
+	maxlen = data_loader.maxlen
+	model = Model(data_loader.gen_mat,
+				data_loader.emb_mat,
+				num_tag = data_loader.num_tag,
+				num_cat = data_loader.num_cat,
+				num_class = 3,
+				maxlen = maxlen,
+				batch_size = batch_size,
+				drop_out = 0.5,
+				neg_size = neg_size)
+	iterations = 100
+	res = []
+	with tf.Session() as sess:
+		sess.run(tf.global_variables_initializer())
+		saver = tf.train.Saver(tf.global_variables())
+
+
+		ckpt = tf.train.get_checkpoint_state(checkpointer_dir)
+		if ckpt and ckpt.model_checkpoint_path:
+			saver.restore(sess, ckpt.model_checkpoint_path)
+			print(" [*] loading parameters success!!!")
+		else:
+			print(" [!] loading parameters failed...")
+			return
+
+		for i in range(iterations):
+
+			input_data, input_tag, mask_data, y_data, clabels, clabel_mask = data_loader.val(1)
+
+			y_data = to_categorical(y_data, 3)
+			x_logit, y_pred, cat_logits = sess.run([model.x_logit, model.prediction,model.cat_logits],
+										feed_dict = {model.x:input_data,
+													model.t:input_tag,
+													model.mask:mask_data,
+													model.labels:y_data,
+													model.clabels:clabels})
+			# f_score = f1_score()
+
+
+
+
+			# clabels = np.argmax(clabels, axis=-1)
+			y_true = np.argmax(y_data,axis=-1)
+			# fscore = f_score(y_pred, y_true, mask_data)
+			# fscore = f1_score(cat_pred, clabels, average = 'micro')
+			fscore = cat_metrics(clabels, cat_logits, clabel_mask)
+			print(fscore)
+			res.append(fscore)
+			# print(fscore)
+		print(np.mean(res), np.var(res))
+
+		np.save(checkpointer_dir+'res', res)
+
+
+
+
 checkpointer_dir = './ckpt/'
+checkpointer_dir = './ckpt_'+sys.argv[1]+'/'
 if not os.path.exists(checkpointer_dir):
 	os.makedirs(checkpointer_dir)
 
+
+
+
+
 if __name__ == '__main__':
-	train()
+	if sys.argv[2] == 'train':
+		train()
+	else:
+		test()
 # # if __name__ == '__main__':
 # 	batch_size = 64
 # 	vocab_size = 3000
