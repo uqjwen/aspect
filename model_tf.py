@@ -48,6 +48,7 @@ class Model():
 		self.labels 	= tf.placeholder(tf.int32, shape=[None, maxlen, num_class])
 		self.clabels 	= tf.placeholder(tf.float32, shape=[None, num_cat])
 		self.t 			= tf.placeholder(tf.float32, shape=[None, maxlen, num_tag])
+		self.is_training= tf.placeholder(tf.bool)
 
 
 		self.mask 		= tf.placeholder(tf.float32, shape=[None, maxlen])
@@ -218,9 +219,13 @@ class Model():
 
 
 		# x_latent = tf.nn.dropout(tf.nn.relu(self.x_conv_1(x_latent)), self.dropout)
-		x_latent = tf.nn.dropout(tf.nn.relu(tf.concat([self.x_conv_1(x_latent), self.x_conv_2(x_latent)],axis=-1)), self.dropout)
+		x_latent = tf.nn.relu(tf.concat([self.x_conv_1(x_latent), self.x_conv_2(x_latent)],axis=-1))
 
-		x_latent = tf.nn.dropout(tf.nn.relu(self.x_conv_3(x_latent)), self.dropout)
+		x_latent = tf.cond(self.is_training, lambda:tf.nn.dropout(x_latent, self.dropout), lambda: x_latent)
+
+		x_latent = tf.nn.relu(self.x_conv_3(x_latent))
+
+		x_latent = tf.cond(self.is_training, lambda:tf.nn.dropout(x_latent, self.dropout), lambda: x_latent)
 
 		# x_latent = tf.nn.dropout(tf.nn.relu(self.x_conv_4(x_latent)), self.dropout)
 
@@ -228,11 +233,16 @@ class Model():
 
 
 
-		t_latent = tf.nn.dropout(tf.nn.relu(self.t_conv_1(t)), self.dropout)
+		t_latent = tf.nn.relu(self.t_conv_1(t))
+		t_latent = tf.cond(self.is_training, lambda:tf.nn.dropout(t_latent, self.dropout), lambda:t_latent)
 
-		t_latent = tf.nn.dropout(tf.nn.relu(self.t_conv_2(t_latent)), self.dropout)
+		
 
-		t_latent = tf.nn.dropout(tf.nn.relu(self.t_conv_3(t_latent)), self.dropout)
+		t_latent = tf.nn.relu(self.t_conv_2(t_latent))
+		t_latent = tf.cond(self.is_training, lambda:tf.nn.dropout(t_latent, self.dropout), lambda:t_latent)
+
+		t_latent = tf.nn.relu(self.t_conv_3(t_latent))
+		t_latent = tf.cond(self.is_training, lambda:tf.nn.dropout(t_latent, self.dropout), lambda:t_latent)
 
 
 		gate = tf.nn.sigmoid(Dense(128, use_bias = True)(x_latent)+Dense(128)(t_latent))
@@ -350,7 +360,8 @@ def val(sess, model, data_loader):
 											model.t:input_tag,
 											model.mask:mask_data,
 											model.labels:y_data,
-											model.clabels:clabels})
+											model.clabels:clabels,
+											model.is_training:False})
 	# f_score = f1_score()
 
 
@@ -419,7 +430,8 @@ def train():
 																			model.label_mask:label_mask,
 																			model.neg:input_neg,
 																			model.labels:y_data,
-																			model.clabels:clabels})
+																			model.clabels:clabels,
+																			model.is_training:True})
 
 				sys.stdout.write('\repoch:{}, batch:{}, loss:{}'.format(i,b,loss))
 				sys.stdout.flush()
@@ -473,11 +485,11 @@ def test():
 
 
 
-		input_data, input_tag, mask_data, y_data, clabels, clabel_mask = data_loader.val(1)
-		y_data = to_categorical(y_data, 3)
 
 		for i in range(iterations):
 
+			input_data, input_tag, mask_data, y_data, clabels, clabel_mask = data_loader.val(0.9)
+			y_data = to_categorical(y_data, 3)
 			
 
 			x_logit, y_pred, cat_logits = sess.run([model.x_logit, model.prediction,model.cat_logits],
@@ -485,7 +497,8 @@ def test():
 													model.t:input_tag,
 													model.mask:mask_data,
 													model.labels:y_data,
-													model.clabels:clabels})
+													model.clabels:clabels,
+													model.is_training:False})
 			# f_score = f1_score()
 
 
