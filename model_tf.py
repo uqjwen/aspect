@@ -171,7 +171,18 @@ class Model():
 
 		self.cost = cat_loss
 
-		self.train_op = tf.train.AdamOptimizer(learning_rate=0.0001).minimize(self.cost)
+
+		self.global_step = tf.Variable(0, trainable = False)
+
+		self.lr = tf.train.exponential_decay(0.0001, self.global_step, decay_steps=200, decay_rate=0.1)
+
+		# self.train_op = tf.train.AdamOptimizer(learning_rate=0.0001).minimize(self.cost)
+		self.train_op = tf.train.AdamOptimizer(learning_rate=self.lr).minimize(self.cost)
+
+		# optimizer 	= tf.train.AdamOptimizer(self.lr)
+		# grads, vars = zip(*optimizer.compute_gradients(self.cost))
+		# grads,_ 	= tf.clip_by_global_norm(grads, clip_norm = 2)
+		# self.train_op = optimizer.apply_gradients(zip(grads,vars))
 
 	def get_cat_latent(self, latent):
 		scores = Dense(1, kernel_initializer = 'lecun_uniform')(latent) #batch_size, maxlen, 1
@@ -414,6 +425,8 @@ def train():
 
 				# break
 			# print("validation....")
+			lr = sess.run(model.lr, feed_dict = {model.global_step:i})
+			print('\t learning_rate: ',lr)
 			fscore = val(sess, model, data_loader)
 			if fscore > best_metric:
 				best_metric = fscore
