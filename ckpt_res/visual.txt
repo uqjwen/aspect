@@ -1,0 +1,1928 @@
+i	have	eaten	at	some	of	the	best	sushi	joints	in	nyc	nobu	bond	street	jewelbako	etc	and	yamato	is	my	favorite
+eaten	best	sushi	joints	nyc	nobu	bond	street	jewelbako	etc	yamato	favorite
+0.007	0.069	0.076	0.089	0.156	0.203	0.012	0.181	0.042	0.024	0.068	0.072
+unknown
+i	ve	had	the	lunch	buffet	at	chennai	a	couple	of	times	when	i	have	been	in	the	neighborhood
+lunch	buffet	chennai	couple	times	neighborhood
+0.172	0.123	0.054	0.084	0.443	0.124
+unknown
+mmm	good
+mmm	good
+0.282	0.718
+GENERAL
+whether	it	s	the	parmesean	porcini	souffle	or	the	lamb	glazed	with	balsamic	vinegar	you	will	surely	be	transported	to	northern	italy	with	one	bite
+whether	parmesean	porcini	souffle	lamb	glazed	balsamic	vinegar	surely	transported	northern	italy	one	bite
+0.062	0.022	0.046	0.047	0.056	0.064	0.036	0.129	0.08	0.077	0.081	0.079	0.046	0.174
+FOOD
+but	im	sure	this	was	just	an	honest	mistake
+im	sure	honest	mistake
+0.045	0.154	0.449	0.353
+unknown
+jimmy	is	dominican
+jimmy	dominican
+0.415	0.585
+unknown
+one	of	the	best	sushi	place	in	town
+one	best	sushi	place	town
+0.011	0.548	0.281	0.1	0.06
+GENERAL
+i	had	filet	mignon	with	garlic	mash
+filet	mignon	garlic	mash
+0.346	0.087	0.182	0.385
+unknown
+there	was	a	small	wait	but	shorter	than	i	expected
+small	wait	shorter	expected
+0.547	0.026	0.237	0.19
+SERVICE
+waitstaff	are	very	friendly
+waitstaff	friendly
+0.253	0.747
+SERVICE
+the	concept	of	japanese	tapas	is	newly	created	and	clearly	doesn	t	work
+concept	japanese	tapas	newly	created	clearly	work
+0.137	0.027	0.043	0.069	0.087	0.145	0.493
+FOOD
+i	came	into	the	city	to	try	out	this	restaurant	because	a	friend	had	recommended	it	to	my	husband
+came	city	try	restaurant	friend	recommended	husband
+0.066	0.007	0.055	0.08	0.042	0.032	0.717
+unknown
+probably	would	not	go	back	here
+probably	would	go	back
+0.149	0.472	0.069	0.31
+GENERAL
+most	of	the	servers	are	very	attentive	friendly	and	quite	attractive
+servers	attentive	friendly	quite	attractive
+0.099	0.031	0.03	0.102	0.738
+SERVICE
+don	t	leave	the	restaurant	without	it
+leave	restaurant	without
+0.358	0.075	0.567
+FOOD
+locations
+locations
+1.0
+unknown
+the	setting	is	casual	and	romantic
+setting	casual	romantic
+0.335	0.358	0.306
+AMBIENCE
+there	is	a	lot	of	variety	even	for	people	who	eat	vegetarian	like	me
+lot	variety	even	people	eat	vegetarian	like
+0.167	0.162	0.023	0.12	0.152	0.212	0.162
+FOOD
+each	time	we	ve	been	the	front	of	house	staff	not	the	waiters	they	re	fantastic	but	the	people	who	greet	and	seat	you	has	been	so	hideous	to	us	that	were	it	not	for	the	exceptional	fish	dishes	i	would	never	return
+time	front	house	staff	waiters	fantastic	people	greet	seat	hideous	us	exceptional	fish	dishes	would	never	return
+0.003	0.015	0.222	0.125	0.103	0.017	0.018	0.032	0.028	0.052	0.025	0.182	0.014	0.079	0.063	0.018	0.003
+SERVICE	FOOD
+the	food	is	all	shared	so	we	get	to	order	together	and	eat	together
+food	shared	get	order	together	eat	together
+0.044	0.098	0.013	0.08	0.194	0.126	0.444
+FOOD
+if	you	re	interested	in	good	tasting	without	the	fish	taste	or	smell	large	portions	and	creative	sushi	dishes	this	is	your	place
+interested	good	tasting	without	fish	taste	smell	large	portions	creative	sushi	dishes	place
+0.012	0.005	0.005	0.075	0.007	0.373	0.408	0.01	0.03	0.01	0.028	0.005	0.031
+FOOD
+i	picked	the	grilled	black	cod	as	my	entree	which	i	absolutely	devoured	while	someone	commented	that	the	grilled	salmon	dish	was	better
+picked	grilled	black	cod	entree	absolutely	devoured	someone	commented	grilled	salmon	dish	better
+0.06	0.021	0.056	0.201	0.089	0.041	0.103	0.224	0.014	0.048	0.101	0.015	0.027
+FOOD
+service	ok	but	unfriendly	filthy	bathroom
+service	ok	unfriendly	filthy	bathroom
+0.176	0.298	0.278	0.166	0.082
+SERVICE	AMBIENCE
+ciao	bella
+ciao	bella
+0.516	0.484
+unknown
+went	there	for	an	office	lunch
+went	office	lunch
+0.162	0.078	0.76
+unknown
+too	bad	the	food	wasn	t	of	the	same	heritage
+bad	food	heritage
+0.199	0.35	0.451
+FOOD
+i	would	just	ask	for	no	oil	next	time
+would	ask	oil	next	time
+0.182	0.112	0.034	0.081	0.591
+unknown
+if	only	they	delivered	they	d	make	a	mint
+delivered	make	mint
+0.226	0.281	0.493
+MISCELLANEOUS
+if	you’re	planning	to	come	here	make	sure	that	your	date	is	someone	whom	you	really	like	since	you’ll	be	ushered	to	private	booths	where	there	will	be	no	people	or	food	watching	choose	the	ones	on	the	ground	level	that	have	glass	ceilings	so	you	may	see	the	stars	in	the	sky
+you’re	planning	come	make	sure	date	someone	really	like	since	you’ll	ushered	private	booths	people	food	watching	choose	ones	ground	level	glass	ceilings	may	see	stars	sky
+0.011	0.042	0.043	0.032	0.062	0.166	0.006	0.054	0.033	0.006	0.043	0.008	0.025	0.005	0.018	0.017	0.021	0.027	0.109	0.015	0.061	0.033	0.02	0.102	0.011	0.021	0.008
+AMBIENCE
+my	boyfriend	had	the	new	england	chowder	it	was	good	but	i	think	the	award	should	go	to	the	lobster	bisque
+boyfriend	new	england	chowder	good	think	award	go	lobster	bisque
+0.325	0.048	0.028	0.047	0.142	0.045	0.099	0.035	0.146	0.085
+FOOD
+best	in	all	of	nyc
+best	nyc
+0.374	0.626
+GENERAL
+we	were	drawn	into	the	belly	dancing	show	that	captivated	the	crowd
+drawn	belly	dancing	show	captivated	crowd
+0.104	0.334	0.104	0.131	0.135	0.192
+AMBIENCE
+i	m	partial	to	the	gnocchi
+partial	gnocchi
+0.334	0.666
+GENERAL
+also	they	serve	the	best	hummus	in	america	with	a	drizzle	of	fragrant	olive	oil	which	i	believe	is	the	traditional	way
+also	serve	best	hummus	america	drizzle	fragrant	olive	oil	believe	traditional	way
+0.037	0.021	0.079	0.249	0.034	0.228	0.075	0.044	0.067	0.06	0.044	0.063
+FOOD
+prefer	to	order	it	and	pick	it	up	though	because	i	don	t	like	the	servers	one	young	woman	in	particular
+prefer	order	pick	though	like	servers	one	young	woman	particular
+0.128	0.183	0.064	0.129	0.099	0.059	0.089	0.058	0.033	0.159
+SERVICE
+it	is	not	consistent
+consistent
+1.0
+GENERAL
+an	excellent	service
+excellent	service
+0.302	0.698
+SERVICE
+the	in	house	lady	dj	on	saturday	nights	has	outrageously	good	taste	in	music	and	moreover	takes	requests
+house	lady	dj	saturday	nights	outrageously	good	taste	music	moreover	takes	requests
+0.054	0.069	0.072	0.023	0.122	0.197	0.016	0.15	0.098	0.027	0.037	0.134
+AMBIENCE
+pizza	the	only	pizza	in	nyc	that	should	not	have	additional	toppings	the	crust	tastes	like	the	best	freshly	baked	bread
+pizza	pizza	nyc	additional	toppings	crust	tastes	like	best	freshly	baked	bread
+0.019	0.013	0.019	0.007	0.003	0.004	0.787	0.007	0.015	0.099	0.015	0.013
+FOOD
+people	are	always	friendly
+people	always	friendly
+0.164	0.617	0.219
+SERVICE
+nothing	really	came	across	as	outstanding
+nothing	really	came	across	outstanding
+0.07	0.361	0.31	0.059	0.2
+FOOD
+also	they	were	$	each
+also	$
+0.545	0.455
+FOOD
+however	it	is	jus	too	good	to	not	praise	it
+however	jus	good	praise
+0.271	0.096	0.312	0.321
+GENERAL
+it	s	located	in	a	strip	mall	near	the	beverly	center	not	the	greatest	location	but	the	food	keeps	me	coming	back	for	more
+located	strip	mall	near	beverly	center	greatest	location	food	keeps	coming	back
+0.021	0.077	0.063	0.087	0.023	0.066	0.157	0.046	0.043	0.283	0.105	0.031
+FOOD	LOCATION
+if	we	were	to	move	from	the	upper	east	side	we	would	genuinely	miss	this	restaurant
+move	upper	east	side	would	genuinely	miss	restaurant
+0.064	0.251	0.051	0.163	0.052	0.031	0.229	0.159
+GENERAL
+while	it	s	not	nobu	it	sure	is	a	great	deal	and	you	definitely	will	leave	feeling	satisfied	and	full
+nobu	sure	great	deal	definitely	leave	feeling	satisfied	full
+0.029	0.043	0.196	0.095	0.15	0.107	0.13	0.033	0.217
+unknown
+old	reliable
+old	reliable
+0.513	0.487
+GENERAL
+the	yellowtail	was	particularly	good	as	well
+yellowtail	particularly	good	well
+0.405	0.092	0.112	0.391
+FOOD
+the	food	is	always	fresh
+food	always	fresh
+0.846	0.05	0.104
+FOOD
+the	service	was	the	only	thing	good	about	this	restaurant
+service	thing	good	restaurant
+0.184	0.104	0.662	0.05
+GENERAL	SERVICE
+the	rice	was	poor	quality	and	was	cooked	so	badly	it	was	hard
+rice	poor	quality	cooked	badly	hard
+0.067	0.041	0.299	0.025	0.394	0.174
+FOOD
+spreads	and	toppings	are	great	though	a	bit	pricey
+spreads	toppings	great	though	bit	pricey
+0.031	0.058	0.193	0.586	0.017	0.116
+FOOD
+slightly	above	average	wines	start	at	$	+	with	only	one	selection	listed	at	$	+
+slightly	average	wines	start	$	+	one	selection	listed	$	+
+0.204	0.03	0.008	0.146	0.02	0.039	0.039	0.066	0.319	0.029	0.1
+DRINKS
+that	s	a	huge	compliment	especially	in	the	fickled	restaurant	business	enough	already
+huge	compliment	especially	fickled	restaurant	business	enough	already
+0.32	0.062	0.149	0.251	0.034	0.04	0.021	0.123
+GENERAL
+my	wife	and	i	visited	dokebi	tonight
+wife	visited	dokebi	tonight
+0.317	0.28	0.029	0.375
+unknown
+the	food	was	good	too
+food	good
+0.555	0.445
+FOOD
+even	if	the	food	wasn	t	this	good	the	garden	is	a	great	place	to	sit	outside	and	relax
+even	food	good	garden	great	place	sit	outside	relax
+0.079	0.202	0.122	0.04	0.294	0.009	0.155	0.041	0.06
+FOOD	AMBIENCE
+mine	tasted	like	the	bartender	had	forgotten	to	add	the	tequila
+mine	tasted	like	bartender	forgotten	add	tequila
+0.02	0.116	0.091	0.15	0.295	0.208	0.12
+DRINKS
+enjoyed	the	food
+enjoyed	food
+0.747	0.253
+FOOD
+they	aren	t	the	most	talkative	but	everytime	i	ve	been	there	they	have	been	very	busy	which	probably	accounts	for	the	lack	of	conversation
+talkative	everytime	busy	probably	accounts	lack	conversation
+0.014	0.005	0.55	0.262	0.093	0.033	0.043
+SERVICE
+of	course	it	is	crowded	but	who	cares
+course	crowded	cares
+0.385	0.409	0.206
+MISCELLANEOUS
+great	staff
+great	staff
+0.831	0.169
+SERVICE
+the	dining	room	is	quietly	elegant	with	no	music	to	shout	over	how	refreshing
+dining	room	quietly	elegant	music	shout	refreshing
+0.072	0.081	0.03	0.066	0.101	0.406	0.244
+AMBIENCE
+the	menu	has	so	many	fish	items	and	oysters
+menu	many	fish	items	oysters
+0.156	0.524	0.041	0.101	0.178
+FOOD
+we	go	often	for	lunch	and	the	place	is	packed
+go	often	lunch	place	packed
+0.087	0.518	0.305	0.054	0.037
+unknown
+i	probably	wouldn	t	go	back	though	cuz	i	don	t	know	if	it	s	worth	it
+probably	go	back	though	cuz	know	worth
+0.072	0.098	0.183	0.175	0.129	0.073	0.269
+GENERAL
+i	was	very	disappointed	with	this	restaurant
+disappointed	restaurant
+0.183	0.817
+GENERAL
+loved	it
+loved
+1.0
+GENERAL
+great	wine	selection	gigondas	is	worth	the	price	and	the	house	champagne	is	a	great	value
+great	wine	selection	gigondas	worth	price	house	champagne	great	value
+0.031	0.014	0.126	0.15	0.121	0.016	0.053	0.43	0.034	0.025
+DRINKS
+pizza	here	is	consistently	good
+pizza	consistently	good
+0.256	0.304	0.44
+FOOD
+we	there	were	four	of	us	arrived	at	noon	the	place	was	empty	and	the	staff	acted	like	we	were	imposing	on	them	and	they	were	very	rude
+four	us	arrived	noon	place	empty	staff	acted	like	imposing	rude
+0.058	0.301	0.035	0.003	0.047	0.293	0.008	0.116	0.089	0.01	0.04
+SERVICE
+although	we	were	told	minutes	and	it	was	more	like	minutes
+although	told	minutes	like	minutes
+0.127	0.097	0.377	0.182	0.217
+SERVICE
+once	seated	it	took	about	minutes	to	finally	get	the	meal
+seated	took	minutes	finally	get	meal
+0.14	0.38	0.048	0.107	0.175	0.149
+SERVICE
+great	pizza	for	lunch	place
+great	pizza	lunch	place
+0.506	0.086	0.15	0.257
+FOOD
+rice	is	too	dry	tuna	wasn	t	so	fresh	either
+rice	dry	tuna	fresh	either
+0.311	0.142	0.283	0.232	0.032
+FOOD
+i	will	be	back
+back
+1.0
+GENERAL
+atmosphere	was	nice
+atmosphere	nice
+0.209	0.791
+AMBIENCE
+the	best	place	for	a	leisure	sunday	breakfast	amidst	yachts	then	take	a	stroll	through	the	nearby	farmer	s	market
+best	place	leisure	sunday	breakfast	amidst	yachts	take	stroll	nearby	farmer	market
+0.074	0.016	0.031	0.071	0.122	0.058	0.204	0.074	0.028	0.251	0.027	0.044
+MISCELLANEOUS
+the	pasta	penne	was	pretty	extra	buttery	creamy	which	means	a	big	task	to	diggest	tasty	at	first	but	i	would	say	that	i	was	full	with	a	slice	of	pizza	and	to	count	penne	got	a	little	moody	afterwards	cause	was	stuffed	lol
+pasta	penne	pretty	extra	buttery	creamy	means	big	task	diggest	tasty	first	would	say	full	slice	pizza	count	penne	got	little	moody	afterwards	cause	stuffed	lol
+0.028	0.032	0.035	0.007	0.024	0.049	0.01	0.009	0.054	0.019	0.005	0.001	0.368	0.022	0.02	0.045	0.037	0.009	0.094	0.001	0.001	0.005	0.03	0.021	0.044	0.028
+FOOD
+if	celebrities	make	you	sweat	then	your	in	for	a	ride	but	if	your	like	most	around	these	parts	then	you	ll	just	yawn	and	wonder	whats	with	all	the	hype
+celebrities	make	sweat	ride	like	around	parts	yawn	wonder	whats	hype
+0.113	0.047	0.032	0.173	0.084	0.039	0.13	0.057	0.087	0.141	0.097
+MISCELLANEOUS
+fabulous	food	if	the	front	of	house	staff	don	t	put	you	off	–
+fabulous	food	front	house	staff	put	–
+0.04	0.023	0.179	0.635	0.042	0.041	0.039
+SERVICE	FOOD
+it	s	somewhere	you	can	eat	and	be	happy
+somewhere	eat	happy
+0.539	0.272	0.189
+GENERAL
+food	was	ok
+food	ok
+0.685	0.315
+FOOD
+the	high	prices	you	re	going	to	pay	is	for	the	view	not	for	the	food
+high	prices	going	pay	view	food
+0.077	0.111	0.099	0.339	0.104	0.27
+FOOD	PRICES	LOCATION
+i	think	i	have	probably	tried	each	item	on	their	menu	at	least	once	it	is	all	excellent
+think	probably	tried	item	menu	least	excellent
+0.119	0.068	0.518	0.035	0.015	0.119	0.126
+FOOD
+–	my	family	went	on	a	midweek	evening	to	have	dinner
+–	family	went	midweek	evening	dinner
+0.078	0.08	0.083	0.161	0.361	0.238
+unknown
+one	of	the	best
+one	best
+0.068	0.932
+GENERAL
+everything	i	had	was	good	and	i	m	a	eater
+everything	good	eater
+0.194	0.666	0.14
+FOOD
+patroon	features	a	nice	cigar	bar	and	has	great	staff
+patroon	features	nice	cigar	bar	great	staff
+0.048	0.03	0.06	0.151	0.214	0.462	0.035
+SERVICE	AMBIENCE
+you	cannot	go	wrong	with	this	place
+cannot	go	wrong	place
+0.191	0.244	0.501	0.063
+GENERAL
+two	thumbs	up
+two	thumbs
+0.197	0.803
+FOOD
+oh	and	i	never	write	reviews	i	just	was	so	moved	by	how	bad	this	place	was	i	felt	it	was	my	duty	to	spread	the	word
+oh	never	write	reviews	moved	bad	place	felt	duty	spread	word
+0.119	0.178	0.346	0.012	0.029	0.021	0.036	0.1	0.046	0.054	0.059
+GENERAL
+ambiance	relaxed	and	stylish
+ambiance	relaxed	stylish
+0.183	0.478	0.34
+AMBIENCE
+great	survice
+great	survice
+0.588	0.412
+SERVICE
+been	there	lots	since	and	its	always	a	good	time
+lots	since	always	good	time
+0.281	0.288	0.124	0.228	0.079
+GENERAL
+i	haven	t	been	to	the	other	locations
+locations
+1.0
+unknown
+can	get	busy	on	fridays	for	a	table	but	once	seated	the	service	is	so	efficient	you	can	be	in	and	out	of	there	quickly
+get	busy	fridays	table	seated	service	efficient	quickly
+0.005	0.146	0.097	0.07	0.262	0.225	0.07	0.126
+SERVICE
+i	come	from	a	family	of	pizzeria	owners	and	i	m	almost	ashamed	to	say	that	the	pizza	in	fornino	s	blows	my	families	receipies	away
+come	family	pizzeria	owners	almost	ashamed	say	pizza	fornino	blows	families	receipies	away
+0.022	0.065	0.037	0.033	0.035	0.321	0.059	0.114	0.057	0.083	0.011	0.05	0.113
+FOOD
+once	you	try	it	for	a	special	occasion	beware	you	can	t	stop
+try	special	occasion	beware	stop
+0.179	0.367	0.277	0.092	0.085
+MISCELLANEOUS
+i	book	a	gorgeous	white	organza	tent	which	included	a	four	course	prix	fix	menu	which	we	enjoyed	a	lot
+book	gorgeous	white	organza	tent	included	four	course	prix	fix	menu	enjoyed	lot
+0.041	0.042	0.047	0.076	0.045	0.063	0.082	0.072	0.128	0.022	0.033	0.313	0.035
+FOOD	AMBIENCE
+on	weekends	you	might	have	to	wait	for	couple	hours
+weekends	might	wait	couple	hours
+0.038	0.314	0.193	0.311	0.143
+SERVICE
+the	potato	balls	were	not	dry	at	all	in	fact	it	was	buttery
+potato	balls	dry	fact	buttery
+0.029	0.2	0.192	0.152	0.426
+FOOD
+it	was	really	good	pizza
+really	good	pizza
+0.119	0.732	0.149
+FOOD
+i	have	eaten	at	many	pizza	places	around	nyc	and	this	is	hands	down	the	worst
+eaten	many	pizza	places	around	nyc	hands	worst
+0.179	0.116	0.19	0.147	0.029	0.078	0.135	0.126
+unknown
+most	importantly	food	is	excellent
+importantly	food	excellent
+0.062	0.416	0.522
+FOOD
+noodle	pudding	is	exactly	the	type	of	service	and	food	i	enjoy
+noodle	pudding	exactly	type	service	food	enjoy
+0.077	0.061	0.205	0.087	0.064	0.06	0.447
+SERVICE	FOOD
+i	ve	never	had	bad	service	and	the	fish	is	fresh	and	delicious
+never	bad	service	fish	fresh	delicious
+0.11	0.115	0.115	0.136	0.45	0.073
+SERVICE	FOOD
+they	have	all	been	tonight	and	they	have	all	been	about	the	same	restaurant
+tonight	restaurant
+0.236	0.764
+unknown
+amazing
+amazing
+1.0
+GENERAL
+it	s	delicious
+delicious
+1.0
+FOOD
+i	can	highly	recommend	their	various	saag	and	paneer	and	korma
+highly	recommend	various	saag	paneer	korma
+0.248	0.025	0.064	0.092	0.351	0.221
+FOOD
+pm	on	a	sat	before	a	broadway	play	and	we	were	quickly	seated	and	served
+pm	sat	broadway	play	quickly	seated	served
+0.047	0.041	0.072	0.045	0.149	0.095	0.551
+SERVICE
+the	spicy	tuna	roll	was	unusually	good	and	the	rock	shrimp	tempura	was	awesome	great	appetizer	to	share
+spicy	tuna	roll	unusually	good	rock	shrimp	tempura	awesome	great	appetizer	share
+0.056	0.009	0.117	0.021	0.031	0.018	0.054	0.155	0.281	0.022	0.094	0.142
+FOOD
+we	will	be	back
+back
+1.0
+GENERAL
+red	dragon	roll	my	favorite	thing	to	eat	of	any	food	group	hands	down
+red	dragon	roll	favorite	thing	eat	food	group	hands
+0.103	0.053	0.012	0.072	0.606	0.009	0.027	0.102	0.016
+FOOD
+not	recommanded
+recommanded
+1.0
+GENERAL
+caution	its	real	food	for	people	who	love	the	best
+caution	real	food	people	love	best
+0.173	0.097	0.052	0.483	0.099	0.095
+FOOD
+i	had	the	kafta	plate	and	it	was	perfect
+kafta	plate	perfect
+0.262	0.06	0.678
+FOOD
+had	no	flavor	and	the	staff	is	rude	and	not	attentive
+flavor	staff	rude	attentive
+0.284	0.112	0.523	0.081
+SERVICE	FOOD
+we	went	to	ino	for	valentines
+went	ino	valentines
+0.2	0.393	0.407
+unknown
+a	thai	restaurant	out	of	rice	during	dinner
+thai	restaurant	rice	dinner
+0.181	0.413	0.168	0.239
+MISCELLANEOUS
+portions	contain	less	fish	than	one	would	expect	particularly	since	prices	are	in	line	with	the	best	sushi	places	in	nyc	masa	excluded	of	course
+portions	contain	less	fish	one	would	expect	particularly	since	prices	line	best	sushi	places	nyc	masa	excluded	course
+0.009	0.024	0.033	0.01	0.014	0.016	0.023	0.009	0.376	0.055	0.045	0.051	0.017	0.118	0.069	0.019	0.063	0.049
+unknown
+
+
+
+GENERAL
+casa	la	femme	is	to	middle	eastern	dining	what	chuckie	cheeze	is	to	italian
+casa	la	femme	middle	eastern	dining	chuckie	cheeze	italian
+0.034	0.1	0.04	0.277	0.153	0.052	0.166	0.117	0.061
+unknown
+myagi	is	one	of	my	favorite	restaurants	in	the	city	the	place	the	negative	reviews	describe	sound	like	they	were	somewhere	else
+myagi	one	favorite	restaurants	city	place	negative	reviews	describe	sound	like	somewhere	else
+0.03	0.003	0.017	0.006	0.112	0.028	0.11	0.007	0.082	0.372	0.129	0.026	0.078
+GENERAL
+five	of	us	walked	in	at	approximately	on	a	thursday	evening
+five	us	walked	approximately	thursday	evening
+0.157	0.231	0.048	0.02	0.416	0.129
+unknown
+i	had	a	huge	group	for	my	birthday	and	we	were	well	taken	care	of
+huge	group	birthday	well	taken	care
+0.151	0.11	0.11	0.12	0.186	0.323
+SERVICE
+the	upside	of	the	restaurant
+upside	restaurant
+0.313	0.687
+unknown
+everything	was	going	good	until	we	got	our	meals
+everything	going	good	got	meals
+0.099	0.053	0.563	0.242	0.042
+GENERAL	FOOD
+the	food	is	simply	unforgettable
+food	simply	unforgettable
+0.518	0.263	0.22
+FOOD
+veal	parmigana	better	than	patsy	s
+veal	parmigana	better	patsy
+0.284	0.169	0.272	0.275
+unknown
+while	i	could	have	done	without	the	youth	who	shared	the	evening	with	us	our	wonderful	server	and	food	made	the	experience	a	very	positive	one
+could	done	without	youth	shared	evening	us	wonderful	server	food	made	experience	positive	one
+0.049	0.024	0.105	0.005	0.244	0.044	0.02	0.277	0.011	0.059	0.057	0.033	0.009	0.063
+SERVICE	FOOD	MISCELLANEOUS
+went	here	on	sat	and	was	disappointed
+went	sat	disappointed
+0.462	0.21	0.328
+GENERAL
+overpriced
+overpriced
+1.0
+PRICES
+it	was	divine	melts	in	your	mouth
+divine	melts	mouth
+0.179	0.307	0.513
+FOOD
+try	everything	for	that	matter	it	is	all	good
+try	everything	matter	good
+0.044	0.464	0.292	0.199
+FOOD
+a	must	try
+must	try
+0.284	0.716
+GENERAL
+its	location	is	good	and	the	fact	that	hutner	college	is	near	and	their	prices	are	very	reasonable	makes	students	go	back	to	suan	again	and	again
+location	good	fact	hutner	college	near	prices	reasonable	makes	students	go	back	suan
+0.013	0.02	0.037	0.131	0.104	0.187	0.039	0.067	0.108	0.079	0.109	0.07	0.034
+PRICES	LOCATION
+i	got	hair	in	my	food	times	of	then
+got	hair	food	times
+0.058	0.09	0.229	0.624
+FOOD
+have	never	had	a	problem	with	service	save	a	missing	rice	once
+never	problem	service	save	missing	rice
+0.077	0.119	0.201	0.074	0.46	0.07
+SERVICE
+the	wait	here	is	long	for	dim	sum	but	if	you	don	t	like	sharing	tables	or	if	the	typical	raucous	dim	sum	atmosphere	is	not	your	gig	this	is	a	sleek	for	chinatown	alternative
+wait	long	dim	sum	like	sharing	tables	typical	raucous	dim	sum	atmosphere	gig	sleek	chinatown	alternative
+0.013	0.041	0.068	0.075	0.062	0.006	0.113	0.022	0.054	0.137	0.06	0.072	0.142	0.011	0.105	0.023
+SERVICE	MISCELLANEOUS	AMBIENCE
+i	have	been	doing	all	of	the	above	at	the	heartland	brewery	for	over	years	now	and	i	have	never	been	disappointed
+heartland	brewery	years	never	disappointed
+0.349	0.264	0.184	0.057	0.146
+GENERAL
+very	pleased
+pleased
+1.0
+GENERAL
+–	ray	s	suprisingly	has	the	city	s	best	&	most	diverse	wine	list
+–	ray	suprisingly	city	best	&	diverse	wine	list
+0.07	0.109	0.309	0.012	0.038	0.062	0.094	0.08	0.227
+DRINKS
+why
+
+
+unknown
+bison	was	quite	excellent	however
+bison	quite	excellent	however
+0.262	0.169	0.264	0.306
+FOOD
+when	i	lived	upstate	for	a	while	i	would	buy	freeze	the	bagels	and	they	would	still	be	better	than	any	else
+lived	upstate	would	buy	freeze	bagels	would	still	better	else
+0.025	0.084	0.142	0.176	0.035	0.113	0.051	0.058	0.032	0.284
+FOOD
+this	is	one	of	my	favorite	restaurants	and	it	is	not	to	be	missed
+one	favorite	restaurants	missed
+0.023	0.494	0.017	0.466
+GENERAL
+i	will	have	to	do	more	research	before	checking	out	new	places	based	on	diners	drive	ins	and	dives	reviews
+research	checking	new	places	based	diners	drive	ins	dives	reviews
+0.096	0.056	0.029	0.012	0.217	0.019	0.176	0.263	0.077	0.055
+unknown
+my	wife	and	i	went	to	water	s	edge	for	a	romantic	dinner
+wife	went	water	edge	romantic	dinner
+0.098	0.097	0.074	0.523	0.164	0.044
+unknown
+they	wouldnt	even	let	me	finish	my	glass	of	wine	before	offering	another
+wouldnt	even	let	finish	glass	wine	offering	another
+0.151	0.175	0.156	0.325	0.096	0.029	0.044	0.023
+SERVICE
+get	the	pepperoni	yum	and	a	family	style	salad
+get	pepperoni	yum	family	style	salad
+0.037	0.281	0.156	0.322	0.016	0.188
+FOOD
+the	sandwiches	are	dry	tasteless	and	way	overpriced
+sandwiches	dry	tasteless	way	overpriced
+0.204	0.337	0.14	0.026	0.293
+FOOD
+–	i	am	exceedingly	pleased	to	report	that	my	dinner	at	ray	s	boathouse	last	friday	completely	exceeded	my	expectations
+–	exceedingly	pleased	report	dinner	ray	boathouse	last	friday	completely	exceeded	expectations
+0.027	0.093	0.149	0.035	0.079	0.027	0.279	0.083	0.036	0.056	0.092	0.046
+GENERAL
+no	thanks
+thanks
+1.0
+GENERAL
+the	first	time	the	sushi	was	outstanding	the	second	time	it	was	a	little	bland
+first	time	sushi	outstanding	second	time	little	bland
+0.1	0.184	0.086	0.134	0.09	0.021	0.062	0.323
+FOOD
+–	as	with	most	restaurants	in	seattle	mioposto	s	service	was	bad	and	the	food	was	overpriced
+–	restaurants	seattle	mioposto	service	bad	food	overpriced
+0.044	0.011	0.092	0.214	0.09	0.026	0.073	0.45
+SERVICE	FOOD
+definitely	worth	the	trip	to	battery	park	city
+definitely	worth	trip	battery	park	city
+0.036	0.152	0.013	0.183	0.301	0.316
+GENERAL
+we	all	agreed	that	mare	is	one	of	the	best	seafood	restaurants	in	new	york
+agreed	mare	one	best	seafood	restaurants	new	york
+0.019	0.019	0.021	0.026	0.789	0.063	0.051	0.012
+GENERAL
+the	bagels	always	warm	soft	on	the	inside	crispy	on	the	outside	and	enormous	in	size
+bagels	always	warm	soft	inside	crispy	outside	enormous	size
+0.146	0.047	0.021	0.112	0.072	0.187	0.062	0.24	0.115
+FOOD
+went	on	a	monday	night	so	there	was	no	wait	for	a	table
+went	monday	night	wait	table
+0.013	0.044	0.135	0.784	0.025
+unknown
+the	only	positive	thing	about	mioposto	is	the	nice	location
+positive	thing	mioposto	nice	location
+0.233	0.231	0.165	0.344	0.028
+GENERAL	LOCATION
+definitely	a	great	spot	for	a	nice	occasion	or	date
+definitely	great	spot	nice	occasion	date
+0.105	0.318	0.03	0.257	0.169	0.121
+MISCELLANEOUS
+big	wong	gets	big	ups	for	a	fine	establishment
+big	wong	gets	big	ups	fine	establishment
+0.12	0.12	0.053	0.168	0.398	0.035	0.106
+GENERAL
+my	friend	devoured	her	chicken	and	mashed	potatos
+friend	devoured	chicken	mashed	potatos
+0.203	0.078	0.12	0.45	0.149
+FOOD
+however	the	value	and	service	are	both	severely	lacking
+however	value	service	severely	lacking
+0.227	0.144	0.284	0.049	0.296
+SERVICE	PRICES
+not	one	to	jump	to	complaints	hence	my	lack	of	previous	online	reviewing	i	called	the	restaurant	to	give	them	a	heads	up	that	their	kitchen	might	want	to	check	the	cleanliness	of	their	prep	stations
+one	jump	complaints	hence	lack	previous	online	reviewing	called	restaurant	give	heads	kitchen	might	want	check	cleanliness	prep	stations
+0.013	0.153	0.017	0.016	0.055	0.019	0.018	0.014	0.035	0.004	0.067	0.012	0.028	0.38	0.024	0.043	0.013	0.064	0.026
+unknown
+good	fast	service
+good	fast	service
+0.226	0.423	0.351
+SERVICE
+i	honestly	don	t	even	know	where	to	begin
+honestly	even	know	begin
+0.211	0.069	0.345	0.375
+GENERAL
+the	hot	dogs	were	juicy	and	tender	inside	and	had	plenty	of	crunch	and	snap	on	the	outside
+hot	dogs	juicy	tender	inside	plenty	crunch	snap	outside
+0.16	0.069	0.142	0.075	0.057	0.164	0.134	0.132	0.066
+FOOD
+much	more	reasonably	priced	too
+much	reasonably	priced
+0.22	0.256	0.524
+unknown
+the	food	is	great	and	they	make	a	mean	bloody	mary
+food	great	make	mean	bloody	mary
+0.107	0.34	0.044	0.303	0.073	0.134
+FOOD	DRINKS
+would	not	go	back
+would	go	back
+0.54	0.078	0.382
+GENERAL
+appetizers	took	nearly	an	hour
+appetizers	took	nearly	hour
+0.029	0.238	0.373	0.359
+SERVICE
+we	never	ate	because	by	close	to	in	the	monring	we	were	not	served	and	were	too	upset	ad	tired	to	start	eating
+never	ate	close	monring	served	upset	ad	tired	start	eating
+0.016	0.021	0.035	0.062	0.401	0.099	0.043	0.102	0.042	0.179
+SERVICE
+when	we	sat	we	got	great	and	fast	service
+sat	got	great	fast	service
+0.066	0.033	0.079	0.483	0.338
+SERVICE
+when	the	bill	came	he	only	took	the	discount	off	the	food	and	not	the	drinks
+bill	came	took	discount	food	drinks
+0.045	0.204	0.092	0.17	0.39	0.099
+SERVICE
+i	swore	never	to	return	for	a	warm	beer	and	mediocre	meal
+swore	never	return	warm	beer	mediocre	meal
+0.068	0.058	0.152	0.056	0.364	0.242	0.06
+FOOD	DRINKS
+decor	needs	to	be	upgraded	but	the	food	is	amazing
+decor	needs	upgraded	food	amazing
+0.067	0.027	0.07	0.245	0.592
+FOOD	AMBIENCE
+–	the	sushi	here	is	perfectly	good	but	for	$	a	piece	either	the	slices	of	fish	should	be	larger	or	there	should	be	no	pretense	that	this	is	a	moderately	priced	restaurant	even	for	nyc
+–	sushi	perfectly	good	$	piece	either	slices	fish	larger	pretense	moderately	priced	restaurant	even	nyc
+0.095	0.011	0.037	0.101	0.028	0.007	0.038	0.02	0.007	0.128	0.007	0.017	0.163	0.008	0.016	0.317
+FOOD	PRICES
+the	view	is	breathtaking	the	service	is	top	notch	the	ambiance	is	wonderfull
+view	breathtaking	service	top	notch	ambiance	wonderfull
+0.066	0.1	0.123	0.302	0.111	0.125	0.172
+SERVICE	AMBIENCE	LOCATION
+went	there	with	my	wife	and	we	had	to	wait	for	a	table	even	though	you	could	see	there	many	that	were	empty	with	not	reservation	sigh	on	them
+went	wife	wait	table	even	though	could	see	many	empty	reservation	sigh
+0.021	0.108	0.147	0.03	0.072	0.028	0.008	0.285	0.032	0.104	0.038	0.128
+SERVICE
+friendly	staff	that	actually	lets	you	enjoy	your	meal	and	the	company	you	re	with
+friendly	staff	actually	lets	enjoy	meal	company
+0.048	0.026	0.09	0.097	0.659	0.021	0.059
+SERVICE
+i	went	to	this	restaurant	with	a	woman	that	i	met	recently
+went	restaurant	woman	met	recently
+0.158	0.117	0.15	0.427	0.148
+unknown
+the	hostess	is	rude	to	the	point	of	being	offensive
+hostess	rude	point	offensive
+0.145	0.55	0.099	0.207
+SERVICE
+i	love	this	restaurant
+love	restaurant
+0.61	0.39
+GENERAL
+even	the	wine	by	the	glass	was	good
+even	wine	glass	good
+0.042	0.06	0.058	0.84
+DRINKS
+if	you	go	here	do	it	on	his	off	night
+go	night
+0.614	0.386
+SERVICE
+it	was	romantic	and	even	nice	even	with	my	sister	reminded	me	of	italy	and	had	artwork	and	music	that	kept	up	the	feeling	of	being	in	a	mediterrean	villa
+romantic	even	nice	even	sister	reminded	italy	artwork	music	kept	feeling	mediterrean	villa
+0.03	0.13	0.047	0.061	0.47	0.021	0.082	0.031	0.029	0.017	0.007	0.034	0.042
+AMBIENCE
+i	started	out	with	a	bombay	beer	which	was	big	enough	for	two
+started	bombay	beer	big	enough	two
+0.127	0.182	0.118	0.098	0.363	0.112
+DRINKS
+so	what	you	really	end	up	paying	for	is	the	restaurant	not	the	food
+really	end	paying	restaurant	food
+0.157	0.036	0.066	0.103	0.638
+FOOD	PRICES	AMBIENCE
+great	sake
+great	sake
+0.5	0.5
+DRINKS
+fresh	ingredients	and	everything	is	made	to	order
+fresh	ingredients	everything	made	order
+0.581	0.086	0.148	0.142	0.043
+FOOD
+all	of	the	pizzas	are	terrific	and	the	price	is	even	better
+pizzas	terrific	price	even	better
+0.027	0.029	0.042	0.029	0.874
+FOOD
+mizu	is	home	to	creative	and	unique	rolls	not	to	found	anywhere	else
+mizu	home	creative	unique	rolls	found	anywhere	else
+0.054	0.078	0.201	0.063	0.158	0.125	0.071	0.249
+FOOD
+a	beautifully	designed	dreamy	egyptian	restaurant	that	gets	sceney	at	night
+beautifully	designed	dreamy	egyptian	restaurant	gets	sceney	night
+0.138	0.14	0.098	0.168	0.069	0.151	0.157	0.079
+AMBIENCE
+perhaps	now	scooner	or	later	falls	into	the	dive	category
+perhaps	scooner	later	falls	dive	category
+0.132	0.125	0.245	0.129	0.216	0.152
+GENERAL
+the	appetizing	is	excellent	just	as	good	as	zabars	barney	greengrass	at	a	reasonable	price	if	bought	by	the	pound
+appetizing	excellent	good	zabars	barney	greengrass	reasonable	price	bought	pound
+0.061	0.028	0.119	0.075	0.032	0.042	0.115	0.222	0.1	0.206
+unknown
+i	love	it
+love
+1.0
+GENERAL
+the	manager	finally	said	he	would	comp	the	two	glasses	of	wine	which	cost	less	than	the	food	and	made	it	seem	like	a	big	concession
+manager	finally	said	would	comp	two	glasses	wine	cost	less	food	made	seem	like	big	concession
+0.049	0.022	0.029	0.053	0.15	0.018	0.174	0.083	0.045	0.058	0.008	0.028	0.008	0.198	0.019	0.057
+SERVICE
+i	have	been	twice	to	this	restaurant
+twice	restaurant
+0.475	0.525
+unknown
+save	yourself	the	time	and	trouble	and	skip	this	one
+save	time	trouble	skip	one
+0.272	0.042	0.185	0.096	0.404
+GENERAL
+we	ordered	dosut	bibimbap	and	nakgi	bokum
+ordered	dosut	bibimbap	nakgi	bokum
+0.21	0.033	0.38	0.252	0.126
+unknown
+open	late	well	as	late	as	i	ever	got	there	and	i	m	a	night	person
+open	late	well	late	ever	got	night	person
+0.137	0.042	0.166	0.05	0.016	0.392	0.01	0.187
+MISCELLANEOUS
+i	ve	never	ordered	anything	else	from	their	menu	there	s	no	need	to
+never	ordered	anything	else	menu	need
+0.01	0.023	0.233	0.063	0.084	0.586
+unknown
+i	thanked	my	friend	who	recommended	me	this	restaurant	and	will	certainly	recommend	it	to	others
+thanked	friend	recommended	restaurant	certainly	recommend	others
+0.062	0.06	0.03	0.158	0.528	0.066	0.096
+GENERAL
+snotty	attitude
+snotty	attitude
+0.587	0.413
+SERVICE
+just	went	here	for	my	girlfriends	rd	bday
+went	girlfriends	rd	bday
+0.089	0.273	0.191	0.447
+unknown
+the	atmosphere	is	nothing	special	but	it	feels	like	a	sushi	establishment	in	tokyo
+atmosphere	nothing	special	feels	like	sushi	establishment	tokyo
+0.033	0.005	0.472	0.124	0.078	0.023	0.074	0.191
+AMBIENCE
+mmmmmmmmmmmmmmm	so	delicious
+mmmmmmmmmmmmmmm	delicious
+0.217	0.783
+FOOD
+we	recently	decided	to	try	this	location	and	to	our	delight	they	have	outdoor	seating	perfect	since	i	had	my	yorkie	with	me
+recently	decided	try	location	delight	outdoor	seating	perfect	since	yorkie
+0.009	0.011	0.597	0.033	0.018	0.027	0.023	0.058	0.063	0.16
+AMBIENCE
+plus	i	am	allergic	to	rice	and	the	waitstaff	was	unbelievably	accomodating	didn	t	even	bat	an	eye
+plus	allergic	rice	waitstaff	unbelievably	accomodating	even	bat	eye
+0.019	0.151	0.049	0.141	0.08	0.059	0.203	0.153	0.146
+SERVICE
+best	honey	walnyt	prawns	that	we	have	every	tasted
+best	honey	walnyt	prawns	every	tasted
+0.014	0.075	0.009	0.116	0.527	0.259
+FOOD
+i	must	say	i	am	surprised	by	the	bad	reviews	of	the	restaurant	earlier	in	the	year	though
+must	say	surprised	bad	reviews	restaurant	earlier	year	though
+0.104	0.028	0.237	0.24	0.113	0.025	0.086	0.064	0.103
+GENERAL
+highly	recommended
+highly	recommended
+0.54	0.46
+GENERAL
+definitely	has	one	of	the	best	jukebox	s	i	ve	seen	in	a	long	long	time
+definitely	one	best	jukebox	seen	long	long	time
+0.064	0.071	0.189	0.063	0.031	0.23	0.107	0.246
+AMBIENCE
+i	went	there	in	late	afternoon	for	some	bite	size	food	and	refleshment	with	my	date
+went	late	afternoon	bite	size	food	refleshment	date
+0.127	0.024	0.046	0.129	0.152	0.149	0.18	0.192
+unknown
+this	place	had	all	the	trimmings	and	i	mean	all
+place	trimmings	mean
+0.457	0.363	0.18
+FOOD
+the	boths	are	not	as	small	as	some	of	the	reviews	make	them	out	to	look	they	re	perfect	for	people
+boths	small	reviews	make	look	perfect	people
+0.036	0.486	0.019	0.207	0.126	0.021	0.104
+AMBIENCE
+the	owners	are	great	fun	and	the	beer	selection	is	worth	staying	for
+owners	great	fun	beer	selection	worth	staying
+0.037	0.282	0.155	0.103	0.219	0.153	0.052
+SERVICE	DRINKS
+drawbacks	service	is	slow	and	they	don	t	toast
+drawbacks	service	slow	toast
+0.12	0.467	0.195	0.219
+SERVICE
+the	place	is	small	and	intimate	and	you	may	feel	a	little	crowded	but	the	service	is	excellent	and	it	s	great	for	friends	out	a	romantic	date	or	a	special	occassion
+place	small	intimate	may	feel	little	crowded	service	excellent	great	friends	romantic	date	special	occassion
+0.005	0.107	0.003	0.242	0.008	0.04	0.253	0.02	0.015	0.032	0.069	0.052	0.036	0.07	0.048
+SERVICE	MISCELLANEOUS	AMBIENCE
+serves	really	good	sushi
+serves	really	good	sushi
+0.217	0.173	0.438	0.171
+FOOD
+so	if	you	re	walking	by	and	thinking	about	dining	you	might	want	to	see	who	s	going	to	be	seating	you	first
+walking	thinking	dining	might	want	see	going	seating	first
+0.021	0.007	0.054	0.71	0.028	0.147	0.009	0.017	0.007
+SERVICE
+the	jukebox	plays	everything	from	italian	opera	to	the	strokes
+jukebox	plays	everything	italian	opera	strokes
+0.114	0.125	0.293	0.113	0.067	0.288
+AMBIENCE
+fancy	pieces	of	exotic	fish	on	a	$	dollar	plate	and	not	one	was	eatable
+fancy	pieces	exotic	fish	$	dollar	plate	one	eatable
+0.053	0.037	0.306	0.045	0.213	0.062	0.059	0.067	0.158
+FOOD
+when	asked	about	how	a	certain	dish	was	prepared	in	comparison	to	a	similar	at	other	thai	restaurants	he	replied	this	is	not	mcdonald	s	every	place	makes	things	differently
+asked	certain	dish	prepared	comparison	similar	thai	restaurants	replied	mcdonald	every	place	makes	things	differently
+0.106	0.017	0.086	0.078	0.057	0.002	0.018	0.003	0.059	0.12	0.127	0.147	0.126	0.04	0.015
+SERVICE
+the	food	was	good	the	place	was	clean	and	affordable
+food	good	place	clean	affordable
+0.131	0.254	0.134	0.312	0.169
+FOOD	PRICES	AMBIENCE
+i	can	t	wait	for	summer	when	they	serve	outside	on	their	gigantic	patio
+wait	summer	serve	outside	gigantic	patio
+0.158	0.182	0.419	0.031	0.086	0.124
+AMBIENCE
+i	also	really	enjoy	the	simplicity	of	the	decor	and	intimate	feeling	of	a	small	restaurant
+also	really	enjoy	simplicity	decor	intimate	feeling	small	restaurant
+0.031	0.053	0.121	0.023	0.512	0.033	0.01	0.176	0.04
+AMBIENCE
+before	the	steak	came	the	server	told	us	that	the	steak	did	not	come	with	any	sides	and	suggested	i	pick	something	from	the	menu
+steak	came	server	told	us	steak	come	sides	suggested	pick	something	menu
+0.039	0.004	0.087	0.045	0.475	0.124	0.02	0.089	0.009	0.068	0.017	0.023
+unknown
+i	went	there	with	a	friend	from	out	of	town	and	we	were	both	very	impressed
+went	friend	town	impressed
+0.026	0.069	0.044	0.861
+GENERAL
+i	thought	the	restaurant	was	nice	and	clean
+thought	restaurant	nice	clean
+0.167	0.112	0.661	0.06
+GENERAL	AMBIENCE
+i	cannot	imagine	a	friendlier	staff	working	in	a	restaurant
+cannot	imagine	friendlier	staff	working	restaurant
+0.185	0.246	0.088	0.15	0.214	0.117
+SERVICE
+their	specialty	rolls	are	impressive	though	i	can	t	remember	what	we	had
+specialty	rolls	impressive	though	remember
+0.192	0.145	0.114	0.432	0.118
+FOOD
+a	fairly	late	entry	into	the	haute	barnyard	sweepstakes	flatbush	farm	isn	t	in	the	same	league	as	the	blue	hills	or	even	the	farm	on	adderlys	of	the	world	but	it	s	pretty	good	albeit	with	a	somewhat	dismal	setting
+fairly	late	entry	haute	barnyard	sweepstakes	flatbush	farm	league	blue	hills	even	farm	adderlys	world	pretty	good	albeit	somewhat	dismal	setting
+0.024	0.011	0.007	0.01	0.013	0.025	0.027	0.033	0.021	0.053	0.017	0.023	0.1	0.294	0.078	0.041	0.11	0.027	0.046	0.012	0.03
+unknown
+very	poor	customer	service
+poor	customer	service
+0.372	0.218	0.41
+SERVICE
+for	instance	plates	were	just	dumped	on	the	table	i	was	handed	the	wine	list	upside	down	etc
+instance	plates	dumped	table	handed	wine	list	upside	etc
+0.033	0.028	0.252	0.088	0.11	0.142	0.212	0.059	0.077
+SERVICE
+great	service
+great	service
+0.591	0.409
+SERVICE
+we	ate	out	in	the	back	patio	which	is	worth	it	as	it	s	cool	and	the	music	is	hear	well	there
+ate	back	patio	worth	cool	music	hear	well
+0.015	0.13	0.084	0.488	0.045	0.046	0.115	0.077
+AMBIENCE
+i	m	not	kidding
+kidding
+1.0
+unknown
+the	price	very	reasonable
+price	reasonable
+0.178	0.822
+PRICES
+was	there	friday	night
+friday	night
+0.392	0.608
+unknown
+after	hearing	a	lot	of	great	things	about	the	restaurant	and	passing	by	it	on	a	daily	basis	we	decided	to	try
+hearing	lot	great	things	restaurant	passing	daily	basis	decided	try
+0.025	0.114	0.104	0.13	0.019	0.111	0.072	0.149	0.029	0.247
+unknown
+i	found	the	food	service	and	value	exceptional	everytime	i	have	been	there
+found	food	service	value	exceptional	everytime
+0.2	0.083	0.191	0.015	0.483	0.028
+SERVICE	FOOD	PRICES
+definitely	a	neighborhood	favorite
+definitely	neighborhood	favorite
+0.303	0.143	0.554
+GENERAL
+the	pad	se	ew	chicken	was	delicious	however	the	pad	thai	was	far	too	oily
+pad	se	ew	chicken	delicious	however	pad	thai	far	oily
+0.065	0.115	0.056	0.049	0.424	0.042	0.058	0.081	0.011	0.098
+FOOD
+personally	i	like	the	margherita	pizza	better	but	they	are	all	good
+personally	like	margherita	pizza	better	good
+0.109	0.071	0.026	0.057	0.186	0.55
+FOOD
+fabulous	decor	makes	you	feel	like	you	re	in	a	trendy	manhattan	restaurant	very	very	good	food	cheaply	priced	generally	friendly	staff	and	if	you	re	a	manhattanite	or	spend	most	of	your	time	in	manhattan	rice	avenue	will	make	you	feel	at	home	very	soho	village	upper	west	side	minus	the	expensive	prices	and	pretentious	clientele	all	on	roosevelt	avenue
+fabulous	decor	makes	feel	like	trendy	manhattan	restaurant	good	food	cheaply	priced	generally	friendly	staff	manhattanite	spend	time	manhattan	rice	avenue	make	feel	home	soho	village	upper	west	side	minus	expensive	prices	pretentious	clientele	roosevelt	avenue
+0.007	0.06	0.014	0.065	0.041	0.026	0.198	0.009	0.023	0.007	0.023	0.002	0.042	0.008	0.004	0.085	0.019	0.005	0.009	0.045	0.05	0.052	0.004	0.016	0.056	0.003	0.005	0.048	0.002	0.012	0.016	0.01	0.003	0.004	0.011	0.015
+SERVICE	FOOD	PRICES	AMBIENCE	LOCATION
+stick	with	the	chicken	beef	and	lamb	dishes
+stick	chicken	beef	lamb	dishes
+0.102	0.233	0.13	0.304	0.232
+FOOD
+the	chana	masala	garbanzo	beans	are	also	excellent
+chana	masala	garbanzo	beans	also	excellent
+0.097	0.095	0.296	0.123	0.232	0.157
+FOOD
+have	frequented	ino	for	several	years	and	the	food	remains	excellent
+frequented	ino	several	years	food	remains	excellent
+0.234	0.164	0.277	0.028	0.011	0.217	0.068
+FOOD
+la	rosa	waltzes	in	and	i	think	they	are	doing	it	the	best
+la	rosa	waltzes	think	best
+0.101	0.257	0.155	0.169	0.318
+FOOD
+first	of	all	dal	bukhara	rocks
+first	dal	bukhara	rocks
+0.126	0.438	0.14	0.297
+FOOD
+i	love	ess	a	bagel	but	i	live	on	the	west	side	so	i	often	go	to	murray	s	for	convenience
+love	ess	bagel	live	west	side	often	go	murray	convenience
+0.007	0.02	0.048	0.111	0.109	0.031	0.184	0.042	0.427	0.021
+unknown
+the	food	was	ok	but	the	service	was	so	poor	that	the	food	was	cold	buy	the	time	everyone	in	my	party	was	served
+food	ok	service	poor	food	cold	buy	time	everyone	party	served
+0.025	0.036	0.059	0.026	0.014	0.278	0.101	0.087	0.119	0.052	0.202
+SERVICE	FOOD
+maitre	d	eat	and	get	out
+maitre	eat	get
+0.296	0.413	0.292
+SERVICE
+decor	is	nice	though	service	can	be	spotty
+decor	nice	though	service	spotty
+0.096	0.493	0.124	0.199	0.088
+SERVICE	AMBIENCE
+the	food	we	ordered	was	excellent	although	i	wouldn	t	say	the	margaritas	were	anything	to	write	home	about
+food	ordered	excellent	although	say	margaritas	anything	write	home
+0.011	0.061	0.128	0.549	0.003	0.073	0.03	0.067	0.078
+FOOD	DRINKS
+the	food	was	very	good	a	great	deal	and	the	place	its	self	was	great
+food	good	great	deal	place	self	great
+0.037	0.094	0.065	0.315	0.14	0.261	0.087
+FOOD	AMBIENCE
+you	can	do	it	here
+
+
+FOOD
+–	the	pepperoni	s	cut	real	thick	yum
+–	pepperoni	cut	real	thick	yum
+0.224	0.141	0.072	0.16	0.172	0.232
+FOOD
+you	are	not	eating	haut	cuisine	with	subtle	hints	of	whatever	but	cassuolet	steake	fritte	tripe	stew	etc	simple	stuff
+eating	haut	cuisine	subtle	hints	whatever	cassuolet	steake	fritte	tripe	stew	etc	simple	stuff
+0.005	0.188	0.026	0.119	0.074	0.073	0.044	0.063	0.05	0.069	0.036	0.04	0.165	0.047
+FOOD
+when	family	came	in	he	gave	them	apps	to	test	their	palets	and	then	ordered	for	them
+family	came	gave	apps	test	palets	ordered
+0.06	0.038	0.029	0.347	0.22	0.119	0.187
+SERVICE
+our	first	course	was	tuna	sashimi	with	green	yuzu	sauce
+first	course	tuna	sashimi	green	yuzu	sauce
+0.099	0.197	0.278	0.152	0.07	0.048	0.157
+unknown
+the	food	was	amazing	and	the	service	was	prompt	and	helpful	but	not	over	bearing	or	rushed
+food	amazing	service	prompt	helpful	bearing	rushed
+0.095	0.256	0.094	0.089	0.272	0.052	0.143
+SERVICE	FOOD
+the	meat	is	fresh	the	sauces	are	great	you	get	kimchi	and	a	salad	free	with	your	meal	and	service	is	good	too
+meat	fresh	sauces	great	get	kimchi	salad	free	meal	service	good
+0.025	0.053	0.129	0.039	0.014	0.095	0.291	0.174	0.072	0.046	0.063
+SERVICE	FOOD
+the	sushi	is	as	fresh	as	it	comes	you	d	think	ocean	was	in	their	backyard	no	joke
+sushi	fresh	comes	think	ocean	backyard	joke
+0.123	0.082	0.008	0.05	0.282	0.069	0.385
+FOOD
+what	a	find
+find
+1.0
+GENERAL
+delivery	guy	sometimes	get	upset	if	you	don	t	tip	more	than	%
+delivery	guy	sometimes	get	upset	tip	%
+0.023	0.094	0.133	0.098	0.299	0.154	0.199
+SERVICE
+love	it	every	time
+love	every	time
+0.074	0.59	0.336
+GENERAL
+the	sushi	was	awful
+sushi	awful
+0.661	0.339
+FOOD
+this	is	the	place	to	relax	and	enjoy	the	finest	quality	food	the	industry	can	offer
+place	relax	enjoy	finest	quality	food	industry	offer
+0.11	0.086	0.35	0.015	0.129	0.059	0.085	0.166
+FOOD	AMBIENCE
+amazing	fresh	dogs	but	best	of	all	endless	toppings
+amazing	fresh	dogs	best	endless	toppings
+0.093	0.281	0.054	0.153	0.065	0.354
+FOOD
+lobster	was	good	nothing	spectacular
+lobster	good	nothing	spectacular
+0.225	0.28	0.192	0.303
+FOOD
+at	$	for	two	people	however	this	in	no	way	represents	value	unless	you	re	looking	to	pay	by	the	hour	for	passive	aggressive	torture
+$	two	people	however	way	represents	value	unless	looking	pay	hour	passive	aggressive	torture
+0.207	0.004	0.022	0.121	0.019	0.047	0.019	0.049	0.078	0.108	0.136	0.024	0.123	0.042
+GENERAL	SERVICE	PRICES
+wasn	t	going	to	share	but	i	feel	obligated	while	sitting	at	the	sushi	bar	dining	we	watched	the	chef	accidentally	drop	a	piece	of	unagi	on	the	floor	and	upon	retrieving	it	from	the	floor	proceed	to	use	the	piece	in	the	delivery	order	he	was	preparing
+going	share	feel	obligated	sitting	sushi	bar	dining	watched	chef	accidentally	drop	piece	unagi	floor	upon	retrieving	floor	proceed	use	piece	delivery	order	preparing
+0.01	0.02	0.023	0.02	0.035	0.058	0.015	0.057	0.039	0.11	0.023	0.015	0.01	0.097	0.046	0.031	0.16	0.054	0.079	0.018	0.002	0.043	0.014	0.022
+FOOD
+i	would	not	expect	this	for	a	$	dinner
+would	expect	$	dinner
+0.232	0.16	0.046	0.562
+FOOD
+delicious	crab	cakes	too
+delicious	crab	cakes
+0.165	0.085	0.751
+FOOD
+one	special	roll	and	one	regular	roll	is	enough	to	fill	you	up	but	save	room	for	dessert
+one	special	roll	one	regular	roll	enough	fill	save	room	dessert
+0.04	0.265	0.171	0.074	0.101	0.022	0.004	0.103	0.12	0.013	0.088
+FOOD
+first	it	took	us	a	long	time	to	find	the	place
+first	took	us	long	time	find	place
+0.092	0.388	0.409	0.032	0.017	0.028	0.034
+MISCELLANEOUS
+this	place	is	not	inviting	and	the	food	is	totally	weird
+place	inviting	food	totally	weird
+0.107	0.215	0.282	0.271	0.126
+FOOD	AMBIENCE
+the	nakgi	bokum	was	horrible
+nakgi	bokum	horrible
+0.198	0.417	0.384
+FOOD
+the	food	was	absolutely	amazing
+food	absolutely	amazing
+0.105	0.589	0.306
+FOOD
+the	food	is	amazing	especially	if	you	get	the	chef	s	tasting	menu	and	your	favourite	bottle	or	two	of	wine	from	an	extensive	selection	of	wines
+food	amazing	especially	get	chef	tasting	menu	favourite	bottle	two	wine	extensive	selection	wines
+0.227	0.031	0.033	0.023	0.07	0.125	0.023	0.05	0.042	0.1	0.008	0.09	0.129	0.05
+FOOD	DRINKS
+her	review	is	above
+review
+1.0
+unknown
+–	mercedes	restaurant	is	so	tasty	the	service	is	undeniably	awesome
+–	mercedes	restaurant	tasty	service	undeniably	awesome
+0.085	0.084	0.063	0.472	0.023	0.074	0.198
+SERVICE	FOOD
+when	the	bill	came	nothing	was	comped	so	i	told	the	manager	very	politely	that	we	were	willing	to	pay	for	the	wine	but	i	didn	t	think	i	should	have	to	pay	for	food	with	a	maggot	in	it
+bill	came	nothing	comped	told	manager	politely	willing	pay	wine	think	pay	food	maggot
+0.025	0.023	0.005	0.052	0.301	0.044	0.022	0.05	0.017	0.035	0.223	0.027	0.097	0.078
+SERVICE
+in	about	minutes	the	thing	is	gone
+minutes	thing	gone
+0.157	0.208	0.635
+FOOD
+the	wait	staff	is	pleasant	fun	and	for	the	most	part	gorgeous	in	the	wonderful	aesthetic	beautification	way	not	in	that	she	s	way	cuter	than	me	that	b@#$*	way
+wait	staff	pleasant	fun	part	gorgeous	wonderful	aesthetic	beautification	way	way	cuter	b@#$*	way
+0.026	0.104	0.214	0.092	0.059	0.138	0.048	0.027	0.103	0.041	0.036	0.012	0.049	0.052
+SERVICE
+the	pizza’s	are	thin	crust	and	the	menu	offers	very	creative	combinations	and	toppings
+pizza’s	thin	crust	menu	offers	creative	combinations	toppings
+0.025	0.182	0.041	0.117	0.389	0.074	0.03	0.143
+FOOD
+ruth	mother	of	the	bride
+ruth	mother	bride
+0.436	0.279	0.285
+unknown
+the	sushi	was	excellent	and	the	wait	staff	was	quick
+sushi	excellent	wait	staff	quick
+0.148	0.275	0.099	0.023	0.455
+SERVICE	FOOD
+it	s	a	tiny	place	so	if	you	get	there	before	pm	on	a	weekend	thurs	sun	you	will	find	it	easier	to	get	a	table	or	a	seat	at	the	sushi	bar
+tiny	place	get	pm	weekend	thurs	sun	find	easier	get	table	seat	sushi	bar
+0.02	0.026	0.046	0.01	0.057	0.022	0.041	0.043	0.415	0.099	0.082	0.042	0.051	0.045
+MISCELLANEOUS
+cirspy	crust	margherita	pizza
+cirspy	crust	margherita	pizza
+0.152	0.212	0.385	0.251
+FOOD
+i	have	to	say	that	i	am	pleasantly	suprised	and	i	will	most	likely	stop	in	again	if	i	am	in	the	neighborhood
+say	pleasantly	suprised	likely	stop	neighborhood
+0.064	0.417	0.023	0.173	0.154	0.17
+GENERAL
+we	will	return	many	times	for	this	oasis	in	mid	town
+return	many	times	oasis	mid	town
+0.201	0.08	0.186	0.035	0.238	0.26
+GENERAL
+some	pineapple	covered	in	a	glaze	of	some	kind	and	some	pear	tart	thing	not	impressive	at	all
+pineapple	covered	glaze	kind	pear	tart	thing	impressive
+0.062	0.089	0.065	0.106	0.071	0.485	0.033	0.09
+FOOD
+also	there	was	only	one	bathroom	stall	probably	need	more	for	such	big	crowds
+also	one	bathroom	stall	probably	need	big	crowds
+0.162	0.021	0.026	0.037	0.274	0.185	0.066	0.228
+MISCELLANEOUS
+she	then	put	the	check	down	without	asking	if	we	were	done	and	came	to	check	on	the	bill	every	two	minutes	even	though	we	were	one	of	three	occupied	tables
+put	check	without	asking	done	came	check	bill	every	two	minutes	even	though	one	three	occupied	tables
+0.019	0.011	0.009	0.03	0.018	0.079	0.003	0.233	0.206	0.17	0.004	0.026	0.129	0.01	0.038	0.007	0.01
+SERVICE
+but	they	were	too	big	for	the	bun
+big	bun
+0.301	0.699
+FOOD
+we	have	lived	in	chelsea	for	two	years	and	have	never	noticed	this	restaurant
+lived	chelsea	two	years	never	noticed	restaurant
+0.036	0.136	0.524	0.027	0.039	0.109	0.129
+unknown
+i	happen	to	have	a	policy	that	goes	along	with	a	little	bit	of	self	respect	which	includes	not	letting	a	waiter	intimidate	me	i	e	make	me	feel	bad	asking	for	trivialities	like	water	or	the	check
+happen	policy	goes	along	little	bit	self	respect	includes	letting	waiter	intimidate	make	feel	bad	asking	trivialities	like	water	check
+0.02	0.014	0.003	0.049	0.03	0.026	0.051	0.015	0.013	0.032	0.073	0.38	0.011	0.011	0.034	0.019	0.023	0.162	0.014	0.021
+SERVICE
+guess	what	i	waited	for	twenty	minutes	before	she	came	over	and	when	she	finally	did	she	says	oh	well	i	wish	you	would	have	said	something	earlier	no	apology	nothing
+guess	waited	twenty	minutes	came	finally	says	oh	well	wish	would	said	something	earlier	apology	nothing
+0.046	0.019	0.115	0.042	0.055	0.024	0.117	0.046	0.054	0.062	0.114	0.023	0.114	0.109	0.022	0.039
+SERVICE
+not	only	is	the	cuisine	the	best	around	the	service	has	always	been	attentive	and	charming
+cuisine	best	around	service	always	attentive	charming
+0.022	0.508	0.03	0.109	0.12	0.106	0.106
+SERVICE	FOOD
+it	s	to	die	for
+die
+1.0
+FOOD
+unless	you	are	just	stopping	in	for	a	few	drinks	i	wouldn	t	recommend	going	here
+unless	stopping	drinks	recommend	going
+0.112	0.291	0.261	0.182	0.154
+GENERAL	DRINKS
+a	little	noise	but	i	think	that	was	because	of	our	party
+little	noise	think	party
+0.212	0.131	0.167	0.49
+AMBIENCE
+enough	said
+enough	said
+0.44	0.56
+unknown
+good	spreads	great	beverage	selections	and	bagels	really	tasty
+good	spreads	great	beverage	selections	bagels	really	tasty
+0.066	0.088	0.057	0.058	0.073	0.399	0.099	0.16
+FOOD	DRINKS
+so	i	decide	to	report	back	to	the	waitress	because	it	was	completely	inedible
+decide	report	back	waitress	completely	inedible
+0.093	0.114	0.171	0.041	0.13	0.451
+FOOD
+just	not	good	at	all
+good
+1.0
+FOOD
+prices	are	very	good
+prices	good
+0.213	0.787
+PRICES
+the	food	is	wonderful	tasty	and	filling	and	the	service	is	professional	and	friendly
+food	wonderful	tasty	filling	service	professional	friendly
+0.055	0.218	0.197	0.212	0.128	0.079	0.11
+SERVICE	FOOD
+the	wine	list	is	extensive	and	can	easily	hike	up	an	otherwise	reasonably	priced	meal
+wine	list	extensive	easily	hike	otherwise	reasonably	priced	meal
+0.072	0.332	0.079	0.137	0.122	0.029	0.051	0.06	0.117
+FOOD	DRINKS
+the	one	on	the	east	side	is	much	better	than	the	one	on	the	west	side
+one	east	side	much	better	one	west	side
+0.05	0.072	0.004	0.011	0.088	0.022	0.716	0.037
+unknown
+–	a	group	of	of	us	went	there	for	sunday	brunch	and	sat	outside
+–	group	us	went	sunday	brunch	sat	outside
+0.068	0.158	0.044	0.097	0.037	0.378	0.17	0.048
+unknown
+i	would	highly	recommand	requesting	a	table	by	the	window
+would	highly	recommand	requesting	table	window
+0.295	0.098	0.087	0.315	0.064	0.141
+LOCATION
+the	soup	for	the	udon	was	soy	sauce	and	water
+soup	udon	soy	sauce	water
+0.148	0.136	0.558	0.041	0.116
+FOOD
+the	asparagus	truffle	oil	parmesan	bruschetta	is	a	winner
+asparagus	truffle	oil	parmesan	bruschetta	winner
+0.068	0.146	0.069	0.266	0.199	0.252
+FOOD
+i	had	the	duck	breast	special	on	my	last	visit	and	it	was	incredible
+duck	breast	special	last	visit	incredible
+0.08	0.289	0.135	0.325	0.02	0.151
+FOOD
+we	love	the	food	drinks	and	atmosphere
+love	food	drinks	atmosphere
+0.156	0.069	0.622	0.153
+FOOD	DRINKS	AMBIENCE
+inside	is	a	little	cramped	but	to	be	expected
+inside	little	cramped	expected
+0.198	0.249	0.263	0.29
+AMBIENCE
+i	may	not	be	a	sushi	guru	but	i	can	tell	you	that	the	food	here	is	just	okay	and	that	there	is	not	much	else	to	it
+may	sushi	guru	tell	food	okay	much	else
+0.054	0.064	0.035	0.196	0.057	0.216	0.093	0.285
+FOOD
+just	go	to	yamato	and	order	the	red	dragon	roll
+go	yamato	order	red	dragon	roll
+0.136	0.141	0.134	0.136	0.258	0.196
+GENERAL	FOOD
+we	have	since	returned	and	also	had	a	great	experience	sampling	more	small	plates	and	a	variety	of	the	beer	cold	and	good
+since	returned	also	great	experience	sampling	small	plates	variety	beer	cold	good
+0.009	0.021	0.042	0.173	0.02	0.024	0.008	0.004	0.378	0.193	0.031	0.098
+GENERAL	DRINKS
+we	put	out	name	down	and	although	there	were	open	tables	we	were	told	that	it	d	be	a	minute	wait
+put	name	although	open	tables	told	minute	wait
+0.01	0.037	0.265	0.012	0.037	0.098	0.493	0.048
+SERVICE
+the	place	is	small	and	cramped	but	the	food	is	fantastic
+place	small	cramped	food	fantastic
+0.029	0.341	0.011	0.2	0.419
+FOOD	AMBIENCE
+two	complaints	their	appetizer	selection	stinks	it	would	be	nice	to	get	some	mozzarella	sticks	on	the	menu
+two	complaints	appetizer	selection	stinks	would	nice	get	mozzarella	sticks	menu
+0.01	0.006	0.016	0.003	0.001	0.063	0.009	0.0	0.853	0.01	0.028
+FOOD
+we	had	a	very	nice	time
+nice	time
+0.741	0.259
+GENERAL
+i	ve	eaten	at	many	different	indian	restaurants
+eaten	many	different	indian	restaurants
+0.072	0.102	0.129	0.461	0.236
+unknown
+the	restaurant	was	busy	however	there	were	a	few	tables	open
+restaurant	busy	however	tables	open
+0.009	0.612	0.165	0.103	0.111
+unknown
+they	seemed	to	continue	to	rush	us	along	taking	plates	without	asking	if	we	were	done	my	sister	still	had	her	fork	in	hand
+seemed	continue	rush	us	along	taking	plates	without	asking	done	sister	still	fork	hand
+0.024	0.044	0.084	0.045	0.058	0.056	0.079	0.24	0.048	0.111	0.045	0.014	0.078	0.074
+SERVICE
+who	has	room	for	cheesesticks	with	the	best	pizza	in	nyc
+room	cheesesticks	best	pizza	nyc
+0.122	0.155	0.3	0.138	0.286
+FOOD
+the	crust	is	thin	the	ingredients	are	fresh	and	the	staff	is	friendly
+crust	thin	ingredients	fresh	staff	friendly
+0.006	0.025	0.032	0.892	0.015	0.03
+SERVICE	FOOD
+the	appetizer	was	interesting	but	the	creme	brulee	was	very	savory	and	delicious
+appetizer	interesting	creme	brulee	savory	delicious
+0.142	0.126	0.084	0.148	0.28	0.22
+FOOD
+small	servings	for	main	entree	i	had	salmon	wasnt	impressed	girlfriend	had	chicken	it	was	good
+small	servings	main	entree	salmon	wasnt	impressed	girlfriend	chicken	good
+0.033	0.009	0.096	0.169	0.106	0.077	0.14	0.084	0.046	0.239
+FOOD
+always	a	winner
+always	winner
+0.353	0.647
+GENERAL
+nice	for	one	time	special	occasion
+nice	one	time	special	occasion
+0.384	0.034	0.073	0.437	0.072
+MISCELLANEOUS
+none	was	made	so	i	hung	up
+none	made	hung
+0.468	0.186	0.346
+SERVICE
+i	really	liked	this	place
+really	liked	place
+0.133	0.386	0.48
+GENERAL
+mediocre	service	quality
+mediocre	service	quality
+0.689	0.13	0.18
+SERVICE
+we	were	ushered	to	the	bar	to	wait	momentarily	and	upon	arrival	were	so	excited
+ushered	bar	wait	momentarily	upon	arrival	excited
+0.032	0.053	0.216	0.142	0.149	0.111	0.296
+GENERAL
+the	rice	to	fish	ration	was	also	good	they	didn	t	try	to	overpack	the	rice
+rice	fish	ration	also	good	try	overpack	rice
+0.066	0.035	0.171	0.103	0.134	0.038	0.281	0.172
+FOOD
+i	complained	to	the	manager	but	he	was	not	even	apologetic
+complained	manager	even	apologetic
+0.127	0.085	0.291	0.497
+SERVICE
+this	place	is	always	very	crowded	and	popular
+place	always	crowded	popular
+0.406	0.049	0.09	0.455
+MISCELLANEOUS
+the	waiter	was	attentive	the	food	was	delicious	and	the	views	of	the	city	were	great
+waiter	attentive	food	delicious	views	city	great
+0.125	0.114	0.283	0.153	0.041	0.125	0.161
+SERVICE	FOOD	LOCATION
+and	i	hate	to	say	this	but	i	doubt	i	ll	ever	go	back
+hate	say	doubt	ever	go	back
+0.164	0.053	0.068	0.049	0.122	0.545
+GENERAL
+it	s	a	small	cute	restaurant
+small	cute	restaurant
+0.182	0.121	0.697
+AMBIENCE
+we	easily	spent	more	than	$	per	person	not	including	alcohol	and	were	still	hungry
+easily	spent	$	per	person	including	alcohol	still	hungry
+0.132	0.144	0.052	0.036	0.244	0.038	0.052	0.047	0.256
+FOOD	PRICES
+i	would	recommend	reservations	on	weekends	though
+would	recommend	reservations	weekends	though
+0.068	0.028	0.044	0.492	0.367
+unknown
+just	remember	the	later	you	go	the	longer	you	may	have	to	wait
+remember	later	go	longer	may	wait
+0.044	0.337	0.097	0.214	0.184	0.124
+unknown
+good	sushi	high	price
+good	sushi	high	price
+0.138	0.275	0.215	0.372
+FOOD
+for	desserts	we	tried	the	frozen	black	sesame	mousse	interesting	but	not	extraordinary	and	matcha	powdered	green	tea	and	blueberry	cheesecake	which	was	phenomenal
+desserts	tried	frozen	black	sesame	mousse	interesting	extraordinary	matcha	powdered	green	tea	blueberry	cheesecake	phenomenal
+0.065	0.008	0.08	0.025	0.026	0.134	0.047	0.11	0.077	0.029	0.107	0.04	0.044	0.074	0.133
+FOOD
+i	have	been	to	roth	s	twice	and	both	times	were	very	disappointing
+roth	twice	times	disappointing
+0.369	0.431	0.155	0.045
+GENERAL
+i	recommend	it	for	a	night	when	you	want	to	splurge	it	was	a	bit	expensive
+recommend	night	want	splurge	bit	expensive
+0.032	0.023	0.105	0.336	0.224	0.281
+GENERAL	PRICES
+the	staff	is	no	nonsense
+staff	nonsense
+0.42	0.58
+SERVICE
+my	mouth	felt	very	dry	afterwards	and	i	had	that	signature	msg	taste	lingering	in	my	throat	after	i	left	the	restaurant
+mouth	felt	dry	afterwards	signature	msg	taste	lingering	throat	left	restaurant
+0.016	0.033	0.098	0.035	0.211	0.04	0.049	0.097	0.076	0.062	0.284
+FOOD
+what	you	are	paying	for	is	the	environment	and	the	name
+paying	environment	name
+0.479	0.292	0.229
+PRICES	MISCELLANEOUS	AMBIENCE
+if	you	like	your	music	blasted	and	the	system	isnt	that	great	and	if	you	want	to	pay	at	least	dollar	bottle	minimun	then	you	ll	love	it	here
+like	music	blasted	system	isnt	great	want	pay	least	dollar	bottle	minimun	love
+0.126	0.023	0.036	0.015	0.033	0.443	0.072	0.048	0.012	0.094	0.012	0.037	0.049
+DRINKS	AMBIENCE
+our	first	time	in	new	york	and	we	had	to	try	a	new	york	bagel
+first	time	new	york	try	new	york	bagel
+0.056	0.097	0.008	0.277	0.447	0.018	0.015	0.082
+unknown
+the	food	is	delicious	from	the	specials	to	the	regular	menu	fare	the	dishes	are	never	a	disappointment
+food	delicious	specials	regular	menu	fare	dishes	never	disappointment
+0.053	0.114	0.035	0.095	0.253	0.107	0.107	0.209	0.028
+FOOD
+the	blond	wood	decor	is	very	soothing	the	premium	sake	is	excellent	and	the	service	is	great
+blond	wood	decor	soothing	premium	sake	excellent	service	great
+0.087	0.099	0.049	0.052	0.015	0.22	0.081	0.176	0.221
+SERVICE	DRINKS	AMBIENCE
+staff	is	very	accomodating
+staff	accomodating
+0.326	0.674
+SERVICE
+we	are	for	sure	coming	back	to	this	restaurant
+sure	coming	back	restaurant
+0.146	0.305	0.239	0.31
+GENERAL
+for	the	people	who	want	great	food	plus	great	service	roxy	is	a	place	to	avoid
+people	want	great	food	plus	great	service	roxy	place	avoid
+0.104	0.198	0.142	0.019	0.218	0.157	0.046	0.063	0.029	0.024
+SERVICE	FOOD
+going	to	bark	is	always	worth	the	train	ride	and	will	make	your	tongue	and	belly	very	happy
+going	bark	always	worth	train	ride	make	tongue	belly	happy
+0.011	0.364	0.062	0.062	0.048	0.134	0.122	0.038	0.057	0.102
+GENERAL	FOOD
+your	a	sushi	fan	you	love	expertly	cut	fish	great	sake	a	killer	soho	location	and	of	course	salmon	tuna	fluke	yellow	tail	cod	mackeral	jellyfish	sea	urchin	shrimp	lobster	sea	bream	trout	milk	fish	blue	fin	tuna	eel	crab	sardine	monk	fish	roe	scallop	oysters	and	a	varity	of	toro
+great	sake	killer	soho	location	course	salmon	tuna	fluke	yellow	tail	cod	mackeral	jellyfish	sea	urchin	shrimp	lobster	sea	bream	trout	milk	fish	blue	fin	tuna	eel	crab	sardine	monk	fish	roe	scallop	oysters	varity	toro
+0.013	0.01	0.017	0.163	0.008	0.038	0.021	0.046	0.013	0.003	0.008	0.021	0.005	0.018	0.012	0.03	0.033	0.126	0.052	0.012	0.013	0.116	0.021	0.017	0.006	0.015	0.011	0.004	0.009	0.029	0.004	0.038	0.005	0.018	0.024	0.019
+FOOD	DRINKS	LOCATION
+they	came	in	their	own	nifty	take	out	box	and	with	some	homemade	frosting	very	light	and	not	too	sweet
+came	nifty	take	box	homemade	frosting	light	sweet
+0.105	0.064	0.289	0.109	0.169	0.094	0.069	0.101
+FOOD
+the	bread	was	stale	the	salad	was	overpriced	and	empty
+bread	stale	salad	overpriced	empty
+0.175	0.299	0.162	0.196	0.168
+FOOD
+to	me	it	exemplifies	soho	cute	artsy	interesting
+exemplifies	soho	cute	artsy	interesting
+0.103	0.201	0.123	0.167	0.406
+AMBIENCE
+awesome
+awesome
+1.0
+GENERAL
+the	staff	are	friendly	and	the	decor	was	ethic	and	colorful
+staff	friendly	decor	ethic	colorful
+0.078	0.084	0.099	0.402	0.338
+SERVICE	AMBIENCE
+service	was	devine	oysters	where	a	sensual	as	they	come	and	the	price	can	t	be	beat
+service	devine	oysters	sensual	come	price	beat
+0.033	0.098	0.137	0.079	0.278	0.248	0.126
+SERVICE	FOOD	PRICES
+ambience	is	delightful	service	impeccable
+ambience	delightful	service	impeccable
+0.131	0.2	0.402	0.268
+SERVICE	AMBIENCE
+i	don’t	usually	visit	the	same	establishment	more	than	once	what	more	twice	but	i’ll	come	to	zenkichi	anytime	for	a	quiet	unhurried	and	memorable	dinner
+don’t	usually	visit	establishment	twice	i’ll	come	zenkichi	anytime	quiet	unhurried	memorable	dinner
+0.025	0.046	0.046	0.024	0.112	0.182	0.082	0.144	0.033	0.034	0.082	0.099	0.091
+GENERAL	AMBIENCE
+i	love	breakfast	here
+love	breakfast
+0.318	0.682
+FOOD
+however	one	sunday	afternoon	my	husband	and	i	did	go	although	with	my	loud	protests	and	were	pleasantly	surprised
+however	one	sunday	afternoon	husband	go	although	loud	protests	pleasantly	surprised
+0.055	0.009	0.355	0.043	0.02	0.016	0.405	0.013	0.04	0.021	0.023
+GENERAL
+the	back	garden	sitting	area	is	very	pleasant	where	you	can	see	their	personal	herb	garden
+back	garden	sitting	area	pleasant	see	personal	herb	garden
+0.13	0.024	0.182	0.05	0.354	0.02	0.119	0.027	0.095
+AMBIENCE
+excellent
+excellent
+1.0
+GENERAL
+this	place	has	ruined	me	for	neighborhood	sushi
+place	ruined	neighborhood	sushi
+0.16	0.221	0.253	0.367
+FOOD
+love	it
+love
+1.0
+GENERAL
+you	are	with	a	hot	date	and	he	she	has	an	urge	for	sushi	then	this	might	be	the	place
+hot	date	urge	sushi	might	place
+0.266	0.181	0.1	0.125	0.14	0.188
+FOOD
+they	were	dry	and	disgusting	i	didn	t	even	finish	my	first	piece
+dry	disgusting	even	finish	first	piece
+0.133	0.068	0.052	0.699	0.018	0.029
+FOOD
+our	experience	did	not	ever	get	any	better
+experience	ever	get	better
+0.035	0.052	0.077	0.836
+GENERAL
+in	fact	there	is	only	one	i	ve	tried	that	even	compares	shabu	tatsu	and	even	then	i	prefer	dokebi
+fact	one	tried	even	compares	shabu	tatsu	even	prefer	dokebi
+0.036	0.192	0.023	0.03	0.116	0.139	0.195	0.098	0.137	0.034
+unknown
+went	to	this	place	this	place	on	a	real	cold	night	and	needed	a	quick	meal
+went	place	place	real	cold	night	needed	quick	meal
+0.044	0.029	0.041	0.026	0.582	0.026	0.055	0.163	0.035
+unknown
+the	scallion	pancakes	and	fried	dumplings	were	nothing	out	of	the	ordinary
+scallion	pancakes	fried	dumplings	nothing	ordinary
+0.106	0.014	0.117	0.51	0.121	0.132
+FOOD
+though	it	s	been	crowded	most	times	i	ve	gone	here	bark	always	delivers	on	their	food
+though	crowded	times	gone	bark	always	delivers	food
+0.043	0.013	0.538	0.021	0.15	0.134	0.033	0.068
+FOOD	MISCELLANEOUS
+awsome	pizza	especially	the	margheritta	slice
+awsome	pizza	especially	margheritta	slice
+0.488	0.078	0.306	0.036	0.093
+FOOD
+possibly	the	most	romantic	restaurant	in	the	city
+possibly	romantic	restaurant	city
+0.14	0.132	0.152	0.576
+AMBIENCE
+the	pancakes	were	certainly	inventive	but	$	for	pancakes	one	of	them	was	more	like	in	the	pancake	flight	sample	of	different	pancakes	is	well	over	priced
+pancakes	certainly	inventive	$	pancakes	one	like	pancake	flight	sample	different	pancakes	well	priced
+0.054	0.107	0.049	0.013	0.086	0.109	0.323	0.011	0.096	0.008	0.02	0.011	0.058	0.055
+FOOD
+i	have	never	eaten	in	the	restaurant	however	upon	reading	the	reviews	i	got	take	out	last	week
+never	eaten	restaurant	however	upon	reading	reviews	got	take	last	week
+0.027	0.017	0.009	0.251	0.055	0.039	0.012	0.11	0.032	0.219	0.228
+unknown
+the	hostess	was	very	pleasant
+hostess	pleasant
+0.544	0.456
+SERVICE
+this	place	rocks
+place	rocks
+0.321	0.679
+GENERAL
+at	best	the	food	was	good	and	definately	overpriced
+best	food	good	definately	overpriced
+0.236	0.18	0.222	0.075	0.287
+FOOD
+i	don	t	usually	order	wine	with	indian	so	i	can	t	comment	on	their	wine	list	or	their	wines
+usually	order	wine	indian	comment	wine	list	wines
+0.007	0.102	0.111	0.114	0.046	0.148	0.386	0.086
+unknown
+we	had	the	scallops	as	an	appetizer	and	they	were	delicious	and	the	sauce	was	wonderful
+scallops	appetizer	delicious	sauce	wonderful
+0.049	0.38	0.166	0.05	0.355
+FOOD
+i	noice	most	reviews	mention	the	bad	service
+noice	reviews	mention	bad	service
+0.1	0.018	0.649	0.09	0.143
+unknown
+it	is	set	far	from	the	small	street	it	s	on	and	there	is	no	traffic	noise
+set	far	small	street	traffic	noise
+0.274	0.025	0.332	0.246	0.049	0.074
+LOCATION
+i	had	the	best	ravioli	ever
+best	ravioli	ever
+0.183	0.188	0.63
+FOOD
+the	main	entree	was	also	very	good
+main	entree	also	good
+0.073	0.262	0.3	0.365
+FOOD
+great	meal	–	the	fish	on	the	omikase	platter	was	absolutely	decadent	there	was	none	of	the	stringiness	that	sometimes	accompanies	fair	sushi	this	fish	was	perfect
+great	meal	–	fish	omikase	platter	absolutely	decadent	none	stringiness	sometimes	accompanies	fair	sushi	fish	perfect
+0.044	0.013	0.022	0.069	0.03	0.011	0.054	0.03	0.027	0.039	0.28	0.006	0.01	0.027	0.029	0.308
+FOOD
+highly	recommended
+highly	recommended
+0.54	0.46
+GENERAL
+whenever	you	need	a	sushi	fix	mizu	will	be	there	with	quality	fish	and	great	service
+whenever	need	sushi	fix	mizu	quality	fish	great	service
+0.033	0.116	0.065	0.078	0.057	0.074	0.071	0.404	0.101
+SERVICE	FOOD
+however	they	do	take	your	cellphone	numbers	so	that	you	can	go	hang	out	somewhere	else	till	they	call	you	up	on	your	cellphone
+however	take	cellphone	numbers	go	hang	somewhere	else	till	call	cellphone
+0.032	0.041	0.055	0.12	0.095	0.141	0.047	0.062	0.013	0.355	0.04
+SERVICE
+we	arrived	on	time	for	our	reservation	and	seated	promptly
+arrived	time	reservation	seated	promptly
+0.234	0.049	0.224	0.123	0.37
+unknown
+gross	food	–	wow
+gross	food	–	wow
+0.159	0.174	0.223	0.445
+FOOD
+best	taiwanese	food	in	ny
+best	taiwanese	food	ny
+0.274	0.119	0.299	0.308
+FOOD
+their	tuna	tartar	appetizer	is	to	die	for
+tuna	tartar	appetizer	die
+0.158	0.229	0.457	0.155
+FOOD
+the	dinner	was	ok	nothing	i	would	have	again
+dinner	ok	nothing	would
+0.432	0.09	0.14	0.338
+FOOD
+–	this	review	is	for	the	southglen	location	which	is	not	listed	in	citysearch	i	wish	this	review	would	make	a	difference	enough	for	it	to	be	addressed	by	management	but	snooze	has	people	climbing	over	each	other	for	a	chance	to	eat	at	this	overpriced	restaurant	with	mediocre	food	and	service	so	this	review	as	well	as	the	other	negative	ones	for	their	larimer	location	will	go	unaddressed
+–	review	southglen	location	listed	citysearch	wish	review	would	make	difference	enough	addressed	management	snooze	people	climbing	chance	eat	overpriced	restaurant	mediocre	food	service	review	well	negative	ones	larimer	location	go	unaddressed
+0.029	0.006	0.011	0.004	0.004	0.016	0.021	0.114	0.09	0.064	0.008	0.028	0.009	0.038	0.017	0.034	0.054	0.099	0.03	0.017	0.003	0.02	0.006	0.081	0.001	0.054	0.013	0.01	0.057	0.01	0.022	0.028
+unknown
+a	perfect	place	to	take	out	of	town	guests	any	time	of	the	year
+perfect	place	take	town	guests	time	year
+0.154	0.042	0.195	0.03	0.26	0.117	0.202
+GENERAL
+it	is	sad	there	is	not	many	people	who	frequent	eating	at	places	like	these	that	look	pricey	because	they	are	at	the	hotel	but	they	are	definitely	one	you	dont	want	to	miss	esp	if	your	in	downtown	san	jose
+sad	many	people	frequent	eating	places	like	look	pricey	hotel	definitely	one	dont	want	miss	esp	downtown	san	jose
+0.046	0.039	0.015	0.003	0.022	0.055	0.281	0.004	0.156	0.076	0.011	0.01	0.115	0.033	0.023	0.057	0.024	0.015	0.015
+GENERAL
+a	friend	from	seattle	and	i	went	on	a	thursday	night	around
+friend	seattle	went	thursday	night	around
+0.286	0.062	0.136	0.048	0.077	0.392
+unknown
+so	good
+good
+1.0
+GENERAL
+among	all	of	the	new	th	avenue	restaurants	this	offers	by	far	one	of	the	best	values	for	your	money
+among	new	th	avenue	restaurants	offers	far	one	best	values	money
+0.04	0.071	0.005	0.131	0.013	0.12	0.031	0.022	0.454	0.045	0.068
+unknown
+fresh	restaurant	was	amazing	food	was	delicious	and	of	course	fresh
+fresh	restaurant	amazing	food	delicious	course	fresh
+0.1	0.063	0.096	0.137	0.193	0.007	0.403
+GENERAL	FOOD
+all	in	all	we	re	already	coming	up	with	excuses	to	go	ahead	really	soon	in	the	next	few	wks
+already	coming	excuses	go	ahead	really	soon	next	wks
+0.035	0.045	0.071	0.197	0.342	0.014	0.134	0.017	0.144
+GENERAL
+add	to	that	great	service	and	great	food	at	a	reasonable	price	and	you	have	yourself	the	beginning	of	a	great	evening
+add	great	service	great	food	reasonable	price	beginning	great	evening
+0.041	0.047	0.07	0.021	0.049	0.083	0.062	0.529	0.053	0.045
+SERVICE	FOOD
+they	charge	different	prices	all	the	time
+charge	different	prices	time
+0.037	0.113	0.083	0.767
+SERVICE
+indo	chinese	food	pretty	good
+indo	chinese	food	pretty	good
+0.173	0.028	0.276	0.332	0.191
+FOOD
+their	apps	are	all	delicious
+apps	delicious
+0.231	0.769
+FOOD
+but	that	is	highly	forgivable
+highly	forgivable
+0.488	0.512
+SERVICE
+this	place	must	have	cost	the	owners	afortune	to	build
+place	must	cost	owners	afortune	build
+0.041	0.329	0.03	0.215	0.172	0.213
+unknown
+it	was	$	not	really	bad	for	a	pound	of	pastrami	but	it	didn	t	have	much	taste	i	ve	had	better	for	less	elsewhere
+$	really	bad	pound	pastrami	much	taste	better	less	elsewhere
+0.021	0.069	0.035	0.099	0.356	0.015	0.187	0.122	0.033	0.064
+FOOD
+they	are	opening	two	more	places	as	i	saw	a	flyer	there	one	in	yonkers	which	is	a	restraunt	and	banquet	hall	and	another	one	in	parsipanny	new	jersey
+opening	two	places	saw	flyer	one	yonkers	restraunt	banquet	hall	another	one	parsipanny	new	jersey
+0.006	0.066	0.023	0.064	0.038	0.054	0.055	0.253	0.026	0.074	0.008	0.132	0.168	0.016	0.015
+unknown
+although	the	tables	may	be	closely	situated	the	candle	light	food	quality	and	service	overcompensate
+although	tables	may	closely	situated	candle	light	food	quality	service	overcompensate
+0.054	0.007	0.063	0.028	0.114	0.075	0.192	0.269	0.124	0.021	0.052
+SERVICE	FOOD	AMBIENCE
+too	large	for	just	two	people	but	nothing	was	left
+large	two	people	nothing	left
+0.032	0.013	0.14	0.776	0.039
+FOOD
+the	only	thing	the	waiters	don	t	do	for	you	is	wipe	your	chin	when	you	leave
+thing	waiters	wipe	chin	leave
+0.065	0.088	0.284	0.306	0.257
+SERVICE
+another	review	here	claimed	the	pre	fix	was	$	per	person	including	sake	but	it	is	$	per	person	not	including	sake
+another	review	claimed	pre	fix	$	per	person	including	sake	$	per	person	including	sake
+0.095	0.197	0.067	0.065	0.051	0.005	0.07	0.118	0.037	0.076	0.029	0.068	0.053	0.013	0.058
+unknown
+we	had	a	great	time	at	the	jekyll	and	hyde	pub	last	night
+great	time	jekyll	hyde	pub	last	night
+0.054	0.024	0.081	0.075	0.148	0.532	0.087
+GENERAL
+amazing	fun	for	hot	dog	lovers	of	all	ages	please	do	yourself	a	favor	and	check	this	place	out
+amazing	fun	hot	dog	lovers	ages	please	favor	check	place
+0.222	0.092	0.244	0.067	0.038	0.04	0.05	0.041	0.074	0.131
+GENERAL	FOOD
+we	both	opted	for	a	pasta	dish	and	they	were	served	timely	and	fresh
+opted	pasta	dish	served	timely	fresh
+0.209	0.097	0.188	0.113	0.037	0.357
+SERVICE	FOOD
+we	visited	orsay	during	ny	restaurant	week	and	tried	their	$	menu
+visited	orsay	ny	restaurant	week	tried	$	menu
+0.022	0.286	0.043	0.005	0.144	0.396	0.015	0.09
+unknown
+love	the	food
+love	food
+0.541	0.459
+FOOD
+also	don	t	plan	on	asking	for	your	favorite	roll	if	it	s	not	on	the	menu	you	can	t	have	it
+also	plan	asking	favorite	roll	menu
+0.162	0.037	0.079	0.4	0.206	0.116
+SERVICE
+there	was	a	guy	playing	the	piano	and	singing	at	the	bar	area	which	was	separate	from	the	dinning	area
+guy	playing	piano	singing	bar	area	separate	dinning	area
+0.032	0.164	0.203	0.056	0.125	0.058	0.196	0.138	0.028
+unknown
+i	will	be	going	back	very	soon
+going	back	soon
+0.04	0.871	0.089
+GENERAL
+–	we	were	treated	very	rudely	here	one	time	for	breakfast
+–	treated	rudely	one	time	breakfast
+0.11	0.218	0.139	0.223	0.208	0.101
+SERVICE
+just	moved	to	the	neighborhood	and	we	ve	been	trying	all	the	west	village	sushi	restaurants
+moved	neighborhood	trying	west	village	sushi	restaurants
+0.095	0.006	0.082	0.326	0.06	0.408	0.023
+unknown
+the	takeout	is	great	too	since	they	give	high	quality	tupperware	as	well
+takeout	great	since	give	high	quality	tupperware	well
+0.045	0.161	0.069	0.587	0.031	0.062	0.005	0.041
+SERVICE
+she	promised	to	speak	to	the	waitress	who	had	flown	off	in	a	rage	but	we	could	hardly	take	her	promise	seriously	seeing	as	she	hadn	t	bothered	to	get	the	waitresses	name
+promised	speak	waitress	flown	rage	could	hardly	take	promise	seriously	seeing	bothered	get	waitresses	name
+0.065	0.056	0.037	0.017	0.046	0.236	0.009	0.077	0.124	0.072	0.023	0.059	0.015	0.134	0.029
+SERVICE
+great	selection	of	sakes
+great	selection	sakes
+0.203	0.242	0.555
+DRINKS
+too	bad	latin	quarters	closed
+bad	latin	quarters	closed
+0.19	0.232	0.334	0.244
+unknown
+a	coworker	and	i	tried	pacifico	after	work	a	few	fridays	and	loved	it
+coworker	tried	pacifico	work	fridays	loved
+0.073	0.035	0.19	0.102	0.445	0.155
+GENERAL
+he	has	visited	thailand	and	is	quite	expert	on	the	cuisine
+visited	thailand	quite	expert	cuisine
+0.209	0.107	0.068	0.483	0.133
+unknown
+you	ll	be	ther	for	every	anniversary	birthday	valentines	day
+ther	every	anniversary	birthday	valentines	day
+0.163	0.098	0.327	0.096	0.094	0.222
+MISCELLANEOUS
+i	highly	recommend	it
+highly	recommend
+0.442	0.558
+GENERAL
+the	martinis	are	amazing	and	very	fairly	priced
+martinis	amazing	fairly	priced
+0.214	0.13	0.237	0.419
+DRINKS
+i	highly	recommend	the	fish	tacos	everything	else	was	ok
+highly	recommend	fish	tacos	everything	else	ok
+0.089	0.029	0.044	0.475	0.066	0.071	0.227
+FOOD
+the	brioche	and	lollies	as	party	favors	is	a	cute	and	sweet	touch	to	a	most	memorable	meal
+brioche	lollies	party	favors	cute	sweet	touch	memorable	meal
+0.033	0.103	0.095	0.097	0.146	0.105	0.055	0.305	0.06
+FOOD
+the	menu	looked	great	and	the	waiter	was	very	nice	but	when	the	food	came	it	was	average
+menu	looked	great	waiter	nice	food	came	average
+0.01	0.365	0.07	0.022	0.29	0.093	0.139	0.01
+SERVICE	FOOD
+i	ve	been	there	three	times	and	have	always	had	wonderful	experiences
+three	times	always	wonderful	experiences
+0.057	0.182	0.086	0.172	0.503
+GENERAL
+it	is	very	overpriced	and	not	very	tasty
+overpriced	tasty
+0.517	0.483
+FOOD
+surprisingly	nothing	could	be	further	from	the	truth
+surprisingly	nothing	could	truth
+0.12	0.195	0.239	0.445
+MISCELLANEOUS
+the	last	time	i	walked	by	it	looked	pretty	empty	hmmm
+last	time	walked	looked	pretty	empty	hmmm
+0.103	0.061	0.068	0.089	0.375	0.207	0.097
+MISCELLANEOUS
+not	what	i	would	expect	for	the	price	and	prestige	of	this	location
+would	expect	price	prestige	location
+0.127	0.085	0.018	0.48	0.29
+SERVICE	PRICES	MISCELLANEOUS
+to	sum	it	up	service	varies	from	good	to	mediorce	depending	on	which	waiter	you	get	generally	it	is	just	average	ok
+sum	service	varies	good	mediorce	depending	waiter	get	generally	average	ok
+0.065	0.201	0.027	0.06	0.044	0.04	0.056	0.041	0.267	0.183	0.016
+SERVICE
+but	the	best	part	about	ls	is	the	late	night	atmosphere	delightfully	free	of	the	bts
+best	part	ls	late	night	atmosphere	delightfully	free	bts
+0.031	0.097	0.01	0.048	0.132	0.027	0.114	0.401	0.14
+AMBIENCE
+i	ve	had	my	fair	share	of	modern	japanese	and	this	spot	delivers
+fair	share	modern	japanese	spot	delivers
+0.112	0.088	0.355	0.059	0.07	0.317
+FOOD
+our	friends	have	not	arrived	yet
+friends	arrived	yet
+0.185	0.388	0.427
+unknown
+it	just	wasn	t	thai
+thai
+1.0
+FOOD
+however	i	think	jeckll	and	hydes	t	is	one	of	those	places	that	is	fun	to	do	once
+however	think	jeckll	hydes	one	places	fun
+0.042	0.015	0.151	0.015	0.022	0.055	0.7
+GENERAL
+the	wine	list	is	wonderful	and	the	food	reminds	me	of	my	recent	trip	to	italy
+wine	list	wonderful	food	reminds	recent	trip	italy
+0.027	0.265	0.06	0.174	0.239	0.044	0.042	0.149
+FOOD	DRINKS
+never	have	i	had	such	dramatic	delivery	guys	a	lot	of	huffing	and	panting	and	muttering	under	breath	b	c	i	live	in	a	walkup	who	always	seem	disappointed	with	their	tips
+never	dramatic	delivery	guys	lot	huffing	panting	muttering	breath	live	walkup	always	seem	disappointed	tips
+0.01	0.01	0.009	0.059	0.035	0.029	0.006	0.012	0.122	0.015	0.594	0.015	0.008	0.031	0.046
+SERVICE
+the	waitress	appeared	and	asked	us	if	we	wanted	to	go	ahead	and	order
+waitress	appeared	asked	us	wanted	go	ahead	order
+0.038	0.056	0.043	0.005	0.124	0.135	0.549	0.051
+unknown
+–	my	first	time	to	dine	at	this	restaurant	was	with	my	son	and	it	was	absolutely	horrible
+–	first	time	dine	restaurant	son	absolutely	horrible
+0.067	0.25	0.07	0.223	0.197	0.104	0.035	0.055
+GENERAL
+once	you	re	inside	the	real	experience	begins
+inside	real	experience	begins
+0.283	0.213	0.355	0.15
+GENERAL
+–	first	of	all	i	am	not	from	long	beach
+–	first	long	beach
+0.037	0.571	0.044	0.348
+unknown
+i	went	there	times
+went	times
+0.09	0.91
+unknown
+regardless	we	ll	be	back	and	can	t	wait	to	visit	in	the	summer	to	take	advantage	of	the	patio
+regardless	back	wait	visit	summer	take	advantage	patio
+0.03	0.142	0.032	0.107	0.065	0.148	0.033	0.443
+GENERAL	AMBIENCE
+a	brief	conversation	with	the	manager	at	the	end	of	the	meal	was	the	greatest	disappointment	to	say	we	had	been	blown	off	would	be	an	understatement
+brief	conversation	manager	end	meal	greatest	disappointment	say	blown	would	understatement
+0.037	0.058	0.492	0.088	0.072	0.021	0.141	0.006	0.04	0.013	0.031
+SERVICE
+this	is	where	it	really	really	gets	bad	the	manager	said	there	is	absolutely	nothing	we	can	do	it	s	a	matter	of	taste	that	she	didn	t	like	it	and	i	cannot	comp	it
+really	really	gets	bad	manager	said	absolutely	nothing	matter	taste	like	cannot	comp
+0.034	0.036	0.026	0.166	0.191	0.033	0.031	0.153	0.013	0.03	0.166	0.025	0.095
+SERVICE
+cry	me	a	river	stop	complaining	you	obviously	you	have	no	taste	in	food
+cry	river	stop	complaining	obviously	taste	food
+0.063	0.07	0.037	0.287	0.048	0.286	0.21
+unknown
+the	food	is	great	and	the	environment	is	even	better
+food	great	environment	even	better
+0.232	0.221	0.028	0.325	0.194
+FOOD	AMBIENCE
+great	shabu	shabu
+great	shabu	shabu
+0.205	0.078	0.717
+FOOD
+the	floor	was	wet	the	trash	can	filled	with	hand	towels	n	all	over	the	floor	no	soap	and	no	hand	towels	left
+floor	wet	trash	filled	hand	towels	floor	soap	hand	towels	left
+0.043	0.065	0.077	0.1	0.038	0.1	0.023	0.103	0.227	0.194	0.031
+AMBIENCE
+if	i	want	to	stand	in	line	on	sunday	for	an	hour	to	get	average	brunch	food	then	i	would	put	murphy	s	at	the	top	of	the	list
+want	stand	line	sunday	hour	get	average	brunch	food	would	put	murphy	top	list
+0.048	0.035	0.036	0.013	0.015	0.096	0.013	0.588	0.005	0.019	0.004	0.036	0.085	0.008
+SERVICE	FOOD
+saul	is	the	best	restaurant	on	smith	street	and	in	brooklyn
+saul	best	restaurant	smith	street	brooklyn
+0.039	0.417	0.126	0.026	0.129	0.262
+GENERAL
+its	a	good	thing	my	daughter	had	some	snacks	in	her	lunch	bag
+good	thing	daughter	snacks	lunch	bag
+0.253	0.042	0.263	0.071	0.28	0.091
+unknown
+took	forever	to	get	our	order	taken	water	refills	were	too	much	to	ask	for	and	the	only	time	she	was	fast	was	when	we	asked	for	our	bill	when	we	could	get	her	attention
+took	forever	get	order	taken	water	refills	much	ask	time	fast	asked	bill	could	get	attention
+0.017	0.055	0.011	0.02	0.009	0.012	0.019	0.047	0.026	0.022	0.398	0.004	0.057	0.243	0.008	0.054
+SERVICE

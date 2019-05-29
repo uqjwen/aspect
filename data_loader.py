@@ -50,9 +50,9 @@ class Data_Loader():
 
 		self.emb_size = 100
 		self.gen_size = 300
-		sentences = data['processed_sentence']
+		self.psent = data['processed_sentence']
 
-		sentences = self.filter_stopwords(sentences, data['idx2word'])
+		sentences = self.filter_stopwords(self.psent, data['idx2word'])
 
 
 
@@ -225,7 +225,7 @@ class Data_Loader():
 		if sample_rate == 1:
 			# print('\n')
 			index = self.permutation[self.train_size:]
-			return self.val_sent, self.val_sent_tag, self.val_mask, self.val_labels, self.val_cat_labels, self.val_cat_mask
+			return self.val_sent, self.val_sent_tag, self.val_mask, self.val_labels, self.val_cat_labels, self.val_cat_mask, index
 
 		else:
 			index = []
@@ -250,13 +250,14 @@ class Data_Loader():
 
 		# return self.sent[idx], self.sent_tag[idx], self.mask[idx], self.labels[idx]
 		# return self.val_sent[idx], self.val_sent_tag[idx], self.val_mask[idx], self.val_labels[idx]
-		index = self.permutation[self.train_size][index]
+		index = self.permutation[self.train_size:][index]
 		return np.array(v_sent),\
 				np.array(v_sent_tag),\
 				np.array(v_mask),\
 				np.array(v_labels),\
 				np.array(v_c_labels),\
-				np.array(v_c_masks),
+				np.array(v_c_masks),\
+				index
 
 
 

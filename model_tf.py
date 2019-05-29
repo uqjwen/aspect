@@ -362,7 +362,7 @@ def cat_metrics(clabels, clogits, clabel_mask):
 	return f1_score(y_true, y_pred, average = 'micro')
 
 def val(sess, model, data_loader):
-	input_data, input_tag, mask_data, y_data, clabels, clabel_mask = data_loader.val(1)
+	input_data, input_tag, mask_data, y_data, clabels, clabel_mask, index = data_loader.val(1)
 
 	y_data = to_categorical(y_data, 3)
 	x_logit, y_pred, cat_logits = sess.run([model.x_logit, model.prediction,model.cat_logits],
@@ -434,7 +434,7 @@ def train():
 				# print(input_neg)
 				y_data = to_categorical(y_data, 3)
 				# print(y_data.shape,'uqjwen')
-				_,loss,sum_score,d1,d2 = sess.run([model.train_op, model.cost, model.sum_score, model.d1, model.d2], feed_dict = {model.x:input_data,
+				_,loss = sess.run([model.train_op, model.cost], feed_dict = {model.x:input_data,
 																			model.t:input_tag,
 																			model.mask:mask_data,
 																			model.label_mask:label_mask,
@@ -465,16 +465,19 @@ def train():
 
 
 
-def save_for_visual(sents, masks, y_pred, atts, clogits, clabels, data_loader):
+def save_for_visual(sents, masks, y_pred, atts, clogits, clabels, data_loader, index):
 	fr = open(checkpointer_dir+'visual.txt', 'w')
 	idx2word = data_loader.idx2word
 	idx2clabel = data_loader.idx2clabel
-	for sent, mask, att, clabel in zip(sents, masks, atts, clabels):
+	for sent, mask, att, clabel, idx in zip(sents, masks, atts, clabels, index):
 		sen = [idx2word[item] for i,item in enumerate(sent) if mask[i]==1]
+		psent = data_loader.psent[idx]
+		psen = [idx2word[item] for item in psent]
 		att = [item for i,item in enumerate(att) if mask[i] == 1]
 		att = np.round(np.array(att),3)
 		labels = [idx2clabel[i] for i,label in enumerate(clabel) if label!=0]
 		# print(clabel)
+		fr.write('\t'.join(psen)+'\n')
 		fr.write('\t'.join(sen)+'\n')
 		fr.write('\t'.join(map(str,att))+'\n')
 		fr.write('\t'.join(labels)+'\n')
@@ -516,7 +519,7 @@ def test():
 
 		for i in range(iterations):
 
-			input_data, input_tag, mask_data, y_data, clabels, clabel_mask = data_loader.val(0.9)
+			input_data, input_tag, mask_data, y_data, clabels, clabel_mask, index = data_loader.val(0.9)
 			y_data = to_categorical(y_data, 3)
 			
 
@@ -542,7 +545,7 @@ def test():
 			res.append(fscore)
 			# print(fscore)
 		print(np.mean(res), np.var(res))
-		save_for_visual(input_data, mask_data, y_pred, atts, cat_logits, clabels, data_loader)
+		save_for_visual(input_data, mask_data, y_pred, atts, cat_logits, clabels, data_loader, index)
 		np.save(checkpointer_dir+'res', res)
 
 
