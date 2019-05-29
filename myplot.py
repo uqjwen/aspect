@@ -1,3 +1,4 @@
+import seaborn as sns
 import matplotlib.pyplot as plt 
 import numpy as np 
 import sys
@@ -63,9 +64,11 @@ def att():
 		sent2 = data[i+1].strip().split('\t')
 		atts = data[i+2].strip().split('\t')
 		atts = list(map(float, atts))
+		# print(atts)
 		label = data[i+3].strip().split('\t')
 
 		sent,sent_att = get_mat(sent1, sent2, atts)
+		# print(sent_att)
 		sents.append(sent)
 		sent_atts.append(sent_att)
 		labels.append(label)
@@ -82,31 +85,68 @@ def att():
 		# print(sent_att, len(sent_att))
 		# print('-------------------')
 		# break
-
+	# print(sent_atts)
 	return sents, sent_atts, labels, clabels
 
 
-def pad_str_sequence(sent, maxlen):
-	sents = []
-	for s in sent:
-		if len(s)>maxlen:
-			sents.append(s[:maxlen])
+
+
+def pad_my_sequence(to_pad, maxlen, pad_with):
+	res = []
+	for pad in to_pad:
+		if len(pad)>maxlen:
+			res.append(pad[:maxlen])
 		else:
-			sents.append(['']*(maxlen-len(s))+s)
-	return np.array(sents)
+			res.append([pad_with]*(maxlen-len(pad))+pad)
+	return np.array(res)
+
+
+# def pad_str_sequence(sent, maxlen):
+# 	sents = []
+# 	for s in sent:
+# 		if len(s)>maxlen:
+# 			sents.append(s[:maxlen])
+# 		else:
+# 			sents.append(['']*(maxlen-len(s))+s)
+# 	return np.array(sents)
+
+# def pad_float_sequence(att, maxlen):
+# 	atts = []
+# 	for a in att:
+# 		if len(a)>maxlen:
+# 			atts.append(a[:maxlen])
+# 		else:
+# 			atts.append([0]*(maxlen-len(a))+a)
+# 	return np.array(atts)
+
+
+def sampling(sents, sent_atts, labels, clabels, max = 10):
+	clabel = np.random.choice(list(clabels.keys()))
+	index = np.random.choice(clabels[clabel], max, replace = False)
+
+	return sents[index], sent_atts[index], np.array(labels)[index]
+
 
 
 def visual_atts():
 	sents, sent_atts, labels, clabels = att()
 
-	maxlen = 36
-	# print(sents[0])
-	sents = pad_str_sequence(sents, maxlen)
-	sent_atts = pad_sequences(sent_atts, maxlen)
-
+	maxlen = 15
+	# print(sent_atts)
+	sents = pad_my_sequence(sents, maxlen, '')
+	# sent_atts = pad_sequences(sent_atts, maxlen)
+	sent_atts = pad_my_sequence(sent_atts, maxlen, 0)
+	print(sent_atts)
+	# print(sent_atts)
 	
-	
+	sub_sents, sub_atts, sub_labels = sampling(sents, sent_atts, labels, clabels)
 
+
+	# print(sub_atts)
+
+	plt.figure()
+	sns.heatmap(sub_atts, annot = sub_sents, cmap = 'autumn_r', fmt='s', linewidths=0.5)
+	plt.show()
 
 # def attention()
 
