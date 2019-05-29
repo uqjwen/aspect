@@ -189,21 +189,30 @@ class Model():
 		scores = Dense(1, kernel_initializer = 'lecun_uniform')(latent) #batch_size, maxlen, 1
 		scores = tf.squeeze(scores,-1)
 
+		# self.debug = tf.reduce_sum(self.mask*tf.exp(scores), axis=-1, keepdims = True)
+
+
 		#latent: batch_size, maxlen, embed_size
 		#score: batch_size, maxlen
 		#mask: batch_size, maxlen
-		# scores = self.mask*tf.exp(scores)
-		# sum_score = tf.reduce_sum(scores, axis=-1, keepdims=True)
+		self.d1 = scores 
+		exp_scores = self.mask*tf.exp(10*scores)
+		self.d2 = exp_scores
+		self.sum_score = tf.reduce_sum(exp_scores, axis=-1, keepdims=True)
 		# sum_score = tf.maximum(sum_score,1)
-		# scores = scores/sum_score
-		# scores = tf.expand_dims(scores,-1)
+		self.sum_score += 1e-10
+		softmax_scores = exp_scores/self.sum_score
+		self.atts = softmax_scores
+		softmax_scores = tf.expand_dims(scores,-1)
 
-		scores = tf.nn.softmax(scores)
-		scores = self.mask*scores
-		self.atts = scores
-		scores = tf.expand_dims(scores, -1)
 
-		cat_latent = tf.reduce_sum(scores*latent, axis=1) #batch_size, embed_size
+
+		# scores = tf.nn.softmax(scores)
+		# scores = self.mask*scores
+		# self.atts = scores
+		# scores = tf.expand_dims(scores, -1)
+
+		cat_latent = tf.reduce_sum(softmax_scores*latent, axis=1) #batch_size, embed_size
 		print(cat_latent.shape,'cat_latent')
 		return cat_latent
 
@@ -425,7 +434,7 @@ def train():
 				# print(input_neg)
 				y_data = to_categorical(y_data, 3)
 				# print(y_data.shape,'uqjwen')
-				_,loss = sess.run([model.train_op, model.cost], feed_dict = {model.x:input_data,
+				_,loss,sum_score,d1,d2 = sess.run([model.train_op, model.cost, model.sum_score, model.d1, model.d2], feed_dict = {model.x:input_data,
 																			model.t:input_tag,
 																			model.mask:mask_data,
 																			model.label_mask:label_mask,
@@ -436,6 +445,8 @@ def train():
 
 				sys.stdout.write('\repoch:{}, batch:{}, loss:{}'.format(i,b,loss))
 				sys.stdout.flush()
+				# if loss is np.nan:
+			# print('sum_score',sum_score,'\nd1',d1,'\nd2',d2)
 
 				# break
 			# print("validation....")
@@ -456,16 +467,17 @@ def train():
 
 def save_for_visual(sents, masks, y_pred, atts, clogits, clabels, data_loader):
 	fr = open(checkpointer_dir+'visual.txt', 'w')
-	idx2word = data_loader['idx2word']
-	idx2clabel = data_loader['idx2clabel']
+	idx2word = data_loader.idx2word
+	idx2clabel = data_loader.idx2clabel
 	for sent, mask, att, clabel in zip(sents, masks, atts, clabels):
 		sen = [idx2word[item] for i,item in enumerate(sent) if mask[i]==1]
 		att = [item for i,item in enumerate(att) if mask[i] == 1]
-		att = np.round(np.array(att),1)
-		labels = [idx2clabel[label] for label in clabel]
+		att = np.round(np.array(att),3)
+		labels = [idx2clabel[i] for i,label in enumerate(clabel) if label!=0]
+		# print(clabel)
 		fr.write('\t'.join(sen)+'\n')
 		fr.write('\t'.join(map(str,att))+'\n')
-		fr.write('\t'.join(labels))
+		fr.write('\t'.join(labels)+'\n')
 	fr.close()
 
 def test():
@@ -524,12 +536,13 @@ def test():
 			y_true = np.argmax(y_data,axis=-1)
 			# fscore = f_score(y_pred, y_true, mask_data)
 			# fscore = f1_score(cat_pred, clabels, average = 'micro')
-			fscore = cat_metrics(input_data, mask_data, clabels, cat_logits, clabel_mask)
+			# fscore = cat_metrics(input_data, mask_data, clabels, cat_logits, clabel_mask)
+			fscore = cat_metrics(clabels, cat_logits, clabel_mask)
 			print(fscore)
 			res.append(fscore)
 			# print(fscore)
 		print(np.mean(res), np.var(res))
-		save_for_visual(y_pred, atts, cat_logits, clabels, data_loader)
+		save_for_visual(input_data, mask_data, y_pred, atts, cat_logits, clabels, data_loader)
 		np.save(checkpointer_dir+'res', res)
 
 
