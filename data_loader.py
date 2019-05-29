@@ -5,6 +5,8 @@ from keras.preprocessing.sequence import pad_sequences
 #import torch
 from gensim.models import Word2Vec
 from keras.utils.np_utils import to_categorical
+from nltk.corpus import stopwords
+
 
 class Data_Loader():
 	def __init__(self, batch_size, data_set):
@@ -49,6 +51,11 @@ class Data_Loader():
 		self.emb_size = 100
 		self.gen_size = 300
 		sentences = data['processed_sentence']
+
+		sentences = self.filter_stopwords(sentences, data['idx2word'])
+
+
+
 		labels = data['labels']
 		# labels = self.get_label_from_file('./data/sent_annot.txt')
 		assert len(labels) == len(sentences)
@@ -93,6 +100,18 @@ class Data_Loader():
 
 		# self.train_val_test() ## it splits training testing here
 		self.train_test_split(self.permutation) ## it splits training testing here
+
+	def filter_stopwords(self, sentences, idx2word):
+		import string
+		ascii_ = [c for c in string.ascii_lowercase]
+		stop = stopwords.words('english')
+		to_filter = ascii_+stop
+
+		sent = []
+		for sentence in sentences:
+			temp = [token for token in sentence if idx2word[token] not in to_filter]
+			sent.append(temp)
+		return sent
 
 		
 	def get_cat_mask(self, clabels, clabel2idx):
@@ -205,14 +224,16 @@ class Data_Loader():
 
 		if sample_rate == 1:
 			# print('\n')
+			index = self.permutation[self.train_size:]
 			return self.val_sent, self.val_sent_tag, self.val_mask, self.val_labels, self.val_cat_labels, self.val_cat_mask
 
 		else:
-
+			index = []
 			while len(v_sent)<sample_size:
 				idx = np.random.choice(range(len(self.val_sent)))
 				if idx not in exists_dic:
 					exists_dic[idx] = 1
+					index.append(idx)
 				else:
 					continue
 				# if np.sum(self.val_labels[idx])==0:
@@ -229,12 +250,14 @@ class Data_Loader():
 
 		# return self.sent[idx], self.sent_tag[idx], self.mask[idx], self.labels[idx]
 		# return self.val_sent[idx], self.val_sent_tag[idx], self.val_mask[idx], self.val_labels[idx]
+		index = self.permutation[self.train_size][index]
 		return np.array(v_sent),\
 				np.array(v_sent_tag),\
 				np.array(v_mask),\
 				np.array(v_labels),\
 				np.array(v_c_labels),\
-				np.array(v_c_masks)
+				np.array(v_c_masks),
+
 
 
 

@@ -196,7 +196,7 @@ class Model():
 		#score: batch_size, maxlen
 		#mask: batch_size, maxlen
 		self.d1 = scores 
-		exp_scores = self.mask*tf.exp(10*scores)
+		exp_scores = self.mask*tf.exp(3*scores)
 		self.d2 = exp_scores
 		self.sum_score = tf.reduce_sum(exp_scores, axis=-1, keepdims=True)
 		# sum_score = tf.maximum(sum_score,1)
