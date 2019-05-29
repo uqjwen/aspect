@@ -267,11 +267,14 @@ def processLaptop(filename):
 	label_mask = [1]*len(sents)
 	build_vocab(sents, labels, tags, train_size=train_size, emb_size=100, label_mask=label_mask)
 
-def processCat():
-	fr = open('data_res.pkl','rb')
+def processCat(filename):
+	filename_1 = 'data_cat_'+filename+'.pkl'
+	filename_2 = './data/sent_cat_'+filename+'.txt'
+	fr = open(filename_1,'rb')
 	data = pickle.load(fr)
 	fr.close()
-	fr = open('./data/sent_res_cat.txt')
+	# fr = open('./data/')
+	fr = open(filename_2)
 	catinfo = fr.readlines()
 	fr.close()
 	cat_labels = []
@@ -307,7 +310,7 @@ def processCat():
 	data['num_cat'] = len(cat_labels_set)
 
 	# pickle.dump('data_cat_laptop.pkl', open())
-	pickle.dump(data,open('data_cat_res.pkl', 'wb'))
+	pickle.dump(data,open(filename_1, 'wb'))
 
 
 def processLaptop():
@@ -356,4 +359,5 @@ if __name__ == '__main__':
 	# processLaptop('./data/sent_annot.txt')
 	# processCat()
 	# processRes()
-	processLaptop()
+	# processLaptop()
+	processCat('laptop')

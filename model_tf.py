@@ -481,6 +481,8 @@ def save_for_visual(sents, masks, y_pred, atts, clogits, clabels, data_loader, i
 		fr.write('\t'.join(sen)+'\n')
 		fr.write('\t'.join(map(str,att))+'\n')
 		fr.write('\t'.join(labels)+'\n')
+		fr.write('\t'.join(map(str,clabel))+'\n')
+		fr.write('------------------------------------------\n')
 	fr.close()
 
 def test():
