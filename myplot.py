@@ -14,17 +14,22 @@ def main():
 	ax2 = ax1.twinx()
 	index = list(range(len(train_loss)))
 
-	l1, = ax1.plot(index, train_loss, my_color[0])
-	l2, = ax2.plot(index, val_score, my_color[1])
+	l1, = ax1.plot(index, train_loss, my_color[0], label='train loss')
+	l2, = ax2.plot(index, val_score, my_color[1], label = 'test f1_score')
 
 	ax1.set_xlabel('epoch')
 	ax1.set_ylabel('training loss')
 	ax2.set_ylabel('testing score')
 
 
-	plt.legend([l1,l2],['train loss','test score'], loc='center right')
+	# plt.legend([l1,l2],['train loss','test score'], loc='center right')
+	ax1.legend(loc='center left')
+	ax2.legend(loc='center right')
 	plt.show()
 
+
+
+def attention()
 
 if __name__ == '__main__':
 	main()

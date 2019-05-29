@@ -22,6 +22,11 @@ class Data_Loader():
 
 		self.word2idx = data['word2idx']
 		self.idx2word = data['idx2word']
+
+		self.clabel2idx = data['clabel2idx']
+		self.idx2clabel = data['idx2clabel']
+
+
 		self.vocab_size = data['vocab_size']
 		# self.emb_size = data['emb_size']
 

@@ -200,6 +200,7 @@ class Model():
 
 		scores = tf.nn.softmax(scores)
 		scores = self.mask*scores
+		self.atts = scores
 		scores = tf.expand_dims(scores, -1)
 
 		cat_latent = tf.reduce_sum(scores*latent, axis=1) #batch_size, embed_size
@@ -452,6 +453,21 @@ def train():
 		np.save(checkpointer_dir+'val_score', val_score)
 
 
+
+def save_for_visual(sents, masks, y_pred, atts, clogits, clabels, data_loader):
+	fr = open(checkpointer_dir+'visual.txt', 'w')
+	idx2word = data_loader['idx2word']
+	idx2clabel = data_loader['idx2clabel']
+	for sent, mask, att, clabel in zip(sents, masks, atts, clabels):
+		sen = [idx2word[item] for i,item in enumerate(sent) if mask[i]==1]
+		att = [item for i,item in enumerate(att) if mask[i] == 1]
+		att = np.round(np.array(att),1)
+		labels = [idx2clabel[label] for label in clabel]
+		fr.write('\t'.join(sen)+'\n')
+		fr.write('\t'.join(map(str,att))+'\n')
+		fr.write('\t'.join(labels))
+	fr.close()
+
 def test():
 
 	batch_size = 32
@@ -468,7 +484,7 @@ def test():
 				batch_size = batch_size,
 				drop_out = 0.5,
 				neg_size = neg_size)
-	iterations = 100
+	iterations = 10
 	res = []
 	with tf.Session() as sess:
 		# sess.run(tf.global_variables_initializer())
@@ -492,7 +508,7 @@ def test():
 			y_data = to_categorical(y_data, 3)
 			
 
-			x_logit, y_pred, cat_logits = sess.run([model.x_logit, model.prediction,model.cat_logits],
+			x_logit, y_pred, cat_logits, atts = sess.run([model.x_logit, model.prediction,model.cat_logits, model.atts],
 										feed_dict = {model.x:input_data,
 													model.t:input_tag,
 													model.mask:mask_data,
@@ -508,12 +524,12 @@ def test():
 			y_true = np.argmax(y_data,axis=-1)
 			# fscore = f_score(y_pred, y_true, mask_data)
 			# fscore = f1_score(cat_pred, clabels, average = 'micro')
-			fscore = cat_metrics(clabels, cat_logits, clabel_mask)
+			fscore = cat_metrics(input_data, mask_data, clabels, cat_logits, clabel_mask)
 			print(fscore)
 			res.append(fscore)
 			# print(fscore)
 		print(np.mean(res), np.var(res))
-
+		save_for_visual(y_pred, atts, cat_logits, clabels, data_loader)
 		np.save(checkpointer_dir+'res', res)
 
 
