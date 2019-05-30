@@ -44,19 +44,23 @@ class Data_Loader():
 		self.clabel_mask = self.get_cat_mask(self.clabels, data['clabel2idx'])
 
 
-		tags = data['tags']
+		
 
 
 
 		self.emb_size = 100
 		self.gen_size = 300
-		self.psent = data['processed_sentence']
+		self.psent 		= data['processed_sentence']
+		labels 		= data['labels']
+		tags = data['tags']
 
-		sentences = self.filter_stopwords(self.psent, data['idx2word'])
 
+		# sentences, tags, labels 	= self.filter_stopwords(self.psent, tags, labels, data['idx2word'])
+		sentences = self.psent
 
+		tfidf 		= self.my_tfidf(sentences, self.clabels)
 
-		labels = data['labels']
+		
 		# labels = self.get_label_from_file('./data/sent_annot.txt')
 		assert len(labels) == len(sentences)
 
@@ -77,13 +81,15 @@ class Data_Loader():
 		self.gen_mat = self.genel_mat(data_set)
 
 
-		self.labels = pad_sequences(labels, self.maxlen)
+		self.labels 	= pad_sequences(labels, self.maxlen)
 
-		self.sent = pad_sequences(sentences, self.maxlen)
+		self.sent 		= pad_sequences(sentences, self.maxlen)
 
-		self.sent_tag = to_categorical(pad_sequences(tags, self.maxlen), self.num_tag)
+		self.tfidf 		= pad_sequences(tfidf, self.maxlen)
 
-		self.mask = np.ones((len(self.sent), self.maxlen))
+		self.sent_tag 	= to_categorical(pad_sequences(tags, self.maxlen), self.num_tag)
+
+		self.mask 		= np.ones((len(self.sent), self.maxlen))
 
 		self.mask[self.sent==0] = 0
 		self.pointer = 0
@@ -101,17 +107,64 @@ class Data_Loader():
 		# self.train_val_test() ## it splits training testing here
 		self.train_test_split(self.permutation) ## it splits training testing here
 
-	def filter_stopwords(self, sentences, idx2word):
+	def my_tfidf(self, sents, clabels):
+		clabel2sent = {}
+		word2sent = {}
+
+		for i,sent in enumerate(sents):
+			for token in sent:
+				if token not in word2sent:
+					word2sent[token] = [i]
+				elif i not in word2sent[token]:
+					word2sent[token].append(i)
+			for clabel in clabels[i]:
+				if clabel not in clabel2sent:
+					clabel2sent[clabel] = [i]
+				else:
+					clabel2sent[clabel].append(i)
+
+		tfidf = []
+		for sent in sents:
+			from collections import Counter
+			# print(sent)
+			counter = Counter(sent)
+			temp_tfidf = []
+			for token in sent:
+				tf = counter[token]
+				idf = np.log(len(sents)*1.0/len(word2sent[token])+1)
+				temp_tfidf.append(tf*idf)
+			tfidf.append(temp_tfidf)
+		return tfidf
+
+
+
+
+	def filter_stopwords(self, sentences, tags, labels, idx2word):
 		import string
 		ascii_ = [c for c in string.ascii_lowercase]
 		stop = stopwords.words('english')
 		to_filter = ascii_+stop
 
-		sent = []
-		for sentence in sentences:
-			temp = [token for token in sentence if idx2word[token] not in to_filter]
-			sent.append(temp)
-		return sent
+		res_sent = []
+		res_tags = []
+		res_label= []
+		for sentence, tag, label in zip(sentences,tags,labels):
+			temp_sent = []
+			temp_tags = []
+			temp_label= []
+			for i,token in enumerate(sentence):
+				if idx2word[token] in to_filter:
+					continue
+				else:
+					temp_sent.append(token)
+					temp_tags.append(tag[i])
+					temp_label.append(label[i])
+			res_sent.append(temp_sent)
+			res_tags.append(temp_tags)
+			res_label.append(temp_label)
+			# temp = [token for token in sentence if idx2word[token] not in to_filter]
+			# sent.append(temp)
+		return res_sent, res_tags, res_label
 
 		
 	def get_cat_mask(self, clabels, clabel2idx):
@@ -202,7 +255,8 @@ class Data_Loader():
 				self.train_mask[begin:end],\
 				self.train_labels[begin:end],\
 				self.train_label_mask[begin:end],\
-				self.train_cat_labels[begin:end]
+				self.train_cat_labels[begin:end],\
+				self.train_tfidf[begin:end]
 
 
 	def val(self, sample_rate = 0.3):
@@ -219,13 +273,21 @@ class Data_Loader():
 		v_labels 	= []
 		v_c_labels 	= []
 		v_c_masks 	= []
+		v_tfidf 	= []
 
 		exists_dic = {}
 
 		if sample_rate == 1:
 			# print('\n')
 			index = self.permutation[self.train_size:]
-			return self.val_sent, self.val_sent_tag, self.val_mask, self.val_labels, self.val_cat_labels, self.val_cat_mask, index
+			return self.val_sent,\
+					self.val_sent_tag, \
+					self.val_mask, \
+					self.val_labels, \
+					self.val_cat_labels, \
+					self.val_cat_mask, \
+					index,\
+					self.val_tfidf
 
 		else:
 			index = []
@@ -244,6 +306,7 @@ class Data_Loader():
 				v_labels.append(self.val_labels[idx])
 				v_c_labels.append(self.val_cat_labels[idx])
 				v_c_masks.append(self.val_cat_mask[idx])
+				v_tfidf.append(self.val_tfidf[idx])
 			# v_c_masks.append(self.)
 
 
@@ -257,7 +320,8 @@ class Data_Loader():
 				np.array(v_labels),\
 				np.array(v_c_labels),\
 				np.array(v_c_masks),\
-				index
+				index,\
+				np.array(v_tfidf)
 
 
 
@@ -277,6 +341,7 @@ class Data_Loader():
 		self.train_label_mask 	= self.label_mask[train_pmt]
 		self.train_cat_labels	= self.clabels[train_pmt]
 		self.train_cat_mask 	= self.clabel_mask[train_pmt]
+		self.train_tfidf		= self.tfidf[train_pmt]
 
 
 
@@ -287,6 +352,7 @@ class Data_Loader():
 		self.val_label_mask 	= self.label_mask[test_pmt]
 		self.val_cat_labels		= self.clabels[test_pmt]
 		self.val_cat_mask 		= self.clabel_mask[test_pmt]
+		self.val_tfidf			= self.tfidf[test_pmt]
 
 		self.train_size 		= train_size
 

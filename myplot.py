@@ -59,7 +59,7 @@ def att():
 	sent_atts = []
 	labels = []
 	counter = 0
-	for i in range(0,len(data),6):
+	for i in range(0,len(data),7):
 		sent1 = data[i].strip().split('\t')
 		sent2 = data[i+1].strip().split('\t')
 		atts = data[i+2].strip().split('\t')

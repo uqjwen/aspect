@@ -49,7 +49,7 @@ class Model():
 		self.clabels 	= tf.placeholder(tf.float32, shape=[None, num_cat])
 		self.t 			= tf.placeholder(tf.float32, shape=[None, maxlen, num_tag])
 		self.is_training= tf.placeholder(tf.bool)
-
+		self.tfidf		= tf.placeholder(tf.float32, shape=[None, maxlen])
 
 		self.mask 		= tf.placeholder(tf.float32, shape=[None, maxlen])
 
@@ -190,17 +190,19 @@ class Model():
 		scores = tf.squeeze(scores,-1)
 
 		# self.debug = tf.reduce_sum(self.mask*tf.exp(scores), axis=-1, keepdims = True)
-
+		thres = tf.argmax(self.labels, axis=-1)
+		thres = tf.cast(tf.greater(thres,0),tf.float32)
 
 		#latent: batch_size, maxlen, embed_size
 		#score: batch_size, maxlen
 		#mask: batch_size, maxlen
 		self.d1 = scores 
-		exp_scores = self.mask*tf.exp(3*scores)
+		exp_scores = self.mask*tf.exp(5*(scores+0.05*thres))
+		# exp_scores = self.tfidf*tf.exp(scores)
 		self.d2 = exp_scores
 		self.sum_score = tf.reduce_sum(exp_scores, axis=-1, keepdims=True)
 		# sum_score = tf.maximum(sum_score,1)
-		self.sum_score += 1e-10
+		# self.sum_score += 1e-10
 		softmax_scores = exp_scores/self.sum_score
 		self.atts = softmax_scores
 		softmax_scores = tf.expand_dims(scores,-1)
@@ -227,9 +229,11 @@ class Model():
 
 		x_latent = tf.concat([domain_latent, gen_latent], axis=-1)
 
-
+		# return x_latent
 		# x_latent = tf.nn.dropout(tf.nn.relu(self.x_conv_1(x_latent)), self.dropout)
 		x_latent = tf.nn.relu(tf.concat([self.x_conv_1(x_latent), self.x_conv_2(x_latent)],axis=-1))
+
+		# return x_latent
 
 		x_latent = tf.cond(self.is_training, lambda:tf.nn.dropout(x_latent, self.dropout), lambda: x_latent)
 
@@ -237,9 +241,11 @@ class Model():
 
 		x_latent = tf.cond(self.is_training, lambda:tf.nn.dropout(x_latent, self.dropout), lambda: x_latent)
 
-		# x_latent = tf.nn.dropout(tf.nn.relu(self.x_conv_4(x_latent)), self.dropout)
+		# x_latent = tf.nn.relu(self.x_conv_4(x_latent))
+		# x_latent = tf.cond(self.is_training, lambda:tf.nn.dropout(x_latent, self.dropout), lambda: x_latent)
 
-		# x_latent = tf.nn.dropout(tf.nn.relu(self.x_conv_5(x_latent)), self.dropout)
+		# x_latent = tf.nn.relu(self.x_conv_5(x_latent))
+		# x_latent = tf.cond(self.is_training, lambda:tf.nn.dropout(x_latent, self.dropout), lambda: x_latent)
 
 
 
@@ -326,6 +332,8 @@ def cat_metrics(clabels, clogits, clabel_mask):
 	y_true = []
 	y_pred = []
 
+
+	res_pred = []
 	for clabel, clogit, cmask in zip(clabels, clogits, clabel_mask):
 		if cmask == 0:
 			continue
@@ -333,6 +341,7 @@ def cat_metrics(clabels, clogits, clabel_mask):
 		# num = min(5,len(labels))
 		num = len(labels)
 		logits = list(np.argsort(clogit)[::-1][:num])
+		res_pred.append(logits)
 		for label in labels:
 			y_true.append(label)
 			if label in logits:
@@ -359,10 +368,10 @@ def cat_metrics(clabels, clogits, clabel_mask):
 		#------------------------------------------------------
 
 
-	return f1_score(y_true, y_pred, average = 'micro')
+	return f1_score(y_true, y_pred, average = 'micro'), res_pred
 
 def val(sess, model, data_loader):
-	input_data, input_tag, mask_data, y_data, clabels, clabel_mask, index = data_loader.val(1)
+	input_data, input_tag, mask_data, y_data, clabels, clabel_mask, index, tfidf= data_loader.val(1)
 
 	y_data = to_categorical(y_data, 3)
 	x_logit, y_pred, cat_logits = sess.run([model.x_logit, model.prediction,model.cat_logits],
@@ -371,7 +380,8 @@ def val(sess, model, data_loader):
 											model.mask:mask_data,
 											model.labels:y_data,
 											model.clabels:clabels,
-											model.is_training:False})
+											model.is_training:False,
+											model.tfidf:tfidf})
 	# f_score = f1_score()
 
 
@@ -381,7 +391,7 @@ def val(sess, model, data_loader):
 	y_true = np.argmax(y_data,axis=-1)
 	# fscore = f_score(y_pred, y_true, mask_data)
 	# fscore = f1_score(cat_pred, clabels, average = 'micro')
-	fscore = cat_metrics(clabels, cat_logits, clabel_mask)
+	fscore,_ = cat_metrics(clabels, cat_logits, clabel_mask)
 	# if fscore>0.5:
 	# 	res(data_loader.idx2word, input_data, y_pred, y_true, mask_data, x_logit)
 	return fscore
@@ -427,7 +437,7 @@ def train():
 			num_batch = int(data_loader.train_size/batch_size)
 			# print("total batch: ", num_batch)
 			for b in range(num_batch+1):
-				input_data, input_tag, mask_data, y_data, label_mask, clabels = data_loader.__next__()
+				input_data, input_tag, mask_data, y_data, label_mask, clabels, tfidf = data_loader.__next__()
 				# print(input_data.shape, input_tag.shape, mask_data.shape, y_data.shape, label_mask.shape)
 				# print(input_data.shape, mask_data.shape, y_data.shape)
 				input_neg = np.random.randint(1,data_loader.vocab_size, (input_data.shape[0], maxlen, neg_size))
@@ -441,7 +451,8 @@ def train():
 																			model.neg:input_neg,
 																			model.labels:y_data,
 																			model.clabels:clabels,
-																			model.is_training:True})
+																			model.is_training:True,
+																			model.tfidf:tfidf})
 
 				sys.stdout.write('\repoch:{}, batch:{}, loss:{}'.format(i,b,loss))
 				sys.stdout.flush()
@@ -465,23 +476,26 @@ def train():
 
 
 
-def save_for_visual(sents, masks, y_pred, atts, clogits, clabels, data_loader, index):
+def save_for_visual(sents, masks, y_pred, atts, clogits, clabels, data_loader, index, cat_pred):
 	fr = open(checkpointer_dir+'visual.txt', 'w')
 	idx2word = data_loader.idx2word
 	idx2clabel = data_loader.idx2clabel
-	for sent, mask, att, clabel, idx in zip(sents, masks, atts, clabels, index):
+	for sent, mask, att, clabel, idx, cpred in zip(sents, masks, atts, clabels, index, cat_pred):
 		sen = [idx2word[item] for i,item in enumerate(sent) if mask[i]==1]
 		psent = data_loader.psent[idx]
 		psen = [idx2word[item] for item in psent]
 		att = [item for i,item in enumerate(att) if mask[i] == 1]
 		att = np.round(np.array(att),3)
 		labels = [idx2clabel[i] for i,label in enumerate(clabel) if label!=0]
+		pre_labels = [idx2clabel[i] for i in cpred]
 		# print(clabel)
 		fr.write('\t'.join(psen)+'\n')
 		fr.write('\t'.join(sen)+'\n')
 		fr.write('\t'.join(map(str,att))+'\n')
 		fr.write('\t'.join(labels)+'\n')
+		fr.write('\t'.join(pre_labels)+'\n')
 		fr.write('\t'.join(map(str,clabel))+'\n')
+
 		fr.write('------------------------------------------\n')
 	fr.close()
 
@@ -521,7 +535,7 @@ def test():
 
 		for i in range(iterations):
 
-			input_data, input_tag, mask_data, y_data, clabels, clabel_mask, index = data_loader.val(0.9)
+			input_data, input_tag, mask_data, y_data, clabels, clabel_mask, index, tfidf = data_loader.val(0.9)
 			y_data = to_categorical(y_data, 3)
 			
 
@@ -531,7 +545,8 @@ def test():
 													model.mask:mask_data,
 													model.labels:y_data,
 													model.clabels:clabels,
-													model.is_training:False})
+													model.is_training:False,
+													model.tfidf:tfidf})
 			# f_score = f1_score()
 
 
@@ -542,12 +557,12 @@ def test():
 			# fscore = f_score(y_pred, y_true, mask_data)
 			# fscore = f1_score(cat_pred, clabels, average = 'micro')
 			# fscore = cat_metrics(input_data, mask_data, clabels, cat_logits, clabel_mask)
-			fscore = cat_metrics(clabels, cat_logits, clabel_mask)
+			fscore, cat_pred = cat_metrics(clabels, cat_logits, clabel_mask)
 			print(fscore)
 			res.append(fscore)
 			# print(fscore)
 		print(np.mean(res), np.var(res))
-		save_for_visual(input_data, mask_data, y_pred, atts, cat_logits, clabels, data_loader, index)
+		save_for_visual(input_data, mask_data, y_pred, atts, cat_logits, clabels, data_loader, index, cat_pred)
 		np.save(checkpointer_dir+'res', res)
 
 
