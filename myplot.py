@@ -5,12 +5,12 @@ import sys
 from keras.preprocessing.sequence import pad_sequences
 
 my_color = ['#107c10','#DC3C00','#7719AA','#0078D7','#DC6141','#4269A5','#39825A','#DC6141']
-ckpt_file = 'ckpt_'+sys.argv[1]
+ckpt_file = 'ckpt_'+sys.argv[1]+'/'
 
 
 def main():
-	train_loss = np.load(ckpt_file+'/train_loss.npy')
-	val_score = np.load(ckpt_file+'/val_score.npy')
+	train_loss = np.load(ckpt_file+'train_loss.npy')
+	val_score = np.load(ckpt_file+'val_score.npy')
 
 	fig,ax1 = plt.subplots()
 	ax2 = ax1.twinx()
@@ -49,7 +49,8 @@ def get_mat(sent1, sent2, atts):
 
 
 def att():
-	filename = './ckpt_'+sys.argv[1]+'/visual.txt'
+	# filename = './ckpt_'+sys.argv[1]+'/visual.txt'
+	filename = ckpt_file+'visual.txt'
 	fr = open(filename)
 	clabels = {}
 	data = fr.readlines()
@@ -151,6 +152,6 @@ def visual_atts():
 # def attention()
 
 if __name__ == '__main__':
-	# main()
+	main()
 	# att('laptop')
-	visual_atts()
+	# visual_atts()
