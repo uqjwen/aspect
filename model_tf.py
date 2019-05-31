@@ -144,11 +144,6 @@ class Model():
 		self.accuracy_2 = tf.reduce_mean(truepositive)
 
 
-		# self.linear_ae1 = Dense(50, activation='relu', kernel_initializer = 'lecun_uniform')
-
-		# self.linear_ae2 = Dense(3, kernel_initializer='lecun_uniform')
-
-		# self.logits, self.loss = self.forward(num_class)
 
 		loss = tf.nn.softmax_cross_entropy_with_logits(logits = self.x_logit, labels = self.labels)
 
@@ -157,15 +152,12 @@ class Model():
 		label_mask = tf.reshape(self.label_mask, [-1,1]) #[batch_size,1]
 
 		self.loss = tf.reduce_sum(loss*label_mask)/tf.maximum(tf.reduce_sum(self.mask*label_mask), 1)
-		# self.loss = tf.reduce_sum(loss)/tf.reduce_sum(self.mask)
 
 
-		# self.loss = tf.reduce_sum(loss)/tf.reduce_sum(self.mask)
 
-		# self.cost = tf.reduce_mean(loss)
-		# self.cost = loss 
 
-		# self.cost += un_loss
+
+
 		self.un_loss = self.get_un_loss(att_aspect, self.x, self.neg)
 
 		# self.cost = self.loss# + self.un_loss
