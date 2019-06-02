@@ -40,3 +40,50 @@ it 's just as fast with one program open as it is with sixteen open OPERATION_PE
 still under warrenty so called toshiba , no help at all SUPPORT
 i was happy with my purchase of a toshiba satellite l305d s5934 laptop until it came time to have it repaired under the toshiba warranty SUPPORT
 amazing quality ! QUALITY
+the fact that you can spend over 100 on just a webcam underscores the value of this machine GENERAL
+i mainly use it for email , internet , and managing personal files \ ( pics , vids , etc \ ) MISCELLANEOUS
+a month or so ago , the freaking motherboard just died MOTHERBOARD
+the system it comes with does not work properly , so when trying to fix the problems with it it started not working at all OS
+then after 4 or so months the charger stopped working so i was forced to go out and buy new hardware just to keep this computer running POWER_SUPPLY
+if a website ever freezes \ ( which is rare \ ) , its really easy to force quit OPERATION_PERFORMANCE
+it rarely works and when it does it 's incredibly slow OPERATION_PERFORMANCE
+i also enjoy the fact that my macbook pro laptop allows me to run windows 7 on it by using the vmware program OS;SOFTWARE
+it 's so much easier to navigate through the operating system , to find files , and it runs a lot faster ! OS;OPERATION_PERFORMANCE
+purchased a toshiba lap top it worked good until just after the warrenty went out SUPPORT
+i wanted to purchase the extended warranty and they refused , because they knew it was trouble SUPPORT
+we upgraded the memory to four gigabytes in order to take advantage of the performace increase in speed MEMORY;OPERATION_PERFORMANCE
+the reality was , it heated up very quickly , and took way too long to do simple things , like opening my documents folder OPERATION_PERFORMANCE
+i had always used pcs and been constantly frustrated by the crashing and the poorly designed operating systems that were never very intuitive OS
+then , within 5 months , the charger crapped out on me POWER_SUPPLY
+and if you have a iphone or ipod touch you can connect and download songs to it at high speed OPERATION_PERFORMANCE
+i love the glass touchpad MOUSE
+i continued to take the computer in again and they replaced the hard drive and mother board yet again HARD_DISC;MOTHERBOARD
+i am using the external speaker sound is good MULTIMEDIA_DEVICES
+still testing the battery life as i thought it would be better , but am very happy with the upgrade BATTERY
+then hp sends it back to me with the hardware screwed up , not able to connect HARDWARE;CONNECTIVITY
+oh yeah , do n't forget the expensive shipping to and from hp SHIPPING
+everything is so easy to use , mac software is just so much simpler than microsoft software USABILITY;SOFTWARE
+and if you do a lot of writing , editing is a problem since there is no forward delete key KEYBOARD
+its ease of use and the top service from apple be it their phone assistance or bellying up to the genius bar can not be beat USABILITY;SUPPORT
+it has a 10 hour battery life when you 're doing web browsing and word editing , making it perfect for the classroom or office , and in terms of gaming and movie playing it 'll have a battery life of just over 5 hours BATTERY
+acer has set me up with free recovery discs , when they are available since i asked HARD_DISC
+i also purchased office max 's max assurance with the no lemon clause SOFTWARE
+i eventually did the migration from my imac backup disc which uses usb MISCELLANEOUS
+the battery life seems to be very good , and have had no issues with it BATTERY
+enabling the battery timer is useless BATTERY
+temperatures on the outside were alright but i did not track in core processing unit temperatures OPERATION_PERFORMANCE
+going to bring it to service today SUPPORT
+there is no need to purchase virus protection for mac , which saves me a lot of time and money MISCELLANEOUS
+but we had paid for bluetooth , and there was none DESIGN_FEATURES
+so , i paid a visit to lg notebook service center at alexandra road , hoping they can make the hinge tighter SUPPORT
+my daughter uses it for games , email , facebook , pictures and music MISCELLANEOUS
+it is always reliable , never bugged and responds well OPERATION_PERFORMANCE
+after about a week i finally got it back and was told that the motherboard had failed and so they installed a new motherboard MOTHERBOARD
+it was slow , locked up , and also had hardware replaced after only 2 months ! OPERATION_PERFORMANCE;HARDWARE
+they had to replace the motherboard in april MOTHERBOARD
+yes , the computer was light weight , less expensive than the average laptop , and was pretty self explantory in use DESIGN_FEATURES;PRICE;USABILITY
+also , if you need to talk to a representive at microsoft , there is a charge , which i believe is robbery , since you are charged enormous amounts for a very badly designed system , which most people would have went with xp if they could OS
+i love windows 7 which is a vast improvment over vista OS
+keyboard is great , very quiet for all the typing that i do KEYBOARD
+dell 's customer disservice is an insult to it 's customers who pay good money for shoddy products SUPPORT
+it had a cooling system malfunction after 10 minutes of general use , and would not move past this error FANS_COOLING;FANS_COOLING

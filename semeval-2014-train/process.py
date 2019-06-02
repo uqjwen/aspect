@@ -48,18 +48,31 @@ def clean_str(string):
 	string = re.sub(r"\s{2,}", " ", string)
 	return string.strip()
 
+def get_loc(sent, term):
+	locs = []
+	for i,t in enumerate(sent):
+		if t == term[0]:
+			begin = i 
+			j = i+1
+			while j<len(sent) and j-i<len(term) and term[j-i]==sent[j]:
+				j+=1
+			if j-i>=len(term):
+				end = j
+				locs.append((begin,end))
+	return locs
+
+
 
 def get_label(sent, terms):
 	sent_tokens = word_tokenize(sent)
 	label = np.zeros(len(sent_tokens))
 	for term in terms:
 		term_tokens = word_tokenize(term)
-		if term_tokens[0] not in sent_tokens:
-			print (sent)
-		index = sent_tokens.index(term_tokens[0])
-		label[index] = 1
-		for i in range(1,len(term_tokens)):
-			label[index+i] = 2
+		locs = get_loc(sent_tokens, term_tokens)
+		for loc in locs:
+			begin,end = loc
+			for i in range(begin,end):
+				label[i] = 1 if i==begin else 2
 	return sent_tokens, label
 
 
@@ -89,18 +102,23 @@ def process_laptop_file(filename):
 
 		cats = []
 		for category in sent.iter('aspectCategory'):
-			category.attrib['category']
-			cats.append(category)
+			cat = category.attrib['category']
+			cats.append(cat)
 		if(len(cats)) == 0:
 			print('terms not none cat nont')
 		# print(sent_text)
 		print(clean_sent)
-		print('---------------------------------')
 
 		tokens, label = get_label(clean_sent, terms)
 		tags = pos_tagger.tag(tokens)
 		tags = [tag[1] for tag in tags]
-		tags = []
+		# tags = []
+		print(tokens)
+		print(label)
+		print(tags)
+		print(terms)
+		print(cats)
+		print('---------------------------------')
 
 
 		all_sent.append(tokens)
@@ -251,6 +269,6 @@ def annot_cat():
 
 if __name__ == '__main__':
 	# process_laptop_file('Laptop_Train_v2.xml')
-	# process('laptop')
-	# process('rest')
-	annot_cat()
+	process('rest')
+	process('laptop')
+	# annot_cat()
