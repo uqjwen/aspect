@@ -10,27 +10,8 @@ import tensorflow as tf
 from sklearn.metrics import f1_score
 #b = to_categorical(a,9)
 
-# import torch.nn.functional as F 
 
-def get_domain_emb_weight(emb_size):
-	fr = open("data.pkl",'rb')
-	data = pickle.load(fr)
 
-	word2idx = data['word2idx']
-
-	gensim_model = gensim.models.Word2Vec.load("my_gensim_model")
-
-	vocab_size = len(word2idx)+1
-
-	emb_matrix = np.zeros((vocab_size, emb_size))
-
-	for word in word2idx:
-		idx = word2idx[word]
-		emb_matrix[idx] = gensim_model[word]
-
-	return emb_matrix
-
-# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 class Model():
@@ -43,7 +24,6 @@ class Model():
 		self.aspect_size 		= 12
 		self.aspect_emb_size 	= self.emb_size
 		self.num_cat 			= num_cat
-		print("embedding size", domain_emb.shape)
 		self.x 			= tf.placeholder(tf.int32, shape=[None, maxlen])
 		self.labels 	= tf.placeholder(tf.int32, shape=[None, maxlen, num_class])
 		self.clabels 	= tf.placeholder(tf.float32, shape=[None, num_cat])
@@ -67,110 +47,68 @@ class Model():
 		# x_latent = self.get_x_latent(self.x)
 
 		##---------------------------------------------------------
-		self.x_conv_1 = Conv1D(128, kernel_size = 3, padding = 'same')
+		latent,c_latent = self.get_latent(self.x, self.t)
 
-		self.x_conv_2 = Conv1D(128, kernel_size = 5, padding = 'same')
-
-		self.x_conv_3 = Conv1D(128, kernel_size = 5, padding = 'same')
-
-		self.x_conv_4 = Conv1D(128, kernel_size = 5, padding = 'same')
-
-		self.x_conv_5 = Conv1D(128, kernel_size = 5, padding = 'same')
-		#conv2 = Conv1D(128, kernel_size = 5, padding = 'same')
-
-		#conv = tf.nn.relu(tf.concat([conv1(x_emb), conv2(x_emb)], axis=-1))
-		#conv = tf.nn.dropout(conv, self.dropout)
-
-		#conv3 = Conv1D(256, kernel_size = 5, padding = 'same')
-		#conv = tf.nn.relu(conv3(conv))
-		#conv = tf.nn.dropout(conv, self.dropout)
-
-		#conv4 = Conv1D(256, kernel_size = 5, padding = 'same')
-		#conv = tf.nn.relu(conv4(conv))
-		#conv = tf.nn.dropout(conv, self.dropout)
-
-		#conv5 = Conv1D(256, kernel_size = 5, padding = 'same')
-		#conv = tf.nn.relu(conv5(conv))
-		#x_emb = tf.nn.dropout(conv, self.dropout)
-		##-------------------------------------------------------
-
-		self.t_conv_1 = Conv1D(128, kernel_size = 5, padding = 'same')
-
-		self.t_conv_2 = Conv1D(128, kernel_size = 5, padding = 'same')
-
-		self.t_conv_3 = Conv1D(128, kernel_size = 5, padding = 'same')
-
-		# t_latent = tf.nn.relu(t_conv_1(self.t))
-
-		# t_latent = tf.nn.dropout(t_latent, self.dropout)
-
-		# latent = tf.concat([x_latent, t_latent], axis=-1)
-
-		latent = self.get_latent(self.x, self.t)
-
+		print('latent: ', latent)
 		# latent = tf.concat([latent, tf.nn.embedding_lookup(self.word_embedding,self.x), self.t],axis=-1)
 		# print(latent)
 
 		#-----------------------------------------------------------------------------
 
-		att_score = Dense(self.aspect_size, activation = 'softmax') (latent)
+		att_score 	= Dense(self.aspect_size, activation = 'softmax') (latent)
 
-		att_aspect = tf.matmul(tf.reshape(att_score,[-1,self.aspect_size]), self.aspect_embedding)
+		att_aspect 	= tf.matmul(tf.reshape(att_score,[-1,self.aspect_size]), self.aspect_embedding)
 
-		att_aspect = tf.reshape(att_aspect, [-1, maxlen, self.aspect_emb_size])
+		att_aspect 	= tf.reshape(att_aspect, [-1, maxlen, self.aspect_emb_size])
 
 		#-----------------------------------------------------------------------------
 
-		cat_latent = self.get_cat_latent(latent)
+		cat_latent 		= self.get_cat_latent(c_latent)
+		# cat_latent 		= self.get_cnn_maxpool(self.x)
 		self.cat_logits = Dense(self.num_cat, kernel_initializer='lecun_uniform')(cat_latent)
 
-		cat_loss = tf.nn.sigmoid_cross_entropy_with_logits(logits = self.cat_logits, labels = self.clabels)
-		cat_loss = tf.reduce_mean(cat_loss)
+		cat_loss 		= tf.nn.sigmoid_cross_entropy_with_logits(logits = self.cat_logits, labels = self.clabels)
+		cat_loss 		= tf.reduce_mean(cat_loss)
 		# self.cat_pred = tf.argmax(cat_logits, axis=-1)
 
 		#------------------------------------------------------------------------------
 
 
 
-		x_logit = Dense(50, activation='relu', kernel_initializer = 'lecun_uniform')(latent)
-		self.x_logit = Dense(3, kernel_initializer='lecun_uniform')(x_logit) #[batch_size, maxlen, 3]
+		x_logit 		= Dense(50, activation='relu', kernel_initializer = 'lecun_uniform')(latent)
+		self.x_logit 	= Dense(3, kernel_initializer='lecun_uniform')(x_logit) #[batch_size, maxlen, 3]
 
 		self.prediction = tf.argmax(self.x_logit, axis=-1)
-		groundtruth = tf.argmax(self.labels, axis=-1)
-		truepositive = tf.cast(tf.equal(self.prediction, groundtruth),tf.float32)
-
-		self.accuracy_1 = tf.reduce_sum(truepositive*self.mask)/tf.reduce_sum(self.mask)
-
-		self.accuracy_2 = tf.reduce_mean(truepositive)
 
 
 
-		loss = tf.nn.softmax_cross_entropy_with_logits(logits = self.x_logit, labels = self.labels)
+		loss 		= tf.nn.softmax_cross_entropy_with_logits(logits = self.x_logit, labels = self.labels)
 
-		loss = loss*self.mask #[batch_size, maxlen]
+		loss 		= tf.reduce_mean(loss*self.mask) #[batch_size, maxlen]
 
-		label_mask = tf.reshape(self.label_mask, [-1,1]) #[batch_size,1]
+		# label_mask 	= tf.reshape(self.label_mask, [-1,1]) #[batch_size,1]
 
-		self.loss = tf.reduce_sum(loss*label_mask)/tf.maximum(tf.reduce_sum(self.mask*label_mask), 1)
+		# self.loss 	= tf.reduce_sum(loss*label_mask)/tf.maximum(tf.reduce_sum(self.mask*label_mask), 1)
 
 
 
 
 
 
-		self.un_loss = self.get_un_loss(att_aspect, self.x, self.neg)
+		self.un_loss 		= self.get_un_loss(att_aspect, self.x, self.neg)
 
 		# self.cost = self.loss# + self.un_loss
 
-		self.cost = cat_loss
+		self.cost 			= cat_loss
+		# self.cost 			= loss + cat_loss
 
 
-		self.global_step = tf.Variable(0, trainable = False)
+		self.global_step 	= tf.Variable(0, trainable = False)
 
-		self.lr = tf.train.exponential_decay(0.0001, self.global_step, decay_steps=200, decay_rate=0.1)
+		self.lr 			= tf.train.exponential_decay(0.0001, self.global_step, decay_steps=200, decay_rate=0.1)
 
 		# self.train_op = tf.train.AdamOptimizer(learning_rate=0.0001).minimize(self.cost)
-		self.train_op = tf.train.AdamOptimizer(learning_rate=self.lr).minimize(self.cost)
+		self.train_op 		= tf.train.AdamOptimizer(learning_rate=self.lr).minimize(self.cost)
 
 		# optimizer 	= tf.train.AdamOptimizer(self.lr)
 		# grads, vars = zip(*optimizer.compute_gradients(self.cost))
@@ -188,10 +126,10 @@ class Model():
 		#latent: batch_size, maxlen, embed_size
 		#score: batch_size, maxlen
 		#mask: batch_size, maxlen
-		self.d1 = scores 
-		exp_scores = self.mask*tf.exp(5*(scores+0.05*thres))
+		# self.d1 = scores 
+		exp_scores = self.mask*tf.exp(5*(scores+0.1*thres))
 		# exp_scores = self.tfidf*tf.exp(scores)
-		self.d2 = exp_scores
+		# self.d2 = exp_scores
 		self.sum_score = tf.reduce_sum(exp_scores, axis=-1, keepdims=True)
 		# sum_score = tf.maximum(sum_score,1)
 		# self.sum_score += 1e-10
@@ -207,50 +145,101 @@ class Model():
 		# scores = tf.expand_dims(scores, -1)
 
 		cat_latent = tf.reduce_sum(softmax_scores*latent, axis=1) #batch_size, embed_size
-		print(cat_latent.shape,'cat_latent')
+		# return tf.reduce_mean(latent, axis=1)
 		return cat_latent
 
 
+	def get_cnn_latent(self,x,t):
 
-
-
-
-	def get_latent(self, x, t):
-		domain_latent = tf.nn.embedding_lookup(self.word_embedding, x)
-		gen_latent = tf.nn.embedding_lookup(self.gen_embedding, x)
+		domain_latent 	= tf.nn.embedding_lookup(self.word_embedding, x)
+		gen_latent 		= tf.nn.embedding_lookup(self.gen_embedding, x)
 
 		x_latent = tf.concat([domain_latent, gen_latent], axis=-1)
 
-		# return x_latent
-		# x_latent = tf.nn.dropout(tf.nn.relu(self.x_conv_1(x_latent)), self.dropout)
-		x_latent = tf.nn.relu(tf.concat([self.x_conv_1(x_latent), self.x_conv_2(x_latent)],axis=-1))
+		x_latent = self.get_cnn(x)
+
+	def get_cnn_maxpool(self,x):
+
+		kernel_size = [3,4,5]
+		domain_latent 	= tf.nn.embedding_lookup(self.word_embedding,x)
+		gen_latent 		= tf.nn.embedding_lookup(self.gen_embedding, x)
+		x_latent = tf.concat([domain_latent, gen_latent], axis=-1)
+		res = []
+		for size in kernel_size:
+			conv = tf.layers.conv1d(x_latent, filters = 64, kernel_size=size, strides = 1)
+			h = tf.nn.relu(conv)
+			drop = tf.layers.dropout(h, rate = self.dropout, training = self.is_training)
+			maxp = tf.layers.max_pooling1d(drop, pool_size=[self.maxlen-size+1], strides=1)
+
+			res.append(tf.squeeze(maxp,axis=1))
+		return tf.concat(res,axis=-1)
+
+
+
+	def get_cnn(self,x):
+
+		conv1 = Conv1D(128, kernel_size = 3, padding = 'same')
+
+		conv2 = Conv1D(128, kernel_size = 5, padding = 'same')
+
+		conv3 = Conv1D(128, kernel_size = 5, padding = 'same')
+
+		x = tf.nn.relu(tf.concat([conv1(x), conv2(x)], axis=-1))
+		x = tf.layers.dropout(x, rate = self.dropout, training = self.is_training)
+
+		x = tf.nn.relu(conv3(x))
+		x = tf.layers.dropout(x, rate = self.dropout, training = self.is_training)
+
+		return x
+		# x = tf.cond(self.is_training)
+
+		# conv2 = conv
+
+	def get_lstm(self,x):
+		lstm1 = tf.keras.layers.LSTM(128, return_sequences = True)
+
+		lstm2 = tf.keras.layers.LSTM(128, return_sequences = True)
+
+		x = lstm1(x)
+		x = tf.layers.dropout(x, rate = self.dropout, training = self.is_training)
+		x = lstm2(x)
+		x = tf.layers.dropout(x, rate = self.dropout, training = self.is_training)
+
+		return x
+
+
+	def get_latent(self, x, t):
+		domain_latent 	= tf.nn.embedding_lookup(self.word_embedding, x)
+		gen_latent 		= tf.nn.embedding_lookup(self.gen_embedding, x)
+
+		x_latent = tf.concat([domain_latent, gen_latent], axis=-1)
+		# x_latent = gen_latent
 
 		# return x_latent
-
-		x_latent = tf.cond(self.is_training, lambda:tf.nn.dropout(x_latent, self.dropout), lambda: x_latent)
-
-		x_latent = tf.nn.relu(self.x_conv_3(x_latent))
-
-		x_latent = tf.cond(self.is_training, lambda:tf.nn.dropout(x_latent, self.dropout), lambda: x_latent)
-
-		# x_latent = tf.nn.relu(self.x_conv_4(x_latent))
-		# x_latent = tf.cond(self.is_training, lambda:tf.nn.dropout(x_latent, self.dropout), lambda: x_latent)
-
-		# x_latent = tf.nn.relu(self.x_conv_5(x_latent))
-		# x_latent = tf.cond(self.is_training, lambda:tf.nn.dropout(x_latent, self.dropout), lambda: x_latent)
+		# x_latent = tf.nn.relu(tf.concat([self.x_conv_1(x_latent), self.x_conv_2(x_latent)],axis=-1))
+		# x_latent = tf.layers.dropout(x_latent, rate=self.dropout, training = self.is_training)
 
 
+		# x_latent = tf.nn.relu(self.x_conv_3(x_latent))
+		# x_latent = tf.layers.dropout(x_latent, rate=self.dropout, training = self.is_training)
 
-		t_latent = tf.nn.relu(self.t_conv_1(t))
-		t_latent = tf.cond(self.is_training, lambda:tf.nn.dropout(t_latent, self.dropout), lambda:t_latent)
+
+		x_latent = self.get_cnn(x_latent)
+
+		t_latent = self.get_cnn(t)
+		# x_latent = self.get_lstm(x_latent)
+
+
+		# t_latent = tf.nn.relu(self.t_conv_1(t))
+		# t_latent = tf.cond(self.is_training, lambda:tf.nn.dropout(t_latent, self.dropout), lambda:t_latent)
 
 		
 
-		t_latent = tf.nn.relu(self.t_conv_2(t_latent))
-		t_latent = tf.cond(self.is_training, lambda:tf.nn.dropout(t_latent, self.dropout), lambda:t_latent)
+		# t_latent = tf.nn.relu(self.t_conv_2(t_latent))
+		# t_latent = tf.cond(self.is_training, lambda:tf.nn.dropout(t_latent, self.dropout), lambda:t_latent)
 
-		t_latent = tf.nn.relu(self.t_conv_3(t_latent))
-		t_latent = tf.cond(self.is_training, lambda:tf.nn.dropout(t_latent, self.dropout), lambda:t_latent)
+		# t_latent = tf.nn.relu(self.t_conv_3(t_latent))
+		# t_latent = tf.cond(self.is_training, lambda:tf.nn.dropout(t_latent, self.dropout), lambda:t_latent)
 
 
 		gate = tf.nn.sigmoid(Dense(128, use_bias = True)(x_latent)+Dense(128)(t_latent))
@@ -264,13 +253,13 @@ class Model():
 		# latent = tf.concat([x_latent, t_latent], axis=-1)
 
 
-		# return latent
+		return latent,x_latent
 		return x_latent
 	def get_un_loss(self,att_aspect, x, neg_x):
 		batch_size, maxlen, emb_size = att_aspect.shape.as_list()
 		x_latent = tf.nn.embedding_lookup(self.word_embedding, x)
 
-		pos = tf.reduce_sum(att_aspect*x_latent, axis=-1, keep_dims=True) #[batch_size, maxlen, 1]
+		pos = tf.reduce_sum(att_aspect*x_latent, axis=-1, keepdims=True) #[batch_size, maxlen, 1]
 
 		neg_x_latent = tf.nn.embedding_lookup(self.word_embedding, neg_x)#[batch_size, maxlen, neg_size, emb_size]
 
@@ -381,12 +370,12 @@ def val(sess, model, data_loader):
 
 	# clabels = np.argmax(clabels, axis=-1)
 	y_true = np.argmax(y_data,axis=-1)
-	# fscore = f_score(y_pred, y_true, mask_data)
+	fscore_1 = f_score(y_pred, y_true, mask_data)
 	# fscore = f1_score(cat_pred, clabels, average = 'micro')
-	fscore,_ = cat_metrics(clabels, cat_logits, clabel_mask)
+	fscore_2,_ = cat_metrics(clabels, cat_logits, clabel_mask)
 	# if fscore>0.5:
 	# 	res(data_loader.idx2word, input_data, y_pred, y_true, mask_data, x_logit)
-	return fscore
+	return fscore_1,fscore_2
 
 
 
@@ -408,7 +397,7 @@ def train():
 				drop_out = 0.5,
 				neg_size = neg_size)
 	epochs 		= 200
-	best_metric = 0
+	best_1 = 0; best_2 = 0
 	train_loss 	= []
 	val_score 	= []
 	with tf.Session() as sess:
@@ -455,14 +444,19 @@ def train():
 			# print("validation....")
 			lr = sess.run(model.lr, feed_dict = {model.global_step:i})
 			print('\t learning_rate: ',lr)
-			fscore = val(sess, model, data_loader)
-			if fscore > best_metric:
-				best_metric = fscore
+			fscore_1, fscore_2 = val(sess, model, data_loader)
+			if fscore_1 > best_1:
+				best_1 = fscore_1
 				saver.save(sess, checkpointer_dir+'model.ckpt', global_step=i)
-			print("\nf1_score: ", fscore)
+			if fscore_2 > best_2:
+				best_2 = fscore_2
+				saver.save(sess, checkpointer_dir+'model.ckpt', global_step=i)
+
+
+			print("\nfscore_1: ", fscore_1, "fscore_2: ", fscore_2)
 			# break
 			train_loss.append(loss)
-			val_score.append(fscore)
+			val_score.append([fscore_1, fscore_2])
 		np.save(checkpointer_dir+'train_loss', train_loss)
 		np.save(checkpointer_dir+'val_score', val_score)
 
@@ -531,7 +525,7 @@ def test():
 			y_data = to_categorical(y_data, 3)
 			
 
-			x_logit, y_pred, cat_logits, atts = sess.run([model.x_logit, model.prediction,model.cat_logits, model.atts],
+			x_logit, y_pred, cat_logits = sess.run([model.x_logit, model.prediction,model.cat_logits],
 										feed_dict = {model.x:input_data,
 													model.t:input_tag,
 													model.mask:mask_data,
@@ -546,15 +540,18 @@ def test():
 
 			# clabels = np.argmax(clabels, axis=-1)
 			y_true = np.argmax(y_data,axis=-1)
-			# fscore = f_score(y_pred, y_true, mask_data)
+			fscore_1 = f_score(y_pred, y_true, mask_data)
 			# fscore = f1_score(cat_pred, clabels, average = 'micro')
 			# fscore = cat_metrics(input_data, mask_data, clabels, cat_logits, clabel_mask)
-			fscore, cat_pred = cat_metrics(clabels, cat_logits, clabel_mask)
-			print(fscore)
-			res.append(fscore)
+			fscore_2, cat_pred = cat_metrics(clabels, cat_logits, clabel_mask)
+			print(fscore_1, fscore_2)
+			res.append([fscore_1, fscore_2])
 			# print(fscore)
-		print(np.mean(res), np.var(res))
-		save_for_visual(input_data, mask_data, y_pred, atts, cat_logits, clabels, data_loader, index, cat_pred)
+		res = np.array(res)
+		# print(np.mean(res), np.var(res))
+		print(np.mean(res,axis=0))
+		print(np.var(res, axis=0))
+		# save_for_visual(input_data, mask_data, y_pred, atts, cat_logits, clabels, data_loader, index, cat_pred)
 		np.save(checkpointer_dir+'res', res)
 
 

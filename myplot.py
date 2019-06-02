@@ -11,13 +11,15 @@ ckpt_file = 'ckpt_'+sys.argv[1]+'/'
 def main():
 	train_loss = np.load(ckpt_file+'train_loss.npy')
 	val_score = np.load(ckpt_file+'val_score.npy')
+	val_1,val_2 = val_score[:,0], val_score[:,1]
 
 	fig,ax1 = plt.subplots()
 	ax2 = ax1.twinx()
 	index = list(range(len(train_loss)))
 
 	l1, = ax1.plot(index, train_loss, my_color[0], label='train loss')
-	l2, = ax2.plot(index, val_score, my_color[1], label = 'test f1_score')
+	l2, = ax2.plot(index, val_1, my_color[1], label = 'test f1score_1')
+	l3, = ax2.plot(index, val_2, my_color[2], label = 'test f1score_2')
 
 	ax1.set_xlabel('epoch')
 	ax1.set_ylabel('training loss')
