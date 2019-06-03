@@ -269,6 +269,6 @@ def annot_cat():
 
 if __name__ == '__main__':
 	# process_laptop_file('Laptop_Train_v2.xml')
-	process('rest')
-	process('laptop')
-	# annot_cat()
+	# process('rest')
+	# process('laptop')
+	annot_cat()
