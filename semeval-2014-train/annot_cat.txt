@@ -415,3 +415,723 @@ it works fine with our wireless and they 've had not problems CONNECTIVITY;OPERA
 but you must get the 15 inch MISCELLANEOUS
 product support very poor as each phone call costs me long distan SUPPORT
 overall the computer is very easy to use , the screen is perfect , great computer , my daughter loves GRAPHICS;USABILITY;GENERAL
+the casing of the power cord fried and shocked my husband when he pulled it out of the socket POWER_SUPPLY
+it does not keep internet signals no matter where you bring it CONNECTIVITY
+it 's a great product for a great price ! GENERAL;PRICE
+again , the same problem , the right speaker did not work MULTIMEDIA_DEVICES
+but see the macbook pro is different because it may have a huge price tag but it comes with the full software that you would actually need and most of it has free future updates PRICE;SOFTWARE
+and the multiple page viewer \ ( allows you to press one button to see every separate page currently opened at the same time in one screen \ ) are great for those who are working non stop or just shopping online MISCELLANEOUS
+this was the 3rd day and part still had not been shipped SHIPPING
+keyboard good sized and wasy to use KEYBOARD;USABILITY
+hp said it was out of warranty SUPPORT
+i never had this kind of quality issue with dell \ ( not to say dell is that great \ ) , not with a brand new laptop QUALITY
+wonderful features DESIGN_FEATURES
+i had to call hp and ask for a recovery disk because the computer does not come with one and completely redo it all DESIGN_FEATURES
+im glad that it has such great features in it DESIGN_FEATURES
+i like those programs better than office and you can save your files to be completely compatible with the office programs as well SOFTWARE
+great wifi too CONNECTIVITY
+when typing , letters and spaces are frequently omitted requiring the user to redo many words and sentences KEYBOARD
+only a few days after i received the computer back , the screen froze again GRAPHICS
+it is not ideal for children because of the temp GENERAL;MISCELLANEOUS
+although i do believe that windows operating system may be to fault for some of the problems OS
+great os , fabulous improvements to the existing line bumping up the processor speed and adding the thunderbolt port OS;CPU;OPERATION_PERFORMANCE;PORTS
+the lcd screen stopped working on mine after 10 months GRAPHICS
+images are crisp and clean GRAPHICS
+although its windows vista compared to windows xp sucks OS
+we have had numerous problems with vista , such as adobe flash player just quits and has to be uninstalled and then reinsalled , internet explore just quits and you lose whatever you were working on , also , the same windows update has appeared on this computer since we got it and has been updated probably 400 times , the same update OS;SOFTWARE
+with the switch being at the top you need to memorize the key combination rather than just flicking a switch DESIGN_FEATURES;USABILITY
+one more tip , please purchase this model and get a 4gb stick of ram to save you 10 MEMORY
+it has bein into the shop to get a new hardrive 2 times and to fix the touch control buttons on the keyboard ! HARD_DISC;MOUSE;KEYBOARD
+i always have used a tower home pc and jumped to the laptop and have been very satisfied with its performance GENERAL;OPERATION_PERFORMANCE
+the computer runs very fast with no problems and the ilife software that comes with it \ ( iphoto , imovie , iweb , itunes , garageband \ ) is all very helpful as well SOFTWARE;OPERATION_PERFORMANCE;GENERAL
+at first it worked well for a month or so then the system board failed and i send it in to toshiba some complaints and three weeks later i then receive my laptop back only to discover that it still has the same problem so now i have to send it back again to get it fixed again MOTHERBOARD;SUPPORT
+until i bought the dell , i thought you just looked for what you wanted \ ( size , software , options , hardware \ ) and purchase the best deal you could find SOFTWARE;HARDWARE
+it has plenty of memory , lots of hard drive , and great graphics GRAPHICS;HARD_DISC;MEMORY
+it did n't take me long to get switched over to the mac computer programs and navigation it 's been just fine and like the way this laptop functions much better OPERATION_PERFORMANCE;SOFTWARE
+however , my girlfriend realized that the netbook 's hinge is a bit loose \ ( when you open or close the lcd \ ) QUALITY
+my problem was with dell customer service SUPPORT
+newegg 's rma service was great as always , i contacted them late friday night , and they issued me an rma number and a prepaid ups shipping label the very next morning on saturday SUPPORT
+design very durable DESIGN_FEATURES;QUALITY
+it is easy to go from one keyboard to another KEYBOARD
+has a 5 6 hour battery life BATTERY
+my only issues are 1 \ ) the screen video resolution wo n't increase to a higher resolution then 1024 x 60 GRAPHICS
+i run dreamweaver , final cut pro 7 , photoshop , safari , firefox , msn messenger and a few other applications constantly at the same time SOFTWARE;OPERATION_PERFORMANCE
+i was told by many that it was a great computer , but we got one of these , and it worked great for one year , and as soon as the warrenty was up , then it got really bad SUPPORT;QUALITY
+ive had to call tech support many times SUPPORT
+the apple applications \ ( ex iphoto \ ) are fun , easy , and really cool to use \ ( unlike the competition \ ) ! SOFTWARE;USABILITY
+not to mention it has shit gigs HARD_DISC
+i paid for extra memory and the 17 inch screen , as well as the top of the line dvd and cd burners MEMORY;GRAPHICS;OPTICAL_DRIVES
+its pretty fast and does not have hiccups while i am using it for web browsing , uploading photos , watching movies \ ( 720p \ ) on occasion and creating presentations OPERATION_PERFORMANCE
+quality display i love hp , , it 's the only computer printer we will buy GRAPHICS;QUALITY
+despite the inconvenient weight , i opted for the 12 cell battery DESIGN_FEATURES;BATTERY
+the case is carved out of a single block of aluminum QUALITY
+first it burned or fused the power adapter plug POWER_SUPPLY
+the features are great , the only thing it needs is better speakers DESIGN_FEATURES;MULTIMEDIA_DEVICES
+it was still working , but there was nothing on the screen GRAPHICS;OPERATION_PERFORMANCE
+i bought this laptop and found its tab is not functioning KEYBOARD
+toshiba is aware of the issue but unless the extended warrenty is bought toshiba will do nothing about it SUPPORT
+called headquarters again , they report that tft panel is broken , should be fixed by the end of the week \ ( week 3 \ ) SUPPORT
+navigation through the computer is far superior compared to windows operating systems , as well OS
+the screen is framed by half to a full inch margin that is obviously unnecessary , reduces the screen size and increases the bulk GRAPHICS
+though the picture , video , and music software is nowhere close to professional grade software im used to \ ( cs5 \ ) but does the job for beginner and even intermediate media designers SOFTWARE
+the much lauded combined touch pad and clicker is a nightmare MOUSE
+the unibody construction is solid , sleek and beautiful QUALITY;DESIGN_FEATURES
+this macbook is an outstanding product with great value GENERAL;PRICE
+i had to re install windows within two weeks of the purchase and soon discovered cracks in the screen hinges OS;QUALITY
+a second problem involves the battery which is advertised as having a storage life of 11 hours but when fully charged shows only 7 hours of service BATTERY
+and plenty of storage with 250 gb \ ( though i will upgrade this and the ram \ ) HARD_DISC;MEMORY
+no temporary replacement , they are out of replacements because many computers had problems with the nvidia chipset inquired status of repair GRAPHICS
+i took it to friend who temporarily fixed it and i finally paid about 1500 for the extended warranty SUPPORT
+programs would crash all the time , and it turned out to be a very unstable , unreliable laptop for me SOFTWARE;OPERATION_PERFORMANCE;QUALITY;GENERAL
+i bought this lap top and the charge time dose n't last as long as they say it will more like 2 hours BATTERY
+also , because of the size and consistancy of the laptop computer , some websites would n't even attempt to work on the computer because of browser problems DESIGN_FEATURES
+the key bindings take a little getting used to , but have loved the macbook pro KEYBOARD;USABILITY;GENERAL
+keyboard is reasonable size KEYBOARD;DESIGN_FEATURES
+i find myself using the 10 key more than i thought i would KEYBOARD
+fan noise the fan made a constant hissing noise in the background FANS_COOLING;QUALITY
+the screen is bright and clear , the operating system is solid and friendly to a novice GRAPHICS;OS
+it has a 1 ghz faster processor and a stock 500gb hard drive CPU;HARD_DISC
+the feature are good enough for what i need DESIGN_FEATURES
+finally , the biggest problem has been tech support SUPPORT
+this is n't a big deal , i have n't noticed the issue with dvds or other media , only through usb output MULTIMEDIA_DEVICES;PORTS;QUALITY
+with windows laptops a wireless mouse is an absolute must MOUSE
+\ ( i had been a windows linux user before this \ ) i love the size because the screen is big enough for what i use it for \ ( internet , artwork \ ) , and yet it is small enough to be reasonably portable DESIGN_FEATURES;GRAPHICS;OS
+but if you 're willing to pay another 200 dollar for a windows disc OS
+very good quality and well made QUALITY
+i bought a logitech desktop set in anticipation for using with the mbp , but i use the touchpad 90 of the time MOUSE
+my niece and nephew have played a few web games and it runs anything that does n't require a dedicated video card GRAPHICS;OPERATION_PERFORMANCE
+it had the full sized touch pad with 2 buttons instead of just one MOUSE
+typically , when i purchase a new laptop i always end up using an external mouse for convenience MOUSE
+it was super easy to set up and is really easy to get used to USABILITY
+the only thing that can be updated is the video , other than that you 're all set MISCELLANEOUS
+its a good laptop for its value GENERAL;PRICE
+then the hard drive failed HARD_DISC
+plain and simple , it \ ( laptop \ ) runs great and loads fast OPERATION_PERFORMANCE
+of course my warranty runs out next month SUPPORT
+the capabilities using that program alone made me want a mac SOFTWARE
+\ ( if you ever see the spinning beachball come up when you think it should n't , check the activity monitor app to see if the disk throughput has temporarily dropped to zero SOFTWARE;OPERATION_PERFORMANCE
+i have found also , it is very easy to be able to access wireless internet access USABILITY;CONNECTIVITY
+this is a great value for the money PRICE
+it was a great laptop , ran great and was really fast GENERAL;OPERATION_PERFORMANCE
+the battery has never worked well BATTERY
+i will never buy another computer from dell ever again do to how awful it worked and how i was treated by the company SUPPORT;COMPANY;OPERATION_PERFORMANCE
+the only problem is a lack of screen resolutions ! GRAPHICS
+small enough to use on a long flight , light enough to carry through airports and powerful enough to replace my desktop while on long business trips DESIGN_FEATURES;PORTABILITY;OPERATION_PERFORMANCE
+typing on the keyboard becomes uncomfortable after extended use due to the sharp edges that your wrists rest on KEYBOARD;DESIGN_FEATURES
+it has many great programs , such as ilife , iphotos and others SOFTWARE
+the processor went on me , the fan went and the motherboard went CPU;FANS_COOLING;MOTHERBOARD
+it is very well built QUALITY;GENERAL
+i highly recommend this laptop to anybody that wants great performance from a laptop and would like to relax and not become enraged cursing the gods about to throw your laptop out the door GENERAL;OPERATION_PERFORMANCE
+the screen resolution was exactly what i was looking for GRAPHICS
+even though it is running snow leopard , 2 4 ghz c2d is a bit of an antiquated cpu and thus the occasional spinning wheel would appear when running office mac applications such as word or excel SOFTWARE;OPERATION_PERFORMANCE
+there is no number pad to the right of the keyboard which is a bummer KEYBOARD;MOUSE
+after 20 30 min the screen of the notebook switched off GRAPHICS
+if upgrade is possible to the full windows 7 , then i will truly be a very happy geek OS
+i was originally concerned that i could n't view work i had done in college on my mac because of the pc formatting , but i was even more thrilled to learn of programs like ilife and iwork that allow you to convert your pc documents into readable files on macs SOFTWARE
+it is a big big , but since it has a 18 4 screen what would you expect ! GRAPHICS
+10 hours of battery life is really something else BATTERY
+runs fast and the regular layout keyboard is so much better OPERATION_PERFORMANCE;KEYBOARD
+all the programs are easy and straight forward on my macbook pro , it is clean and organized , which i always strive to be myself SOFTWARE;USABILITY
+i reinstalled windows through the recovery discs and everything seemed good again OS;GENERAL
+windows 7 starter is terrific \ ( no you ca n't change the background \ ) but i do n't need to , i use it just for school work OS
+support has been lackluster and now i just want a refund SUPPORT
+first of all , they had no record of me having the 3 year warranty i 'd paid almost 400 for , and i had to call in , spend hours on their online chat service , and fax in multiple documents SUPPORT
+iphoto is probably the best program i have ever worked with easy and convenient SOFTWARE;USABILITY
+i love to write and play with graphics and html programming and my new toshiba works great on both ! GRAPHICS;OPERATION_PERFORMANCE;GENERAL
+my laptop now has no battery BATTERY;DESIGN_FEATURES
+beta had better quality , but vhs became the industry standard QUALITY
+it made the computer much easier to use and navigate USABILITY
+\ ) if you buy this do n't go into it expecting 7 hrs of battery life , and you 'll be perfectly satisfied BATTERY
+needs longer lasting battery , more than 1 to 2 hrs BATTERY
+in may i started having problems with the usb ports not working PORTS;QUALITY
+10 plus hours of battery BATTERY
+the design is awesome , quality is unprecedented DESIGN_FEATURES;QUALITY
+the mac version of microsoft office is cheaper than buying the actual and works just as well OPERATION_PERFORMANCE;SOFTWARE;PRICE
+the mac takes about the same amount of starting up time as the average pc , but keeps itself cleaned up and ready to use OPERATION_PERFORMANCE;USABILITY
+the toshiba net book operates very well OPERATION_PERFORMANCE;GENERAL
+the touch pad is fine again , it 's a real touch pad MOUSE
+the pictures are clear as can be GRAPHICS
+it is also very lightweight , making transporting this computer very easy DESIGN_FEATURES;PORTABILITY
+it 's wonderful for computer gaming MISCELLANEOUS
+you have to toss out the wifi card and replace it just to have any sort of network capability CONNECTIVITY
+and the best part is that it even comes with a free printer \ ( when they have a certain promotion offer going , of course \ ) ! DESIGN_FEATURES
+it is very easy for anyone to use an apple and specially the mcbook pro notebook CONNECTIVITY;GENERAL
+the flaws are , this computer is not for computer gamers because of the os x OS
+they really do have the worlds very worst repair service SUPPORT
+they need to stop outsoucing and send some complaint calls to us based customer service agents for those who live in the united states SUPPORT
+i was also able to install and use my photoshop and aftereffects programs easily SOFTWARE;USABILITY
+it 's perfect for everything and runs faster than an average pc ! OPERATION_PERFORMANCE;GENERAL
+then after paying for it to be examined i was told it was same problem cited on website but i 'd have to pay anyways since it was past warrenty SUPPORT
+i 'm already hooked on the sleek look and dependability that this laptop has shown QUALITY;DESIGN_FEATURES;GENERAL
+and having to deal with the company has been a even worse nightmare SUPPORT;COMPANY
+i will definitely be getting a new laptop if it has any more issues after the warranty expires and researching carefully when i do so i do n't run accross a situation like this again ! SUPPORT;QUALITY
+it has all the features that are necessary for college and if not they are able to be added onto the computer DESIGN_FEATURES
+i 've owned this labtop for less then two months , already the mouse button has broke MOUSE
+it did fairly well , other than it 's poor performance , overheating and occational blue screen OPERATION_PERFORMANCE
+the touchpad is very intuitive , so much so that i never want to use buttons to click again ! MOUSE
+tons of bloatware and junk programs SOFTWARE
+lots of extra space but the keyboard is ridiculously small DESIGN_FEATURES;KEYBOARD
+it 's so bad that i 'm thinking i only got half a battery or something BATTERY
+good keyboard , long battery life , largest hard drive and windows 7 KEYBOARD;BATTERY;HARD_DISC;OS;GENERAL
+the processor is very quick and effective as i load webpages and applications CPU;OPERATION_PERFORMANCE;SOFTWARE
+my battery went bad about a year and a half after having it and it cost around eighty to a hundred dollars ! BATTERY
+it pretty much does everything we could ever need , and looks great to boot OPERATION_PERFORMANCE
+as a lifelong windows user , i was extremely pleased to make the change to mac OS;GENERAL
+the macbook is also made better , my computer has never got a virus , and the laptop runs just as fast as the first day i bought it GENERAL;OPERATION_PERFORMANCE;SOFTWARE
+i wiped nearly everything off of it , installed openoffice and firefox , and i am operating an incredibly efficient and useful machine for a great price PRICE;SOFTWARE;OPERATION_PERFORMANCE
+overall i feel this netbook was poor quality , had poor performance , although it did have great battery life when it did work QUALITY;OPERATION_PERFORMANCE;BATTERY;GENERAL
+i picked it out because it was inexpensive \ ( 400 \ ) and i thought it would be a good , easy to use first laptop PRICE;USABILITY;GENERAL
+my only problem is i can not reg the product key MISCELLANEOUS
+pay attention to the specs if you want these options MISCELLANEOUS
+it also does not have bluetooth DESIGN_FEATURES
+sure it has the one touch keys but that was the best feature of the computer DESIGN_FEATURES;MOUSE
+great battery life BATTERY
+the real stand out on this computer is the feel of the keyboard and it 's speed KEYBOARD;OPERATION_PERFORMANCE;GENERAL
+at first , the computer seemed a great deal seemingly high end specs for a low , low price PRICE
+delivery was early too SHIPPING
+love the stability of the mac software and operating system OS;OPERATION_PERFORMANCE
+and that probably explains why i 've already had my sata controller go bad within a year of buying it MISCELLANEOUS
+it 's also very capable of doing moderate video editing \ ( although you may need the performance boost of the larger macbook pros for heavy duty mobile video editing \ ) OPERATION_PERFORMANCE
+my main reason to convert was the imovie program SOFTWARE
+it has a faster processor and more ram CPU;OPERATION_PERFORMANCE;MEMORY
+laptops are usually used on the go , so why not give you a better battery \ ? BATTERY
+i will never complain about the price since i believe you get what you pay for and my macbook pro was worth every dollar PRICE
+i was n't a big fan of the netbooks but this one was very well designed DESIGN_FEATURES
+and the warranty on this macbook pro can last up to 5 years or 1000 battery recharge cycles SUPPORT;BATTERY
+i still have that stupid bluetooth mouse to ! MOUSE
+would like more trendy , high tech features DESIGN_FEATURES
+keyboard is great but primary and secondary control buttons could be more durable KEYBOARD;KEYBOARD
+screen is a bit glossy , but that 's not too bad GRAPHICS
+i got it back again and was told the motherboard had been replaced , so i was now on the second motherboard within 3 months MOTHERBOARD;MOTHERBOARD
+processor when compared to my 3 week old early 2011 edition there i barely experience any difference in performance \ ( 2 3 ghz v s 2 4 ghz \ ) OPERATION_PERFORMANCE;CPU
+they say it could be the motherboard again , but dell MOTHERBOARD
+2nd best computer in the world only one way this computer might become the best is that it needs to upgreade patches to make less easier for people to hack into GENERAL;QUALITY
+love the speed , especially ! OPERATION_PERFORMANCE
+it could be a perfect laptop if it would have faster system memory and its radeon 5850 would have ddr5 instead of ddr3 OPERATION_PERFORMANCE;MEMORY
+not only are the versions of these programs able to be saved , worked on and opened on both a pc and mac , the versions of these programs on a mac are graphically and functionally superior SOFTWARE
+the speed gives you the power to work on these projects seamlessly , and multiple at a time if you sowish OPERATION_PERFORMANCE
+awesome laptop and the perfect size to carry around in college GENERAL;DESIGN_FEATURES;PORTABILITY
+a month later , we reinstall the os \ ( vista \ ) OS
+some problems can be fixed if you purchase new software , but there is no guarentee SOFTWARE
+my real problem with it \ ? the statement of 7 hour battery life is not just mere exaggeration it 's a lie BATTERY
+the battery life is also relatively good BATTERY
+i definitely suggest getting an extended warranty , you will probably need it ! SUPPORT
+i have found it very easy to use , very imformative , wonder alerts and tutorials making it very easy for someone like me who is not exactly technologically advanced to learn to use the various features and programs PRICE;DESIGN_FEATURES;SOFTWARE
+i do n't have stupid pop up windows \ ( even when i have pop ups blocked \ ) , i do n't have to wait 5 minutes for a webpage to download , and best of all i can run all the web programming software i need to use all at once without slowing me down SOFTWARE;OPERATION_PERFORMANCE
+memory is upgradable MEMORY
+web access through the 3g network is so slow , it 's very frustrating and very disappointing OPERATION_PERFORMANCE;CONNECTIVITY
+the large screen also helps when you are working in design based programs like adobe creative suite GRAPHICS;SOFTWARE
+moral of the story do not buy anything from companies that do not respect their customers SUPPORT;COMPANY
+this is my first dell i heard their customer service was lacking and that they were working on improving it ! SUPPORT
+as well as having the plug in the computer come loose POWER_SUPPLY
+second hdd cover has walls inside that need to be broken if you what to install one DESIGN_FEATURES
+if you want more information on macs i suggest going to apple com and heading towards the macbook page for more information on the applications SOFTWARE
+great product by apple with the new great looking design DESIGN_FEATURES;GENERAL
+i love the keyboard KEYBOARD
+i use iphoto all the time , which is a great program for anyone who is into photography amateurs and experts alike SOFTWARE
+the screen is n't huge , but that does n't matter when i output media to the 50 inch lcd tv GRAPHICS
+i will have to purchase spy ware or nortell for privacy protection MISCELLANEOUS
+i was said it 's videocard GRAPHICS
+for the price and what i get out of it has exceeded my expectations PRICE;GENERAL
+if your time is worth anything to you , if you are tired of rebooting , reformatting , reinstalling , trying to find drivers , if you want a computer to work for you for a change , make the change to this computer GENERAL;SOFTWARE
+the only thing i wish is the 15 inch macbook pro has much better speakers on the side of the keyboard MULTIMEDIA_DEVICES;KEYBOARD
+now , as easy as it is to use , and i do think it is a great starter laptop GENERAL;USABILITY
+setting would change for some reason , the screen size would change on it 's own , like the pixel sizes and whatnot GRAPHICS
+it had some kind of pre installed software update that completely shut the computer down when you clicked it SOFTWARE
+ever since i bought this laptop , so far i 've experience nothing but constant break downs of the laptop and bad customer services i received over the phone with toshiba customer services hotlines SUPPORT
+also , the space bar makes a noisy click every time you use it KEYBOARD;QUALITY
+iphotos is an excellent program for storing and organizing photos SOFTWARE
+other than that its a great performing machine and well meets all my needs and more OPERATION_PERFORMANCE;GENERAL
+called tech support and got the usual acer we do n't support software but for we can help you i explained there was no software involved in booting SOFTWARE;SUPPORT
+the programs are great , like iphoto \ ( love the editing capabilities \ ) , imail \ ( which can incorporate with the address book on the ipod and ipad \ ) , imovie , etc SOFTWARE
+the only thing i did n't learn in my research was the software i would need like privacy protection and warranty protection , in case it gets broken , or crashes etc SOFTWARE
+comfterbale to use light easy to transport USABILITY;DESIGN_FEATURES;PORTABILITY
+the computer itself is a good product but the repair depot stinks GENERAL
+i thought the price was great for the specs PRICE
+the only down fall is that it has no cd drive but i found that they are very cheap to by and also very portable making this the best friend to someone who is always looking for more space then they have OPTICAL_DRIVES
+so , the hard disk capacity really does n't matter to me HARD_DISC
+keys stick periodically and i havent had the laptop for 45 days yet KEYBOARD
+i also like that you can scroll down in a window using two fingers on the trackpad MOUSE
+everything from the design to the os is simple and to the point DESIGN_FEATURES;OS
+i ' v spent as much for shipping as i would to buy a new netbook of course a different brand SHIPPING
+i personally like the gaming look but needed a machine that delivered gaming performance while still looking professional in front of my customers MISCELLANEOUS
+this just keeps having it 's hard drive replaced ! HARD_DISC
+when you look at the specs on apple products in comparison to a dell or a hp , yes they do seem to offer less for a higher cost PRICE
+the only downfall is the volume control MULTIMEDIA_DEVICES
+very fast boot up and shut down OPERATION_PERFORMANCE
+i finally decided on this laptop because it was the right price for what i need it PRICE
+if internet connectivity is important i would recommend going with a dell net book for 50 bucks more , or buy a usb wireless card CONNECTIVITY
+i had read online that some users were having sound problems MULTIMEDIA_DEVICES
+my last computer , a toshiba , cost only 400 , and worked like a charm for many years PRICE
+it discharges too quickly BATTERY
+but to be honest , the compatibility issues and the other little quirks make me think i ll buy a pc next time CONNECTIVITY
+then it ceased charging at all BATTERY
+i do not experience a lot of heat coming out of it , however i would highly suggest purchasing a stand however , due to the nature of the design of the macbook as it is one very large heat sink DESIGN_FEATURES
+webcam is a bit laggy , not the greatest SOFTWARE
+i am not much of a computer techie , so i can understand some of the internal problems , though i do have trend micro as an antiviral program QUALITY
+the computer continued to give me issues and in late june it completely died again and i tried to call acer again to get it fixed and they refused to help me , they said my warrenty was up and hung up on me SUPPORT;QUALITY
+i 've have n't had any major problems with the laptop except that the plastic piece that covers the usb port wires have all come off QUALITY;PORTS
+wonderful sleek case design is only on the outside DESIGN_FEATURES
+it is speedy when connected wirelessly to any network regardless if the connection is weak or not CONNECTIVITY
+the pricing is very competitive PRICE
+connecting to my wireless router via built in wireless took no time at all CONNECTIVITY
+this computer is exceptionally thin for it 's screen size and processing power OPERATION_PERFORMANCE;GRAPHICS
+i have not had a problem with the applications quitting or freezing SOFTWARE
+maybe this is virus related , maybe not , but the computer has locked up many times , and on two occasions , the screen has simply gone black GRAPHICS
+this wiped out several programs that were installed on the computer when it was bought SOFTWARE
+it 's graphics are n't bad at all , for the lower end of the macbook pro spectrum , easily capable of running starcraft ii and other games with comparable graphics GRAPHICS;GRAPHICS
+i have vista , so i am unable to install and uninstall some programs SOFTWARE;OS
+the screen is bright and vivid and the keyboard is very easy to use , very important for use quick typers KEYBOARD;GRAPHICS;USABILITY
+the mouse jumps around all the time and it clicks stuff i dont want it too MOUSE
+for those that care about noise this thing does n't really make any QUALITY
+i had my iworks , itunes , email , ms office , network and printers set up and completely working perfectly within an hour SOFTWARE
+the macbooks are small enough to be very portable yet hold tons of information and performance DESIGN_FEATURES;PORTABILITY;OPERATION_PERFORMANCE
+the only downfall is a lot of the software i have wo n't work with mac and iwork is not worth the price of it PRICE;SOFTWARE
+whenever tried to turn it on , it would restart as soon as the bios launched windows \ ( or winblows , as i like ot call it \ ) OPERATION_PERFORMANCE
+but there 's this application called boot camp which allows you to add another os x like windows SOFTWARE;OS
+the mousepad is a huge pain in the arse ! MOUSE
+i hope to edit this in the next few hours , i am going to try to install my own copy of windows 7 OS
+\ ) i also purchased applecare for 300 , which is a three year extended warranty , since i ve never seen any laptop that lasted more than two DESIGN_FEATURES;SUPPORT
+i run windows via bootcamp for the couple programs i do not want to buy a mac version of , like my cad programs OS;SOFTWARE
+whenever i call dell about an unrelated problem , they ask me if my laptop is running slowly and if i 'd like to purchase more memory for 75 MEMORY
+since then i have had minor problems with slow operation OPERATION_PERFORMANCE
+registration 1st use is easy USABILITY
+take your time and go through the tutorials patiently MISCELLANEOUS
+this time the mouse pad and right click key would n't work ! MOUSE
+the first full charge of this battery got me only about 2 full hours BATTERY
+i bought a cordless mouse for it , but do n't always take it out MOUSE
+i am a huge computer person i love anykind of computer that works well , but when i got this one i was so happy with the way it works and how it runs its amazing OPERATION_PERFORMANCE;GENERAL
+it took toshiba tech support 4 calls and 4 different techs to correct the problem SUPPORT
+they only stay charged a little over an hour BATTERY
+the 4 usb ports are nice , but the two on the side only work now and then PORTS
+i could not find a phone number anywhere to call an actual live person for tech support and had to result the their online chat SUPPORT
+keyboard could use some trimming KEYBOARD
+its white color is stylish for college students and easy to take to carry and take to classes GRAPHICS;PORTABILITY
+returned laptop for repair a 2nd time and it came back with obvious physical damage \ ( keyboard bulging and speaker grill pressed in \ ) , buttons not working and usb ports inoperative KEYBOARD;MULTIMEDIA_DEVICES;PORTS
+when i am next to my router on my hp i get full service , on my eee pc i get 3 bars SUPPORT
+i got assurances from 2 different people that the remaining 10 months of my warranty would transfer to the new computer SUPPORT
+the letter a stopped working after the first week KEYBOARD
+this is what i call a good after sales service SUPPORT
+i took off a star because the machine has a lot of junk software on it SOFTWARE
+with what i do know how to do , the computer works beautiful OPERATION_PERFORMANCE;GENERAL
+tried to make a recovey disk wouldnt get passed the first recovery disk MISCELLANEOUS
+most everything is fine with this machine speed , capacity , build OPERATION_PERFORMANCE;QUALITY
+for the same price , you get a lot more in the asus 1920x1080 res PRICE
+i made a photo book as a gift , on my computer , pushed buy and it drew from my itunes account and sent the book to my house , the book was of perfect quality exactly how i had created it and looked better than i had even imagined SOFTWARE;QUALITY;DESIGN_FEATURES
+i use this for my tutoring business , and since i 'm always bouncing from student to student , it is ideal for portability and battery life \ ( yes , it gets the 8 hours as advertised ! \ ) PORTABILITY;BATTERY
+it is in the best condition and has a really high quality QUALITY
+when it come time for warranty service to toshiba you do n't matter SUPPORT
+however the frozen screens kept happening GRAPHICS
+it is short on space , and downloads always had problems being completed , or were said to be corrupted HARD_DISC
+3 \ ) horrible customer support SUPPORT
+the led backlit display makes my pictures pop so much more GRAPHICS
+apple is always great about the aesthetics of things , they always come up with good looking products COMPANY
+runs smooth and quick OPERATION_PERFORMANCE
+the downside to this netbook is pretty much the same for any netbook screen size is not something i 'd stare at for the entire 10 11 hours of battery life five days a week GRAPHICS;BATTERY
+the graphics are great GRAPHICS
+in 5 months the connect quality got worse and worse CONNECTIVITY;QUALITY
+the big screen allows you to enjoy watching movies , pictures and etc ! GRAPHICS
+the headphone and mic jack are in front of touch pad making the touch pad hard to use when using headphones mic , not to mention the laptop was designed for right handed person MOUSE;MULTIMEDIA_DEVICES
+for the price \ ( special offer \ ) this is a great laptop PRICE;GENERAL
+the manufacturer 's warranty only covers replacement repair of parts SUPPORT
+what i 'd like is for the laptop to run well without having to purchase additional memory MEMORY;OPERATION_PERFORMANCE
+it works exactly like it did the day i took it out of the box OPERATION_PERFORMANCE
+it is fast booting up , shutting down , and connection with the internet OPERATION_PERFORMANCE;CONNECTIVITY
+the battery life is great BATTERY
+this is not a serious gaming laptop or a serious media machine MISCELLANEOUS
+they replaced my hard drive as well as my mother board HARD_DISC;MOTHERBOARD
+there is nothing to complain about the system OS
+and it comes with the new osx that comes with new features that makes the use more easy OS;DESIGN_FEATURES;USABILITY
+now the screen is going darker , darker , darker GRAPHICS
+either the computer is too slow to detect the keys typed \ ( this is unlikely as i am a slow typist \ ) or the keyboard simply does not detect the keys being typed KEYBOARD;OPERATION_PERFORMANCE
+features such as the dashboard \ ( allows you to view frequently used tools like a calculator , weather forecast , movie times , calendar , computer post its etc DESIGN_FEATURES
+when i called to have another one shipped or to get my money back they said the return policy is 23 twenty three days from the date of purchase SUPPORT
+i sent it back and found this time that the battery was faulty , so i got a new one and some other fixes they found BATTERY
+great pick for portability and affordability PORTABILITY;PRICE
+it 's fast , it 's easy easy easy to set up , easy to hook to my wireless network OPERATION_PERFORMANCE;USABILITY;CONNECTIVITY
+i previously purchased a 13 macbook \ ( had pro specs and was aluminum style \ ) which had a nvidia 9800 \ ( if i am not mistaken \ ) and it had major heating issues DESIGN_FEATURES;GRAPHICS
+the people there just changed for me on the spot and i got a new arm piece and they did n't even request for a receipt SUPPORT
+i take it everywhere with me because it 's so easy to carry PORTABILITY
+the only thing is that the battery wo n't last more than 1 2 an hour BATTERY
+the first fell apart right after the 1 year warranty SUPPORT
+oh and it has word and stuff but its a trial verion so after about a month or so when you go to open it it asks for a product key which didnt come with the computer and even after clicking cancel it wont let you use it at all i use the old word processer which works good SOFTWARE
+the keyboard has a wonderful nature feel KEYBOARD
+they went through asking me open up various components , taking battery out , hard disk apart , and after 2 hours on phone could not fix it BATTERY;HARD_DISC
+the battery does n't last long but i 'm sure an upgrade battery would solve that problem BATTERY;BATTERY
+i was looking too closely at the other performance specs and while comparing , i took it for granted that these features were standard DESIGN_FEATURES;OPERATION_PERFORMANCE
+i have no idea how this could have even gotten past quality control during production QUALITY
+i bought this last week , and the very next day had to return it because it over heated and the touch mouse stopped responding MOUSE
+oh yea , has no numeric pad on the side KEYBOARD
+the cover for the dvd drive soon came off , too a mark of poor construction quality QUALITY;OPTICAL_DRIVES
+but the arm velcro is torn after one use MISCELLANEOUS
+the software is amazing SOFTWARE
+we carry the netbook around here and there , hence it 's kinda of irritating when the lcd just slide downwards GRAPHICS
+the 2 gb of ram is plenty , able to run windows 7 and at least 2 or 3 other programs with next to no slowdown MEMORY;OS;SOFTWARE
+the battery life is amazing , the versitility is outstanding BATTERY
+it is known as safari , and if you are doing any website work , you should know that many hosting companies do not support it SOFTWARE
+vista is a nightmare OS
+the program came with the computer and works beautifully SOFTWARE
+the hinge design forced you to place various connections all around the computer , left right and front DESIGN_FEATURES
+i was loving this netbook because it had an amazing screen and display and was small and light , but after 1 week it stopped openning web pages for me \ ( even after installing new browsers \ ) then eventually it just started giving me a blue screen and crashing everytime i booted it GRAPHICS;DESIGN_FEATURES;QUALITY
+the so called laptop runs to slow and i hate it ! OPERATION_PERFORMANCE
+charger seems large for this class of computer BATTERY
+i dislike the quality and the placement of the speakers MULTIMEDIA_DEVICES;QUALITY
+the screen graphics and clarity , and sharpness are great GRAPHICS
+so i called customer support \ ( which is good too \ ) and they went through it and it is just a safety feature and it does not affect performance at all , i just chose to hide the message SUPPORT
+the unibody design is edgy and durable DESIGN_FEATURES;OPERATION_PERFORMANCE;QUALITY
+stopped booting up less than a week after my one year warranty was up QUALITY;OPERATION_PERFORMANCE;SUPPORT
+but , for the cost this is a winner PRICE
+later it held zero charge and its replacement worked for less than three months BATTERY
+also , the battery does not last very long at all BATTERY
+i bought it from hsn because it was bundled with extra software , but as it turns out , that software just crashes it more often SOFTWARE
+i looked around and based off my price features comparison from a brand i trusted i landed here DESIGN_FEATURES;PRICE
+i constantly had to send my laptop in for services every 3 months and it always seems to be the same problem that they said they had already fixed SUPPORT
+strong performance in this device makes use of fun and a strong sense of the era of speed this device serves all modern requirements is a very strong game and is very useful for designers OPERATION_PERFORMANCE;USABILITY
+unless you need the bluetooth 3 DESIGN_FEATURES
+i was sorly disapointed to discover that hp \ ( what i thought was a reputable company \ ) would n't honor the warrenty when the fan blade fell apart FANS_COOLING;SUPPORT
+more times that not the screen pops up saying i have a bad internet connection , or the page ca n't be displayed CONNECTIVITY
+do yourself a favor and invest in a few external harddrives if you are planning on purchasing this laptop HARD_DISC
+i do n't understand why only windows 7 starter is included OS
+while most people say that pcs hold functionality and value and macs are just pretty to look at , i think there 's something to be said about the simplicity of macs DESIGN_FEATURES;OPERATION_PERFORMANCE;PRICE
+my macbook is so much better looking and so thin ! DESIGN_FEATURES
+the ease of use is wonderful USABILITY
+this system came loaded with windows 7 starter OS
+when battery life went to 4 hours or less , took it to the machouse amsterdam for repair \ ( 26th of august \ ) BATTERY
+the battery gets so hot it is scary BATTERY
+best thing is i can use existing 32 bit old programs SOFTWARE
+it 's so nice to look at and the keys are easy to type with DESIGN_FEATURES;KEYBOARD
+i am forever changed and will no longer buy a windows based machine for personal use OS
+the only thing i would change about it is the mouse keys MOUSE
+it is absolutely horrible to use , despite all its so called advanced features DESIGN_FEATURES;USABILITY
+before , i reloaded with windows 7 ultimate and used only the downloaded drivers from acer 's site OS;SOFTWARE
+i have to keep turning it until it decides to lower and there is no mute MISCELLANEOUS
+it 's still beautiful and has better color reproduction than i could ever expect from a notebook GRAPHICS;DESIGN_FEATURES
+after that i turned to email in my next vain help to get them to acknowledge that the warranty was still valid SUPPORT
+he loves it and it is easy to use and well the schools start teaching the kids early about computers so it was easy for him to get started USABILITY;GENERAL
+u can do what u want in just few seconds , even to start up your computer takes few seconds OPERATION_PERFORMANCE
+also , macbooks come with much more features which are so cool ! DESIGN_FEATURES
+they sent out a sony certified technician SUPPORT
+they have developed excellent proprietary software for editing video and pictures and i 'm looking forward to utilizing these tools on the regular SOFTWARE
+getting the apple care plan is a must MISCELLANEOUS
+overall i would recomend this to anybody and tell them that if they want to burn their music or play there video games to buy the cd drive OPTICAL_DRIVES
+i am constantly trying to uninstall programs , clean cookies , and delete unused files SOFTWARE
+the dv4 boasted a faster processor , more memory , and a bigger hard drive than my old computer , plus a better quality web cam , nicer screen , and many other features CPU;MEMORY;HARD_DISC;GRAPHICS;DESIGN_FEATURES
+the only downfall is the battery only last 1 5 2 0 hrs when not plugged in BATTERY
+the graphics on this computer are also stellar very clear and vivid GRAPHICS
+aside from the trial software and the short battery life , lack of a webcam , its great BATTERY;SOFTWARE
+as a die hard windows enthusiast , i shunned the idea of a mac until this point OS
+i think that if it is the motherboard again so soon that they should replace it MOTHERBOARD
+the computer loads in about a 1 10th of the time that my pc did , and i have all of the programs that were on my pc SOFTWARE;OPERATION_PERFORMANCE
+graphics are clean and sharp , internet interfaces are seamless GRAPHICS;CONNECTIVITY
+the newer black keyboard took a little bit away from the previous gray one which looked really slick , but it is still a great notebook ! KEYBOARD;GENERAL
+sony parts reliability and quality of service is recenlty the worst SUPPORT
+as with any laptop not purchased with software options , it comes with a lot of what i consider useless applications SOFTWARE
+its office compatible , but the features and its functioning is all new again so you might as well save the money and just learn the pre installed mac programs USABILITY;DESIGN_FEATURES;SOFTWARE
+it just works flawlessly ! OPERATION_PERFORMANCE
+do you think i purposely destroy my netbook , so that i can demand a new set \ ? do you think it 's fun to take public transport all the way to the service center and get a non satisfactory solution \ ? or rather no solution SUPPORT
+i 'm having the laptop returned unrepaired since paying 176 every 3 months just is n't worth it \ ( that 's about how long the port seems to last \ ) PORTS
+also the battery is completely shot BATTERY
+awesome cooling system much better grafics card \ ( ati 5870 \ ) 8gb ram led backlit screen FANS_COOLING;GRAPHICS;MEMORY
+the biggest problem is that the box had no instructions in it MISCELLANEOUS
+but after using it a couple of weeks , the overall operation is poor OPERATION_PERFORMANCE;GENERAL
+compared to similarly spec 'd pcs , this machine is good value , well built and works easily right out of the box PRICE;QUALITY;OPERATION_PERFORMANCE
+screen is crystal clear and the system is very responsive GRAPHICS;OS;OPERATION_PERFORMANCE
+i will stack it up against laptops that cost twice as much any day PRICE
+or the cursor would show up some place else MISCELLANEOUS
+it is easy to operate and i have already ordered more software and gadgets for my new rolls royce of laptops USABILITY;SOFTWARE
+it might be something deep within windows , for i was unable to create a disk image on my hard drive HARD_DISC;OS
+the track pad to me is what really stands out though , you can do several different things with it just depending on how many fingers you use on the track pad , awesome thinking apple ! MOUSE
+now i had not tried to use this since the disc drive had been replaced and after taking it back to the geek squad i found out they had accidently not used the right drive when they replaced the first one , so back it went to get the correct drive HARD_DISC
+first , you ll discover that the word processing program known as appleworks rarely translates perfectly on anyone else s computer , if it translates at all SOFTWARE
+i already have a hp laptop i bought last year that 's standard size DESIGN_FEATURES
+battery is not upgradable to a longer life battery BATTERY
+apple has a reputation and is well known for its easy usage COMPANY;USABILITY
+returned laptop for a 3rd repair and it came back with previous problems fixed \ ( except for speaker grill \ ) but the unit started locking up during use and eventually would not operate at all MULTIMEDIA_DEVICES;OPERATION_PERFORMANCE
+i just plug this into my 22 monitor and the speedy macosx performs just as well on this dual core that my dell did with windows 7 with a quad core OS;OPERATION_PERFORMANCE;CPU
+love the graphics , awesome programs \ ( including garageband \ ) , and really cool default background GRAPHICS;SOFTWARE
+screen , keyboard , and mouse if you cant see yourself spending the extra money to jump up to a mac the beautiful screen , responsive island backlit keyboard , and fun multi touch mouse is worth the extra money to me alone GRAPHICS;KEYBOARD;MOUSE
+the os takes some getting used to especially after being a windows user for so long but the learning curve is so worth it ! OS;USABILITY
+i also purchased iwork to go with it which has programs for word processing , spreadsheets , and presentations \ ( similar to microsoft office \ ) SOFTWARE
+overall , i experienced a huge change in that my mac runs pretty fast compared to my old pc OPERATION_PERFORMANCE
+when i got the computer back and realizwed it still was not correct hp told me it was out of warranty and now it was my problem SUPPORT
+it also came with a built it web cam which is great because i can see an communicate with my family members back home SOFTWARE
+good monitor and performed well GRAPHICS;OPERATION_PERFORMANCE
+it was secure and easy to navigate USABILITY
+i was a little weary at purchasing another 13 macbook almost 2 years later but t looks like the newer macbooks have gotten its current line of graphics cards in order this time around GRAPHICS
+the machine has a bluray player the book has no mention of it or how to connect it to your hdtv SOFTWARE;CONNECTIVITY
+they are by far the easiest systems to actually learn about computers with OS;USABILITY
+this apple navigates you thru the unexplored world of the internet MISCELLANEOUS
+the video card is great for media , and above average for gaming , but not a gamers first choice GRAPHICS
+i had of course bought a 3 year warranty , so i sent it in to be replaced and \ ( almost 2 months later \ ) the dv4 is what the sent me as a replacement SUPPORT
+apparently there is a manufacturing defect , something with the amount of thermal paste QUALITY
+despite the claims of the apple apologists \ ( a vice of which i am recently myself reformed \ ) the internals of mac laptops are no different from pcs at this point MISCELLANEOUS
+took several hours with customer support before i could even start the pc out of the box SUPPORT
+asus facial recognition does n't work and windows logon is n't either SOFTWARE;OS
+windows vista makes this computer almost unusable for online service OS;SUPPORT
+i contacted acer and they are giving me free recovery dvds , so do n't go and pay for them , just ask for them and they should give them to you SUPPORT
+now when i order i did not go full scale for the webcam or full keyboard i wanted something for basics of being easy to carry when i use crutchs or wheelchair and with a backpack laptop bag SOFTWARE;KEYBOARD;PORTABILITY
+can listen to my music and watch my videos with ease and with a great display GRAPHICS
+otherwise , all other features are a 1 DESIGN_FEATURES
+the performance is awesome OPERATION_PERFORMANCE
+the display is beyond horrible GRAPHICS
+there is hardly any memory on the computer 's hard drive MEMORY
+actually , i had noticed the one on the sales floor also did n't have sound ! HARD_DISC
+next , most acer laptop fans are on the bottom which is right on your laptop FANS_COOLING;DESIGN_FEATURES
+the laptop preformed pretty well OPERATION_PERFORMANCE;GENERAL
+i got my macbook pro because i wanted to do all the stuff i need to do without worrying about the system quitting on me or freezing for a few minutes OS
+i loved the netbook \ ( minus the fact that it was windows os \ ) until this started happening OS
+the minute you fire it up it 's all good , very easy user interface OS
+i actually contact toshiba before i started having problem and was given run around after i supplied serial number in order to delay me sending in laptop until after warrenty expired SUPPORT
+theres also idvd , a program dedicated to putting all your favorite media together photos , recordings , video projects into one program so that you can create the perfect memoir for your parents , family , siblings , and any other person important in your life that there may be SOFTWARE
+after replacing the hard drive the battery stopped working \ ( 3 months of use \ ) which was frustrating BATTERY;HARD_DISC
+i love the easy to see screen , and it works well for work , persoal or just play GRAPHICS;OPERATION_PERFORMANCE
+if what you need is a machine to do some surfing , email checking , word processing , and watching a movie or two , this is the machine you want MISCELLANEOUS
+the mouse pad and buttons are the worst i 've ever seen MOUSE
+awesome graphics ! GRAPHICS
+it really is perfect for work and play MISCELLANEOUS
+the pro is a great product , i wish that the 13 inch models came with the intel i processors and had a more comfortable edge \ ( the edges hurt my wrists \ ) GENERAL;CPU;DESIGN_FEATURES;USABILITY
+one drawback i noticed was sound quality via usb MULTIMEDIA_DEVICES
+the battery life sucked the juice from my laptop and when the extended life battery went out we were sol there to , so much for that warranty covering all the products we purchased BATTERY;SUPPORT
+i have had another mac , but it got slow due to an older operating system OS;OPERATION_PERFORMANCE
+that 's very possible , but since they do n't make windows xp drivers for the sound card in this machine , i was stuck until windows 7 came out MULTIMEDIA_DEVICES;OS
+i'ts nice to have the higher end laptops , but this fits my budget and the features i need DESIGN_FEATURES;PRICE
+was disappointed to find out that the model had been discontinued , apparently because of known motherboard problems MOTHERBOARD
+well , i started using google chrome , which is a little better , but it freezes too sometimes SOFTWARE
+also the speakers are not very loud , but it is a netbook MULTIMEDIA_DEVICES
+love this laptop wonderful price for what you get ! PRICE;GENERAL
+just a black screen ! GRAPHICS
+a key contributor that led me to mac is the art aspect MISCELLANEOUS
+eventually my battery would n't charge , so unless i had it plugged in it would n't even power on BATTERY
+purchased for development purposes , but it has turned into my everyday laptop as well for surfing , e mail , etc MISCELLANEOUS
+my first problem was with the pre loaded norton firewall security program SOFTWARE
+i had a usb connect but , i ca n't use it because it is not compatible USABILITY;PORTS
+accordingly , i have decided to never purchase another hp product \ ( my five year old compaq \ ) lasted 5 years before the hard drive crashed HARD_DISC
+i know that everyone thinks macs are overpriced and overrated , but once you get past the initial expense you 'll find that they 're worth every penny \ ( besides , there 's always the financing plan that best buy offers \ ) MISCELLANEOUS
+i am not going to sit here and complain about it not having a cd drive and what not because it is a netbook , it is made to be compact and if you want all the other stuff get a laptop OPTICAL_DRIVES
+i love the multi touch trackpad MOUSE
+hp is more interested in selling extended warranties \ ( which cost more than the netbook new \ ) then they are in helping or fixing SUPPORT
+not too much junk software to remove SOFTWARE
+system is loosing about 20 of performance because of that OS;OPERATION_PERFORMANCE
+it is easy to use , good quality and good price USABILITY;QUALITY;PRICE
+the difference in the apple keyboard from a pc 's keyboard took a bit of tim to get used to , but overall it 's worth it ! KEYBOARD;USABILITY
+the extended warranty for the 4000 and up computers was the only one available for purchase on the drop drown menu SUPPORT
+only issue is that it is a little slow , and i 'm fixing that by adding more ram OPERATION_PERFORMANCE
+the hard drive crashed as well , and i had to buy a new power cord HARD_DISC;POWER_SUPPLY
+another issue i have with it is the battery BATTERY
+after 2 months of complaints , asus finally sent the right power supply to my techies POWER_SUPPLY
+that included the extra sony sonic stage software , the speakers and the subwoofer i got \ ( that was worth the money \ ) , the bluetooth mouse for my supposedly bluetooth enabled computer , the extended life battery and the docking port SOFTWARE;MULTIMEDIA_DEVICES;BATTERY;PORTS;MOUSE
+my macbook pro works like a dream , it has never overheated , or even been slightly warm for that matter OPERATION_PERFORMANCE;GENERAL
+pc users use the powerpoint program for slide show presentation and mac users utilize keynote SOFTWARE
+i get a ton of compliments on its size , and speaking as someone who regularly commutes on a bus , i can attest to the fact that this is the perfect size computer if you 're restricted to the width of your body for computing room DESIGN_FEATURES
+it takes me approximately 3 tries to get to each site , then after closing the browser and reopening it it actually works OPERATION_PERFORMANCE
+easy to carry , can be taken anywhere , can be hooked up to printers , headsets PORTABILITY;CONNECTIVITY
+also the keyboard does not liht up so unless your sitting in a room with some light you cant see anything and thats bad for me because my boyfriend tends to watch tv in the dark at night which leaves me with no way of seeing the keyboard KEYBOARD
+when i got my laptop back after this first instance it worked okay for a little bit then i started expeirencing issues again , everything from programs and drivers failing again , to it powering off for no reason , to locking up and freezing and just all sorts of issues SOFTWARE
+love that it does n't take up space like a regular computer DESIGN_FEATURES
+asked the customer service rep SUPPORT
+so , i took it back to the apple store and they narcissist genius bar staff \ ) fixed it by resetting the fan at boot up SUPPORT
+just keep in mind the graphics is not dedicated so loading the movie almost took a minute , but it ran fairly smooth for a non dedicated graphics card GRAPHICS;OPERATION_PERFORMANCE
+needs power and mouse cable to plug in back instead of side , in the way of operating a mouse in small area MOUSE
+4 ram slots , 2 hdd bays , 16gb ram support no wireless issues , at least for me DESIGN_FEATURES;HARD_DISC;MEMORY;CONNECTIVITY
+i agree with the previous comment that asus tech support is horrible which is a con in my opinion SUPPORT
+in fact , somehow \ ( and i never opened it up \ ) some specks of dust or something got inside the screen and are now there permanently , behind the front of the screen , in the way of the display GRAPHICS
+the mouse on the pad , the left button always sticks MOUSE
+i have tried to charge on different batteries with no luck BATTERY
+i would recommend this computer to anyone searching for the perfect laptop , and the battery life is amazing BATTERY
+we use the built in tools often , itunes is open nearly every day and works great with my iphone SOFTWARE
+the size of has actually help me out quite a bit by me being able to fit it in an already full backpack and to use it at a resturant where the food on the table is always so space consuming DESIGN_FEATURES
+true quality at a great price ! QUALITY;PRICE
+not easy to carry PORTABILITY
+the programs that come standard with the leopard running system are enough for the average person to run all the basics SOFTWARE;OS
+so what am i supposed to do \ ? the lg service center can not provide me the service when it is called the service center SUPPORT
+the material this pro is made out of seems a lot nicer than any pc specs like i said this performs a lot better than any computer i 've had in the past OPERATION_PERFORMANCE
+after doing extensive research , macconnection had the lowest price on the 15 mbp i5 PRICE
+i am addicted to photo booth ! MISCELLANEOUS
+the operating system and user interface is very intuitive , and the large multi touch track pad is amazing OS;MOUSE
+hard disk the new editions gives you more hard disk space \ ( 500gb instead of 320gb \ ) but time has taught me never to trust an internal hard disk HARD_DISC
+it is extremely portable and easily connects to wifi at the library and elsewhere PORTABILITY;CONNECTIVITY
+first things first , macbook pro has many applications to make life easier , unlike the windows computers OS;SOFTWARE
+and the screen on this thing is absolutely amazing for high quality videos and movies and gaming GRAPHICS
+i considered i may have too much on the computer , but after looking , there was plenty of space and that is not the issue HARD_DISC
+i do n't use my laptop in a way though that needs a long battery life so it 's perfect for me BATTERY
+i must keep it plugged in at all times because it will not keep a charge for longer than four minutes BATTERY
+summary i 've had this laptop for 2 months , out of the blue the power adapter stops working POWER_SUPPLY
+i saw walmart had the same computer for about 650 but still knowing what i know now , i would not buy it at that price PRICE
+of course , for a student , weight is always an issue DESIGN_FEATURES
+now mainboard is broken , have to wait for a new one MOTHERBOARD
+the speed difference is next to nothing for a mac , and the hard drive can be manually upgraded or you could just buy a 60 500gb external hard drive HARD_DISC;OPERATION_PERFORMANCE
+2 the wireless card is low quality QUALITY
+they also use two totally different operating systems OS
+they are about the same size keys KEYBOARD
+i was n't really as concerned about portability \ ( it 's a very large laptop \ ) but it 's not hard to move around or take on a trip which was a pleasant surprise PORTABILITY
+the people are frustrating to work with , the product itself is very cheaply made , and the accessories are less than satisfactory QUALITY
+they offer the best warranty in the business , and do n't 3rd party it out like toshiba SUPPORT
+the only problems are the sound isnt very loud i have to wear headphones MULTIMEDIA_DEVICES
+again windows based machines were not giving me anything to work with ! OS
+everything about a mac is wonderful , it takes a little used to learning and getting used to the new system , but you will learn fast and its all worth it GENERAL;USABILITY;OS
+i love the size of the computer since i play games on it DESIGN_FEATURES
+you know , using the computer should be fun , not aggrevation , especially when you are playing games or working with photos MISCELLANEOUS
+there are no viruses or spyware to worry about like on a windows computer OS
+to be honest i think it was faulty equipment or something but idk MISCELLANEOUS
+i also love the small , convenient size of my laptop , making it a perfect tool for my academic studies DESIGN_FEATURES
+i love its solid build , light wt and excellent battery life \ ( for now \ ) QUALITY;BATTERY
+while about 8 years ago , i hope that the quality has changed QUALITY
+the difference is it 's a whole lot of fun using the laptop now , still learning the apple navigation , but is fun and comes with a lot of cool apps SOFTWARE
+i propose that i can just swap the hard drives HARD_DISC
+the battery holds up well , it 's built very solidly , and runs fast BATTERY;QUALITY;OPERATION_PERFORMANCE
+sound card is limited though MULTIMEDIA_DEVICES
+this is a nicely sized laptop with lots of processing power and long battery life OPERATION_PERFORMANCE;BATTERY
+the only thing i can imagine is that sony jumped on early specifications for vista requirements from microsoft and designed it to those inadequate requirements OS
+the keyboard , which generally felt okay even for someone used to a desktop keyboard , now looks terrible KEYBOARD
+the display is awesome GRAPHICS
+the mouse is a little bit different than what you 're used to though it has one big flat panel and one full bar \ ( instead of two separate ones \ ) to click with but you get used to it quite quickly MOUSE
+it took several weeks just to get them to acknowledge that i owned the warranty SUPPORT
+the keyboard is like no other laptop keyboard KEYBOARD
+computer crashed frequently and battery life decreased very quickly BATTERY
+i propose that they can just swap the hard drives HARD_DISC
+every driver on the drivers applications dvd is everything you will need for a reload SOFTWARE
+i called their repair depot as was told they would send me a new box to return the computer to the repair depot SUPPORT
+it 's also fairly easy to use the operating system OS;USABILITY
+i know that asus is known for making motherboards , but this is the worst computer experience that i have ever had MOTHERBOARD
+we figure that after everything his pc actually ended up costing 350 more than my original mac PRICE
+so having the ac plug go out on me and get lose or i could actually here it inside my computer on two of the three times is not good MISCELLANEOUS
+peformance is good for the price PRICE;OPERATION_PERFORMANCE
+the computer is currently in west verginia doe to the method of shipping choosen by toshiba SHIPPING
+summary hp knew they were shipping out bad bios and did nothing proactive to resolve it SUPPORT
+i had 3 months when the ports started going out PORTS
+the improvements to the os have been relatively gradual , but substantive OS
+it is super easy to use USABILITY
+many of my classmates computers hard drives crashed HARD_DISC
+ease of use is just one of the benefits i love about my mac USABILITY;GENERAL
+i would n't play a first person shooter with this , mind , but if you wanted to run ms office , email , chat , download a video , listen to music from a certain fruit named music store , and were looking for a highly portable yet powerful netbook to do that all in , i 'd highly recommend checking this out SOFTWARE
+the 13 macbook pro just fits in my budget and with free shipping and no tax to ca this is the best price we can get for a great product SHIPPING;PRICE
+the sheer power and flexibility makes the macbook pro a must have for any techie ! OPERATION_PERFORMANCE
+the notebook is lacking a hdmi port and a s video port that would enable one to hook it to a tv PORTS
+the speakers on it are useless too MULTIMEDIA_DEVICES
+battery is lasting about 6 hours as i am surfing the web on sundays while checking football scores and watching funny youtube videos BATTERY
+iphoto is great for adding pictures right to facebook and other social networking sites SOFTWARE
+in early may i got it back and this time i only had it back for 1 day before it had a new issue so it was sent back in for the 6th time they expedited the repairs so i was only supposed to have to be without it for 3 days and it was supposed to be fixed , by a senior tech SUPPORT
+some features arent friendly \ ( volume wheel , sound quality , etc MULTIMEDIA_DEVICES;DESIGN_FEATURES
+a cheaper price should not equal a cheap product PRICE;QUALITY
+i think the manual is somewhere on the hard drive , but i rather have a hard copy HARD_DISC
+thank you best buy for putting my computer together and installing my first software you guys were great too ! SOFTWARE
+adjust the sensitivity since it 's not that responsive to begin with MISCELLANEOUS
+after a couple of years , my battery life began to diminish but was replaced for free due to a company wide recall of my particular battery BATTERY
+the system constantly overheats , the battery life is too short , the case is coming apart , and my core applications that i use every day in my work as a graphic artist run poorly BATTERY;OS;SOFTWARE
+later it held zero charge and its replacement worked for less than three months BATTERY
+the company sent me a whole new cord overnight and apologized SUPPORT;POWER_SUPPLY
+it 's even easy to hook up to other wireless networks CONNECTIVITY
+also , i have had alot of trouble with the shift key to go to other lines KEYBOARD
+the rep did not even answer my question , i had to ask him , if he understood what i ask or if he spoke english because he did n't even try to acknowledge my question SUPPORT
+it gives me the power and speed that i need to run all the programs i use to edit SOFTWARE;OPERATION_PERFORMANCE
+ilife is easily compatible with microsoft office so you can send and receive files from a pc USABILITY;SOFTWARE
+as a computer science student in college , i find that the portability , longevity , and ease of use of this computer make me \ ( shockingly \ ) want to do homework more PORTABILITY;USABILITY;QUALITY
+again i sent it back and they replaced the motherboard and some fan inside MOTHERBOARD;FANS_COOLING
+fully charged , the macbook pro can last about five hours unplugged BATTERY
+even though it is much more expensive than many pc laptops , it is worth the price PRICE
+i know there are way better laptops out there for the same price , and why spend money on shit when you can go out and get yourself a perfectly decent laptop that doesnt suck total monkey balls PRICE
+for me , keys were starting to get stuck and would n't type very well KEYBOARD
+ca n't reinstall with standard os cd because of proprietary hardware drivers OS;SOFTWARE
+there is a small red circle next to it with a x in the middle , and when i click on it it says consider replacing your battery and it does not hold full charge BATTERY
+the computer was two weeks late in delivery because hp forgot to complete the required import paperwork SHIPPING
+the first programm i switched on was a game for my children SOFTWARE
+i have been very pleased with the performance of this laptop OPERATION_PERFORMANCE;GENERAL
+i bought it for my mom and she reports that the battery life lasts all day for her , it 's very lightweight , and the response for the computing she 's doing \ ( internet focused activity mail , research , etc \ ) is excellent BATTERY;OPERATION_PERFORMANCE;DESIGN_FEATURES
+its very nice and once you learn the features you will be so happy to have such a sophisticated computer DESIGN_FEATURES;GENERAL
+it is sleek and lightweight and charges quickly when needed DESIGN_FEATURES;BATTERY
+also you may need to charge it once a day , if for medium use every thing fast and easy with mac the size and look is the most feature that attracted me to it DESIGN_FEATURES;BATTERY
+\ ( the ibook backup also uses a firewire connection \ ) MISCELLANEOUS
+i did think it had a camera because that was one of my requirements , but forgot to check in the specifications on this one before i purchased DESIGN_FEATURES
+also the display is exceptional ! GRAPHICS
+the computer was shipped to their repair depot on june 24 and returned on july 2 seems like a short turn around time except the computer was not repaired when it was returned SUPPORT
+learning all of the keyboard shortcuts only took a few minutes to get used to as some of the shortcuts are the same on windows machines KEYBOARD;USABILITY
+little short on ram but you get what you pay for MEMORY
+it did n't come with any software installed outside of windows media , but for the price , i was very pleased with the condition and the overall product PRICE;SOFTWARE;GENERAL
+then , one month after the warranty expired , the replacement charger went SUPPORT;POWER_SUPPLY
+i love a pc but i was ready for a change and tired of the windows system OS
+your cursor will end up all over the freaking place , , , it 's not uncommon for me to accidentally delete words , sentences , paragraphs because of this mousepad MOUSE
+other installed features , such as certain printer software , are also most attractive DESIGN_FEATURES;SOFTWARE
+i work in film editing and post production , so i need a laptop that not only has power , but memory and speed as well OPERATION_PERFORMANCE;MEMORY
+it had a seventeen inch screen which i wanted , but i did n't realize at the time it would be such a monster ! GRAPHICS
+even doing so , the hinge may just be slightly tightened only DESIGN_FEATURES
+company provides ups shipping , fast , great ! SHIPPING
+i would tell the technician i knew exactly what was wrong with it but they did not listen and i had to go through a bunch of junk to get them to tell me i needed to send the computer in SUPPORT
+then i 've fixed the dc jack \ ( inside the unit \ ) , rewired the dc jack to the outside of the laptop , replaced the power brick MISCELLANEOUS
+it is easy to use , has great screen quality , and every so light weight USABILITY;DESIGN_FEATURES;GRAPHICS
+great product , very easy to use and great graphics USABILITY;GENERAL;GRAPHICS
+the ilife software that comes with the computer is so simple to use and produces a great finished product SOFTWARE;USABILITY;GENERAL
+the built in webcam is great for skype and similar video chat services SOFTWARE
+the shop will definitely push the problem to the service center SUPPORT
+pc users work in word , while mac users work in pages MISCELLANEOUS
+while i mostly use it for email , internet and gaming , i 'm confident all other applications live up to the high standard i 've come to appreciate from mac laptops SOFTWARE
+this laptop looks great on the surface 17 inch screen , good price point , nice appearance , boots up quickly , runs fast etc GRAPHICS;PRICE;DESIGN_FEATURES;OPERATION_PERFORMANCE
+the apple systems are over priced luxurys that ar n't worth what they are being charged for , this model 's specifications are far from being impressive and they only thing you get out of this is the apple name PRICE
+pros the macbook pro notebook has a large battery life and you wont have to worry to charge your laptop every five hours or so BATTERY
+disappointing for such a lovely screen and at a reasonable price GRAPHICS;PRICE
+the only bad thing about it is they give you the worst batteries possible BATTERY
+good price PRICE
+the motherboard is dead ! MOTHERBOARD
+the speed is fine OPERATION_PERFORMANCE
+hmmm that high failure rate sure is n't reflected in the retail price PRICE
+it was not clear that the microsoft student edition that was loaded on the computer , was a six month trial MISCELLANEOUS
+good for every day computing and web browsing MISCELLANEOUS
+while lacking some of the functions of the other versions , this was very acceptable for the uses planned for this computer MISCELLANEOUS
+also , i have had alot of trouble with the keys sticking and will not type correctly KEYBOARD
+excellent led monitor and well equipped GRAPHICS;DESIGN_FEATURES
+this process continued to repeat itself until the mother board had been replaced 4 times and the hard drive replaced 3 times HARD_DISC;MOTHERBOARD
+without a doubt , the design of this laptop is fantastic DESIGN_FEATURES
+i could n't believe how long the battery lasted on a single charge BATTERY
+i could save ten essay papers and have hardly any memory left MEMORY
+other than that , i would recommend this to someone in need of a cheap laptop with semi decent gaming capabilities MISCELLANEOUS
+this is the first time that i tried and owning a netbook although i have used 3 different laptops in the past 10 years , i find not much difference except of course for the screen size GRAPHICS
+but the biggest pain is that tech support is not available 24 7 SUPPORT
+the backlit keys are wonderful when you are working in the dark KEYBOARD
+i chose the ibookg4 , a laptop that is an attractive computer with a large screen big enough to please anyone GRAPHICS
+the most recent being that my safari internet browser is freaking out on me , but i have just been using firefox instead SOFTWARE
+everything about the mac is not only visually appealing , but very easy to use USABILITY
+i know what 7 hrs of battery looks like BATTERY
+i did not have to call the support line at all SUPPORT
+the laptop is outstanding in all aspects except that it has the windows 7 starter and not the full windows 7 OS
+the first problem is that the keyboard function is simply unsatisfactory KEYBOARD
+the dvd drive randomly pops open when it is in my backpack as well , which is annoying OPTICAL_DRIVES
+garageband is more for the musicians , and the laptop is equipped with a good working microphone , good enough for beginners and musicians at the intermediate level MULTIMEDIA_DEVICES
+i dual boot with linux and that other security prone os and it performs flawlessly OS;OPERATION_PERFORMANCE
+the difference is the toshiba had a lot more memory and hard drive space MEMORY;HARD_DISC
+there was a little difficulty doing the migration as the firewire cable system ca n't be used with the ibook USABILITY
+seems like maybe a bad shipment from toshiba SHIPPING
+os x is solid with lots of innovations such as quicklook which save heaps of time OS
+but other than that i am blown away by all the features this laptop offers DESIGN_FEATURES
+the keyboard is slick and quiet and not bulky like some other laptops i have had in the past KEYBOARD
+overall , this laptop is definitely a keeper with its simple yet stylish design and its array of fantastic colors to choose from DESIGN_FEATURES
+first the screen goes completely out GRAPHICS
+i 'm learning the finger options for the mousepad that allow for quicker browsing of web pages MOUSE;USABILITY
+the photobooth is a great program , it takes very good pictures with the built in camera SOFTWARE
+many kinds of software that is necessary to the working person is not available and can not be downloaded SOFTWARE
+i had to pay for the shipping ! SHIPPING
+it bluescreened on me without any warning , running simply basic chrome OPERATION_PERFORMANCE
+i took 3 4 years researching brands and prices of laptops PRICE
+we researched and found the best price at macconnection PRICE
+but guess what \ ? \ ( you have to buy an external dvd drive it does n't have a built in type \ ) the notebook ca n't be used because it does n't read anything for an external drive OPTICAL_DRIVES
+get this computer for portability and fast processing ! ! ! PORTABILITY;OPERATION_PERFORMANCE
+i use a cooling pad but it does n't help FANS_COOLING
+supplied software the software that comes with this machine is greatly welcomed compared to what windows comes with OS;SOFTWARE
+i 'm tired of the inept service SUPPORT
+garageband is easy to work with , like all the other apple applications i 've had experience with SOFTWARE
+no , tey do n't even support their own bios and it could be a problem with the bios how can a company that makes a fairly decent product get away with such insanity \ ? \ ? ! ! MISCELLANEOUS
+because we did not purchase the extended warranty in time , we are on the hook for the repair SUPPORT
+it started out by randomly ceasing to charge when it was plugged in \ ( mousing over the battery icon would read , for example , 74 , plugged in , not charging \ ) , requiring me to unplug it and plug it back in several times to get it to charge BATTERY
+this laptop looked brand new and was shipped very quickly SHIPPING
+info windows failed to load because the kernal is missing , or corrupt OS
+the display on this computer is the best i 've seen in a very long time , the battery life is very long and very convienent GRAPHICS;BATTERY
+but the quality , in general was less than the worth of the cheap laptop QUALITY;GENERAL
+in the first moth of owning this computer its hardrive failed which had to be replaced HARD_DISC
+its also fun to use ! USABILITY
+the graphics and screen are stunning and although i was a pc person , i was able to understand how to use a mac fairly quickly GRAPHICS
+with the upgraded memory , the macbook pro never has an issue running many many applications at once ! MEMORY;SOFTWARE;OPERATION_PERFORMANCE
+simple to use , and great graphics GRAPHICS;USABILITY
+the internet speed is spectacular OPERATION_PERFORMANCE;CONNECTIVITY
+they claim call center is still down SUPPORT
+mac also has many apps and programs that are quite cheap or free SOFTWARE
+my husband uses it mostly for games , email and music MISCELLANEOUS
+i just took the broken cords into the apple store and they gave me new ones SUPPORT;POWER_SUPPLY
+apparently under the screen there are 2 little screws and when the screen gets moved back and forth , they come loose GRAPHICS
