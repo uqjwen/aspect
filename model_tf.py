@@ -55,16 +55,17 @@ class Model():
 
 		#-----------------------------------------------------------------------------
 
-		att_score 	= Dense(self.aspect_size, activation = 'softmax') (latent)
+		# att_score 	= Dense(self.aspect_size, activation = 'softmax') (latent)
 
-		att_aspect 	= tf.matmul(tf.reshape(att_score,[-1,self.aspect_size]), self.aspect_embedding)
+		# att_aspect 	= tf.matmul(tf.reshape(att_score,[-1,self.aspect_size]), self.aspect_embedding)
 
-		att_aspect 	= tf.reshape(att_aspect, [-1, maxlen, self.aspect_emb_size])
+		# att_aspect 	= tf.reshape(att_aspect, [-1, maxlen, self.aspect_emb_size])
 
 		#-----------------------------------------------------------------------------
 
-		cat_latent 		= self.get_cat_latent(c_latent)
-		# cat_latent 		= self.get_cnn_maxpool(self.x)
+		# cat_latent 		= self.get_cat_latent(c_latent)
+		
+		cat_latent 		= self.get_cnn_maxpool(self.x)
 		self.cat_logits = Dense(self.num_cat, kernel_initializer='lecun_uniform')(cat_latent)
 
 		cat_loss 		= tf.nn.sigmoid_cross_entropy_with_logits(logits = self.cat_logits, labels = self.clabels)
@@ -95,7 +96,7 @@ class Model():
 
 
 
-		self.un_loss 		= self.get_un_loss(att_aspect, self.x, self.neg)
+		# self.un_loss 		= self.get_un_loss(att_aspect, self.x, self.neg)
 
 		# self.cost = self.loss# + self.un_loss
 
@@ -149,14 +150,6 @@ class Model():
 		return cat_latent
 
 
-	def get_cnn_latent(self,x,t):
-
-		domain_latent 	= tf.nn.embedding_lookup(self.word_embedding, x)
-		gen_latent 		= tf.nn.embedding_lookup(self.gen_embedding, x)
-
-		x_latent = tf.concat([domain_latent, gen_latent], axis=-1)
-
-		x_latent = self.get_cnn(x)
 
 	def get_cnn_maxpool(self,x):
 
@@ -309,15 +302,15 @@ def res(idx2word,input_data, y_pred, y_true, mask_data, x_logit):
 		# print(labels)
 		# print(predict)
 		# print('-------------------------------------')
-def cat_metrics(clabels, clogits, clabel_mask):
+def cat_metrics(clabels, clogits):
 	y_true = []
 	y_pred = []
 
 
 	res_pred = []
-	for clabel, clogit, cmask in zip(clabels, clogits, clabel_mask):
-		if cmask == 0:
-			continue
+	for clabel, clogit in zip(clabels, clogits):
+		# if cmask == 0:
+			# continue
 		labels = np.where(clabel!=0)[0]
 		# num = min(5,len(labels))
 		num = len(labels)
@@ -352,7 +345,7 @@ def cat_metrics(clabels, clogits, clabel_mask):
 	return f1_score(y_true, y_pred, average = 'micro'), res_pred
 
 def val(sess, model, data_loader):
-	input_data, input_tag, mask_data, y_data, clabels, clabel_mask, index, tfidf= data_loader.val(1)
+	input_data, input_tag, mask_data, y_data, clabels, index, tfidf= data_loader.val(1)
 
 	y_data = to_categorical(y_data, 3)
 	x_logit, y_pred, cat_logits = sess.run([model.x_logit, model.prediction,model.cat_logits],
@@ -372,7 +365,7 @@ def val(sess, model, data_loader):
 	y_true = np.argmax(y_data,axis=-1)
 	fscore_1 = f_score(y_pred, y_true, mask_data)
 	# fscore = f1_score(cat_pred, clabels, average = 'micro')
-	fscore_2,_ = cat_metrics(clabels, cat_logits, clabel_mask)
+	fscore_2,_ = cat_metrics(clabels, cat_logits)
 	# if fscore>0.5:
 	# 	res(data_loader.idx2word, input_data, y_pred, y_true, mask_data, x_logit)
 	return fscore_1,fscore_2
@@ -418,7 +411,7 @@ def train():
 			num_batch = int(data_loader.train_size/batch_size)
 			# print("total batch: ", num_batch)
 			for b in range(num_batch+1):
-				input_data, input_tag, mask_data, y_data, label_mask, clabels, tfidf = data_loader.__next__()
+				input_data, input_tag, mask_data, y_data, clabels, tfidf = data_loader.__next__()
 				# print(input_data.shape, input_tag.shape, mask_data.shape, y_data.shape, label_mask.shape)
 				# print(input_data.shape, mask_data.shape, y_data.shape)
 				input_neg = np.random.randint(1,data_loader.vocab_size, (input_data.shape[0], maxlen, neg_size))
@@ -428,7 +421,6 @@ def train():
 				_,loss = sess.run([model.train_op, model.cost], feed_dict = {model.x:input_data,
 																			model.t:input_tag,
 																			model.mask:mask_data,
-																			model.label_mask:label_mask,
 																			model.neg:input_neg,
 																			model.labels:y_data,
 																			model.clabels:clabels,
@@ -521,7 +513,7 @@ def test():
 
 		for i in range(iterations):
 
-			input_data, input_tag, mask_data, y_data, clabels, clabel_mask, index, tfidf = data_loader.val(0.9)
+			input_data, input_tag, mask_data, y_data, clabels, index, tfidf = data_loader.val(0.9)
 			y_data = to_categorical(y_data, 3)
 			
 
@@ -543,7 +535,7 @@ def test():
 			fscore_1 = f_score(y_pred, y_true, mask_data)
 			# fscore = f1_score(cat_pred, clabels, average = 'micro')
 			# fscore = cat_metrics(input_data, mask_data, clabels, cat_logits, clabel_mask)
-			fscore_2, cat_pred = cat_metrics(clabels, cat_logits, clabel_mask)
+			fscore_2, cat_pred = cat_metrics(clabels, cat_logits)
 			print(fscore_1, fscore_2)
 			res.append([fscore_1, fscore_2])
 			# print(fscore)

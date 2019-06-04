@@ -15,10 +15,11 @@ class Data_Loader():
 		# self.maxlen = maxlen
 		# fr = open('data.pkl', 'rb')
 		# fr = open('data_cat_laptop.pkl', 'rb')
-		if data_set == 'res':
-			data_file = 'data_cat_res.pkl'
+		if data_set == 'rest':
+			# data_file = 'data_cat_res.pkl'
+			data_file = 'data_rest.pkl'
 		else:
-			data_file='data_cat_laptop.pkl'
+			data_file='data_laptop.pkl'
 		fr = open(data_file, 'rb')
 		data = pickle.load(fr)
 
@@ -32,7 +33,7 @@ class Data_Loader():
 		self.vocab_size = data['vocab_size']
 		# self.emb_size = data['emb_size']
 
-		self.label_mask = data['label_mask']
+		# self.label_mask = data['label_mask']
 
 
 		self.num_tag = len(data['tag2idx'])+1
@@ -41,7 +42,7 @@ class Data_Loader():
 		self.clabels = data['cat_labels']
 		# self.clabels = to_categorical(self.clabels, self.num_cat)
 		self.clabels = self.my_categorical(self.clabels, self.num_cat)
-		self.clabel_mask = self.get_cat_mask(self.clabels, data['clabel2idx'])
+		# self.clabel_mask = self.get_cat_mask(self.clabels, data['clabel2idx'])
 
 
 		
@@ -201,9 +202,10 @@ class Data_Loader():
 
 	def embed_mat(self, data_set):
 		if data_set == 'laptop':
-			model = Word2Vec.load('gensim_laptop')
+			# model = Word2Vec.load('gensim_laptop')
+			model = Word2Vec.load('new_gensim_laptop')
 		else:
-			model = Word2Vec.load('gensim_res')
+			model = Word2Vec.load('new_gensim_rest')
 		mat = np.random.uniform(-1,1,(self.vocab_size, self.emb_size))
 		for i in range(1,self.vocab_size):
 			mat[i] =  model[self.idx2word[i]]
@@ -211,7 +213,7 @@ class Data_Loader():
 
 	def genel_mat(self, data_set):
 
-		gen_file = 'gen_laptop.npy' if data_set == 'laptop' else 'gen_res.npy'
+		gen_file = 'new_gen_laptop.npy' if data_set == 'laptop' else 'new_gen_rest.npy'
 
 		if os.path.exists(gen_file):
 			return np.load(gen_file)
@@ -254,7 +256,6 @@ class Data_Loader():
 				self.train_sent_tag[begin:end],\
 				self.train_mask[begin:end],\
 				self.train_labels[begin:end],\
-				self.train_label_mask[begin:end],\
 				self.train_cat_labels[begin:end],\
 				self.train_tfidf[begin:end]
 
@@ -285,7 +286,6 @@ class Data_Loader():
 					self.val_mask, \
 					self.val_labels, \
 					self.val_cat_labels, \
-					self.val_cat_mask, \
 					index,\
 					self.val_tfidf
 
@@ -305,7 +305,6 @@ class Data_Loader():
 				v_mask.append(self.val_mask[idx])
 				v_labels.append(self.val_labels[idx])
 				v_c_labels.append(self.val_cat_labels[idx])
-				v_c_masks.append(self.val_cat_mask[idx])
 				v_tfidf.append(self.val_tfidf[idx])
 			# v_c_masks.append(self.)
 
@@ -319,7 +318,6 @@ class Data_Loader():
 				np.array(v_mask),\
 				np.array(v_labels),\
 				np.array(v_c_labels),\
-				np.array(v_c_masks),\
 				index,\
 				np.array(v_tfidf)
 
@@ -338,9 +336,8 @@ class Data_Loader():
 		self.train_sent_tag		= self.sent_tag[train_pmt]
 		self.train_mask 		= self.mask[train_pmt]
 		self.train_labels 		= self.labels[train_pmt]
-		self.train_label_mask 	= self.label_mask[train_pmt]
+		# self.train_label_mask 	= self.label_mask[train_pmt]
 		self.train_cat_labels	= self.clabels[train_pmt]
-		self.train_cat_mask 	= self.clabel_mask[train_pmt]
 		self.train_tfidf		= self.tfidf[train_pmt]
 
 
@@ -349,9 +346,8 @@ class Data_Loader():
 		self.val_sent_tag		= self.sent_tag[test_pmt]
 		self.val_mask 			= self.mask[test_pmt]
 		self.val_labels 		= self.labels[test_pmt]
-		self.val_label_mask 	= self.label_mask[test_pmt]
+		# self.val_label_mask 	= self.label_mask[test_pmt]
 		self.val_cat_labels		= self.clabels[test_pmt]
-		self.val_cat_mask 		= self.clabel_mask[test_pmt]
 		self.val_tfidf			= self.tfidf[test_pmt]
 
 		self.train_size 		= train_size
@@ -368,19 +364,19 @@ class Data_Loader():
 		self.val_sent_tag 	= self.sent_tag[val_b:val_e]
 		self.val_mask 		= self.mask[val_b:val_e]
 		self.val_labels 	= self.labels[val_b:val_e]
-		self.val_label_mask = self.label_mask[val_b:val_e]
+		# self.val_label_mask = self.label_mask[val_b:val_e]
 
 		self.sent 		= np.delete(self.sent, range(val_b, val_e), axis=0)
 		self.sent_tag 	= np.delete(self.sent_tag, range(val_b, val_e), axis=0)
 		self.mask 		= np.delete(self.mask, range(val_b, val_e), axis=0)
 		self.labels 	= np.delete(self.labels, range(val_b, val_e), axis=0)
-		self.label_mask = np.delete(self.label_mask, range(val_b, val_e), axis=0)
+		# self.label_mask = np.delete(self.label_mask, range(val_b, val_e), axis=0)
 
 		self.test_sent 			= self.sent[val_b:]
 		self.test_sent_tag 		= self.sent_tag[val_b:]
 		self.test_mask 			= self.mask[val_b:]
 		self.test_labels 		= self.labels[val_b:]
-		self.test_label_mask 	= self.label_mask[val_b:]
+		# self.test_label_mask 	= self.label_mask[val_b:]
 
 
 

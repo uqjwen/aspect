@@ -134,7 +134,7 @@ def sampling(sents, sent_atts, labels, clabels, max = 10):
 def visual_atts():
 	sents, sent_atts, labels, clabels = att()
 
-	maxlen = 15
+	maxlen = 20
 	# print(sent_atts)
 	sents = pad_my_sequence(sents, maxlen, '')
 	# sent_atts = pad_sequences(sent_atts, maxlen)
@@ -154,6 +154,6 @@ def visual_atts():
 # def attention()
 
 if __name__ == '__main__':
-	main()
+	# main()
 	# att('laptop')
-	# visual_atts()
+	visual_atts()

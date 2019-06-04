@@ -218,6 +218,41 @@ def build_vocab(data, filename):
 
 	pickle.dump(data,open(filename, 'wb'))
 
+def laptop_cat():
+	filename = 'annot_cat.txt'
+	fr = open(filename)
+	data = fr.readlines()
+	fr.close()
+	fr = open('data_laptop.pkl','rb')
+	laptop = pickle.load(fr)
+	fr.close()
+
+	cats = []
+	cats_set = []
+	for line in data:
+		line = line.strip()
+		listfromline = line.split()
+		# cats.append(listfromline[-1].split(';'))
+		cat = listfromline[-1].split(';')
+		for c in cat:
+			if c not in cats_set:
+				cats_set.append(c)
+		cats.append(cat)
+	print(' '.join(cats_set))
+
+	assert len(cats) == len(laptop['processed_sentence'])
+
+	clabel2idx = dict((c,i) for i,c in enumerate(cats_set))
+	idx2clabel = dict((i,c) for i,c in enumerate(cats_set))
+	cat_labels = [[clabel2idx[c] for c in cat] for cat in cats]
+	laptop['cat_labels'] = cat_labels
+	laptop['clabel2idx'] = clabel2idx
+	laptop['idx2clabel'] = idx2clabel
+	laptop['num_cat'] = len(cats_set)
+
+	fr = open('new_data_laptop.pkl','wb')
+	pickle.dump(laptop,fr)
+	fr.close()
 
 
 def annot_cat():
@@ -271,4 +306,5 @@ if __name__ == '__main__':
 	# process_laptop_file('Laptop_Train_v2.xml')
 	# process('rest')
 	# process('laptop')
-	annot_cat()
+	# annot_cat()
+	laptop_cat()
