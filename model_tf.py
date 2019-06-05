@@ -477,6 +477,27 @@ def save_for_visual(sents, masks, y_pred, atts, clogits, clabels, data_loader, i
 		fr.write('------------------------------------------\n')
 	fr.close()
 
+def test_debug(data_loader, input_data, clabels, cat_logits):
+	idx2word = data_loader.idx2word
+	idx2clabel = data_loader.idx2clabel
+
+	for sent, clabel, cat_logit in zip(input_data, clabels, cat_logits):
+		sent = [idx2word[idx] for idx in sent]
+		print(' '.join(sent))
+		clabel = np.where(clabel!=0)[0]
+		clabel = [idx2clabel[c] for c in clabel]
+		print(' '.joint(clabel))
+
+		num = len(clabel)
+		cat_logit = np.argsort(cat_logit)[::-1][:num]
+		cat_logit = [idx2clabel[c] for c in cat_logit]
+		print(' '.join(cat_logit))
+		print('--------------------------------------------------')
+	
+
+
+
+
 def test():
 
 	batch_size = 32
