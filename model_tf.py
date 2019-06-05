@@ -63,9 +63,10 @@ class Model():
 
 		#-----------------------------------------------------------------------------
 
-		# cat_latent 		= self.get_cat_latent(c_latent)
+		# cat_latent 		= self.get_cat_attention(c_latent)
+		cat_latent 		= self.get_cat_maxpooling(c_latent)
 		
-		cat_latent 		= self.get_cnn_maxpool(self.x)
+		# cat_latent 		= self.get_cnn_maxpool(self.x)
 		self.cat_logits = Dense(self.num_cat, kernel_initializer='lecun_uniform')(cat_latent)
 
 		cat_loss 		= tf.nn.sigmoid_cross_entropy_with_logits(logits = self.cat_logits, labels = self.clabels)
@@ -116,35 +117,25 @@ class Model():
 		# grads,_ 	= tf.clip_by_global_norm(grads, clip_norm = 2)
 		# self.train_op = optimizer.apply_gradients(zip(grads,vars))
 
-	def get_cat_latent(self, latent):
+
+	def get_cat_maxpooling(self, latent):
+		latent_pool = tf.layers.max_pooling1d(latent, pool_size = [self.maxlen], strides = 1)
+		return latent_pool
+
+	def get_cat_attention(self, latent):
 		scores = Dense(1, kernel_initializer = 'lecun_uniform')(latent) #batch_size, maxlen, 1
 		scores = tf.squeeze(scores,-1)
 
-		# self.debug = tf.reduce_sum(self.mask*tf.exp(scores), axis=-1, keepdims = True)
 		thres = tf.argmax(self.labels, axis=-1)
 		thres = tf.cast(tf.greater(thres,0),tf.float32)
 
-		#latent: batch_size, maxlen, embed_size
-		#score: batch_size, maxlen
-		#mask: batch_size, maxlen
-		# self.d1 = scores 
 		exp_scores = self.mask*tf.exp(5*(scores+0.1*thres))
-		# exp_scores = self.tfidf*tf.exp(scores)
-		# self.d2 = exp_scores
 		self.sum_score = tf.reduce_sum(exp_scores, axis=-1, keepdims=True)
-		# sum_score = tf.maximum(sum_score,1)
-		# self.sum_score += 1e-10
+
 		softmax_scores = exp_scores/self.sum_score
+
 		self.atts = softmax_scores
 		softmax_scores = tf.expand_dims(scores,-1)
-
-
-
-		# scores = tf.nn.softmax(scores)
-		# scores = self.mask*scores
-		# self.atts = scores
-		# scores = tf.expand_dims(scores, -1)
-
 		cat_latent = tf.reduce_sum(softmax_scores*latent, axis=1) #batch_size, embed_size
 		# return tf.reduce_mean(latent, axis=1)
 		return cat_latent
