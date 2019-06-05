@@ -482,11 +482,11 @@ def test_debug(data_loader, input_data, clabels, cat_logits):
 	idx2clabel = data_loader.idx2clabel
 
 	for sent, clabel, cat_logit in zip(input_data, clabels, cat_logits):
-		sent = [idx2word[idx] for idx in sent]
+		sent = [idx2word[idx] for idx in sent if idx!=0]
 		print(' '.join(sent))
 		clabel = np.where(clabel!=0)[0]
 		clabel = [idx2clabel[c] for c in clabel]
-		print(' '.joint(clabel))
+		print(' '.join(clabel))
 
 		num = len(clabel)
 		cat_logit = np.argsort(cat_logit)[::-1][:num]
@@ -566,6 +566,7 @@ def test():
 		print(np.var(res, axis=0))
 		# save_for_visual(input_data, mask_data, y_pred, atts, cat_logits, clabels, data_loader, index, cat_pred)
 		np.save(checkpointer_dir+'res', res)
+		test_debug(data_loader, input_data, clabels, cat_logits)
 
 
 

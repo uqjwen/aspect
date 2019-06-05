@@ -73,7 +73,7 @@ the battery life seems to be very good , and have had no issues with it BATTERY
 enabling the battery timer is useless BATTERY
 temperatures on the outside were alright but i did not track in core processing unit temperatures OPERATION_PERFORMANCE
 going to bring it to service today SUPPORT
-there is no need to purchase virus protection for mac , which saves me a lot of time and money MISCELLANEOUS
+there is no need to purchase virus protection for mac , which saves me a lot of time and money SOFTWARE
 but we had paid for bluetooth , and there was none DESIGN_FEATURES
 so , i paid a visit to lg notebook service center at alexandra road , hoping they can make the hinge tighter SUPPORT
 my daughter uses it for games , email , facebook , pictures and music MISCELLANEOUS
@@ -82,7 +82,7 @@ after about a week i finally got it back and was told that the motherboard had f
 it was slow , locked up , and also had hardware replaced after only 2 months ! OPERATION_PERFORMANCE;HARDWARE
 they had to replace the motherboard in april MOTHERBOARD
 yes , the computer was light weight , less expensive than the average laptop , and was pretty self explantory in use DESIGN_FEATURES;PRICE;USABILITY
-also , if you need to talk to a representive at microsoft , there is a charge , which i believe is robbery , since you are charged enormous amounts for a very badly designed system , which most people would have went with xp if they could OS
+also , if you need to talk to a representive at microsoft , there is a charge , which i believe is robbery , since you are charged enormous amounts for a very badly designed system , which most people would have went with xp if they could OS;SUPPORT
 i love windows 7 which is a vast improvment over vista OS
 keyboard is great , very quiet for all the typing that i do KEYBOARD
 dell 's customer disservice is an insult to it 's customers who pay good money for shoddy products SUPPORT
@@ -207,7 +207,7 @@ itunes is a handy music management program , and it is essential for anyone with
 mac is not made for gaming OPERATION_PERFORMANCE
 well i spilled something on it and they replaced it with this model , which gets hot and the battery does n't make it through 1 dvd BATTERY
 i 've had to call apple support to set up my new printer and have had wonderful experiences with helpful , english speaking \ ( from vancouver \ ) techs that walked me through the processes to help me SUPPORT
-but sony said we could send it back and be charged for adding the bluetooth an additional seventy something dollars DESIGN_FEATURES
+but sony said we could send it back and be charged for adding the bluetooth an additional seventy something dollars SUPPORT
 i need graphic power to run my adobe creative apps efficiently GRAPHICS;SOFTWARE
 the programs are esay to use and are quick to process this computer works like a charm SOFTWARE;USABILITY;OPERATION_PERFORMANCE
 the materials that came with the computer did not include the right anywhere DESIGN_FEATURES
@@ -459,7 +459,7 @@ i run dreamweaver , final cut pro 7 , photoshop , safari , firefox , msn messeng
 i was told by many that it was a great computer , but we got one of these , and it worked great for one year , and as soon as the warrenty was up , then it got really bad SUPPORT;QUALITY
 ive had to call tech support many times SUPPORT
 the apple applications \ ( ex iphoto \ ) are fun , easy , and really cool to use \ ( unlike the competition \ ) ! SOFTWARE;USABILITY
-not to mention it has shit gigs HARD_DISC
+not to mention it has shit gigs MISCELLANEOUS
 i paid for extra memory and the 17 inch screen , as well as the top of the line dvd and cd burners MEMORY;GRAPHICS;OPTICAL_DRIVES
 its pretty fast and does not have hiccups while i am using it for web browsing , uploading photos , watching movies \ ( 720p \ ) on occasion and creating presentations OPERATION_PERFORMANCE
 quality display i love hp , , it 's the only computer printer we will buy GRAPHICS;QUALITY
@@ -577,7 +577,7 @@ the processor is very quick and effective as i load webpages and applications CP
 my battery went bad about a year and a half after having it and it cost around eighty to a hundred dollars ! BATTERY
 it pretty much does everything we could ever need , and looks great to boot OPERATION_PERFORMANCE
 as a lifelong windows user , i was extremely pleased to make the change to mac OS;GENERAL
-the macbook is also made better , my computer has never got a virus , and the laptop runs just as fast as the first day i bought it GENERAL;OPERATION_PERFORMANCE;SOFTWARE
+the macbook is also made better , my computer has never got a virus , and the laptop runs just as fast as the first day i bought it GENERAL;OPERATION_PERFORMANCE
 i wiped nearly everything off of it , installed openoffice and firefox , and i am operating an incredibly efficient and useful machine for a great price PRICE;SOFTWARE;OPERATION_PERFORMANCE
 overall i feel this netbook was poor quality , had poor performance , although it did have great battery life when it did work QUALITY;OPERATION_PERFORMANCE;BATTERY;GENERAL
 i picked it out because it was inexpensive \ ( 400 \ ) and i thought it would be a good , easy to use first laptop PRICE;USABILITY;GENERAL
@@ -875,7 +875,7 @@ otherwise , all other features are a 1 DESIGN_FEATURES
 the performance is awesome OPERATION_PERFORMANCE
 the display is beyond horrible GRAPHICS
 there is hardly any memory on the computer 's hard drive MEMORY
-actually , i had noticed the one on the sales floor also did n't have sound ! HARD_DISC
+actually , i had noticed the one on the sales floor also did n't have sound ! MULTIMEDIA_DEVICES
 next , most acer laptop fans are on the bottom which is right on your laptop FANS_COOLING;DESIGN_FEATURES
 the laptop preformed pretty well OPERATION_PERFORMANCE;GENERAL
 i got my macbook pro because i wanted to do all the stuff i need to do without worrying about the system quitting on me or freezing for a few minutes OS
@@ -888,7 +888,7 @@ i love the easy to see screen , and it works well for work , persoal or just pla
 if what you need is a machine to do some surfing , email checking , word processing , and watching a movie or two , this is the machine you want MISCELLANEOUS
 the mouse pad and buttons are the worst i 've ever seen MOUSE
 awesome graphics ! GRAPHICS
-it really is perfect for work and play MISCELLANEOUS
+it really is perfect for work and play GENERAL
 the pro is a great product , i wish that the 13 inch models came with the intel i processors and had a more comfortable edge \ ( the edges hurt my wrists \ ) GENERAL;CPU;DESIGN_FEATURES;USABILITY
 one drawback i noticed was sound quality via usb MULTIMEDIA_DEVICES
 the battery life sucked the juice from my laptop and when the extended life battery went out we were sol there to , so much for that warranty covering all the products we purchased BATTERY;SUPPORT
@@ -1158,7 +1158,7 @@ touchpad will take a bit of time to get used to MOUSE;USABILITY
 now the machine wo n't connect and toshiba says that they did replace the connection card in may but they only warranty the repair for 30 days and now i 'm out of warranty even though this has been a constant 5 month occurance since i bought the netbook SUPPORT;CONNECTIVITY
 but , buy this model and just purchase 4gb of ram \ ( 2x2gb for 92 or 1x4gb for 99 \ ) , and save yourself 100 than the other model with 8gb of ram MEMORY
 if you 're looking for something to fly through those massive spreadsheets or play a graphics intensive game , you 'd be better off getting a machine aimed at that segment of the market MISCELLANEOUS
-browsing , also , was no problem for me when i used itunes \ ( which usually slows down my pc \ ) MISCELLANEOUS
+browsing , also , was no problem for me when i used itunes \ ( which usually slows down my pc \ ) SOFTWARE
 again , decent comp for the price , and i was in need of one quickly as my other laptop died on me PRICE
 so in a brief summary i would have to say that i would not recommend dell vostro 1000 to anyone due to it being a down right awful setup so in my opinion you should steer clear of them if you want a decent laptop USABILITY;DESIGN_FEATURES
 my friend just had to replace his entire motherboard , so did my wife , and it looks like i will have to as well MOTHERBOARD
@@ -1424,7 +1424,7 @@ comes with imovie MISCELLANEOUS
 computer has been at service facility more than in my hands QUALITY
 when i called sony the customer service was great SUPPORT
 even though i had the receipt in front of me proving it still had 2 months left on the warranty SUPPORT
-it is a much more streamlined system for adding programs , using the internet , and doing other things everyone does on a computer OS;SOFTWARE;USABILITY
+it is a much more streamlined system for adding programs , using the internet , and doing other things everyone does on a computer OS;SOFTWARE
 my computer froze on several occasion , had buttons that randomely would fall off and even had moments when the computer would refuse to turn on at all QUALITY;OPERATION_PERFORMANCE
 not even safe mode boots QUALITY
 this is an over sized , 18 inch laptop DESIGN_FEATURES
@@ -1436,7 +1436,7 @@ then after 4 or so months the charger stopped working so i was forced to go out 
 as usual at customer service center , she asked me to hold for a moment while she went to the back office and compare it with other same model netbooks and discussed it with her colleague \ ( i could see them \ ) SUPPORT
 the screen gets smeary and dusty very quickly and it 's very noticeable GRAPHICS
 strengths well shaped weaknesses a bad videocard ! DESIGN_FEATURES;GRAPHICS
-you ca n't even get a satellite card which is why i bought to begin with MISCELLANEOUS
+you ca n't even get a satellite card which is why i bought to begin with DESIGN_FEATURES
 the battery life , before the battery completely died of course , left much to be desired BATTERY
 it is a real touchpad , not the toy i saw in other brands MOUSE
 long story , but after many calls to various offices , i was told that no one can override the depot and that managers do n't take phone calls or e mails SUPPORT
@@ -1650,7 +1650,7 @@ it works great and i am so happy i bought it OPERATION_PERFORMANCE;QUALITY;GENER
 i like the design and ease of use with the keyboard , plenty of ports DESIGN_FEATURES;USABILITY;KEYBOARD;PORTS
 it definitely beats my old mac and the service was great SUPPORT;GENERAL
 web browsing is very quick with safari browser SOFTWARE;OPERATION_PERFORMANCE
-i like the lighted screen at night DESIGN_FEATURES;GRAPHICS
+i like the lighted screen at night GRAPHICS
 it is really easy to use and it is quick to start up USABILITY;OPERATION_PERFORMANCE
 i 've lived with the crashes and slow operation and restarts OPERATION_PERFORMANCE
 usb3 peripherals are noticably less expensive than the thunderbolt ones PORTS;PRICE
@@ -1845,7 +1845,7 @@ i then upgraded to mac os x 10 8 mountain lion OS
 i was considering buying the air , but in reality , this one has a more powerful performance and seems much more convenient , even though it 's about 20 inch thicker and 2 lbs heavier OPERATION_PERFORMANCE;DESIGN_FEATURES
 at home and the office it gets plugged into an external 24 lcd screen , so built in screen size is not terribly important GRAPHICS
 just beware no dvd slot so when i went to install software i had on cd i could n't DESIGN_FEATURES
-i bought it to be able to dedicate a small , portable laptop to my writing and was surprised to learn that i needed to buy a word processing program to do so DESIGN_FEATURES;PORTABILITY
+i bought it to be able to dedicate a small , portable laptop to my writing and was surprised to learn that i needed to buy a word processing program to do so DESIGN_FEATURES;PORTABILITY;SOFTWARE
 this version of macbook pro runs on a third generation cpu \ ( ivy bridge \ ) , not the latest fourth generation haswell cpu the 2013 version has CPU
 no cd rom in the new version there 's no way i 'm spending that kind of money on something has less features than the older version OPTICAL_DRIVES;DESIGN_FEATURES
 the volume is really low to low for a laptopwas not expectin t volume to be so lowan i hate that about this computer MULTIMEDIA_DEVICES

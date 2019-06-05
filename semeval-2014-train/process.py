@@ -250,7 +250,7 @@ def laptop_cat():
 	laptop['idx2clabel'] = idx2clabel
 	laptop['num_cat'] = len(cats_set)
 
-	fr = open('new_data_laptop.pkl','wb')
+	fr = open('data_laptop.pkl','wb')
 	pickle.dump(laptop,fr)
 	fr.close()
 
