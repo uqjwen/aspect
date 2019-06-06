@@ -63,8 +63,8 @@ class Model():
 
 		#-----------------------------------------------------------------------------
 
-		# cat_latent 		= self.get_cat_attention(c_latent)
-		cat_latent 		= self.get_cat_maxpooling(c_latent)
+		cat_latent 		= self.get_cat_attention(c_latent)
+		# cat_latent 		= self.get_cat_maxpooling(c_latent)
 		
 		# cat_latent 		= self.get_cnn_maxpool(self.x)
 		self.cat_logits = Dense(self.num_cat, kernel_initializer='lecun_uniform')(cat_latent)
@@ -101,8 +101,8 @@ class Model():
 
 		# self.cost = self.loss# + self.un_loss
 
-		self.cost 			= cat_loss
-		# self.cost 			= loss + cat_loss
+		# self.cost 			= cat_loss
+		self.cost 			= loss + cat_loss
 
 
 		self.global_step 	= tf.Variable(0, trainable = False)
@@ -120,6 +120,7 @@ class Model():
 
 	def get_cat_maxpooling(self, latent):
 		latent_pool = tf.layers.max_pooling1d(latent, pool_size = [self.maxlen], strides = 1)
+		latent_pool = tf.squeeze(latent_pool, axis=1)
 		return latent_pool
 
 	def get_cat_attention(self, latent):
@@ -557,7 +558,7 @@ def test():
 		print(np.var(res, axis=0))
 		# save_for_visual(input_data, mask_data, y_pred, atts, cat_logits, clabels, data_loader, index, cat_pred)
 		np.save(checkpointer_dir+'res', res)
-		test_debug(data_loader, input_data, clabels, cat_logits)
+		# test_debug(data_loader, input_data, clabels, cat_logits)
 
 
 

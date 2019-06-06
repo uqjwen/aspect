@@ -154,6 +154,6 @@ def visual_atts():
 # def attention()
 
 if __name__ == '__main__':
-	# main()
+	main()
 	# att('laptop')
-	visual_atts()
+	# visual_atts()
