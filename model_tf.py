@@ -63,10 +63,10 @@ class Model():
 
 		#-----------------------------------------------------------------------------
 
-		cat_latent 		= self.get_cat_attention(c_latent)
+		# cat_latent 		= self.get_cat_attention(c_latent)
 		# cat_latent 		= self.get_cat_maxpooling(c_latent)
 		
-		# cat_latent 		= self.get_cnn_maxpool(self.x)
+		cat_latent 		= self.get_cnn_maxpool(self.x)
 		self.cat_logits = Dense(self.num_cat, kernel_initializer='lecun_uniform')(cat_latent)
 
 		cat_loss 		= tf.nn.sigmoid_cross_entropy_with_logits(logits = self.cat_logits, labels = self.clabels)
@@ -102,7 +102,7 @@ class Model():
 		# self.cost = self.loss# + self.un_loss
 
 		# self.cost 			= cat_loss
-		self.cost 			= loss + cat_loss
+		self.cost 			= 0*loss + cat_loss
 
 
 		self.global_step 	= tf.Variable(0, trainable = False)

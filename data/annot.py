@@ -29,6 +29,45 @@ def my_split(line):
 	return tokens
 
 
+
+def clean_str(string):
+	"""
+	Tokenization/string cleaning for all datasets except for SST.
+	Original taken from https://github.com/yoonkim/CNN_sentence/blob/master/process_data.py
+	"""
+
+	string = re.sub(r"[^A-Za-z0-9(),!?\'\`]", " ", string)
+
+	string = re.sub(r" \'", " ", string)
+	string = re.sub(r"\' ", " ",string)
+
+	string = re.sub(r"\'s", " \'s", string)
+	string = re.sub(r"\'ve", " \'ve", string)
+	string = re.sub(r"n\'t", " n\'t", string)
+	string = re.sub(r"\'re", " \'re", string)
+	string = re.sub(r"\'d", " \'d", string)
+	string = re.sub(r"\'ll", " \'ll", string)
+	string = re.sub(r",", " , ", string)
+	string = re.sub(r"!", " ! ", string)
+	string = re.sub(r"\(", " \( ", string)
+	string = re.sub(r"\)", " \) ", string)
+	string = re.sub(r"\?", " \? ", string)
+	string = re.sub(r"\s{2,}", " ", string)
+	return string.strip()
+
+def get_label(sent, terms):
+	sent_tokens = word_tokenize(sent)
+	label = np.zeros(len(sent_tokens))
+	for term in terms:
+		term_tokens = word_tokenize(term)
+		locs = get_loc(sent_tokens, term_tokens)
+		for loc in locs:
+			begin,end = loc
+			for i in range(begin,end):
+				label[i] = 1 if i==begin else 2
+	return sent_tokens, label
+
+
 def main(filename):
 	xmlFilePath = os.path.abspath(filename)
 	tree = ET.parse(xmlFilePath)

@@ -16,10 +16,11 @@ class Data_Loader():
 		# fr = open('data.pkl', 'rb')
 		# fr = open('data_cat_laptop.pkl', 'rb')
 		if data_set == 'rest':
-			# data_file = 'data_cat_res.pkl'
-			data_file = 'data_rest.pkl'
+			data_file = './pkl/data_rest_2016_2.pkl'
+			# data_file = 'data_rest.pkl'
 		else:
-			data_file='data_laptop.pkl'
+			data_file='./pkl/data_laptop_2014.pkl'
+			# data_file = 'data_cat_laptop.pkl'
 		fr = open(data_file, 'rb')
 		data = pickle.load(fr)
 
@@ -98,12 +99,14 @@ class Data_Loader():
 
 		self.data_size = len(self.sent)
 
-		if 'permutation' not in data:
-			self.permutation = np.random.permutation(self.data_size)
-			data['permutation'] = self.permutation
-			pickle.dump(data,open(data_file, 'wb'))
-		else:
-			self.permutation = data['permutation']
+		# if 'permutation' not in data:
+		# 	self.permutation = np.random.permutation(self.data_size)
+		# 	data['permutation'] = self.permutation
+		# 	pickle.dump(data,open(data_file, 'wb'))
+		# else:
+		# 	self.permutation = data['permutation']
+
+		self.permutation = np.arange(self.data_size)
 
 		# self.train_val_test() ## it splits training testing here
 		self.train_test_split(self.permutation) ## it splits training testing here
@@ -203,9 +206,10 @@ class Data_Loader():
 	def embed_mat(self, data_set):
 		if data_set == 'laptop':
 			# model = Word2Vec.load('gensim_laptop')
-			model = Word2Vec.load('new_gensim_laptop')
+			model = Word2Vec.load('./pkl/gensim_laptop_2014')
 		else:
-			model = Word2Vec.load('new_gensim_rest')
+			# model = Word2Vec.load('new_gensim_rest')
+			model = Word2Vec.load('./pkl/gensim_rest_2016_2')
 		mat = np.random.uniform(-1,1,(self.vocab_size, self.emb_size))
 		for i in range(1,self.vocab_size):
 			mat[i] =  model[self.idx2word[i]]
@@ -213,7 +217,7 @@ class Data_Loader():
 
 	def genel_mat(self, data_set):
 
-		gen_file = 'new_gen_laptop.npy' if data_set == 'laptop' else 'new_gen_rest.npy'
+		gen_file = './pkl/gen_laptop_2014.npy' if data_set == 'laptop' else './pkl/gen_rest_2016_2.npy'
 
 		if os.path.exists(gen_file):
 			return np.load(gen_file)
@@ -228,7 +232,7 @@ class Data_Loader():
 				if word in self.word2idx:
 					index = self.word2idx[word]
 					mat[index] = np.array(list(map(float,vec))).astype(np.float32)
-			np.save(gen_file.split('.')[0], mat)
+			np.save(gen_file[:-4], mat)
 			return mat
 
 
@@ -326,6 +330,7 @@ class Data_Loader():
 
 	def train_test_split(self, permutation):
 		train_size = int(self.data_size*0.8)
+		train_size = 1488
 
 		# permutation = np.random.permutation(self.data_size)
 

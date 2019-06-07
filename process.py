@@ -46,6 +46,61 @@ def my_split(line):
 
 
 
+
+
+def clean_str(string):
+	"""
+	Tokenization/string cleaning for all datasets except for SST.
+	Original taken from https://github.com/yoonkim/CNN_sentence/blob/master/process_data.py
+	"""
+
+	string = re.sub(r"[^A-Za-z0-9(),!?\'\`]", " ", string)
+
+	string = re.sub(r" \'", " ", string)
+	string = re.sub(r"\' ", " ",string)
+
+	string = re.sub(r"\'s", " \'s", string)
+	string = re.sub(r"\'ve", " \'ve", string)
+	string = re.sub(r"n\'t", " n\'t", string)
+	string = re.sub(r"\'re", " \'re", string)
+	string = re.sub(r"\'d", " \'d", string)
+	string = re.sub(r"\'ll", " \'ll", string)
+	string = re.sub(r",", " , ", string)
+	string = re.sub(r"!", " ! ", string)
+	string = re.sub(r"\(", " \( ", string)
+	string = re.sub(r"\)", " \) ", string)
+	string = re.sub(r"\?", " \? ", string)
+	string = re.sub(r"\s{2,}", " ", string)
+	return string.strip()
+def get_loc(sent, term):
+	locs = []
+	for i,t in enumerate(sent):
+		if t == term[0]:
+			begin = i 
+			j = i+1
+			while j<len(sent) and j-i<len(term) and term[j-i]==sent[j]:
+				j+=1
+			if j-i>=len(term):
+				end = j
+				locs.append((begin,end))
+	return locs
+
+def get_label(sent, terms):
+	sent_tokens = word_tokenize(sent)
+	label = np.zeros(len(sent_tokens))
+	for term in terms:
+		term_tokens = word_tokenize(term)
+		locs = get_loc(sent_tokens, term_tokens)
+		for loc in locs:
+			begin,end = loc
+			for i in range(begin,end):
+				label[i] = 1 if i==begin else 2
+	return sent_tokens, label
+
+
+
+
+
 class MySentence():
 	def __init__(self,sentence):
 		self.sentence = sentence
@@ -79,7 +134,7 @@ def processSentence(tokens, labels):
 	return new_tokens, new_labels
 
 
-def get_sentence_labels(filename):
+def process_file(filename):
 	# filename = './data/ABSA16_Restaurants_Train_SB1_v2.xml'
 
 	xmlFilePath = os.path.abspath(filename)
@@ -90,54 +145,74 @@ def get_sentence_labels(filename):
 	labels = []
 	pos = []
 
+	all_sent = []
+	all_label = []
+	all_tag = []
+	all_term = []
+	all_cat = []
 
-	for sen in root.iter("sentence"):
+	for sent in root.iter("sentence"):
 		# print(word_tokenize(sen.find("text").text))
-		sentext = sen.find("text").text
-		# tokens = word_tokenize(sentext)
-		tokens = re.split(split_re, sentext)
-		# tokens = my_split(sentext)
-		y_labels = [0]*len(tokens)
-		# print(sentext)
-		# print(tokens)
-		for op in sen.iter("Opinion"):
-			# print(op.attrib['from'], op.attrib['to'])
-			if 'target' not in op.attrib:
-				continue
-			begin = int(op.attrib['from'])
-			end = int(op.attrib['to'])
+		sent_text = sent.find("text").text.lower()
 
-			if end>begin and op.attrib["target"]!="NULL":
-				# print(re.split(split_re, sentext[:begin]), tokens)
+		clean_sent = clean_str(sent_text)
+		terms 	= []
+		cats 	= []
+		for op in sent.iter('Opinion'):
+			if op.attrib['target'] != 'NULL':
+				# terms.append()
+				term = op.attrib['target'].lower()
+				term = clean_str(term)
+				terms.append(term)
 
-				begin_idx = 0 if begin==0 else len(re.split(split_re, sentext[:begin].strip()))
-				end_idx = len(re.split(split_re, sentext[:end].strip()))
+				cat = op.attrib['category'].split('#')[0]
+				cats.append(cat)
 
-				y_labels[begin_idx] = 1
-				for idx in range(begin_idx+1, end_idx):
-					y_labels[idx] = 2
-			temp = [tokens[i] for i,label in enumerate(y_labels) if label!=0]
-
-
-		tokens, sen_labels = processSentence(tokens,y_labels)
-
+		tokens, label = get_label(clean_sent, terms)
 		tags = pos_tagger.tag(tokens)
-		# tags = nltk.pos_tag(tokens)
-
-		tags = [tp[1] for tp in tags]
-
-
-		# tags = [0]*len(tokens)
-
-
-		sentences.append(tokens)
-		labels.append(sen_labels)
-		pos.append(tags)
+		tags = [tag[1] for tag in tags]
+		# tags = []
+		print(tokens)
+		print(label)
+		print(tags)
+		print(terms)
+		print(cats)
+		print('---------------------------------')
 
 
-	return sentences, labels, pos
+
+		# if len(terms) == 0:
+		# 	continue
+		if len(terms) == 0:
+			cats.append('unknown')
+
+		all_sent.append(tokens)
+		all_label.append(label)
+		all_tag.append(tags)
+		all_term.append(terms)
+		all_cat.append(cats)
+
+
+
+	# return sentences, labels, pos
+	return all_sent, all_label, all_tag, all_term, all_cat
+
+def process_domain(domain):
+	train 	= process_file('./data/ABSA16_Restaurants_Train_SB1_v2.xml')
+	test 	= process_file('./data/EN_REST_SB1_TEST_gold.xml')
+	data = []
+	for item1, item2 in zip(train, test):
+		data.append(item1+item2)
+	build_vocab(data, 'data_'+domain+'_2016.pkl')
+
+	sents = MySentence(data[0])
+	model = gensim.models.Word2Vec(sents, size = 100, window = 5, min_count=1, workers = 4)
+	model.save('gensim_'+domain+"_2016")
+
+
 		# break
-def build_vocab(sentences, labels,tags, train_size, emb_size, label_mask):
+def build_vocab(data, filename):
+	sentences, labels, tags, terms, cats = data[0],data[1],data[2],data[3],data[4]
 	dic = {}
 	for sen in sentences:
 		for word in sen:
@@ -154,26 +229,53 @@ def build_vocab(sentences, labels,tags, train_size, emb_size, label_mask):
 	word2idx = dict((word, i+1) for i,word in enumerate(dic.keys()))
 	idx2word = dict((i+1, word) for i,word in enumerate(dic.keys()))
 
+
+
+	cat_labels_set = []
+	for cat in cats:
+		for c in cat:
+			if c not in cat_labels_set:
+				cat_labels_set.append(c)
+
+
+
+	clabel2idx = dict((c,i) for i,c in enumerate(cat_labels_set))
+	idx2clabel = dict((i,c) for i,c in enumerate(cat_labels_set))
+
+
+
+
+
+
+
 	data = {}
 	data['word2idx'] = word2idx
 	data['idx2word'] = idx2word
 	data['vocab_size'] = len(word2idx)+1
 	sen = [ [word2idx[word] for word in sentence] for sentence in sentences]
 	data['labels'] = labels
-	data['processed_sentence'] = sen 
+	data['processed_sentence'] = sen
 	data['raw_sentence'] = sentences
-	data['emb_size'] = emb_size
-	data['train_size'] = train_size
 
 	tag = [[tag2idx[t] for t in tag] for tag in tags]
 	data['tags'] = tag
 	data['tag2idx'] = tag2idx
 	data['idx2tag'] = idx2tag
 
+	data['terms'] = terms
 
-	data['label_mask'] = np.array(label_mask).astype(np.float32)
 
-	pickle.dump(data,open('data_res_1.pkl', 'wb'))
+	cat_labels = [[clabel2idx[c] for c in cat] for cat in cats]
+	data['cat_labels'] = cat_labels
+	data['clabel2idx'] = clabel2idx
+	data['idx2clabel'] = idx2clabel
+	data['num_cat'] = len(cat_labels_set)
+
+
+
+
+
+	pickle.dump(data,open(filename, 'wb'))
 
 def process_unsupervised_sent(tokens):
 	new_tokens = []
@@ -210,21 +312,21 @@ def processFile():
 	sent2, label2, tag2 = get_sentence_labels('./data/EN_REST_SB1_TEST_gold.xml')
 	print('testing 1 finished ...')
 
-	sent3, label3, tag3 = get_sentence_labels('./data/ABSA16_Laptops_Train_SB1_v2.xml')
-	print("training 2 finished...")
-	sent4, label4, tag4 = get_sentence_labels('./data/EN_LAPT_SB1_TEST_.xml.gold')
-	print("testing 2 finished...")
-	# sent3, tag3 = get_unsupervised_sent('./data/train.txt')
-	label_mask = [1]*(len(sent1)+len(sent2)) +[0]*(len(sent3)+len(sent4))
+	# sent3, label3, tag3 = get_sentence_labels('./data/ABSA16_Laptops_Train_SB1_v2.xml')
+	# print("training 2 finished...")
+	# sent4, label4, tag4 = get_sentence_labels('./data/EN_LAPT_SB1_TEST_.xml.gold')
+	# print("testing 2 finished...")
+	# # sent3, tag3 = get_unsupervised_sent('./data/train.txt')
+	# label_mask = [1]*(len(sent1)+len(sent2)) +[0]*(len(sent3)+len(sent4))
 
-	sent = sent1+sent2+sent3+sent4
-	label = label1+label2+label3+label4
-	tag = tag1+tag2+tag3+tag4
+	# sent = sent1+sent2+sent3+sent4
+	# label = label1+label2+label3+label4
+	# tag = tag1+tag2+tag3+tag4
 
-	print(len(sent1), len(sent2), len(sent3), len(sent4))  #2000 676 2500 808
+	# print(len(sent1), len(sent2), len(sent3), len(sent4))  #2000 676 2500 808
 
-	supervise_size = len(sent1+sent2)
-	return sent, label, tag, label_mask, supervise_size
+	# supervise_size = len(sent1+sent2)
+	# return sent, label, tag, label_mask, supervise_size
 
 
 def processLaptop(filename):
@@ -360,4 +462,5 @@ if __name__ == '__main__':
 	# processCat()
 	# processRes()
 	# processLaptop()
-	processCat('laptop')
+	# processCat('laptop')
+	process_domain('rest')
