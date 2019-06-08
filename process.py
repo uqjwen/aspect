@@ -137,6 +137,8 @@ def processSentence(tokens, labels):
 def process_file(filename):
 	# filename = './data/ABSA16_Restaurants_Train_SB1_v2.xml'
 
+
+
 	xmlFilePath = os.path.abspath(filename)
 	tree = ET.parse(xmlFilePath)
 	root = tree.getroot()
@@ -150,6 +152,11 @@ def process_file(filename):
 	all_tag = []
 	all_term = []
 	all_cat = []
+
+
+	import nltk.stem as ns 
+	lemmatizer = ns.WordNetLemmatizer()
+
 
 	for sent in root.iter("sentence"):
 		# print(word_tokenize(sen.find("text").text))
@@ -176,9 +183,9 @@ def process_file(filename):
 			continue
 
 
-		tags = pos_tagger.tag(tokens)
-		tags = [tag[1] for tag in tags]
-		# tags = []
+		# tags = pos_tagger.tag(tokens)
+		# tags = [tag[1] for tag in tags]
+		tags = []
 		print(tokens)
 		print(label)
 		print(tags)
