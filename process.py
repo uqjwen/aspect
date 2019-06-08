@@ -183,9 +183,9 @@ def process_file(filename):
 			continue
 
 
-		# tags = pos_tagger.tag(tokens)
-		# tags = [tag[1] for tag in tags]
-		tags = []
+		tags = pos_tagger.tag(tokens)
+		tags = [tag[1] for tag in tags]
+		# tags = []
 		print(tokens)
 		print(label)
 		print(tags)
