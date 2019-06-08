@@ -102,7 +102,7 @@ class Model():
 		# self.cost = self.loss# + self.un_loss
 
 		# self.cost 			= cat_loss
-		self.cost 			= 0*loss + cat_loss
+		self.cost 			= loss + cat_loss
 
 
 		self.global_step 	= tf.Variable(0, trainable = False)
@@ -369,8 +369,8 @@ def val(sess, model, data_loader):
 def train():
 	batch_size = 32
 	neg_size = 4
-	data_set = sys.argv[1]
-	data_loader = Data_Loader(batch_size, data_set)
+	domain = sys.argv[1]
+	data_loader = Data_Loader(batch_size, domain)
 	maxlen = data_loader.maxlen
 	model = Model(data_loader.gen_mat,
 				data_loader.emb_mat,
@@ -494,8 +494,8 @@ def test():
 
 	batch_size = 32
 	neg_size = 4
-	data_set = sys.argv[1]
-	data_loader = Data_Loader(batch_size, data_set)
+	domain = sys.argv[1]
+	data_loader = Data_Loader(batch_size, domain)
 	maxlen = data_loader.maxlen
 	model = Model(data_loader.gen_mat,
 				data_loader.emb_mat,

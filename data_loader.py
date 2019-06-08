@@ -9,13 +9,14 @@ from nltk.corpus import stopwords
 
 
 class Data_Loader():
-	def __init__(self, batch_size, data_set):
+	def __init__(self, batch_size, domain):
 		self.batch_size = batch_size
 		# self.sent_len = sent_len
 		# self.maxlen = maxlen
 		# fr = open('data.pkl', 'rb')
 		# fr = open('data_cat_laptop.pkl', 'rb')
-		if data_set == 'rest':
+		self.domain = domain 
+		if domain == 'rest':
 			data_file = './pkl/data_rest_2016_2.pkl'
 			# data_file = 'data_rest.pkl'
 		else:
@@ -79,8 +80,8 @@ class Data_Loader():
 
 
 		# print(labels)
-		self.emb_mat = self.embed_mat(data_set)
-		self.gen_mat = self.genel_mat(data_set)
+		self.emb_mat = self.embed_mat()
+		self.gen_mat = self.genel_mat()
 
 
 		self.labels 	= pad_sequences(labels, self.maxlen)
@@ -203,8 +204,8 @@ class Data_Loader():
 			labels.append(label)
 		return labels
 
-	def embed_mat(self, data_set):
-		if data_set == 'laptop':
+	def embed_mat(self):
+		if self.domain == 'laptop':
 			# model = Word2Vec.load('gensim_laptop')
 			model = Word2Vec.load('./pkl/gensim_laptop_2014')
 		else:
@@ -215,9 +216,9 @@ class Data_Loader():
 			mat[i] =  model[self.idx2word[i]]
 		return mat
 
-	def genel_mat(self, data_set):
+	def genel_mat(self):
 
-		gen_file = './pkl/gen_laptop_2014.npy' if data_set == 'laptop' else './pkl/gen_rest_2016_2.npy'
+		gen_file = './pkl/gen_laptop_2014.npy' if self.domain == 'laptop' else './pkl/gen_rest_2016_2.npy'
 
 		if os.path.exists(gen_file):
 			return np.load(gen_file)
@@ -330,7 +331,8 @@ class Data_Loader():
 
 	def train_test_split(self, permutation):
 		train_size = int(self.data_size*0.8)
-		train_size = 1488
+
+		train_size = 2000 if self.domain == 'rest' else 1488
 
 		# permutation = np.random.permutation(self.data_size)
 

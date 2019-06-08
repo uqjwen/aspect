@@ -1,3 +1,5 @@
+python3 process.py
+
 git add -A
 git commit -m changes
 git push origin master

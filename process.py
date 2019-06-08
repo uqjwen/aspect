@@ -169,6 +169,13 @@ def process_file(filename):
 				cats.append(cat)
 
 		tokens, label = get_label(clean_sent, terms)
+		tokens = [lemmatizer.lemmatize(lemmatizer.lemmatize(word,'n'),'v') for word in tokens]
+
+
+		if len(terms) == 0 or len(cats)== 0:
+			continue
+
+
 		tags = pos_tagger.tag(tokens)
 		tags = [tag[1] for tag in tags]
 		# tags = []
@@ -183,8 +190,8 @@ def process_file(filename):
 
 		# if len(terms) == 0:
 		# 	continue
-		if len(terms) == 0:
-			cats.append('unknown')
+		# if len(terms) == 0:
+		# 	cats.append('unknown')
 
 		all_sent.append(tokens)
 		all_label.append(label)
@@ -199,15 +206,17 @@ def process_file(filename):
 
 def process_domain(domain):
 	train 	= process_file('./data/ABSA16_Restaurants_Train_SB1_v2.xml')
+	print('train_size', len(train))
+
 	test 	= process_file('./data/EN_REST_SB1_TEST_gold.xml')
 	data = []
 	for item1, item2 in zip(train, test):
 		data.append(item1+item2)
-	build_vocab(data, 'data_'+domain+'_2016.pkl')
+	build_vocab(data, './pkl/data_'+domain+'_2016_3.pkl')
 
 	sents = MySentence(data[0])
 	model = gensim.models.Word2Vec(sents, size = 100, window = 5, min_count=1, workers = 4)
-	model.save('gensim_'+domain+"_2016")
+	model.save('./pkl/gensim_'+domain+"_2016_3")
 
 
 		# break
@@ -309,6 +318,7 @@ def get_unsupervised_sent(filename):
 def processFile():
 	sent1, label1, tag1 = get_sentence_labels('./data/ABSA16_Restaurants_Train_SB1_v2.xml')
 	print("training 1 finished ...")
+	# print('t')
 	sent2, label2, tag2 = get_sentence_labels('./data/EN_REST_SB1_TEST_gold.xml')
 	print('testing 1 finished ...')
 
