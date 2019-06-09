@@ -64,6 +64,8 @@ class Model():
 			latent = self.get_gated_latent(latent, cat_latent)
 			# latent = tf.concat([latent, cat_latent], axis=-1)
 			cat_latent = tf.reduce_max(latent, axis=1)
+			# latent = tf.keras.layers.LSTM(128, return_sequences = True)(latent)
+			
 		else:
 			cat_latent = tf.reduce_max(cat_latent, axis=1)
 
