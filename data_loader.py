@@ -52,7 +52,7 @@ class Data_Loader():
 
 
 		self.emb_size = 100
-		self.gen_size = 300
+		self.gen_size = 100
 		self.psent 		= data['processed_sentence']
 		labels 		= data['labels']
 		tags = data['tags']
@@ -224,7 +224,7 @@ class Data_Loader():
 			return np.load(gen_file)
 		else:
 			mat = np.random.uniform(-1,1,(self.vocab_size, self.gen_size))
-			fr = open('/media/wenjh/Ubuntu 16.0/Downloads/glove.6B/glove.6B.300d.txt')
+			fr = open('/media/wenjh/Ubuntu 16.0/Downloads/glove.6B/glove.6B.100d.txt')
 			data = fr.readlines()
 			for line in data:
 				line = line.strip()

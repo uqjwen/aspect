@@ -37,24 +37,37 @@ class Model():
 
 		self.word_embedding 	= tf.Variable(domain_emb.astype(np.float32))
 		self.gen_embedding 		= tf.Variable(gen_emb.astype(np.float32))
+		self.word_c_embedding 	= tf.Variable(domain_emb.astype(np.float32))
+		# self.tag_embedding 		= tf.Variable(
+		# 		tf.random_uniform([num_tag, 100],-1.,1.))
 
-
+		# co_latent = tf.nn.embedding_lookup(self.gen_embedding, self.x)
 		# x_latent = self.get_x_latent(self.x)
 
 		##---------------------------------------------------------
-		latent,x_latent = self.get_latent(self.x, self.t)
+		latent = self.get_latent(self.x, self.t)
 
 		print('latent: ', latent)
 		# if FLAGS.variant!='':
-		# 	latent = tf.concat([latent, tf.nn.embedding_lookup(self.word_embedding,self.x), self.t],axis=-1)
+		# latent = tf.concat([latent, tf.nn.embedding_lookup(self.word_embedding,self.x), self.t],axis=-1)
 		# print(latent)
 
 		#-----------------------------------------------------------------------------
-		if FLAGS.variant !='':
+		# if FLAGS.variant !='':
 			# cat_latent 		= self.get_cat_attention(x_latent)
-			cat_latent 		= self.get_cat_maxpooling(x_latent)
+			# cat_latent 		= self.get_cat_maxpooling(x_latent)
+		# else:
+		cat_latent 		= self.get_cnn_maxpool(self.x)
+
+
+		if FLAGS.variant == '':
+			latent = self.get_gated_latent(latent, cat_latent)
+			# latent = tf.concat([latent, cat_latent], axis=-1)
+			cat_latent = tf.reduce_max(latent, axis=1)
 		else:
-			cat_latent 		= self.get_cnn_maxpool(self.x)
+			cat_latent = tf.reduce_max(cat_latent, axis=1)
+
+
 		self.cat_logits = Dense(self.num_cat, kernel_initializer='lecun_uniform')(cat_latent)
 
 		cat_loss 		= tf.nn.sigmoid_cross_entropy_with_logits(logits = self.cat_logits, labels = self.clabels)
@@ -95,6 +108,9 @@ class Model():
 		# grads,_ 	= tf.clip_by_global_norm(grads, clip_norm = 2)
 		# self.train_op = optimizer.apply_gradients(zip(grads,vars))
 
+	def get_gated_latent(self, latent_1, latent_2):
+		gate = tf.nn.sigmoid(Dense(128, use_bias = True)(latent_1)+Dense(128)(latent_2))
+		return gate*latent_1+(1-gate)*latent_2
 
 	def get_cat_maxpooling(self, latent):
 		latent_pool = tf.layers.max_pooling1d(latent, pool_size = [self.maxlen], strides = 1)
@@ -123,19 +139,26 @@ class Model():
 
 	def get_cnn_maxpool(self,x):
 
-		kernel_size = [3,4,5]
-		domain_latent 	= tf.nn.embedding_lookup(self.word_embedding,x)
+		# kernel_size = [3,4,5]
+		domain_latent 	= tf.nn.embedding_lookup(self.word_c_embedding,x)
 		gen_latent 		= tf.nn.embedding_lookup(self.gen_embedding, x)
 		x_latent = tf.concat([domain_latent, gen_latent], axis=-1)
-		res = []
-		for size in kernel_size:
-			conv = tf.layers.conv1d(x_latent, filters = 64, kernel_size=size, strides = 1)
-			h = tf.nn.relu(conv)
-			drop = tf.layers.dropout(h, rate = self.dropout, training = self.is_training)
-			maxp = tf.layers.max_pooling1d(drop, pool_size=[self.maxlen-size+1], strides=1)
+		# if FLAGS.variant == 'category':
+		# x_latent = domain_latent
+		# else:
+		# 	x_latent = tf.concat([domain_latent, gen_latent], axis=-1)
+		# x_latent = gen_latent
+		# x_latent = domain_latent
+		# res = []
+		# for size in kernel_size:
+		# 	conv = tf.layers.conv1d(x_latent, filters = 64, kernel_size=size, strides = 1)
+		# 	h = tf.nn.relu(conv)
+		# 	drop = tf.layers.dropout(h, rate = self.dropout, training = self.is_training)
+		# 	maxp = tf.layers.max_pooling1d(drop, pool_size=[self.maxlen-size+1], strides=1)
 
-			res.append(tf.squeeze(maxp,axis=1))
-		return tf.concat(res,axis=-1)
+		# 	res.append(tf.squeeze(maxp,axis=1))
+		# return tf.concat(res,axis=-1)
+		return self.get_cnn(x_latent)
 
 
 
@@ -174,9 +197,13 @@ class Model():
 	def get_latent(self, x, t):
 		domain_latent 	= tf.nn.embedding_lookup(self.word_embedding, x)
 		gen_latent 		= tf.nn.embedding_lookup(self.gen_embedding, x)
-
-		x_latent = tf.concat([domain_latent, gen_latent], axis=-1)
-		# x_latent = domain_latent
+		# tag_latent 		= tf.nn.embedding_lookup(self.tag_embedding, x)
+		# x_latent = tf.concat([domain_latent, gen_latent], axis=-1)
+		# x_latent = domain_latent+gen_latent
+		# if FLAGS.variant == 'term':
+		x_latent = domain_latent
+		# else:
+			# x
 		# x_latent = gen_latent
 
 		# return x_latent
@@ -190,7 +217,8 @@ class Model():
 
 		x_latent = self.get_cnn(x_latent)
 
-		t_latent = self.get_cnn(t)
+		# t_latent = self.get_cnn(tag_latent)
+		# t_latent = t
 		# x_latent = self.get_lstm(x_latent)
 
 
@@ -206,22 +234,21 @@ class Model():
 		# t_latent = tf.cond(self.is_training, lambda:tf.nn.dropout(t_latent, self.dropout), lambda:t_latent)
 
 
-		gate = tf.nn.sigmoid(Dense(128, use_bias = True)(x_latent)+Dense(128)(t_latent))
+		# gate = tf.nn.sigmoid(Dense(128, use_bias = True)(x_latent)+Dense(128)(t_latent))
 
-		latent = gate*t_latent+(1-gate)*x_latent
+		# latent = gate*t_latent+(1-gate)*x_latent
+		# latent = tf.concat([x_latent, t], axis=-1)
 
 
 
-		# t_latent = tf.nn.dropout(t_latent, self.dropout)
-
-		# latent = tf.concat([x_latent, t_latent], axis=-1)
+		return x_latent
 
 		# if FLAGS.variant != '':
-		# 	return x_latent
+		# 	return x_latent, x_latent
 		# else:
-		# 	return latent
+		# 	return latent, x_latent
 
-		return latent,x_latent
+		# return latent,x_latent
 		# return x_latent
 
 
@@ -360,10 +387,11 @@ def train():
 
 		lambda_1 = 1
 		lambda_2 = 1
+
 		if FLAGS.variant == 'term':
-			lambda_2 = 0.1
+			lambda_2 = 0.
 		elif FLAGS.variant == 'category':
-			lambda_1 = 0.1
+			lambda_1 = 0.
 		print('lambda: ', lambda_1, lambda_2)
 
 		# print('lambda_2: ',lambda_2)
@@ -410,7 +438,6 @@ def train():
 				print('\n',fscore_1)
 			elif FLAGS.oriented == 'category' and fscore_2>best_2:
 				saver.save(sess, checkpoint_dir+'model.ckpt', global_step=i)
-
 				best_2 = fscore_2
 				print('\n',fscore_2)
 			# if fscore_2 > best_2:

@@ -336,7 +336,27 @@ def annot_cat():
 
 
 
+def change_pos():
+	fr = open('data_laptop_2014.pkl','rb')
+	data = pickle.load(fr)
+	fr.close()
 
+	tags = [nltk.pos_tag(sent) for sent in data['raw_sentence']]
+	tags = [[t[1] for t in tag] for tag in tags]
+	all_tags = []
+	for tag in tags:
+		for t in tag:
+			if t not in all_tags:
+				all_tags.append(t)
+	tag2idx = dict((t,i+1) for i,t in enumerate(all_tags))
+	idx2tag = dict((i+1,t) for i,t in enumerate(all_tags))
+
+	tags = [[tag2idx[t] for t in tag] for tag in tags]
+	data['tags'] = tags
+	data['tag2idx'] = tag2idx
+	data['idx2tag'] = idx2tag
+
+	pickle.dump(data, open('data_laptop.pkl','wb'))
 
 
 
@@ -346,4 +366,5 @@ if __name__ == '__main__':
 	# process('laptop')
 	# annot_cat()
 	# laptop_cat()
-	laptop_sent()
+	# laptop_sent()
+	change_pos()
