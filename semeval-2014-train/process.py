@@ -254,6 +254,44 @@ def laptop_cat():
 	pickle.dump(laptop,fr)
 	fr.close()
 
+# sentences, labels, tags, terms, cats = data[0],data[1],data[2],data[3],data[4]	
+def laptop_sent():
+	fr 		= open('data_laptop.pkl','rb')
+	data 	= pickle.load(fr)
+	fr.close()
+	sent 	= data['raw_sentence']
+
+	import nltk.stem as ns 
+	lemmatizer = ns.WordNetLemmatizer()
+
+
+	sent 	= [[lemmatizer.lemmatize(lemmatizer.lemmatize(word,'n'),'v') for word in tokens] for tokens in sent]
+	data['raw_sentence'] = sent
+
+
+
+	dic = {}
+	for s in sent:
+		for word in s:
+			dic[word] = dic.get(word,0)+1
+
+	word2idx = dict((word, i+1) for i,word in enumerate(dic.keys()))
+	idx2word = dict((i+1, word) for i,word in enumerate(dic.keys()))
+
+	data['word2idx'] = word2idx
+	data['idx2word'] = idx2word
+	data['vocab_size'] = len(word2idx)+1
+
+	data['processed_sentence'] = [[word2idx[word] for word in s] for s in sent]
+
+	pickle.dump(data,open('data_laptop_2014.pkl','wb'))
+
+
+	model = gensim.models.Word2Vec(sent, size=100, window = 5, min_count=1, workers=4)
+	model.save('gensim_laptop_2014')
+
+
+
 
 def annot_cat():
 	fr = open('/home/wenjh/Desktop/gitlab/aspect/data/sent_cat_laptop.txt')
@@ -307,4 +345,5 @@ if __name__ == '__main__':
 	# process('rest')
 	# process('laptop')
 	# annot_cat()
-	laptop_cat()
+	# laptop_cat()
+	laptop_sent()

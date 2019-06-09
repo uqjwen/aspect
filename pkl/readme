@@ -1,0 +1,5 @@
+data_rest_2016_1: using re_split() to precess the text
+
+data_rest_2016_2: using clean_str() to process the text and filter sentences where aspect category is empty
+
+data_rest_2016_2: using clean_str() to process the text and filter out sentences where aspect term or category is empty

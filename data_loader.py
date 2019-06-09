@@ -286,13 +286,13 @@ class Data_Loader():
 		if sample_rate == 1:
 			# print('\n')
 			index = self.permutation[self.train_size:]
-			return self.val_sent,\
+			return [self.val_sent,\
 					self.val_sent_tag, \
 					self.val_mask, \
 					self.val_labels, \
 					self.val_cat_labels, \
 					index,\
-					self.val_tfidf
+					self.val_tfidf]
 
 		else:
 			index = []
@@ -318,13 +318,13 @@ class Data_Loader():
 		# return self.sent[idx], self.sent_tag[idx], self.mask[idx], self.labels[idx]
 		# return self.val_sent[idx], self.val_sent_tag[idx], self.val_mask[idx], self.val_labels[idx]
 		index = self.permutation[self.train_size:][index]
-		return np.array(v_sent),\
+		return [np.array(v_sent),\
 				np.array(v_sent_tag),\
 				np.array(v_mask),\
 				np.array(v_labels),\
 				np.array(v_c_labels),\
 				index,\
-				np.array(v_tfidf)
+				np.array(v_tfidf)]
 
 
 
@@ -332,7 +332,7 @@ class Data_Loader():
 	def train_test_split(self, permutation):
 		train_size = int(self.data_size*0.8)
 
-		train_size = 2000 if self.domain == 'rest' else 1488
+		train_size = 1245 if self.domain == 'rest' else 1488
 
 		# permutation = np.random.permutation(self.data_size)
 

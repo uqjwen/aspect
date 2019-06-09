@@ -179,7 +179,7 @@ def process_file(filename):
 		tokens = [lemmatizer.lemmatize(lemmatizer.lemmatize(word,'n'),'v') for word in tokens]
 
 
-		if len(terms) == 0 or len(cats)== 0:
+		if len(cats)== 0:
 			continue
 
 
@@ -219,11 +219,11 @@ def process_domain(domain):
 	data = []
 	for item1, item2 in zip(train, test):
 		data.append(item1+item2)
-	build_vocab(data, './pkl/data_'+domain+'_2016_3.pkl')
+	build_vocab(data, './pkl/data_'+domain+'_2016_2.pkl')
 
 	sents = MySentence(data[0])
 	model = gensim.models.Word2Vec(sents, size = 100, window = 5, min_count=1, workers = 4)
-	model.save('./pkl/gensim_'+domain+"_2016_3")
+	model.save('./pkl/gensim_'+domain+"_2016_2")
 
 
 		# break

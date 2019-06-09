@@ -15,14 +15,11 @@ from sklearn.metrics import f1_score
 
 
 class Model():
-	def __init__(self,gen_emb, domain_emb, num_class, num_tag, num_cat, maxlen,batch_size = 64, drop_out = 0.5, neg_size = 4):
+	def __init__(self,gen_emb, domain_emb, num_class, num_tag, num_cat, maxlen,batch_size = 64, drop_out = 0.5):
 		self.vocab_size, self.emb_size = domain_emb.shape
 		self.maxlen 			= maxlen
 		self.dropout 			= drop_out
 		self.batch_size 		= batch_size
-		self.neg_size 			= neg_size
-		self.aspect_size 		= 12
-		self.aspect_emb_size 	= self.emb_size
 		self.num_cat 			= num_cat
 		self.x 			= tf.placeholder(tf.int32, shape=[None, maxlen])
 		self.labels 	= tf.placeholder(tf.int32, shape=[None, maxlen, num_class])
@@ -33,40 +30,31 @@ class Model():
 
 		self.mask 		= tf.placeholder(tf.float32, shape=[None, maxlen])
 
-		self.label_mask = tf.placeholder(tf.float32, shape = [None])
 
-		self.neg 		= tf.placeholder(tf.int32, shape=[None, maxlen, neg_size])
+		self.lambda_1 	= tf.placeholder(tf.float32)
+		self.lambda_2 	= tf.placeholder(tf.float32)
+
 
 		self.word_embedding 	= tf.Variable(domain_emb.astype(np.float32))
 		self.gen_embedding 		= tf.Variable(gen_emb.astype(np.float32))
 
-		# self.aspect_embedding = tf.Variable(tf.random_uniform([self.aspect_size, self.emb_size],-1.0,1.0))
-		self.aspect_embedding 	= tf.Variable(tf.random_uniform([self.aspect_size,self.aspect_emb_size],-1.0,1.0))
-		# self.word_embedding = tf.Variable(tf.random_uniform([self.vocab_size, self.emb_size], -1.0,1.0))
 
 		# x_latent = self.get_x_latent(self.x)
 
 		##---------------------------------------------------------
-		latent,c_latent = self.get_latent(self.x, self.t)
+		latent,x_latent = self.get_latent(self.x, self.t)
 
 		print('latent: ', latent)
-		# latent = tf.concat([latent, tf.nn.embedding_lookup(self.word_embedding,self.x), self.t],axis=-1)
+		# if FLAGS.variant!='':
+		# 	latent = tf.concat([latent, tf.nn.embedding_lookup(self.word_embedding,self.x), self.t],axis=-1)
 		# print(latent)
 
 		#-----------------------------------------------------------------------------
-
-		# att_score 	= Dense(self.aspect_size, activation = 'softmax') (latent)
-
-		# att_aspect 	= tf.matmul(tf.reshape(att_score,[-1,self.aspect_size]), self.aspect_embedding)
-
-		# att_aspect 	= tf.reshape(att_aspect, [-1, maxlen, self.aspect_emb_size])
-
-		#-----------------------------------------------------------------------------
-
-		# cat_latent 		= self.get_cat_attention(c_latent)
-		# cat_latent 		= self.get_cat_maxpooling(c_latent)
-		
-		cat_latent 		= self.get_cnn_maxpool(self.x)
+		if FLAGS.variant !='':
+			# cat_latent 		= self.get_cat_attention(x_latent)
+			cat_latent 		= self.get_cat_maxpooling(x_latent)
+		else:
+			cat_latent 		= self.get_cnn_maxpool(self.x)
 		self.cat_logits = Dense(self.num_cat, kernel_initializer='lecun_uniform')(cat_latent)
 
 		cat_loss 		= tf.nn.sigmoid_cross_entropy_with_logits(logits = self.cat_logits, labels = self.clabels)
@@ -87,22 +75,12 @@ class Model():
 		loss 		= tf.nn.softmax_cross_entropy_with_logits(logits = self.x_logit, labels = self.labels)
 
 		loss 		= tf.reduce_mean(loss*self.mask) #[batch_size, maxlen]
-
-		# label_mask 	= tf.reshape(self.label_mask, [-1,1]) #[batch_size,1]
-
-		# self.loss 	= tf.reduce_sum(loss*label_mask)/tf.maximum(tf.reduce_sum(self.mask*label_mask), 1)
+		# loss 		= tf.reduce_mean(loss) #[batch_size, maxlen]
 
 
-
-
-
-
-		# self.un_loss 		= self.get_un_loss(att_aspect, self.x, self.neg)
-
-		# self.cost = self.loss# + self.un_loss
-
+		#----------------------------------------------------------------------------------------------------
 		# self.cost 			= cat_loss
-		self.cost 			= loss + cat_loss
+		self.cost 			= self.lambda_1*loss + self.lambda_2*cat_loss
 
 
 		self.global_step 	= tf.Variable(0, trainable = False)
@@ -198,6 +176,7 @@ class Model():
 		gen_latent 		= tf.nn.embedding_lookup(self.gen_embedding, x)
 
 		x_latent = tf.concat([domain_latent, gen_latent], axis=-1)
+		# x_latent = domain_latent
 		# x_latent = gen_latent
 
 		# return x_latent
@@ -237,30 +216,13 @@ class Model():
 
 		# latent = tf.concat([x_latent, t_latent], axis=-1)
 
+		# if FLAGS.variant != '':
+		# 	return x_latent
+		# else:
+		# 	return latent
 
 		return latent,x_latent
-		return x_latent
-	def get_un_loss(self,att_aspect, x, neg_x):
-		batch_size, maxlen, emb_size = att_aspect.shape.as_list()
-		x_latent = tf.nn.embedding_lookup(self.word_embedding, x)
-
-		pos = tf.reduce_sum(att_aspect*x_latent, axis=-1, keepdims=True) #[batch_size, maxlen, 1]
-
-		neg_x_latent = tf.nn.embedding_lookup(self.word_embedding, neg_x)#[batch_size, maxlen, neg_size, emb_size]
-
-		neg = tf.reduce_sum(tf.expand_dims(att_aspect, 2)*neg_x_latent,axis=-1) # [batch_size, maxlen, neg_size]
-
-
-		un_loss = tf.maximum(0., 1.-pos+neg) #[batch_size, maxlen, neg_size]
-
-		# un_loss = tf.expand_dims(self.mask, -1)
-		new_mask = tf.expand_dims(self.mask, -1)
-
-		un_loss = un_loss*new_mask
-
-		un_loss = tf.reduce_sum(un_loss) / tf.reduce_sum(new_mask) / self.neg_size
-
-		return un_loss
+		# return x_latent
 
 
 
@@ -336,11 +298,11 @@ def cat_metrics(clabels, clogits):
 
 	return f1_score(y_true, y_pred, average = 'micro'), res_pred
 
-def val(sess, model, data_loader):
-	input_data, input_tag, mask_data, y_data, clabels, index, tfidf= data_loader.val(1)
+def val(sess, model, val_data):
+	input_data, input_tag, mask_data, y_data, clabels, index, tfidf= val_data
 
 	y_data = to_categorical(y_data, 3)
-	x_logit, y_pred, cat_logits = sess.run([model.x_logit, model.prediction,model.cat_logits],
+	y_pred, cat_logits = sess.run([model.prediction,model.cat_logits],
 								feed_dict = {model.x:input_data,
 											model.t:input_tag,
 											model.mask:mask_data,
@@ -368,9 +330,8 @@ def val(sess, model, data_loader):
 
 def train():
 	batch_size = 32
-	neg_size = 4
-	domain = sys.argv[1]
-	data_loader = Data_Loader(batch_size, domain)
+	# domain = sys.argv[1]
+	data_loader = Data_Loader(batch_size, FLAGS.domain)
 	maxlen = data_loader.maxlen
 	model = Model(data_loader.gen_mat,
 				data_loader.emb_mat,
@@ -379,9 +340,8 @@ def train():
 				num_class = 3,
 				maxlen = maxlen,
 				batch_size = batch_size,
-				drop_out = 0.5,
-				neg_size = neg_size)
-	epochs 		= 200
+				drop_out = 0.5)
+	epochs 		= 100
 	best_1 = 0; best_2 = 0
 	train_loss 	= []
 	val_score 	= []
@@ -391,13 +351,23 @@ def train():
 		saver = tf.train.Saver(max_to_keep=10)
 
 
-		ckpt = tf.train.get_checkpoint_state(checkpointer_dir)
+		ckpt = tf.train.get_checkpoint_state(checkpoint_dir)
 		if ckpt and ckpt.model_checkpoint_path:
 			saver.restore(sess, ckpt.model_checkpoint_path)
 			print(" [*] loading parameters success!!!")
 		else:
 			print(" [!] loading parameters failed...")
 
+		lambda_1 = 1
+		lambda_2 = 1
+		if FLAGS.variant == 'term':
+			lambda_2 = 0.1
+		elif FLAGS.variant == 'category':
+			lambda_1 = 0.1
+		print('lambda: ', lambda_1, lambda_2)
+
+		# print('lambda_2: ',lambda_2)
+		val_data = data_loader.val(0.1)
 		for i in range(epochs):
 			data_loader.reset_pointer()
 			num_batch = int(data_loader.train_size/batch_size)
@@ -406,18 +376,21 @@ def train():
 				input_data, input_tag, mask_data, y_data, clabels, tfidf = data_loader.__next__()
 				# print(input_data.shape, input_tag.shape, mask_data.shape, y_data.shape, label_mask.shape)
 				# print(input_data.shape, mask_data.shape, y_data.shape)
-				input_neg = np.random.randint(1,data_loader.vocab_size, (input_data.shape[0], maxlen, neg_size))
 				# print(input_neg)
 				y_data = to_categorical(y_data, 3)
+
 				# print(y_data.shape,'uqjwen')
-				_,loss = sess.run([model.train_op, model.cost], feed_dict = {model.x:input_data,
-																			model.t:input_tag,
-																			model.mask:mask_data,
-																			model.neg:input_neg,
-																			model.labels:y_data,
-																			model.clabels:clabels,
-																			model.is_training:True,
-																			model.tfidf:tfidf})
+
+				feed_dict = {model.x:input_data,
+							model.t:input_tag,
+							model.mask:mask_data,
+							model.labels:y_data,
+							model.clabels:clabels,
+							model.is_training:True,
+							model.tfidf:tfidf,
+							model.lambda_1:lambda_1,
+							model.lambda_2:lambda_2}
+				_,loss = sess.run([model.train_op, model.cost], feed_dict = feed_dict)
 
 				sys.stdout.write('\repoch:{}, batch:{}, loss:{}'.format(i,b,loss))
 				sys.stdout.flush()
@@ -427,27 +400,39 @@ def train():
 				# break
 			# print("validation....")
 			lr = sess.run(model.lr, feed_dict = {model.global_step:i})
-			print('\t learning_rate: ',lr)
-			fscore_1, fscore_2 = val(sess, model, data_loader)
-			if fscore_1 > best_1:
+			# print('\t learning_rate: ',lr)
+			fscore_1, fscore_2 = val(sess, model, val_data)
+			# if i>=100:
+			# 	lambda_1 = 1.
+			if FLAGS.oriented == 'term' and fscore_1>best_1:
+				saver.save(sess, checkpoint_dir+'model.ckpt', global_step=i)
 				best_1 = fscore_1
-				saver.save(sess, checkpointer_dir+'model.ckpt', global_step=i)
-			if fscore_2 > best_2:
+				print('\n',fscore_1)
+			elif FLAGS.oriented == 'category' and fscore_2>best_2:
+				saver.save(sess, checkpoint_dir+'model.ckpt', global_step=i)
+
 				best_2 = fscore_2
-				saver.save(sess, checkpointer_dir+'model.ckpt', global_step=i)
+				print('\n',fscore_2)
+			# if fscore_2 > best_2:
+			# 	best_2 = fscore_2
+			# 	saver.save(sess, checkpoint_dir+'model.ckpt', global_step=i)
+			# if fscore_1 > best_1:
+			# 	best_1 = fscore_1
+			# 	saver.save(sess, checkpoint_dir+'model.ckpt', global_step=i)
 
 
-			print("\nfscore_1: ", fscore_1, "fscore_2: ", fscore_2)
+
+			# print("\nfscore_1: ", fscore_1, "fscore_2: ", fscore_2)
 			# break
 			train_loss.append(loss)
 			val_score.append([fscore_1, fscore_2])
-		np.save(checkpointer_dir+'train_loss', train_loss)
-		np.save(checkpointer_dir+'val_score', val_score)
+		np.save(FLAGS.output+train_loss_filename, train_loss)
+		np.save(FLAGS.output+val_loss_filename, val_score)
 
 
 
 def save_for_visual(sents, masks, y_pred, atts, clogits, clabels, data_loader, index, cat_pred):
-	fr = open(checkpointer_dir+'visual.txt', 'w')
+	fr = open(checkpoint_dir+'visual.txt', 'w')
 	idx2word = data_loader.idx2word
 	idx2clabel = data_loader.idx2clabel
 	for sent, mask, att, clabel, idx, cpred in zip(sents, masks, atts, clabels, index, cat_pred):
@@ -491,11 +476,10 @@ def test_debug(data_loader, input_data, clabels, cat_logits):
 
 
 def test():
-
 	batch_size = 32
-	neg_size = 4
-	domain = sys.argv[1]
-	data_loader = Data_Loader(batch_size, domain)
+	# domain = sys.argv[1]
+
+	data_loader = Data_Loader(batch_size, FLAGS.domain)
 	maxlen = data_loader.maxlen
 	model = Model(data_loader.gen_mat,
 				data_loader.emb_mat,
@@ -504,8 +488,7 @@ def test():
 				num_class = 3,
 				maxlen = maxlen,
 				batch_size = batch_size,
-				drop_out = 0.5,
-				neg_size = neg_size)
+				drop_out = 0.5)
 	iterations = 10
 	res = []
 	with tf.Session() as sess:
@@ -513,7 +496,7 @@ def test():
 		saver = tf.train.Saver(tf.global_variables())
 
 
-		ckpt = tf.train.get_checkpoint_state(checkpointer_dir)
+		ckpt = tf.train.get_checkpoint_state(checkpoint_dir)
 		if ckpt and ckpt.model_checkpoint_path:
 			saver.restore(sess, ckpt.model_checkpoint_path)
 			print(" [*] loading parameters success!!!")
@@ -529,15 +512,16 @@ def test():
 			input_data, input_tag, mask_data, y_data, clabels, index, tfidf = data_loader.val(0.9)
 			y_data = to_categorical(y_data, 3)
 			
+			feed_dict = {model.x:input_data,
+						model.t:input_tag,
+						model.mask:mask_data,
+						model.labels:y_data,
+						model.clabels:clabels,
+						model.is_training:False,
+						model.tfidf:tfidf}
 
-			x_logit, y_pred, cat_logits = sess.run([model.x_logit, model.prediction,model.cat_logits],
-										feed_dict = {model.x:input_data,
-													model.t:input_tag,
-													model.mask:mask_data,
-													model.labels:y_data,
-													model.clabels:clabels,
-													model.is_training:False,
-													model.tfidf:tfidf})
+
+			y_pred, cat_logits = sess.run([model.prediction,model.cat_logits],feed_dict = feed_dict)
 			# f_score = f1_score()
 
 
@@ -547,75 +531,69 @@ def test():
 			y_true = np.argmax(y_data,axis=-1)
 			fscore_1 = f_score(y_pred, y_true, mask_data)
 			# fscore = f1_score(cat_pred, clabels, average = 'micro')
-			# fscore = cat_metrics(input_data, mask_data, clabels, cat_logits, clabel_mask)
+				# fscore = cat_metrics(input_data, mask_data, clabels, cat_logits, clabel_mask)
 			fscore_2, cat_pred = cat_metrics(clabels, cat_logits)
-			print(fscore_1, fscore_2)
-			res.append([fscore_1, fscore_2])
+
+			score = fscore_1 if FLAGS.oriented == 'term' else fscore_2
+			res.append(score)
+
+
+		np.save(FLAGS.output+test_score_filename, res)
+		print(np.mean(res))
+		# fr = open(FLAGS.output+test_score_filename, 'a')
+		# fr.write(str(res))
+		# fr.write('\n')
+
+
+
+
+		# print(fscore_1, fscore_2)
+		# res.append([fscore_1, fscore_2])
 			# print(fscore)
-		res = np.array(res)
+		# res = np.array(res)
 		# print(np.mean(res), np.var(res))
-		print(np.mean(res,axis=0))
-		print(np.var(res, axis=0))
+		# print(np.mean(res,axis=0))
+		# print(np.var(res, axis=0))
 		# save_for_visual(input_data, mask_data, y_pred, atts, cat_logits, clabels, data_loader, index, cat_pred)
-		np.save(checkpointer_dir+'res', res)
+		# np.save(checkpoint_dir+'res', res)
 		# test_debug(data_loader, input_data, clabels, cat_logits)
 
+tf.flags.DEFINE_string('domain', 'laptop', 'laptop or restaurant')
+tf.flags.DEFINE_string('variant', '', 'term or category')
+tf.flags.DEFINE_string('oriented', 'term', 'term or category')
+tf.flags.DEFINE_string('train_test','train','train or test')
+tf.flags.DEFINE_string('output','./res/','output result directory')
 
 
-
-checkpointer_dir = './ckpt/'
-checkpointer_dir = './ckpt_'+sys.argv[1]+'/'
-if not os.path.exists(checkpointer_dir):
-	os.makedirs(checkpointer_dir)
+FLAGS = tf.flags.FLAGS
+FLAGS(sys.argv)
 
 
+checkpoint_dir = './ckpt_'+FLAGS.domain+'_'+FLAGS.oriented
+if FLAGS.variant!='':
+	checkpoint_dir += '_variant/'
+else:
+	checkpoint_dir += '/'
+
+train_loss_filename 	= checkpoint_dir[7:-1] +'_train_loss'
+val_loss_filename 		= checkpoint_dir[7:-1] +'_val_loss'
+test_score_filename 	= checkpoint_dir[7:-1] +'_score'
+
+
+if not os.path.exists(checkpoint_dir):
+	os.makedirs(checkpoint_dir)
+
+if not os.path.exists(FLAGS.output):
+	os.makedirs(FLAGS.output)
+
+# tf.flags.DEFINE_string('ckpt','./ckpt_laptop/')
 
 
 
 if __name__ == '__main__':
-	if sys.argv[2] == 'train':
+	# if sys.argv[2] == 'train':
+	if FLAGS.train_test == 'train':
 		train()
 	else:
 		test()
-# # if __name__ == '__main__':
-# 	batch_size = 64
-# 	vocab_size = 3000
-# 	emb_size = 100
-# 	max_len = 36
-
-# 	domain_emb = np.random.uniform(0,1,(vocab_size, emb_size))
-# 	model = Model(domain_emb, 3, 0.5)
-# 	# optimizer = torch.nn.Adam(model.parameters)
-# 	parameters = [p for p in model.parameters() if p.requires_grad is True]
-# 	# optimizer = torch.optim.Adam(parameters, lr = 0.001)
-# 	optimizer = torch.optim.Adam(model.parameters(), lr = 0.001)###############learning rate is important 
-
-
-
-# 	input_data = torch.from_numpy(np.random.randint(0,vocab_size,(batch_size,max_len))).long()
-# 	mask_data = torch.from_numpy(np.random.randint(0,2,(batch_size, max_len))).long()
-# 	y_data = torch.from_numpy(np.random.randint(0,3,(batch_size, max_len)))
-
-
-# 	for i in range(10000):
-# 		loss = model(input_data, max_len, mask_data, y_data)
-
-# 		# loss = model(torch.tensor(np.random.randint(0,2970, ())))
-# 		# loss = model(input_data, )
-# 		optimizer.zero_grad()
-
-# 		loss.backward()
-# 		torch.nn.utils.clip_grad_norm(model.parameters(), 1.)
-# 		optimizer.step()
-
-
-# 		sys.stdout.write("\rloss:{},iteration:{}".format(loss, i))
-# 		sys.stdout.flush()
-# 		if (i+1)%100 == 0:
-
-# 			# print(np.argmax(model.x_logit.detach().numpy(), axis=-1))
-# 			# print(y_data)
-# 			np.save('logit', model.x_logit.detach().numpy())
-# 			np.save('y_data', y_data)
-# 	print("\n");
 
