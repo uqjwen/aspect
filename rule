@@ -1,0 +1,2 @@
+(('easy', 'JJ'), 'xcomp', ('use', 'VB'))
+(('use', 'VB'), 'dep', ('easy', 'JJ'))

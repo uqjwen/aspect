@@ -44,7 +44,10 @@ def get_pos(filename):
 	fr = open(filename, 'rb')
 	data = pickle.load(fr)
 	fr.close()
-	return data['tags']
+	tags = data['tags']
+	idx2tag = data['idx2tag']
+	tags = [[idx2tag[t] for t in tag] for tag in tags]
+	return tags
 
 
 def extraction(sents, deps, tags):
@@ -81,7 +84,15 @@ def opinion(domain):
 		# print('-----------------------------')
 		# break
 		print(' '.join(sent))
+		st = ''
+		for s,t in zip(sent,tag):
+			st += s+':'+t+' '
+		print(st)
+		# print('\t'.join(sent))
+		# print(tag)
+		# print('\t'.join(tag))
 		# print(dep)
+
 		for d in dep:
 			print(d)
 		print('--------------------------------')
@@ -100,6 +111,11 @@ def frequency_counter(domain):
 	fr.close()
 	sents = data['raw_sentence']
 
+	import nltk.stem as ns 
+	lemmatizer = ns.WordNetLemmatizer()
+
+	sents = [[lemmatizer.lemmatize(lemmatizer.lemmatize(word,'n'),'v') for word in sent] for sent in sents]
+
 	word_c = Counter()
 	for sent in sents:
 		word_c += Counter(sent)
@@ -115,5 +131,5 @@ def frequency_counter(domain):
 
 if __name__ == '__main__':
 	# get_parser(sys.argv[1])
-	# opinion('laptop')
-	frequency_counter('laptop')
+	opinion('laptop')
+	# frequency_counter('laptop')
