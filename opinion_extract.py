@@ -129,7 +129,24 @@ def frequency_counter(domain):
 			print(word, count)
 	# print(word_c.most_common(10))
 
+
+
+
+
+	labels = data['labels']
+	term_c = Counter()
+	for label,sent in zip(labels, sents):
+		temp  = [w for l,w in zip(label,sent) if l != 0] 
+		# terms.append(temp)
+		term_c += Counter(temp)
+	print('----------------------------------------------')
+	# print(term_c)
+	# for word,count in term_c:
+		# print(word, count)
+
+
+
 if __name__ == '__main__':
 	# get_parser(sys.argv[1])
-	opinion('laptop')
-	# frequency_counter('laptop')
+	# opinion('laptop')
+	frequency_counter('laptop')
