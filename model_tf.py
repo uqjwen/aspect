@@ -40,7 +40,7 @@ class Model():
 		self.gen_embedding 		= tf.Variable(gen_emb.astype(np.float32))
 		self.word_c_embedding 	= tf.Variable(domain_emb.astype(np.float32))
 
-		self.tag_embedding 		= tf.Variable(tf.random.uniform([num_tag, emb_size]))
+		self.tag_embedding 		= tf.Variable(tf.random.uniform([num_tag, 100], -0.5,0.5))
 		# self.tag_embedding 		= tf.Variable(
 		# 		tf.random_uniform([num_tag, 100],-1.,1.))
 
