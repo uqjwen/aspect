@@ -24,7 +24,8 @@ class Model():
 		self.x 			= tf.placeholder(tf.int32, shape=[None, maxlen])
 		self.labels 	= tf.placeholder(tf.int32, shape=[None, maxlen, num_class])
 		self.clabels 	= tf.placeholder(tf.float32, shape=[None, num_cat])
-		self.t 			= tf.placeholder(tf.float32, shape=[None, maxlen, num_tag])
+		# self.t 			= tf.placeholder(tf.float32, shape=[None, maxlen, num_tag])
+		self.t 			= tf.placeholder(tf.int32, shape=[None, maxlen])
 		self.is_training= tf.placeholder(tf.bool)
 		self.tfidf		= tf.placeholder(tf.float32, shape=[None, maxlen])
 
@@ -38,6 +39,8 @@ class Model():
 		self.word_embedding 	= tf.Variable(domain_emb.astype(np.float32))
 		self.gen_embedding 		= tf.Variable(gen_emb.astype(np.float32))
 		self.word_c_embedding 	= tf.Variable(domain_emb.astype(np.float32))
+
+		self.tag_embedding 		= tf.Variable(tf.random.uniform([num_tag, emb_size]))
 		# self.tag_embedding 		= tf.Variable(
 		# 		tf.random_uniform([num_tag, 100],-1.,1.))
 
@@ -199,7 +202,7 @@ class Model():
 	def get_latent(self, x, t):
 		domain_latent 	= tf.nn.embedding_lookup(self.word_embedding, x)
 		gen_latent 		= tf.nn.embedding_lookup(self.gen_embedding, x)
-		# tag_latent 		= tf.nn.embedding_lookup(self.tag_embedding, x)
+		tag_latent 		= tf.nn.embedding_lookup(self.tag_embedding, t)
 		# x_latent = tf.concat([domain_latent, gen_latent], axis=-1)
 		# x_latent = domain_latent+gen_latent
 		# if FLAGS.variant == 'term':
@@ -219,7 +222,7 @@ class Model():
 
 		x_latent = self.get_cnn(x_latent)
 
-		# t_latent = self.get_cnn(tag_latent)
+		t_latent = self.get_cnn(tag_latent)
 		# t_latent = t
 		# x_latent = self.get_lstm(x_latent)
 
@@ -236,14 +239,15 @@ class Model():
 		# t_latent = tf.cond(self.is_training, lambda:tf.nn.dropout(t_latent, self.dropout), lambda:t_latent)
 
 
-		# gate = tf.nn.sigmoid(Dense(128, use_bias = True)(x_latent)+Dense(128)(t_latent))
+		gate = tf.nn.sigmoid(Dense(128, use_bias = True)(x_latent)+Dense(128)(t_latent))
 
-		# latent = gate*t_latent+(1-gate)*x_latent
+		latent = gate*t_latent+(1-gate)*x_latent
 		# latent = tf.concat([x_latent, t], axis=-1)
 
 
 
-		return x_latent
+		# return x_latent
+		return latent
 
 		# if FLAGS.variant != '':
 		# 	return x_latent, x_latent

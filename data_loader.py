@@ -90,7 +90,8 @@ class Data_Loader():
 
 		self.tfidf 		= pad_sequences(tfidf, self.maxlen)
 
-		self.sent_tag 	= to_categorical(pad_sequences(tags, self.maxlen), self.num_tag)
+		# self.sent_tag 	= to_categorical(pad_sequences(tags, self.maxlen), self.num_tag)
+		self.sent_tag = pad_sequences(tags, self.maxlen)
 
 		self.mask 		= np.ones((len(self.sent), self.maxlen))
 
