@@ -40,7 +40,9 @@ class Model():
 		self.gen_embedding 		= tf.Variable(gen_emb.astype(np.float32))
 		self.word_c_embedding 	= tf.Variable(domain_emb.astype(np.float32))
 
-		self.tag_embedding 		= tf.Variable(tf.random.uniform([num_tag, 100], -0.5,0.5))
+		tag_embedding = np.load(FLAGS.output+'tag_embedding.npy')
+		self.tag_embedding 		= tf.Variable(tag_embedding.astype(np.float32))
+		# self.tag_embedding 		= tf.Variable(tf.random_uniform([num_tag, 100],-0.5,0.5))
 		# self.tag_embedding 		= tf.Variable(
 		# 		tf.random_uniform([num_tag, 100],-1.,1.))
 
@@ -203,10 +205,10 @@ class Model():
 		domain_latent 	= tf.nn.embedding_lookup(self.word_embedding, x)
 		gen_latent 		= tf.nn.embedding_lookup(self.gen_embedding, x)
 		tag_latent 		= tf.nn.embedding_lookup(self.tag_embedding, t)
-		# x_latent = tf.concat([domain_latent, gen_latent], axis=-1)
+		x_latent = tf.concat([domain_latent, gen_latent], axis=-1)
 		# x_latent = domain_latent+gen_latent
 		# if FLAGS.variant == 'term':
-		x_latent = domain_latent
+		# x_latent = domain_latent
 		# else:
 			# x
 		# x_latent = gen_latent
@@ -243,11 +245,16 @@ class Model():
 
 		latent = gate*t_latent+(1-gate)*x_latent
 		# latent = tf.concat([x_latent, t], axis=-1)
-
+		# latent = tf.concat([x_latent, t_latent], axis=-1)
+		# latent = x_latent+t_latent
 
 
 		# return x_latent
-		return latent
+		# return latent
+		if FLAGS.variant == '':
+			return latent 
+		else:
+			return x_latent
 
 		# if FLAGS.variant != '':
 		# 	return x_latent, x_latent
@@ -401,7 +408,7 @@ def train():
 		print('lambda: ', lambda_1, lambda_2)
 
 		# print('lambda_2: ',lambda_2)
-		val_data = data_loader.val(0.1)
+		val_data = data_loader.val(1)
 		for i in range(epochs):
 			data_loader.reset_pointer()
 			num_batch = int(data_loader.train_size/batch_size)
@@ -573,6 +580,10 @@ def test():
 
 		np.save(FLAGS.output+test_score_filename, res)
 		print(np.mean(res))
+
+		tag_embedding = sess.run(model.tag_embedding)
+		# print(tag_embedding)
+		np.save(FLAGS.output+'tag_embedding', tag_embedding)
 		# fr = open(FLAGS.output+test_score_filename, 'a')
 		# fr.write(str(res))
 		# fr.write('\n')
