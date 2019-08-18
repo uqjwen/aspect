@@ -43,15 +43,54 @@
 # python3 emb_mat.py rest 300
 
 
-python3 model_tf.py -domain laptop -oriented term -emb_size 50 -train_test train 
-python3 model_tf.py -domain laptop -oriented term -emb_size 50 -train_test test 
+rm -rf ckpt_laptop_term_50_128
+rm -rf ckpt_laptop_term_200_128
+rm -rf ckpt_laptop_term_300_128
 
-python3 model_tf.py -domain laptop -oriented term -emb_size 200 -train_test train 
-python3 model_tf.py -domain laptop -oriented term -emb_size 200 -train_test test 
-
-python3 model_tf.py -domain laptop -oriented term -emb_size 300 -train_test train 
-python3 model_tf.py -domain laptop -oriented term -emb_size 300 -train_test test 
-
+rm -rf ckpt_laptop_term_100_16
+rm -rf ckpt_laptop_term_100_32
+rm -rf ckpt_laptop_term_100_64
+# rm -rf ckpt_laptop_term_100_128
 
 
-# poweroff
+rm -rf ckpt_rest_term_50_128
+
+rm -rf ckpt_rest_term_200_128
+rm -rf ckpt_rest_term_300_128
+
+rm -rf ckpt_rest_term_100_16
+rm -rf ckpt_rest_term_100_32
+rm -rf ckpt_rest_term_100_64
+
+
+
+
+
+python3 model_tf.py -domain laptop -oriented term -emb_size 100 -train_test train 
+# python3 model_tf.py -domain laptop -oriented term -emb_size 200 -train_test train 
+# python3 model_tf.py -domain laptop -oriented term -emb_size 300 -train_test train 
+
+# python3 model_tf.py -domain laptop -oriented term -filter_map 32 -train_test train 
+# python3 model_tf.py -domain laptop -oriented term -filter_map 64 -train_test train 
+# python3 model_tf.py -domain laptop -oriented term -filter_map 16 -train_test train 
+
+
+
+python3 model_tf.py -domain rest -oriented term -emb_size 100 -train_test train 
+# python3 model_tf.py -domain rest -oriented term -emb_size 200 -train_test train 
+# python3 model_tf.py -domain rest -oriented term -emb_size 300 -train_test train 
+
+rm -rf ckpt_laptop_term_100_128
+
+rm -rf ckpt_rest_term_100_128
+
+
+
+# python3 model_tf.py -domain rest -oriented term -filter_map 32 -train_test train 
+# python3 model_tf.py -domain rest -oriented term -filter_map 64 -train_test train 
+# python3 model_tf.py -domain rest -oriented term -filter_map 16 -train_test train 
+
+git add -A
+git commit -m changes
+git push origin master
+poweroff

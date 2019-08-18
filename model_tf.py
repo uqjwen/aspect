@@ -116,7 +116,7 @@ class Model():
 		# self.train_op = optimizer.apply_gradients(zip(grads,vars))
 
 	def get_gated_latent(self, latent_1, latent_2):
-		gate = tf.nn.sigmoid(Dense(128, use_bias = True)(latent_1)+Dense(128)(latent_2))
+		gate = tf.nn.sigmoid(Dense(FLAGS.filter_map, use_bias = True)(latent_1)+Dense(FLAGS.filter_map)(latent_2))
 		return gate*latent_1+(1-gate)*latent_2
 
 	def get_cat_maxpooling(self, latent):
@@ -171,11 +171,11 @@ class Model():
 
 	def get_cnn(self,x):
 
-		conv1 = Conv1D(128, kernel_size = 3, padding = 'same')
+		conv1 = Conv1D(FLAGS.filter_map, kernel_size = 3, padding = 'same')
 
-		conv2 = Conv1D(128, kernel_size = 5, padding = 'same')
+		conv2 = Conv1D(FLAGS.filter_map, kernel_size = 5, padding = 'same')
 
-		conv3 = Conv1D(128, kernel_size = 5, padding = 'same')
+		conv3 = Conv1D(FLAGS.filter_map, kernel_size = 5, padding = 'same')
 
 		x = tf.nn.relu(tf.concat([conv1(x), conv2(x)], axis=-1))
 		x = tf.layers.dropout(x, rate = self.dropout, training = self.is_training)
@@ -241,7 +241,7 @@ class Model():
 		# t_latent = tf.cond(self.is_training, lambda:tf.nn.dropout(t_latent, self.dropout), lambda:t_latent)
 
 
-		gate = tf.nn.sigmoid(Dense(128, use_bias = True)(x_latent)+Dense(128)(t_latent))
+		gate = tf.nn.sigmoid(Dense(FLAGS.filter_map, use_bias = True)(x_latent)+Dense(FLAGS.filter_map)(t_latent))
 
 		latent = gate*t_latent+(1-gate)*x_latent
 		# latent = tf.concat([x_latent, t], axis=-1)
@@ -381,7 +381,7 @@ def train():
 				maxlen = maxlen,
 				batch_size = batch_size,
 				drop_out = 0.5)
-	epochs 		= 1
+	epochs 		= 100
 	best_1 = 0; best_2 = 0
 	train_loss 	= []
 	val_score 	= []
