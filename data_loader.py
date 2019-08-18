@@ -9,7 +9,7 @@ from nltk.corpus import stopwords
 
 
 class Data_Loader():
-	def __init__(self, batch_size, domain):
+	def __init__(self, batch_size, domain, emb_size):
 		self.batch_size = batch_size
 		# self.sent_len = sent_len
 		# self.maxlen = maxlen
@@ -51,8 +51,11 @@ class Data_Loader():
 
 
 
-		self.emb_size = 100
-		self.gen_size = 100
+		# self.emb_size = 100
+		# self.gen_size = 100
+		self.emb_size = emb_size
+		self.gen_size = emb_size
+
 		self.psent 		= data['processed_sentence']
 		labels 		= data['labels']
 		tags = data['tags']
@@ -208,24 +211,30 @@ class Data_Loader():
 	def embed_mat(self):
 		if self.domain == 'laptop':
 			# model = Word2Vec.load('gensim_laptop')
-			model = Word2Vec.load('./pkl/gensim_laptop_2014')
+			model = Word2Vec.load('./pkl/gensim_laptop_2014_'+str(self.emb_size))
 		else:
 			# model = Word2Vec.load('new_gensim_rest')
-			model = Word2Vec.load('./pkl/gensim_rest_2016_2')
+			model = Word2Vec.load('./pkl/gensim_rest_2016_2_'+str(self.emb_size))
 		mat = np.random.uniform(-1,1,(self.vocab_size, self.emb_size))
 		for i in range(1,self.vocab_size):
 			mat[i] =  model[self.idx2word[i]]
 		return mat
 
 	def genel_mat(self):
+		if self.domain == 'laptop':
+			gen_file = './pkl/gen_laptop_2014_'+str(self.emb_size)+'.npy'
+		else:
+			gen_file = './pkl/gen_rest_2016_2_'+str(self.emb_size)+'.npy'
 
-		gen_file = './pkl/gen_laptop_2014.npy' if self.domain == 'laptop' else './pkl/gen_rest_2016_2.npy'
+		# gen_file = './pkl/gen_laptop_2014.npy' if self.domain == 'laptop' else './pkl/gen_rest_2016_2.npy'
 
 		if os.path.exists(gen_file):
 			return np.load(gen_file)
 		else:
 			mat = np.random.uniform(-1,1,(self.vocab_size, self.gen_size))
-			fr = open('/media/wenjh/Ubuntu 16.0/Downloads/glove.6B/glove.6B.100d.txt')
+			filename ='/media/wenjh/Ubuntu 16.0/Downloads/glove.6B/glove.6B.'+str(self.emb_size)+'d.txt' 
+			# fr = open('/media/wenjh/Ubuntu 16.0/Downloads/glove.6B/glove.6B.100d.txt')
+			fr = open(filename)
 			data = fr.readlines()
 			for line in data:
 				line = line.strip()
@@ -395,4 +404,10 @@ class Data_Loader():
 
 
 if __name__ == '__main__':
-	data_loader = Data_Loader(128)
+	domain = ['laptop','rest']
+	emb_size = [50,200,300]
+	for d in domain:
+		for e in emb_size:
+			print(d,e)
+			data_loader = Data_Loader(32,d,e)
+	# data_loader = Data_Loader(32)

@@ -371,7 +371,7 @@ def val(sess, model, val_data):
 def train():
 	batch_size = 32
 	# domain = sys.argv[1]
-	data_loader = Data_Loader(batch_size, FLAGS.domain)
+	data_loader = Data_Loader(batch_size, FLAGS.domain, FLAGS.emb_size)
 	maxlen = data_loader.maxlen
 	model = Model(data_loader.gen_mat,
 				data_loader.emb_mat,
@@ -381,7 +381,7 @@ def train():
 				maxlen = maxlen,
 				batch_size = batch_size,
 				drop_out = 0.5)
-	epochs 		= 100
+	epochs 		= 1
 	best_1 = 0; best_2 = 0
 	train_loss 	= []
 	val_score 	= []
@@ -466,8 +466,11 @@ def train():
 			# break
 			train_loss.append(loss)
 			val_score.append([fscore_1, fscore_2])
-		np.save(FLAGS.output+train_loss_filename, train_loss)
-		np.save(FLAGS.output+val_loss_filename, val_score)
+
+		np.savetxt(FLAGS.output+train_loss_filename, train_loss, fmt='%.5f')
+		np.savetxt(FLAGS.output+val_loss_filename, val_score, fmt='%.5f')
+		# np.save(FLAGS.output+train_loss_filename, train_loss)
+		# np.save(FLAGS.output+val_loss_filename, val_score)
 
 
 
@@ -519,7 +522,7 @@ def test():
 	batch_size = 32
 	# domain = sys.argv[1]
 
-	data_loader = Data_Loader(batch_size, FLAGS.domain)
+	data_loader = Data_Loader(batch_size, FLAGS.domain, FLAGS.emb_size)
 	maxlen = data_loader.maxlen
 	model = Model(data_loader.gen_mat,
 				data_loader.emb_mat,
@@ -607,13 +610,14 @@ tf.flags.DEFINE_string('variant', '', 'term or category')
 tf.flags.DEFINE_string('oriented', 'term', 'term or category')
 tf.flags.DEFINE_string('train_test','train','train or test')
 tf.flags.DEFINE_string('output','./res/','output result directory')
-
+tf.flags.DEFINE_integer('emb_size',100,'embedding_size')
+tf.flags.DEFINE_integer('filter_map',128,'number of filter maps')
 
 FLAGS = tf.flags.FLAGS
 FLAGS(sys.argv)
 
 
-checkpoint_dir = './ckpt_'+FLAGS.domain+'_'+FLAGS.oriented
+checkpoint_dir = './ckpt_'+FLAGS.domain+'_'+FLAGS.oriented+'_'+str(FLAGS.emb_size)+'_'+str(FLAGS.filter_map)
 if FLAGS.variant!='':
 	checkpoint_dir += '_variant/'
 else:
