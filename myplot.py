@@ -5,30 +5,55 @@ import sys
 from keras.preprocessing.sequence import pad_sequences
 
 my_color = ['#107c10','#DC3C00','#7719AA','#0078D7','#DC6141','#4269A5','#39825A','#DC6141']
-ckpt_file = 'ckpt_'+sys.argv[1]+'/'
+ckpt_file = './res/ckpt_'+sys.argv[1]+'/'
 
 
 def main():
-	train_loss = np.load(ckpt_file+'train_loss.npy')
-	val_score = np.load(ckpt_file+'val_score.npy')
-	val_1,val_2 = val_score[:,0], val_score[:,1]
+	domain = sys.argv[1]
+	task = sys.argv[2]
+	params  = sys.argv[3]
+	emb_size = [50,100,200,300]
+	filter_map = [16,32,64,128]
+	if params == 'emb_size':
+		files = ['./res/'+domain+'_term_'+str(e_size)+'_128_val_loss' for e_size in emb_size]
+	else:
+		files = ['./res/'+domain+'_term_100_'+str(f_map)+'_val_loss' for f_map in filter_map]
+
+	data = []
+	for file in files:
+		sub_data = np.genfromtxt(file)
+		if task == 'term':
+			data.append(sub_data[:,0])
+		else:
+			data.append(sub_data[:,1])
+
+
 
 	fig,ax1 = plt.subplots()
-	ax2 = ax1.twinx()
-	index = list(range(len(train_loss)))
+	# ax2 = ax1.twinx()
+	# index = list(range(len(train_loss)))
+	index = np.arange(len(data[0]))
 
-	l1, = ax1.plot(index, train_loss, my_color[0], label='train loss')
-	l2, = ax2.plot(index, val_1, my_color[1], label = 'test f1score_1')
-	l3, = ax2.plot(index, val_2, my_color[2], label = 'test f1score_2')
+	for i,sub_data in enumerate(data):
+		label = 'embed_size '+str(emb_size[i]) if params == 'emb_size' else '#filter_map '+str(filter_map[i])
 
-	ax1.set_xlabel('epoch')
-	ax1.set_ylabel('training loss')
-	ax2.set_ylabel('testing score')
+		ax1.plot(index, sub_data, my_color[i], label = label, linewidth=2)
+
+	# l1, = ax1.plot(index, train_loss, my_color[0], label='train loss')
+	# l2, = ax2.plot(index, val_1, my_color[1], label = 'test f1score_1')
+	# l3, = ax2.plot(index, val_2, my_color[2], label = 'test f1score_2')
+
+	ax1.set_xlabel('epoch',fontsize = 20)
+	plt.xticks(fontsize=20)
+	plt.yticks(fontsize=20)
+	plt.grid()
+	ax1.set_ylabel('$F_1$ score',fontsize=20)
+	# ax2.set_ylabel('testing score')
 
 
 	# plt.legend([l1,l2],['train loss','test score'], loc='center right')
-	ax1.legend(loc='center left')
-	ax2.legend(loc='center right')
+	ax1.legend(loc='lower right',fontsize=15)
+	# ax2.legend(loc='center right')
 	plt.show()
 
 def get_mat(sent1, sent2, atts):
@@ -156,4 +181,5 @@ def visual_atts():
 if __name__ == '__main__':
 	# main()
 	# att('laptop')
-	visual_atts()
+	# visual_atts()
+	main()
