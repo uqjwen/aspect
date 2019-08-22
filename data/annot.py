@@ -184,6 +184,7 @@ def annot(filename):
 
 def analysis(filename):
 	fr = open(filename)
+	domain = filename.split('_')[-1].split('.')[0]
 	data = fr.readlines()
 	fr.close()
 
@@ -234,7 +235,8 @@ def analysis(filename):
 		plt.title(key)
 		# print(strings)
 		# plt.show()
-		plt.savefig('lap_'+key+'.png')
+
+		plt.savefig(domain+'_'+key+'.eps', format='eps')
 		# wordcloud.to_file('wc'+key+'.png')
 
 
@@ -262,7 +264,7 @@ if __name__ == '__main__':
 	# main('EN_LAPT_SB1_TEST_.xml.gold')
 	# annot('sent.txt')
 
-	# analysis('sent_cat.txt')
 	# main('ABSA16_Restaurants_Train_SB1_v2.xml')
 	# main('EN_REST_SB1_TEST_gold.xml')
-	# analysis('sent_res_cat.txt')
+	analysis('sent_cat_res.txt')
+	analysis('sent_cat_laptop.txt')
