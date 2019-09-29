@@ -579,17 +579,28 @@ def visual():
 		rsent = data_loader.rsent[index]
 		idx2word = data_loader.idx2word
 		idx2word[0] = ''
+		idx2clabel = data_loader.idx2clabel
 		print(index)
 		print(rsent)
 
 		tokens = [idx2word[idx] for idx in input_data[0]]
-		# print(tokens)
-		# for token,a, aph,y  in zip(tokens, ai[0], alpha[0], y_data[0]):
-		# 	print(y,token, a, aph)
 
-		vdoc(tokens, ai[0], alpha[0], index)
+		at, ac = get_ground_truth(y_data, clabels, tokens, idx2clabel)
 
+		vdoc(tokens, ai[0], alpha[0], index, at, ac)
+		
 
+def get_ground_truth(y_data, clabels, tokens, idx2clabel):
+	# tokens[y_data[0]!=0]
+	tokens = np.array(tokens)
+	aspect_terms = ' '.join(list(tokens[y_data[0]!=0]))
+	# print(aspect_terms)
+	index = np.where(clabels[0]!=0)[0]
+	cat = [idx2clabel[idx] for idx in index]
+	aspect_cats = ' '.join(cat)
+	# print(aspect_cats)
+
+	return aspect_terms, aspect_cats
 
 def test():
 	batch_size = 32

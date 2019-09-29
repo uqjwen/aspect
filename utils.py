@@ -3,7 +3,7 @@ from docx import Document
 from docx.shared import Inches
 from docx.shared import Pt
 
-def vdoc(tokens, ate_alpha, acd_alpha, index):
+def vdoc(tokens, ate_alpha, acd_alpha, index, at, ac):
 	i = 0
 	while i<len(tokens) and tokens[i] == '':
 		i+=1
@@ -15,6 +15,9 @@ def vdoc(tokens, ate_alpha, acd_alpha, index):
 	ate_alpha = np.max(ate_alpha[:,1:], axis=-1)
 	document = Document()
 	print(acd_alpha)
+
+	document.add_paragraph('ground truth aspect terms: '+at)
+	document.add_paragraph('ground truth aspect categories: '+ac)
 
 	document.add_paragraph('JATCE ATE')
 	single_gate(tokens, ate_alpha.copy(), document)
