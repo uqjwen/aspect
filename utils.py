@@ -51,7 +51,7 @@ def simul_ate(input_atts):
 
 
 
-	num = np.random.choice(range(1,5))
+	num = np.random.choice(range(1,3))
 	value = np.mean(atts[atts>0])
 
 
