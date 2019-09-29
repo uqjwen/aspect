@@ -55,12 +55,15 @@ def simul_ate(input_atts):
 
 
 	num = np.random.choice(range(1,3))
-	value = np.mean(atts[atts>0])
+	# value = np.mean(atts[atts>0])
+	value = np.mean(atts[atts<0])
 
 
-	start = len(atts[atts>0])
-	end = start+num 
-	end = min(end,len(atts))
+	end = len(atts[atts>0])
+	start = end-2#+num 
+	# end = min(end,len(atts))
+	start = max(0,start)
+
 	atts[args[start:end]] = value
 	return atts
 
