@@ -56,7 +56,8 @@ class Data_Loader():
 		self.emb_size = emb_size
 		self.gen_size = emb_size
 
-		self.psent 		= data['processed_sentence']
+		self.psent 	= data['processed_sentence']
+		self.rsent 	= data['raw_sentence']
 		labels 		= data['labels']
 		tags = data['tags']
 
@@ -250,6 +251,20 @@ class Data_Loader():
 	def reset_pointer(self):
 		self.pointer = 0
 
+	def random_point(self):
+		idx = np.random.choice(self.train_size)
+		begin = idx 
+		end = idx+1
+		index = self.permutation[idx]
+
+		return self.train_sent[begin:end],\
+				self.train_sent_tag[begin:end],\
+				self.train_mask[begin:end],\
+				self.train_labels[begin:end],\
+				self.train_cat_labels[begin:end],\
+				self.train_tfidf[begin:end],\
+				index
+
 	def __next__(self):
 		begin = self.pointer*self.batch_size
 		end = (self.pointer+1)*self.batch_size
@@ -260,25 +275,12 @@ class Data_Loader():
 			self.pointer = 0
 		else:
 			self.pointer+=1
-		# temp = torch.from_numpy(self.labels[begin:end])
-		# print(temp.dtype)
-		# print(temp)
-		# return torch.tensor(self.sent[begin:end], dtype=torch.long), torch.from_numpy(self.mask[begin:end]), torch.tensor(self.labels[begin:end],dtype=torch.long)
-		# print(begin, end, self.train_size)
-
-		# return self.sent[begin:end],self.sent_tag[begin:end], self.mask[begin:end], self.labels[begin:end], self.label_mask[begin:end]
 		return self.train_sent[begin:end],\
 				self.train_sent_tag[begin:end],\
 				self.train_mask[begin:end],\
 				self.train_labels[begin:end],\
 				self.train_cat_labels[begin:end],\
 				self.train_tfidf[begin:end]
-		# return self.sent[begin:end],\
-		# 		self.sent_tag[begin:end],\
-		# 		self.mask[begin:end],\
-		# 		self.labels[begin:end],\
-		# 		self.clabels[begin:end],\
-		# 		self.tfidf[begin:end]
 
 
 	def val(self, sample_rate = 0.3):
